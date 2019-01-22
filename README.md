@@ -1,2 +1,4 @@
 # droneTeam
-Repository for Capstone 
+Repository for Dronez Capstone Project
+
+Dronez.
