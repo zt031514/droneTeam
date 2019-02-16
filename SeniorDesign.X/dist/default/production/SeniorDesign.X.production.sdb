@@ -3,43 +3,43 @@
 [d edition pro ]
 [d chip 16F18875 ]
 [d frameptr 6 ]
-"17 C:\Users\Cira\Desktop\SeniorDesign.X\arducam.c
-[v _arducam_initialize arducam_initialize `(v  1 e 1 0 ]
-"10 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\sprcadd.c
+"10 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul8_16.c
+"4 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\pic\__eeprom.c
+"6 /Applications/microchip/xc8/v2.05/pic/sources/c99/pic/__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"23 C:\Users\Cira\Desktop\SeniorDesign.X\config.c
+"17 /Users/colehinton/Desktop/droneTeam/SeniorDesign.X/arducam.c
+[v _arducam_initialize arducam_initialize `(v  1 e 1 0 ]
+"22 /Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
-"30
+"37
 [v _PORT_PIN_Initialize1 PORT_PIN_Initialize1 `(v  1 e 1 0 ]
-"98
+"116
 [v _PORT_PIN_Initialize2 PORT_PIN_Initialize2 `(v  1 e 1 0 ]
-"16 C:\Users\Cira\Desktop\SeniorDesign.X\gnss5.c
+"16 /Users/colehinton/Desktop/droneTeam/SeniorDesign.X/gnss5.c
 [v _gnss5_acquire gnss5_acquire `(v  1 e 1 0 ]
-"21 C:\Users\Cira\Desktop\SeniorDesign.X\lepton.c
+"30 /Users/colehinton/Desktop/droneTeam/SeniorDesign.X/lepton.c
 [v _lepton_initialize lepton_initialize `(v  1 e 1 0 ]
-"48 C:\Users\Cira\Desktop\SeniorDesign.X\main.c
+"48 /Users/colehinton/Desktop/droneTeam/SeniorDesign.X/main.c
 [v _main main `(i  1 e 2 0 ]
 "135
 [v _lepton_capture_packet lepton_capture_packet `(v  1 e 1 0 ]
 "159
 [v _lepton_send_packet lepton_send_packet `(v  1 e 1 0 ]
-"17 C:\Users\Cira\Desktop\SeniorDesign.X\serial_i2c.c
+"25 /Users/colehinton/Desktop/droneTeam/SeniorDesign.X/serial_i2c.c
 [v _i2c_initialize i2c_initialize `(v  1 e 1 0 ]
-"26
+"41
 [v _i2c_waitForIdle i2c_waitForIdle `(v  1 e 1 0 ]
-"31
+"53
 [v _i2c_start i2c_start `(v  1 e 1 0 ]
-"49
+"84
 [v _i2c_stop i2c_stop `(v  1 e 1 0 ]
-"86
+"141
 [v _i2c_write i2c_write `(uc  1 e 1 0 ]
-"17 C:\Users\Cira\Desktop\SeniorDesign.X\serial_spi.c
+"17 /Users/colehinton/Desktop/droneTeam/SeniorDesign.X/serial_spi.c
 [v _SPI_ETHWIZ_Initialize SPI_ETHWIZ_Initialize `(v  1 e 1 0 ]
 "27
 [v _SPI_ETHWIZ_Write SPI_ETHWIZ_Write `(uc  1 e 1 0 ]
@@ -49,14 +49,14 @@
 [v _SPI_Arducam_Initialize SPI_Arducam_Initialize `(v  1 e 1 0 ]
 "57
 [v _SPI_Write SPI_Write `(uc  1 e 1 0 ]
-"17 C:\Users\Cira\Desktop\SeniorDesign.X\serial_uart.c
+"17 /Users/colehinton/Desktop/droneTeam/SeniorDesign.X/serial_uart.c
 [v _UART_Initialize UART_Initialize `(v  1 e 1 0 ]
 [s S61 . 1 `uc 1 INTEDG 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-"364 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f18875.h
+"364 /Applications/microchip/xc8/v2.05/pic/include/pic16f18875.h
 [u S66 . 1 `S61 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES66  1 e 1 @11 ]
 "384
@@ -399,7 +399,7 @@
 [v _SSP1IF SSP1IF `VEb  1 e 0 @14456 ]
 "43575
 [v _SSP2IF SSP2IF `VEb  1 e 0 @14458 ]
-"32 C:\Users\Cira\Desktop\SeniorDesign.X\main.c
+"32 /Users/colehinton/Desktop/droneTeam/SeniorDesign.X/main.c
 [v _image_packet image_packet `[164]uc  1 e 164 @9036 ]
 "34
 [v _packet_index packet_index `uc  1 e 1 0 ]
@@ -417,7 +417,7 @@
 [v lepton_send_packet@i i `i  1 a 2 3 ]
 "169
 } 0
-"27 C:\Users\Cira\Desktop\SeniorDesign.X\serial_spi.c
+"27 /Users/colehinton/Desktop/droneTeam/SeniorDesign.X/serial_spi.c
 [v _SPI_ETHWIZ_Write SPI_ETHWIZ_Write `(uc  1 e 1 0 ]
 {
 [v SPI_ETHWIZ_Write@data data `uc  1 a 1 wreg ]
@@ -426,43 +426,43 @@
 [v SPI_ETHWIZ_Write@data data `uc  1 a 1 0 ]
 "34
 } 0
-"21 C:\Users\Cira\Desktop\SeniorDesign.X\lepton.c
+"30 /Users/colehinton/Desktop/droneTeam/SeniorDesign.X/lepton.c
 [v _lepton_initialize lepton_initialize `(v  1 e 1 0 ]
 {
-"36
+"46
 } 0
-"86 C:\Users\Cira\Desktop\SeniorDesign.X\serial_i2c.c
+"141 /Users/colehinton/Desktop/droneTeam/SeniorDesign.X/serial_i2c.c
 [v _i2c_write i2c_write `(uc  1 e 1 0 ]
 {
 [v i2c_write@i2cWriteData i2cWriteData `uc  1 a 1 wreg ]
 [v i2c_write@i2cWriteData i2cWriteData `uc  1 a 1 wreg ]
-"89
+"144
 [v i2c_write@i2cWriteData i2cWriteData `uc  1 a 1 1 ]
-"97
+"152
 } 0
-"49
+"84
 [v _i2c_stop i2c_stop `(v  1 e 1 0 ]
 {
-"56
+"91
 } 0
-"31
+"53
 [v _i2c_start i2c_start `(v  1 e 1 0 ]
 {
-"38
+"60
 } 0
-"26
+"41
 [v _i2c_waitForIdle i2c_waitForIdle `(v  1 e 1 0 ]
 {
-"29
+"45
 } 0
-"135 C:\Users\Cira\Desktop\SeniorDesign.X\main.c
+"135 /Users/colehinton/Desktop/droneTeam/SeniorDesign.X/main.c
 [v _lepton_capture_packet lepton_capture_packet `(v  1 e 1 0 ]
 {
 "137
 [v lepton_capture_packet@i i `i  1 a 2 6 ]
 "155
 } 0
-"57 C:\Users\Cira\Desktop\SeniorDesign.X\serial_spi.c
+"57 /Users/colehinton/Desktop/droneTeam/SeniorDesign.X/serial_spi.c
 [v _SPI_Write SPI_Write `(uc  1 e 1 0 ]
 {
 [v SPI_Write@data data `uc  1 a 1 wreg ]
@@ -471,27 +471,27 @@
 [v SPI_Write@data data `uc  1 a 1 0 ]
 "64
 } 0
-"17 C:\Users\Cira\Desktop\SeniorDesign.X\serial_i2c.c
+"25 /Users/colehinton/Desktop/droneTeam/SeniorDesign.X/serial_i2c.c
 [v _i2c_initialize i2c_initialize `(v  1 e 1 0 ]
 {
-"24
+"32
 } 0
-"16 C:\Users\Cira\Desktop\SeniorDesign.X\gnss5.c
+"16 /Users/colehinton/Desktop/droneTeam/SeniorDesign.X/gnss5.c
 [v _gnss5_acquire gnss5_acquire `(v  1 e 1 0 ]
 {
 "18
 } 0
-"17 C:\Users\Cira\Desktop\SeniorDesign.X\arducam.c
+"17 /Users/colehinton/Desktop/droneTeam/SeniorDesign.X/arducam.c
 [v _arducam_initialize arducam_initialize `(v  1 e 1 0 ]
 {
 "19
 } 0
-"17 C:\Users\Cira\Desktop\SeniorDesign.X\serial_uart.c
+"17 /Users/colehinton/Desktop/droneTeam/SeniorDesign.X/serial_uart.c
 [v _UART_Initialize UART_Initialize `(v  1 e 1 0 ]
 {
 "28
 } 0
-"37 C:\Users\Cira\Desktop\SeniorDesign.X\serial_spi.c
+"37 /Users/colehinton/Desktop/droneTeam/SeniorDesign.X/serial_spi.c
 [v _SPI_FLIR_Initialize SPI_FLIR_Initialize `(v  1 e 1 0 ]
 {
 "44
@@ -506,18 +506,18 @@
 {
 "54
 } 0
-"98 C:\Users\Cira\Desktop\SeniorDesign.X\config.c
+"116 /Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
 [v _PORT_PIN_Initialize2 PORT_PIN_Initialize2 `(v  1 e 1 0 ]
 {
-"128
+"148
 } 0
-"30
+"37
 [v _PORT_PIN_Initialize1 PORT_PIN_Initialize1 `(v  1 e 1 0 ]
 {
-"95
+"105
 } 0
-"23
+"22
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 {
-"27
+"25
 } 0

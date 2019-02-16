@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.05 build -831301201 
-                                                                                               Mon Feb 11 15:56:05 2019
+                                                                                               Sat Feb 16 15:13:46 2019
 
 Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1 
      1                           	processor	16F18875
@@ -5967,30 +5967,30 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   5947                           ;main.c: 84:     while(mission_check == 0) continue;
   5948  0737  160D               	bsf	13,4	;volatile
   5949  0738                     l1353:	
-  5950                           ;main.c: 90:     while (mission_check == 1)
+  5950                           ;main.c: 91:     while (mission_check == 1)
   5951                           
   5952                           
-  5953                           ;main.c: 95:             lepton_capture_packet();
+  5953                           ;main.c: 96:             lepton_capture_packet();
   5954  0738  3187  2790  3187   	fcall	_lepton_capture_packet
   5955                           
-  5956                           ;main.c: 98:             if(discard != 1){
+  5956                           ;main.c: 99:             if(discard != 1){
   5957  073B  0020               	movlb	0	; select bank0
   5958  073C  0326               	decf	_discard,w
   5959  073D  1903               	btfsc	3,2
   5960  073E  2F42               	goto	l1359
   5961                           
-  5962                           ;main.c: 99:                 lepton_send_packet();
+  5962                           ;main.c: 100:                 lepton_send_packet();
   5963  073F  3186  26EF  3187   	fcall	_lepton_send_packet
   5964  0742                     l1359:	
   5965                           
-  5966                           ;main.c: 102:         }while(packet_index < 59);
+  5966                           ;main.c: 103:         }while(packet_index < 59);
   5967  0742  303B               	movlw	59
   5968  0743  0020               	movlb	0	; select bank0
   5969  0744  0228               	subwf	_packet_index,w
   5970  0745  1C03               	skipc
   5971  0746  2F38               	goto	l1353
   5972                           
-  5973                           ;main.c: 105:         gnss5_acquire();
+  5973                           ;main.c: 106:         gnss5_acquire();
   5974  0747  3186  2640  3187   	fcall	_gnss5_acquire
   5975  074A  2F38               	goto	l1353
   5976  074B                     __end_of_main:	
@@ -6157,7 +6157,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6127  06B6                     __ptext3:	
   6128 ;; *************** function _lepton_initialize *****************
   6129 ;; Defined at:
-  6130 ;;		line 21 in file "lepton.c"
+  6130 ;;		line 30 in file "lepton.c"
   6131 ;; Parameters:    Size  Location     Type
   6132 ;;		None
   6133 ;; Auto vars:     Size  Location     Type
@@ -6196,33 +6196,33 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6161                           ;psect for function _lepton_initialize
   6162  06B6                     _lepton_initialize:	
   6163                           
-  6164                           ;lepton.c: 23:     i2c_start();
+  6164                           ;lepton.c: 33:     i2c_start();
   6165                           
   6166                           ;incstack = 0
   6167                           ; Regs used in _lepton_initialize: [wreg+status,2+status,0+pclath+cstack]
   6168  06B6  3186  2645  3186   	fcall	_i2c_start
   6169                           
-  6170                           ;lepton.c: 24:     i2c_write(0x2A);
+  6170                           ;lepton.c: 34:     i2c_write(0x2A);
   6171  06B9  302A               	movlw	42
   6172  06BA  3186  266C  3186   	fcall	_i2c_write
   6173                           
-  6174                           ;lepton.c: 25:     i2c_write(0x01);
+  6174                           ;lepton.c: 35:     i2c_write(0x01);
   6175  06BD  3001               	movlw	1
   6176  06BE  3186  266C  3186   	fcall	_i2c_write
   6177                           
-  6178                           ;lepton.c: 26:     i2c_write(0x05);
+  6178                           ;lepton.c: 36:     i2c_write(0x05);
   6179  06C1  3005               	movlw	5
   6180  06C2  3186  266C  3186   	fcall	_i2c_write
   6181                           
-  6182                           ;lepton.c: 27:     i2c_write(0x00);
+  6182                           ;lepton.c: 37:     i2c_write(0x00);
   6183  06C5  3000               	movlw	0
   6184  06C6  3186  266C  3186   	fcall	_i2c_write
   6185                           
-  6186                           ;lepton.c: 28:     i2c_write(0x01);
+  6186                           ;lepton.c: 38:     i2c_write(0x01);
   6187  06C9  3001               	movlw	1
   6188  06CA  3186  266C  3186   	fcall	_i2c_write
   6189                           
-  6190                           ;lepton.c: 29:     i2c_stop();
+  6190                           ;lepton.c: 39:     i2c_stop();
   6191  06CD  3186  264A         	fcall	_i2c_stop
   6192  06CF  0008               	return
   6193  06D0                     __end_of_lepton_initialize:	
@@ -6231,7 +6231,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6196  066C                     __ptext4:	
   6197 ;; *************** function _i2c_write *****************
   6198 ;; Defined at:
-  6199 ;;		line 86 in file "serial_i2c.c"
+  6199 ;;		line 141 in file "serial_i2c.c"
   6200 ;; Parameters:    Size  Location     Type
   6201 ;;  i2cWriteData    1    wreg     unsigned char 
   6202 ;; Auto vars:     Size  Location     Type
@@ -6273,17 +6273,17 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6233                           ;i2c_write@i2cWriteData stored from wreg
   6234  066C  00F1               	movwf	i2c_write@i2cWriteData
   6235                           
-  6236                           ;serial_i2c.c: 86: uint8_t i2c_write( uint8_t i2cWriteData );serial_i2c.c: 87: {;serial_
-      +                          i2c.c: 89:     i2c_waitForIdle();
+  6236                           ;serial_i2c.c: 141: uint8_t i2c_write( uint8_t i2cWriteData );serial_i2c.c: 142: {;seria
+      +                          l_i2c.c: 144:     i2c_waitForIdle();
   6237  066D  3186  2688         	fcall	_i2c_waitForIdle
   6238                           
-  6239                           ;serial_i2c.c: 92:     SSP2BUF = i2cWriteData;
+  6239                           ;serial_i2c.c: 147:     SSP2BUF = i2cWriteData;
   6240  066F  0871               	movf	i2c_write@i2cWriteData,w
   6241  0670  0023               	movlb	3	; select bank3
   6242  0671  0096               	movwf	22	;volatile
   6243                           
-  6244                           ;serial_i2c.c: 95:     return(!SSP2CON2bits.ACKSTAT);;	Return value of _i2c_write is nev
-      +                          er used
+  6244                           ;serial_i2c.c: 150:     return(!SSP2CON2bits.ACKSTAT);;	Return value of _i2c_write is ne
+      +                          ver used
   6245  0672  081B               	movf	27,w	;volatile
   6246  0673  0008               	return
   6247  0674                     __end_of_i2c_write:	
@@ -6292,7 +6292,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6250  064A                     __ptext5:	
   6251 ;; *************** function _i2c_stop *****************
   6252 ;; Defined at:
-  6253 ;;		line 49 in file "serial_i2c.c"
+  6253 ;;		line 84 in file "serial_i2c.c"
   6254 ;; Parameters:    Size  Location     Type
   6255 ;;		None
   6256 ;; Auto vars:     Size  Location     Type
@@ -6329,13 +6329,13 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6282                           ;psect for function _i2c_stop
   6283  064A                     _i2c_stop:	
   6284                           
-  6285                           ;serial_i2c.c: 52:     i2c_waitForIdle();
+  6285                           ;serial_i2c.c: 87:     i2c_waitForIdle();
   6286                           
   6287                           ;incstack = 0
   6288                           ; Regs used in _i2c_stop: [wreg+status,2+status,0+pclath+cstack]
   6289  064A  3186  2688         	fcall	_i2c_waitForIdle
   6290                           
-  6291                           ;serial_i2c.c: 55:     SSP2CON2bits.PEN = 1;
+  6291                           ;serial_i2c.c: 90:     SSP2CON2bits.PEN = 1;
   6292  064C  0023               	movlb	3	; select bank3
   6293  064D  151B               	bsf	27,2	;volatile
   6294  064E  0008               	return
@@ -6345,7 +6345,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6298  0645                     __ptext6:	
   6299 ;; *************** function _i2c_start *****************
   6300 ;; Defined at:
-  6301 ;;		line 31 in file "serial_i2c.c"
+  6301 ;;		line 53 in file "serial_i2c.c"
   6302 ;; Parameters:    Size  Location     Type
   6303 ;;		None
   6304 ;; Auto vars:     Size  Location     Type
@@ -6382,13 +6382,13 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6330                           ;psect for function _i2c_start
   6331  0645                     _i2c_start:	
   6332                           
-  6333                           ;serial_i2c.c: 34:     i2c_waitForIdle();
+  6333                           ;serial_i2c.c: 56:     i2c_waitForIdle();
   6334                           
   6335                           ;incstack = 0
   6336                           ; Regs used in _i2c_start: [wreg+status,2+status,0+pclath+cstack]
   6337  0645  3186  2688         	fcall	_i2c_waitForIdle
   6338                           
-  6339                           ;serial_i2c.c: 37:     SSP2CON2bits.SEN = 1;
+  6339                           ;serial_i2c.c: 59:     SSP2CON2bits.SEN = 1;
   6340  0647  0023               	movlb	3	; select bank3
   6341  0648  141B               	bsf	27,0	;volatile
   6342  0649  0008               	return
@@ -6398,7 +6398,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6346  0688                     __ptext7:	
   6347 ;; *************** function _i2c_waitForIdle *****************
   6348 ;; Defined at:
-  6349 ;;		line 26 in file "serial_i2c.c"
+  6349 ;;		line 41 in file "serial_i2c.c"
   6350 ;; Parameters:    Size  Location     Type
   6351 ;;		None
   6352 ;; Auto vars:     Size  Location     Type
@@ -6438,7 +6438,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6381                           ;psect for function _i2c_waitForIdle
   6382  0688                     _i2c_waitForIdle:	
   6383  0688                     l1175:	
-  6384                           ;serial_i2c.c: 28:     while((SSP2CON2 & 0x1F)| SSP2STATbits.R_nW){};
+  6384                           ;serial_i2c.c: 44:     while((SSP2CON2 & 0x1F)| SSP2STATbits.R_nW){};
   6385                           
   6386                           ;incstack = 0
   6387                           ; Regs used in _i2c_waitForIdle: [wreg+status,2+status,0]
@@ -6675,7 +6675,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6607  0674                     __ptext10:	
   6608 ;; *************** function _i2c_initialize *****************
   6609 ;; Defined at:
-  6610 ;;		line 17 in file "serial_i2c.c"
+  6610 ;;		line 25 in file "serial_i2c.c"
   6611 ;; Parameters:    Size  Location     Type
   6612 ;;		None
   6613 ;; Auto vars:     Size  Location     Type
@@ -6711,7 +6711,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6638                           ;psect for function _i2c_initialize
   6639  0674                     _i2c_initialize:	
   6640                           
-  6641                           ;serial_i2c.c: 19:     SSP2CON1 = 0x28;
+  6641                           ;serial_i2c.c: 27:     SSP2CON1 = 0x28;
   6642                           
   6643                           ;incstack = 0
   6644                           ; Regs used in _i2c_initialize: [wreg+status,2]
@@ -6719,17 +6719,17 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6646  0675  0023               	movlb	3	; select bank3
   6647  0676  009A               	movwf	26	;volatile
   6648                           
-  6649                           ;serial_i2c.c: 20:     SSP2CON2 = 0x00;
+  6649                           ;serial_i2c.c: 28:     SSP2CON2 = 0x00;
   6650  0677  019B               	clrf	27	;volatile
   6651                           
-  6652                           ;serial_i2c.c: 21:     SSP2ADD = 0x09;
+  6652                           ;serial_i2c.c: 29:     SSP2ADD = 0x09;
   6653  0678  3009               	movlw	9
   6654  0679  0097               	movwf	23	;volatile
   6655                           
-  6656                           ;serial_i2c.c: 22:     SSP2STATbits.CKE = 0;
+  6656                           ;serial_i2c.c: 30:     SSP2STATbits.CKE = 0;
   6657  067A  1319               	bcf	25,6	;volatile
   6658                           
-  6659                           ;serial_i2c.c: 23:     SSP2STATbits.SMP = 1;
+  6659                           ;serial_i2c.c: 31:     SSP2STATbits.SMP = 1;
   6660  067B  1799               	bsf	25,7	;volatile
   6661  067C  0008               	return
   6662  067D                     __end_of_i2c_initialize:	
@@ -7067,7 +7067,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6964  06D0                     __ptext17:	
   6965 ;; *************** function _PORT_PIN_Initialize2 *****************
   6966 ;; Defined at:
-  6967 ;;		line 98 in file "config.c"
+  6967 ;;		line 116 in file "config.c"
   6968 ;; Parameters:    Size  Location     Type
   6969 ;;		None
   6970 ;; Auto vars:     Size  Location     Type
@@ -7103,73 +7103,73 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6995                           ;psect for function _PORT_PIN_Initialize2
   6996  06D0                     _PORT_PIN_Initialize2:	
   6997                           
-  6998                           ;config.c: 101:     PIE3bits.RCIE = 0;
+  6998                           ;config.c: 119:     PIE3bits.RCIE = 0;
   6999                           
   7000                           ;incstack = 0
   7001                           ; Regs used in _PORT_PIN_Initialize2: [wreg+status,2]
   7002  06D0  002E               	movlb	14	; select bank14
   7003  06D1  1299               	bcf	25,5	;volatile
   7004                           
-  7005                           ;config.c: 102:     INTCONbits.PEIE = 0;
+  7005                           ;config.c: 120:     INTCONbits.PEIE = 0;
   7006  06D2  130B               	bcf	11,6	;volatile
   7007                           
-  7008                           ;config.c: 103:     INTCONbits.GIE = 0;
+  7008                           ;config.c: 121:     INTCONbits.GIE = 0;
   7009  06D3  138B               	bcf	11,7	;volatile
   7010                           
-  7011                           ;config.c: 104:     PIE0bits.IOCIE = 0;
+  7011                           ;config.c: 122:     PIE0bits.IOCIE = 0;
   7012  06D4  1216               	bcf	22,4	;volatile
   7013                           
-  7014                           ;config.c: 107:     PPSLOCK = 0x55;
+  7014                           ;config.c: 125:     PPSLOCK = 0x55;
   7015  06D5  3055               	movlw	85
   7016  06D6  003D               	movlb	29	; select bank29
   7017  06D7  008F               	movwf	15	;volsfr
   7018                           
-  7019                           ;config.c: 108:     PPSLOCK = 0xAA;
+  7019                           ;config.c: 126:     PPSLOCK = 0xAA;
   7020  06D8  30AA               	movlw	170
   7021  06D9  008F               	movwf	15	;volsfr
   7022                           
-  7023                           ;config.c: 109:     PPSLOCKbits.PPSLOCKED = 0;
+  7023                           ;config.c: 127:     PPSLOCKbits.PPSLOCKED = 0;
   7024  06DA  100F               	bcf	15,0	;volsfr
   7025                           
-  7026                           ;config.c: 112:     SSP2DATPPS = 0x0A;
+  7026                           ;config.c: 131:     SSP2DATPPS = 0x0A;
   7027  06DB  300A               	movlw	10
   7028  06DC  00C9               	movwf	73	;volatile
   7029                           
-  7030                           ;config.c: 113:     RB1PPS = 0x16;
+  7030                           ;config.c: 132:     RB1PPS = 0x16;
   7031  06DD  3016               	movlw	22
   7032  06DE  003E               	movlb	30	; select bank30
   7033  06DF  0099               	movwf	25	;volatile
   7034                           
-  7035                           ;config.c: 114:     RB3PPS = 0x17;
+  7035                           ;config.c: 133:     RB3PPS = 0x17;
   7036  06E0  3017               	movlw	23
   7037  06E1  009B               	movwf	27	;volatile
   7038                           
-  7039                           ;config.c: 117:     PPSLOCK = 0x55;
+  7039                           ;config.c: 136:     PPSLOCK = 0x55;
   7040  06E2  3055               	movlw	85
   7041  06E3  003D               	movlb	29	; select bank29
   7042  06E4  008F               	movwf	15	;volsfr
   7043                           
-  7044                           ;config.c: 118:     PPSLOCK = 0xAA;
+  7044                           ;config.c: 137:     PPSLOCK = 0xAA;
   7045  06E5  30AA               	movlw	170
   7046  06E6  008F               	movwf	15	;volsfr
   7047                           
-  7048                           ;config.c: 119:     PPSLOCKbits.PPSLOCKED = 1;
+  7048                           ;config.c: 138:     PPSLOCKbits.PPSLOCKED = 1;
   7049  06E7  140F               	bsf	15,0	;volsfr
   7050                           
-  7051                           ;config.c: 122:     PIE3bits.RCIE = 1;
+  7051                           ;config.c: 141:     PIE3bits.RCIE = 1;
   7052  06E8  002E               	movlb	14	; select bank14
   7053  06E9  1699               	bsf	25,5	;volatile
   7054                           
-  7055                           ;config.c: 123:     INTCONbits.PEIE = 1;
+  7055                           ;config.c: 142:     INTCONbits.PEIE = 1;
   7056  06EA  170B               	bsf	11,6	;volatile
   7057                           
-  7058                           ;config.c: 124:     INTCONbits.GIE = 1;
+  7058                           ;config.c: 143:     INTCONbits.GIE = 1;
   7059  06EB  178B               	bsf	11,7	;volatile
   7060                           
-  7061                           ;config.c: 125:     PIE0bits.IOCIE = 1;
+  7061                           ;config.c: 144:     PIE0bits.IOCIE = 1;
   7062  06EC  1616               	bsf	22,4	;volatile
   7063                           
-  7064                           ;config.c: 127:     PIR3 = 0;
+  7064                           ;config.c: 147:     PIR3 = 0;
   7065  06ED  018F               	clrf	15	;volatile
   7066  06EE  0008               	return
   7067  06EF                     __end_of_PORT_PIN_Initialize2:	
@@ -7178,7 +7178,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   7070  074B                     __ptext18:	
   7071 ;; *************** function _PORT_PIN_Initialize1 *****************
   7072 ;; Defined at:
-  7073 ;;		line 30 in file "config.c"
+  7073 ;;		line 37 in file "config.c"
   7074 ;; Parameters:    Size  Location     Type
   7075 ;;		None
   7076 ;; Auto vars:     Size  Location     Type
@@ -7214,161 +7214,161 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   7101                           ;psect for function _PORT_PIN_Initialize1
   7102  074B                     _PORT_PIN_Initialize1:	
   7103                           
-  7104                           ;config.c: 33:     ANSELA = 0x00;
+  7104                           ;config.c: 40:     ANSELA = 0x00;
   7105                           
   7106                           ;incstack = 0
   7107                           ; Regs used in _PORT_PIN_Initialize1: [wreg+status,2]
   7108  074B  003E               	movlb	30	; select bank30
   7109  074C  01B8               	clrf	56	;volatile
   7110                           
-  7111                           ;config.c: 34:     ANSELB = 0x00;
+  7111                           ;config.c: 41:     ANSELB = 0x00;
   7112  074D  01C3               	clrf	67	;volatile
   7113                           
-  7114                           ;config.c: 35:     ANSELC = 0x00;
+  7114                           ;config.c: 42:     ANSELC = 0x00;
   7115  074E  01CE               	clrf	78	;volatile
   7116                           
-  7117                           ;config.c: 36:     ANSELD = 0x00;
+  7117                           ;config.c: 43:     ANSELD = 0x00;
   7118  074F  01D9               	clrf	89	;volatile
   7119                           
-  7120                           ;config.c: 37:     ANSELE = 0x00;
+  7120                           ;config.c: 44:     ANSELE = 0x00;
   7121  0750  01E4               	clrf	100	;volatile
   7122                           
-  7123                           ;config.c: 40:     TRISA = 0x00;
+  7123                           ;config.c: 47:     TRISA = 0x00;
   7124  0751  0020               	movlb	0	; select bank0
   7125  0752  0191               	clrf	17	;volatile
   7126                           
-  7127                           ;config.c: 41:     TRISB = 0b01100100;
+  7127                           ;config.c: 48:     TRISB = 0b01100100;
   7128  0753  3064               	movlw	100
   7129  0754  0092               	movwf	18	;volatile
   7130                           
-  7131                           ;config.c: 42:     TRISC = 0b10011000;
+  7131                           ;config.c: 49:     TRISC = 0b10011000;
   7132  0755  3098               	movlw	152
   7133  0756  0093               	movwf	19	;volatile
   7134                           
-  7135                           ;config.c: 43:     TRISD = 0x00;
+  7135                           ;config.c: 50:     TRISD = 0x00;
   7136  0757  0194               	clrf	20	;volatile
   7137                           
-  7138                           ;config.c: 44:     TRISE = 0x00;
+  7138                           ;config.c: 51:     TRISE = 0x00;
   7139  0758  0195               	clrf	21	;volatile
   7140                           
-  7141                           ;config.c: 46:     PORTA = 0x00;
+  7141                           ;config.c: 54:     PORTA = 0x00;
   7142  0759  018C               	clrf	12	;volatile
   7143                           
-  7144                           ;config.c: 47:     PORTB = 0x00;
+  7144                           ;config.c: 55:     PORTB = 0x00;
   7145  075A  018D               	clrf	13	;volatile
   7146                           
-  7147                           ;config.c: 48:     PORTC = 0x00;
+  7147                           ;config.c: 56:     PORTC = 0x00;
   7148  075B  018E               	clrf	14	;volatile
   7149                           
-  7150                           ;config.c: 49:     PORTD = 0x00;
+  7150                           ;config.c: 57:     PORTD = 0x00;
   7151  075C  018F               	clrf	15	;volatile
   7152                           
-  7153                           ;config.c: 50:     PORTE = 0x00;
+  7153                           ;config.c: 58:     PORTE = 0x00;
   7154  075D  0190               	clrf	16	;volatile
   7155                           
-  7156                           ;config.c: 52:     LATA = 0x00;
+  7156                           ;config.c: 61:     LATA = 0x00;
   7157  075E  0196               	clrf	22	;volatile
   7158                           
-  7159                           ;config.c: 53:     LATB = 0x00;
+  7159                           ;config.c: 62:     LATB = 0x00;
   7160  075F  0197               	clrf	23	;volatile
   7161                           
-  7162                           ;config.c: 54:     LATC = 0x00;
+  7162                           ;config.c: 63:     LATC = 0x00;
   7163  0760  0198               	clrf	24	;volatile
   7164                           
-  7165                           ;config.c: 55:     LATD = 0x00;
+  7165                           ;config.c: 64:     LATD = 0x00;
   7166  0761  0199               	clrf	25	;volatile
   7167                           
-  7168                           ;config.c: 56:     LATE = 0x00;
+  7168                           ;config.c: 65:     LATE = 0x00;
   7169  0762  019A               	clrf	26	;volatile
   7170                           
-  7171                           ;config.c: 59:     PIE3bits.RCIE = 0;
+  7171                           ;config.c: 68:     PIE3bits.RCIE = 0;
   7172  0763  002E               	movlb	14	; select bank14
   7173  0764  1299               	bcf	25,5	;volatile
   7174                           
-  7175                           ;config.c: 60:     INTCONbits.PEIE = 0;
+  7175                           ;config.c: 69:     INTCONbits.PEIE = 0;
   7176  0765  130B               	bcf	11,6	;volatile
   7177                           
-  7178                           ;config.c: 61:     INTCONbits.GIE = 0;
+  7178                           ;config.c: 70:     INTCONbits.GIE = 0;
   7179  0766  138B               	bcf	11,7	;volatile
   7180                           
-  7181                           ;config.c: 62:     PIE0bits.IOCIE = 0;
+  7181                           ;config.c: 71:     PIE0bits.IOCIE = 0;
   7182  0767  1216               	bcf	22,4	;volatile
   7183                           
-  7184                           ;config.c: 65:     PPSLOCK = 0x55;
+  7184                           ;config.c: 74:     PPSLOCK = 0x55;
   7185  0768  3055               	movlw	85
   7186  0769  003D               	movlb	29	; select bank29
   7187  076A  008F               	movwf	15	;volsfr
   7188                           
-  7189                           ;config.c: 66:     PPSLOCK = 0xAA;
+  7189                           ;config.c: 75:     PPSLOCK = 0xAA;
   7190  076B  30AA               	movlw	170
   7191  076C  008F               	movwf	15	;volsfr
   7192                           
-  7193                           ;config.c: 67:     PPSLOCKbits.PPSLOCKED = 0;
+  7193                           ;config.c: 76:     PPSLOCKbits.PPSLOCKED = 0;
   7194  076D  100F               	bcf	15,0	;volsfr
   7195                           
-  7196                           ;config.c: 70:     RC6PPS = 0x10;
+  7196                           ;config.c: 79:     RC6PPS = 0x10;
   7197  076E  3010               	movlw	16
   7198  076F  003E               	movlb	30	; select bank30
   7199  0770  00A6               	movwf	38	;volatile
   7200                           
-  7201                           ;config.c: 71:     RXPPS = 0x17;
+  7201                           ;config.c: 80:     RXPPS = 0x17;
   7202  0771  3017               	movlw	23
   7203  0772  003D               	movlb	29	; select bank29
   7204  0773  00CB               	movwf	75	;volatile
   7205                           
-  7206                           ;config.c: 74:     SSP1DATPPS = 0x11;
+  7206                           ;config.c: 83:     SSP1DATPPS = 0x11;
   7207  0774  3011               	movlw	17
   7208  0775  00C6               	movwf	70	;volatile
   7209                           
-  7210                           ;config.c: 75:     RB7PPS = 0x14;
+  7210                           ;config.c: 84:     RB7PPS = 0x14;
   7211  0776  3014               	movlw	20
   7212  0777  003E               	movlb	30	; select bank30
   7213  0778  009F               	movwf	31	;volatile
   7214                           
-  7215                           ;config.c: 76:     RC1PPS = 0x15;
+  7215                           ;config.c: 85:     RC1PPS = 0x15;
   7216  0779  3015               	movlw	21
   7217  077A  00A1               	movwf	33	;volatile
   7218                           
-  7219                           ;config.c: 79:     SSP2DATPPS = 0x14;
+  7219                           ;config.c: 88:     SSP2DATPPS = 0x14;
   7220  077B  3014               	movlw	20
   7221  077C  003D               	movlb	29	; select bank29
   7222  077D  00C9               	movwf	73	;volatile
   7223                           
-  7224                           ;config.c: 80:     RC3PPS = 0x16;
+  7224                           ;config.c: 89:     RC3PPS = 0x16;
   7225  077E  3016               	movlw	22
   7226  077F  003E               	movlb	30	; select bank30
   7227  0780  00A3               	movwf	35	;volatile
   7228                           
-  7229                           ;config.c: 81:     RC4PPS = 0x17;
+  7229                           ;config.c: 90:     RC4PPS = 0x17;
   7230  0781  3017               	movlw	23
   7231  0782  00A4               	movwf	36	;volatile
   7232                           
-  7233                           ;config.c: 84:     PPSLOCK = 0x55;
+  7233                           ;config.c: 93:     PPSLOCK = 0x55;
   7234  0783  3055               	movlw	85
   7235  0784  003D               	movlb	29	; select bank29
   7236  0785  008F               	movwf	15	;volsfr
   7237                           
-  7238                           ;config.c: 85:     PPSLOCK = 0xAA;
+  7238                           ;config.c: 94:     PPSLOCK = 0xAA;
   7239  0786  30AA               	movlw	170
   7240  0787  008F               	movwf	15	;volsfr
   7241                           
-  7242                           ;config.c: 86:     PPSLOCKbits.PPSLOCKED = 1;
+  7242                           ;config.c: 95:     PPSLOCKbits.PPSLOCKED = 1;
   7243  0788  140F               	bsf	15,0	;volsfr
   7244                           
-  7245                           ;config.c: 89:     PIE3bits.RCIE = 1;
+  7245                           ;config.c: 98:     PIE3bits.RCIE = 1;
   7246  0789  002E               	movlb	14	; select bank14
   7247  078A  1699               	bsf	25,5	;volatile
   7248                           
-  7249                           ;config.c: 90:     INTCONbits.PEIE = 1;
+  7249                           ;config.c: 99:     INTCONbits.PEIE = 1;
   7250  078B  170B               	bsf	11,6	;volatile
   7251                           
-  7252                           ;config.c: 91:     INTCONbits.GIE = 1;
+  7252                           ;config.c: 100:     INTCONbits.GIE = 1;
   7253  078C  178B               	bsf	11,7	;volatile
   7254                           
-  7255                           ;config.c: 92:     PIE0bits.IOCIE = 1;
+  7255                           ;config.c: 101:     PIE0bits.IOCIE = 1;
   7256  078D  1616               	bsf	22,4	;volatile
   7257                           
-  7258                           ;config.c: 94:     PIR3 = 0;
+  7258                           ;config.c: 104:     PIR3 = 0;
   7259  078E  018F               	clrf	15	;volatile
   7260  078F  0008               	return
   7261  0790                     __end_of_PORT_PIN_Initialize1:	
@@ -7377,7 +7377,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   7264  064F                     __ptext19:	
   7265 ;; *************** function _OSCILLATOR_Initialize *****************
   7266 ;; Defined at:
-  7267 ;;		line 23 in file "config.c"
+  7267 ;;		line 22 in file "config.c"
   7268 ;; Parameters:    Size  Location     Type
   7269 ;;		None
   7270 ;; Auto vars:     Size  Location     Type
@@ -7413,7 +7413,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   7295                           ;psect for function _OSCILLATOR_Initialize
   7296  064F                     _OSCILLATOR_Initialize:	
   7297                           
-  7298                           ;config.c: 25:     OSCCON1 = 0x60;
+  7298                           ;config.c: 23:     OSCCON1 = 0x60;
   7299                           
   7300                           ;incstack = 0
   7301                           ; Regs used in _OSCILLATOR_Initialize: [wreg]
@@ -7421,7 +7421,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   7303  0650  0031               	movlb	17	; select bank17
   7304  0651  008D               	movwf	13	;volatile
   7305                           
-  7306                           ;config.c: 26:     OSCFRQ = 0x06;
+  7306                           ;config.c: 24:     OSCFRQ = 0x06;
   7307  0652  3006               	movlw	6
   7308  0653  0093               	movwf	19	;volatile
   7309  0654  0008               	return
@@ -7726,7 +7726,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.05 build -831301201 
-Symbol Table                                                                                   Mon Feb 11 15:56:05 2019
+Symbol Table                                                                                   Sat Feb 16 15:13:46 2019
 
  __size_of_SPI_ETHWIZ_Initialize 0008    __end_of_SPI_ETHWIZ_Initialize 066C                      __CFG_CP$OFF 0000  
                     _pulse_check 0027                      __CFG_LVP$ON 0000                              l244 0697  

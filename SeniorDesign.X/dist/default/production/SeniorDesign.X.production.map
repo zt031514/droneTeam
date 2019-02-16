@@ -2,10 +2,10 @@ Microchip MPLAB XC8 Compiler V2.05 ()
 
 Linker command line:
 
--W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.05\pic\dat\en_msgs.txt \
-  -cs -h+dist/default/production\SeniorDesign.X.production.sym \
-  --cmf=dist/default/production\SeniorDesign.X.production.cmf -z -Q16F18875 \
-  -oC:\Users\Cira\AppData\Local\Temp\s91s.2 --defsym=__MPLAB_BUILD=1 \
+-W-3 --edf=/Applications/microchip/xc8/v2.05/pic/dat/en_msgs.txt -cs \
+  -h+dist/default/production/SeniorDesign.X.production.sym \
+  --cmf=dist/default/production/SeniorDesign.X.production.cmf -z -Q16F18875 \
+  -o/tmp/xc5mBTlu8 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/SeniorDesign.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=0200Ch-0234Bh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -31,9 +31,8 @@ Linker command line:
   -pcinit=CODE -pfunctab=ENTRY -ACONFIG=08007h-0800Bh -pconfig=CONFIG \
   -DCONFIG=2 -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 \
   -AEEDATA=00h-0FFh/0F000h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
-  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\Cira\AppData\Local\Temp\s91s.o \
-  dist/default/production\SeniorDesign.X.production.o 
+  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/xc4nW2wz5.o \
+  dist/default/production/SeniorDesign.X.production.o 
 
 Object code version is 3.11
 
@@ -42,11 +41,11 @@ Machine type is 16F18875
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Cira\AppData\Local\Temp\s91s.o
+/tmp/xc4nW2wz5.o
                 end_init                              2        2        2        0       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        5    1000E       0
-dist/default/production\SeniorDesign.X.production.o
+dist/default/production/SeniorDesign.X.production.o
                 cinit                               7DB      7DB       25      FB6       0
                 text19                              64F      64F        6      C9E       0
                 text18                              74B      74B       45      E96       0
@@ -267,32 +266,32 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
+                text10                         000674  000009  00067D       CE8       0  CODE        2
+                text2                          000693  00000B  00069E       D26       0  CODE        2
+                text7                          000688  00000B  000693       D10       0  CODE        2
+                text9                          00067D  00000B  000688       CFA       0  CODE        2
                 reset_vec                      000000  000004  000004         0       0  CODE        2
-                bssBANK0                       000020  00000C  00002C        20       1  BANK0       1
-                cstackCOMMON                   000070  00000C  00007C        70       1  COMMON      1
-                text12                         00063F  000001  000640       C7E       0  CODE        2
-                text11                         000640  000001  000641       C80       0  CODE        2
-                idataBANK0                     000641  000004  000645       C82       0  CODE        2
-                text6                          000645  000005  00064A       C8A       0  CODE        2
-                text5                          00064A  000005  00064F       C94       0  CODE        2
+                text4                          00066C  000008  000674       CD8       0  CODE        2
+                text15                         000664  000008  00066C       CC8       0  CODE        2
+                text13                         00069E  00000C  0006AA       D3C       0  CODE        2
+                text3                          0006B6  00001A  0006D0       D6C       0  CODE        2
+                clrtext                        0006AA  00000C  0006B6       D54       0  CODE        2
+                text16                         00065C  000008  000664       CB8       0  CODE        2
                 text19                         00064F  000006  000655       C9E       0  CODE        2
                 text14                         000655  000007  00065C       CAA       0  CODE        2
-                text16                         00065C  000008  000664       CB8       0  CODE        2
-                text15                         000664  000008  00066C       CC8       0  CODE        2
-                text4                          00066C  000008  000674       CD8       0  CODE        2
-                text10                         000674  000009  00067D       CE8       0  CODE        2
-                text9                          00067D  00000B  000688       CFA       0  CODE        2
-                text7                          000688  00000B  000693       D10       0  CODE        2
-                text2                          000693  00000B  00069E       D26       0  CODE        2
-                text13                         00069E  00000C  0006AA       D3C       0  CODE        2
-                clrtext                        0006AA  00000C  0006B6       D54       0  CODE        2
-                text3                          0006B6  00001A  0006D0       D6C       0  CODE        2
+                text8                          000790  00004B  0007DB       F20       0  CODE        2
+                text18                         00074B  000045  000790       E96       0  CODE        2
+                maintext                       000714  000037  00074B       E28       0  CODE        2
                 text17                         0006D0  00001F  0006EF       DA0       0  CODE        2
                 text1                          0006EF  000025  000714       DDE       0  CODE        2
-                maintext                       000714  000037  00074B       E28       0  CODE        2
-                text18                         00074B  000045  000790       E96       0  CODE        2
-                text8                          000790  00004B  0007DB       F20       0  CODE        2
+                text11                         000640  000001  000641       C80       0  CODE        2
+                text12                         00063F  000001  000640       C7E       0  CODE        2
+                text6                          000645  000005  00064A       C8A       0  CODE        2
+                idataBANK0                     000641  000004  000645       C82       0  CODE        2
+                text5                          00064A  000005  00064F       C94       0  CODE        2
+                bssBANK0                       000020  00000C  00002C        20       1  BANK0       1
                 cinit                          0007DB  000025  000800       FB6       0  CODE        2
+                cstackCOMMON                   000070  00000C  00007C        70       1  COMMON      1
                 config                         008007  000005  00800C     1000E       0  CONFIG      2
 
 
@@ -865,7 +864,7 @@ Total ram usage:        1 bytes
 
  *************** function _lepton_initialize *****************
  Defined at:
-		line 21 in file "lepton.c"
+		line 30 in file "lepton.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -897,7 +896,7 @@ Total ram usage:        0 bytes
 
  *************** function _i2c_write *****************
  Defined at:
-		line 86 in file "serial_i2c.c"
+		line 141 in file "serial_i2c.c"
  Parameters:    Size  Location     Type
   i2cWriteData    1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -927,7 +926,7 @@ Total ram usage:        1 bytes
 
  *************** function _i2c_stop *****************
  Defined at:
-		line 49 in file "serial_i2c.c"
+		line 84 in file "serial_i2c.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -957,7 +956,7 @@ Total ram usage:        0 bytes
 
  *************** function _i2c_start *****************
  Defined at:
-		line 31 in file "serial_i2c.c"
+		line 53 in file "serial_i2c.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -987,7 +986,7 @@ Total ram usage:        0 bytes
 
  *************** function _i2c_waitForIdle *****************
  Defined at:
-		line 26 in file "serial_i2c.c"
+		line 41 in file "serial_i2c.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1080,7 +1079,7 @@ Total ram usage:        1 bytes
 
  *************** function _i2c_initialize *****************
  Defined at:
-		line 17 in file "serial_i2c.c"
+		line 25 in file "serial_i2c.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1283,7 +1282,7 @@ Total ram usage:        0 bytes
 
  *************** function _PORT_PIN_Initialize2 *****************
  Defined at:
-		line 98 in file "config.c"
+		line 116 in file "config.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1312,7 +1311,7 @@ Total ram usage:        0 bytes
 
  *************** function _PORT_PIN_Initialize1 *****************
  Defined at:
-		line 30 in file "config.c"
+		line 37 in file "config.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1341,7 +1340,7 @@ Total ram usage:        0 bytes
 
  *************** function _OSCILLATOR_Initialize *****************
  Defined at:
-		line 23 in file "config.c"
+		line 22 in file "config.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type

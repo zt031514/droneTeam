@@ -17,15 +17,25 @@
 #include "serial_i2c.h"
 
 
-//Done - CMH
+// ************************************************************
+//
+//  This function initializes the necessary settings within
+//  the FLIR Lepton Thermal Camera through the I2C bus. Due
+//  to many of the settings needed being default within the
+//  Lepton like Telemetry disabled, Radiometry disabled, and 
+//  it being unnecessary to run Far Field Correction (FFC),
+//  the only AGC feature needs to be enabled on the Lepton.
+//
+// ************************************************************
 void lepton_initialize(){
+    
     //Enable the AGC - CMH
     i2c_start();
-    i2c_write(0x2A); //Device Address
-    i2c_write(0x01); //AGC Address
-    i2c_write(0x05);
-    i2c_write(0x00);
-    i2c_write(0x01);
+    i2c_write(0x2A);    //Device Address - CMH
+    i2c_write(0x01);    //AGC Address - CMH
+    i2c_write(0x05);    //Write Command - CMH
+    i2c_write(0x00);    //Enable AGC with 8-bit compression (1) - CMH
+    i2c_write(0x01);    //Enable AGC with 8-bit compression (2) - CMH
     i2c_stop();
     
     //Telemetry is default disabled - CMH
