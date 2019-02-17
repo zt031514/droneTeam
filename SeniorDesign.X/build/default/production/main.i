@@ -21118,8 +21118,8 @@ extern void gnss5_acquire(void);
 
 
 
-uint8_t pulse_check = 0;
-uint8_t mission_check = 1;
+
+uint8_t mission_stage_check = 1;
 
 
 uint8_t packet_length = 164;
@@ -21137,8 +21137,7 @@ uint16_t GPS_array_length = 0;
 
 void lepton_capture_packet(void);
 void lepton_send_packet(void);
-
-
+# 61 "main.c"
 int main(int argc, char** argv)
 {
 
@@ -21164,7 +21163,10 @@ int main(int argc, char** argv)
 
 
     SPI_ETHWIZ_Initialize();
+
+
     SPI_FLIR_Initialize();
+
 
     IOCBFbits.IOCBF5 = 0;
     PIR3bits.RCIF = 0;
@@ -21175,15 +21177,16 @@ int main(int argc, char** argv)
     PORTDbits.RD3 = 1;
 
 
-    while(mission_check == 0) continue;
+    while(mission_stage_check == 0) {
 
 
-    PORTBbits.RB4 = 1;
+    }
 
 
 
-    while (mission_check == 1)
+    while (mission_stage_check == 1)
     {
+        packet_index = -1;
 
         do{
 
@@ -21199,14 +21202,20 @@ int main(int argc, char** argv)
 
         gnss5_acquire();
 
-    }
 
+
+
+
+
+
+    }
 
 
     SPI_Arducam_Initialize();
 
 
-    while (mission_check == 2){
+
+    while (mission_stage_check == 2){
 
 
         gnss5_acquire();
@@ -21216,21 +21225,30 @@ int main(int argc, char** argv)
 
             if (GPS_location_current == GPS_location){
 
+
+
+
             }
         }
 
     }
 
+
     while(1) continue;
 }
-
-
-
+# 172 "main.c"
 void lepton_capture_packet(void){
+
     discard = 0;
+
+
     for(int i = 0; i < packet_length; i++){
+
         PORTBbits.RB4 = 0;
+
         image_packet[i] = SPI_Write(0x00);
+
+
         PORTBbits.RB4 = 1;
     }
 
@@ -21238,6 +21256,7 @@ void lepton_capture_packet(void){
         discard = 1;
         packet_index = -1;
     }
+
     else{
         packet_index++;
         if( packet_index > 59){
@@ -21247,15 +21266,18 @@ void lepton_capture_packet(void){
 
 
 }
-
-
-
+# 209 "main.c"
 void lepton_send_packet(void){
 
     PORTDbits.RD3 = 0;
 
+
     for(int i = 0; i < packet_length; i++){
+
         SPI_ETHWIZ_Write(image_packet[i]);
+
+
+        image_packet[i] = 0;
     }
 
 

@@ -21027,9 +21027,7 @@ extern uint8_t UART_Read(void);
 
 extern void putch(unsigned char byte);
 # 14 "serial_uart.c" 2
-
-
-
+# 25 "serial_uart.c"
 void UART_Initialize(void) {
 
 
@@ -21042,8 +21040,7 @@ void UART_Initialize(void) {
     SP1BRGH = 0x03;
 
 }
-
-
+# 47 "serial_uart.c"
 uint8_t UART_Read(void) {
 
 
@@ -21072,8 +21069,7 @@ uint8_t UART_Read(void) {
     return c;
 
 }
-
-
+# 85 "serial_uart.c"
 void putch(unsigned char byte)
 {
 

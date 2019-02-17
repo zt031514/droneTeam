@@ -21029,9 +21029,7 @@ extern void SPI_Arducam_Initialize(void);
 
 extern uint8_t SPI_Write(uint8_t data);
 # 14 "serial_spi.c" 2
-
-
-
+# 25 "serial_spi.c"
 void SPI_ETHWIZ_Initialize(void) {
 
     SSP2STAT = 0x40;
@@ -21040,18 +21038,17 @@ void SPI_ETHWIZ_Initialize(void) {
     SSP2IF = 0;
 
 }
-
-
+# 46 "serial_spi.c"
 uint8_t SPI_ETHWIZ_Write(uint8_t data) {
 
     SSP2BUF = data;
     while(!SSP2IF) continue;
+
     SSP2IF = 0;
     return(SSP2BUF);
 
 }
-
-
+# 64 "serial_spi.c"
 void SPI_FLIR_Initialize(void) {
 
     SSP1STAT = 0x00;
@@ -21060,8 +21057,7 @@ void SPI_FLIR_Initialize(void) {
     SSP1IF = 0;
 
 }
-
-
+# 81 "serial_spi.c"
 void SPI_Arducam_Initialize(void) {
 
     SSP1STAT = 0x40;
@@ -21070,12 +21066,12 @@ void SPI_Arducam_Initialize(void) {
     SSP1IF = 0;
 
 }
-
-
+# 102 "serial_spi.c"
 uint8_t SPI_Write(uint8_t data) {
 
     SSP1BUF = data;
     while(!SSP1IF) continue;
+
     SSP1IF = 0;
     return(SSP1BUF);
 

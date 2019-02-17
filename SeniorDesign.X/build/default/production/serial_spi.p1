@@ -1661,118 +1661,118 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36645
 [; ;/Applications/microchip/xc8/v2.05/pic/include/pic16f18875.h: 36645: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
-"17 serial_spi.c
-[; ;serial_spi.c: 17: void SPI_ETHWIZ_Initialize(void) {
+"25 serial_spi.c
+[; ;serial_spi.c: 25: void SPI_ETHWIZ_Initialize(void) {
 [v _SPI_ETHWIZ_Initialize `(v ~T0 @X0 1 ef ]
 {
 [e :U _SPI_ETHWIZ_Initialize ]
 [f ]
-"19
-[; ;serial_spi.c: 19:     SSP2STAT = 0x40;
+"27
+[; ;serial_spi.c: 27:     SSP2STAT = 0x40;
 [e = _SSP2STAT -> -> 64 `i `uc ]
-"20
-[; ;serial_spi.c: 20:     SSP2CON1 = 0x20;
+"28
+[; ;serial_spi.c: 28:     SSP2CON1 = 0x20;
 [e = _SSP2CON1 -> -> 32 `i `uc ]
-"22
-[; ;serial_spi.c: 22:     SSP2IF = 0;
+"30
+[; ;serial_spi.c: 30:     SSP2IF = 0;
 [e = _SSP2IF -> -> 0 `i `b ]
-"24
-[; ;serial_spi.c: 24: }
+"32
+[; ;serial_spi.c: 32: }
 [e :UE 1627 ]
 }
-"27
-[; ;serial_spi.c: 27: uint8_t SPI_ETHWIZ_Write(uint8_t data) {
+"46
+[; ;serial_spi.c: 46: uint8_t SPI_ETHWIZ_Write(uint8_t data) {
 [v _SPI_ETHWIZ_Write `(uc ~T0 @X0 1 ef1`uc ]
 {
 [e :U _SPI_ETHWIZ_Write ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-"29
-[; ;serial_spi.c: 29:     SSP2BUF = data;
+"48
+[; ;serial_spi.c: 48:     SSP2BUF = data;
 [e = _SSP2BUF _data ]
-"30
-[; ;serial_spi.c: 30:     while(!SSP2IF) continue;
+"49
+[; ;serial_spi.c: 49:     while(!SSP2IF) continue;
 [e $U 1629  ]
 [e :U 1630 ]
 [e $U 1629  ]
 [e :U 1629 ]
 [e $ ! _SSP2IF 1630  ]
 [e :U 1631 ]
-"31
-[; ;serial_spi.c: 31:     SSP2IF = 0;
+"51
+[; ;serial_spi.c: 51:     SSP2IF = 0;
 [e = _SSP2IF -> -> 0 `i `b ]
-"32
-[; ;serial_spi.c: 32:     return(SSP2BUF);
+"52
+[; ;serial_spi.c: 52:     return(SSP2BUF);
 [e ) _SSP2BUF ]
 [e $UE 1628  ]
-"34
-[; ;serial_spi.c: 34: }
+"54
+[; ;serial_spi.c: 54: }
 [e :UE 1628 ]
 }
-"37
-[; ;serial_spi.c: 37: void SPI_FLIR_Initialize(void) {
+"64
+[; ;serial_spi.c: 64: void SPI_FLIR_Initialize(void) {
 [v _SPI_FLIR_Initialize `(v ~T0 @X0 1 ef ]
 {
 [e :U _SPI_FLIR_Initialize ]
 [f ]
-"39
-[; ;serial_spi.c: 39:     SSP1STAT = 0x00;
+"66
+[; ;serial_spi.c: 66:     SSP1STAT = 0x00;
 [e = _SSP1STAT -> -> 0 `i `uc ]
-"40
-[; ;serial_spi.c: 40:     SSP1CON1 = 0x30;
+"67
+[; ;serial_spi.c: 67:     SSP1CON1 = 0x30;
 [e = _SSP1CON1 -> -> 48 `i `uc ]
-"42
-[; ;serial_spi.c: 42:     SSP1IF = 0;
+"69
+[; ;serial_spi.c: 69:     SSP1IF = 0;
 [e = _SSP1IF -> -> 0 `i `b ]
-"44
-[; ;serial_spi.c: 44: }
+"71
+[; ;serial_spi.c: 71: }
 [e :UE 1632 ]
 }
-"47
-[; ;serial_spi.c: 47: void SPI_Arducam_Initialize(void) {
+"81
+[; ;serial_spi.c: 81: void SPI_Arducam_Initialize(void) {
 [v _SPI_Arducam_Initialize `(v ~T0 @X0 1 ef ]
 {
 [e :U _SPI_Arducam_Initialize ]
 [f ]
-"49
-[; ;serial_spi.c: 49:     SSP1STAT = 0x40;
+"83
+[; ;serial_spi.c: 83:     SSP1STAT = 0x40;
 [e = _SSP1STAT -> -> 64 `i `uc ]
-"50
-[; ;serial_spi.c: 50:     SSP1CON1 = 0x20;
+"84
+[; ;serial_spi.c: 84:     SSP1CON1 = 0x20;
 [e = _SSP1CON1 -> -> 32 `i `uc ]
-"52
-[; ;serial_spi.c: 52:     SSP1IF = 0;
+"86
+[; ;serial_spi.c: 86:     SSP1IF = 0;
 [e = _SSP1IF -> -> 0 `i `b ]
-"54
-[; ;serial_spi.c: 54: }
+"88
+[; ;serial_spi.c: 88: }
 [e :UE 1633 ]
 }
-"57
-[; ;serial_spi.c: 57: uint8_t SPI_Write(uint8_t data) {
+"102
+[; ;serial_spi.c: 102: uint8_t SPI_Write(uint8_t data) {
 [v _SPI_Write `(uc ~T0 @X0 1 ef1`uc ]
 {
 [e :U _SPI_Write ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-"59
-[; ;serial_spi.c: 59:     SSP1BUF = data;
+"104
+[; ;serial_spi.c: 104:     SSP1BUF = data;
 [e = _SSP1BUF _data ]
-"60
-[; ;serial_spi.c: 60:     while(!SSP1IF) continue;
+"105
+[; ;serial_spi.c: 105:     while(!SSP1IF) continue;
 [e $U 1635  ]
 [e :U 1636 ]
 [e $U 1635  ]
 [e :U 1635 ]
 [e $ ! _SSP1IF 1636  ]
 [e :U 1637 ]
-"61
-[; ;serial_spi.c: 61:     SSP1IF = 0;
+"107
+[; ;serial_spi.c: 107:     SSP1IF = 0;
 [e = _SSP1IF -> -> 0 `i `b ]
-"62
-[; ;serial_spi.c: 62:     return(SSP1BUF);
+"108
+[; ;serial_spi.c: 108:     return(SSP1BUF);
 [e ) _SSP1BUF ]
 [e $UE 1634  ]
-"64
-[; ;serial_spi.c: 64: }
+"110
+[; ;serial_spi.c: 110: }
 [e :UE 1634 ]
 }

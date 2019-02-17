@@ -1702,114 +1702,114 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36645
 [; ;/Applications/microchip/xc8/v2.05/pic/include/pic16f18875.h: 36645: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
-"17 serial_uart.c
-[; ;serial_uart.c: 17: void UART_Initialize(void) {
+"25 serial_uart.c
+[; ;serial_uart.c: 25: void UART_Initialize(void) {
 [v _UART_Initialize `(v ~T0 @X0 1 ef ]
 {
 [e :U _UART_Initialize ]
 [f ]
-"20
-[; ;serial_uart.c: 20:     BAUD1CON = 0x08;
-[e = _BAUD1CON -> -> 8 `i `uc ]
-"21
-[; ;serial_uart.c: 21:     TX1STA = 0x24;
-[e = _TX1STA -> -> 36 `i `uc ]
-"22
-[; ;serial_uart.c: 22:     RC1STA = 0x90;
-[e = _RC1STA -> -> 144 `i `uc ]
-"25
-[; ;serial_uart.c: 25:     SP1BRGL = 0x40;
-[e = _SP1BRGL -> -> 64 `i `uc ]
-"26
-[; ;serial_uart.c: 26:     SP1BRGH = 0x03;
-[e = _SP1BRGH -> -> 3 `i `uc ]
 "28
-[; ;serial_uart.c: 28: }
+[; ;serial_uart.c: 28:     BAUD1CON = 0x08;
+[e = _BAUD1CON -> -> 8 `i `uc ]
+"29
+[; ;serial_uart.c: 29:     TX1STA = 0x24;
+[e = _TX1STA -> -> 36 `i `uc ]
+"30
+[; ;serial_uart.c: 30:     RC1STA = 0x90;
+[e = _RC1STA -> -> 144 `i `uc ]
+"33
+[; ;serial_uart.c: 33:     SP1BRGL = 0x40;
+[e = _SP1BRGL -> -> 64 `i `uc ]
+"34
+[; ;serial_uart.c: 34:     SP1BRGH = 0x03;
+[e = _SP1BRGH -> -> 3 `i `uc ]
+"36
+[; ;serial_uart.c: 36: }
 [e :UE 1627 ]
 }
-"31
-[; ;serial_uart.c: 31: uint8_t UART_Read(void) {
+"47
+[; ;serial_uart.c: 47: uint8_t UART_Read(void) {
 [v _UART_Read `(uc ~T0 @X0 1 ef ]
 {
 [e :U _UART_Read ]
 [f ]
-"34
-[; ;serial_uart.c: 34:     uint8_t c;
+"50
+[; ;serial_uart.c: 50:     uint8_t c;
 [v _c `uc ~T0 @X0 1 a ]
-"37
-[; ;serial_uart.c: 37:     while(!(PIR3bits.RCIF));
+"53
+[; ;serial_uart.c: 53:     while(!(PIR3bits.RCIF));
 [e $U 1629  ]
 [e :U 1630 ]
 [e :U 1629 ]
 [e $ ! != -> . . _PIR3bits 0 5 `i -> 0 `i 1630  ]
 [e :U 1631 ]
-"39
-[; ;serial_uart.c: 39:     if(RC1STAbits.OERR)
+"55
+[; ;serial_uart.c: 55:     if(RC1STAbits.OERR)
 [e $ ! != -> . . _RC1STAbits 0 1 `i -> 0 `i 1632  ]
-"40
-[; ;serial_uart.c: 40:     {
+"56
+[; ;serial_uart.c: 56:     {
 {
-"41
-[; ;serial_uart.c: 41:         RC1STAbits.CREN = 0;
+"57
+[; ;serial_uart.c: 57:         RC1STAbits.CREN = 0;
 [e = . . _RC1STAbits 0 4 -> -> 0 `i `uc ]
-"42
-[; ;serial_uart.c: 42:         RC1STAbits.CREN = 1;
+"58
+[; ;serial_uart.c: 58:         RC1STAbits.CREN = 1;
 [e = . . _RC1STAbits 0 4 -> -> 1 `i `uc ]
-"43
-[; ;serial_uart.c: 43:     }
+"59
+[; ;serial_uart.c: 59:     }
 }
 [e :U 1632 ]
-"45
-[; ;serial_uart.c: 45:     IOCCFbits.IOCCF0 = 0;
+"61
+[; ;serial_uart.c: 61:     IOCCFbits.IOCCF0 = 0;
 [e = . . _IOCCFbits 0 0 -> -> 0 `i `uc ]
-"49
-[; ;serial_uart.c: 49:     if(PIR3bits.RCIF == 1)
+"65
+[; ;serial_uart.c: 65:     if(PIR3bits.RCIF == 1)
 [e $ ! == -> . . _PIR3bits 0 5 `i -> 1 `i 1633  ]
-"50
-[; ;serial_uart.c: 50:     {
+"66
+[; ;serial_uart.c: 66:     {
 {
-"51
-[; ;serial_uart.c: 51:        c = RC1REG;
+"67
+[; ;serial_uart.c: 67:        c = RC1REG;
 [e = _c _RC1REG ]
-"52
-[; ;serial_uart.c: 52:        PIR3bits.RCIF = 0;
+"68
+[; ;serial_uart.c: 68:        PIR3bits.RCIF = 0;
 [e = . . _PIR3bits 0 5 -> -> 0 `i `uc ]
-"53
-[; ;serial_uart.c: 53:     }
+"69
+[; ;serial_uart.c: 69:     }
 }
 [e :U 1633 ]
-"56
-[; ;serial_uart.c: 56:     return c;
+"72
+[; ;serial_uart.c: 72:     return c;
 [e ) _c ]
 [e $UE 1628  ]
-"58
-[; ;serial_uart.c: 58: }
+"74
+[; ;serial_uart.c: 74: }
 [e :UE 1628 ]
 }
-"61
-[; ;serial_uart.c: 61: void putch(unsigned char byte)
+"85
+[; ;serial_uart.c: 85: void putch(unsigned char byte)
 [v _putch `(v ~T0 @X0 1 ef1`uc ]
-"62
-[; ;serial_uart.c: 62: {
+"86
+[; ;serial_uart.c: 86: {
 {
 [e :U _putch ]
-"61
-[; ;serial_uart.c: 61: void putch(unsigned char byte)
+"85
+[; ;serial_uart.c: 85: void putch(unsigned char byte)
 [v _byte `uc ~T0 @X0 1 r1 ]
-"62
-[; ;serial_uart.c: 62: {
+"86
+[; ;serial_uart.c: 86: {
 [f ]
-"64
-[; ;serial_uart.c: 64:     while(!(PIR3bits.TXIF) && !(TX1STAbits.TRMT));
+"88
+[; ;serial_uart.c: 88:     while(!(PIR3bits.TXIF) && !(TX1STAbits.TRMT));
 [e $U 1635  ]
 [e :U 1636 ]
 [e :U 1635 ]
 [e $ && ! != -> . . _PIR3bits 0 4 `i -> 0 `i ! != -> . . _TX1STAbits 0 1 `i -> 0 `i 1636  ]
 [e :U 1637 ]
-"67
-[; ;serial_uart.c: 67:     TX1REG = byte;
+"91
+[; ;serial_uart.c: 91:     TX1REG = byte;
 [e = _TX1REG _byte ]
-"68
-[; ;serial_uart.c: 68: }
+"92
+[; ;serial_uart.c: 92: }
 [e :UE 1634 ]
 }
