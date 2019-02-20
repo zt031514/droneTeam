@@ -21023,6 +21023,12 @@ extern void gnss5_acquire(void);
 # 14 "gnss5.c" 2
 
 
+
+
+
+
+
+
 void gnss5_acquire(void){
 
 }

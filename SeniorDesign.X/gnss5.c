@@ -13,6 +13,12 @@
 
 #include "gnss5.h"
 
+// ************************************************************
+//
+//  This function acquires the current coordinates from the 
+//  GNSS 5 Click module.
+//
+// ************************************************************
 void gnss5_acquire(void){
     
 }

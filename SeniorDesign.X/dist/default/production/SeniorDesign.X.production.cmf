@@ -11,6 +11,10 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
+$/tmp/xc7TEk5tO.o
+reset_vec CODE 0 0 0 2 2
+end_init CODE 0 2 2 2 2
+config CONFIG 0 8007 8007 5 2
 $dist/default/production/SeniorDesign.X.production.o
 cinit CODE 0 7DC 7DC 24 2
 text1 CODE 0 6E4 6E4 30 2
@@ -40,10 +44,6 @@ idataBANK0 CODE 0 637 637 3 2
 dataBANK0 BANK0 1 27 27 3 1
 dataCOMMON COMMON 1 7D 7D 1 1
 clrtext CODE 0 69F 69F C 2
-$/tmp/xcH6oAIy3.o
-reset_vec CODE 0 0 0 2 2
-end_init CODE 0 2 2 2 2
-config CONFIG 0 8007 8007 5 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -132,35 +132,35 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/SeniorDesign.X.production.o
-7DC cinit CODE >11242:/tmp/xcoE4FGZ6
-7DC cinit CODE >11245:/tmp/xcoE4FGZ6
-7DC cinit CODE >11295:/tmp/xcoE4FGZ6
-7DF cinit CODE >11296:/tmp/xcoE4FGZ6
-7E0 cinit CODE >11300:/tmp/xcoE4FGZ6
-7E3 cinit CODE >11301:/tmp/xcoE4FGZ6
-7E4 cinit CODE >11302:/tmp/xcoE4FGZ6
-7E7 cinit CODE >11303:/tmp/xcoE4FGZ6
-7E8 cinit CODE >11304:/tmp/xcoE4FGZ6
-7EB cinit CODE >11305:/tmp/xcoE4FGZ6
-7EC cinit CODE >11328:/tmp/xcoE4FGZ6
-7ED cinit CODE >11329:/tmp/xcoE4FGZ6
-7EE cinit CODE >11330:/tmp/xcoE4FGZ6
-7EF cinit CODE >11331:/tmp/xcoE4FGZ6
-7F0 cinit CODE >11332:/tmp/xcoE4FGZ6
-7F1 cinit CODE >11333:/tmp/xcoE4FGZ6
-7F2 cinit CODE >11334:/tmp/xcoE4FGZ6
-7F3 cinit CODE >11335:/tmp/xcoE4FGZ6
-7F4 cinit CODE >11336:/tmp/xcoE4FGZ6
-7F6 cinit CODE >11340:/tmp/xcoE4FGZ6
-7F7 cinit CODE >11341:/tmp/xcoE4FGZ6
-7F8 cinit CODE >11342:/tmp/xcoE4FGZ6
-7F9 cinit CODE >11343:/tmp/xcoE4FGZ6
-7FA cinit CODE >11344:/tmp/xcoE4FGZ6
-7FB cinit CODE >11345:/tmp/xcoE4FGZ6
-7FC cinit CODE >11346:/tmp/xcoE4FGZ6
-7FD cinit CODE >11352:/tmp/xcoE4FGZ6
-7FD cinit CODE >11354:/tmp/xcoE4FGZ6
-7FE cinit CODE >11355:/tmp/xcoE4FGZ6
+7DC cinit CODE >11242:/tmp/xcjrDlTZV
+7DC cinit CODE >11245:/tmp/xcjrDlTZV
+7DC cinit CODE >11295:/tmp/xcjrDlTZV
+7DF cinit CODE >11296:/tmp/xcjrDlTZV
+7E0 cinit CODE >11300:/tmp/xcjrDlTZV
+7E3 cinit CODE >11301:/tmp/xcjrDlTZV
+7E4 cinit CODE >11302:/tmp/xcjrDlTZV
+7E7 cinit CODE >11303:/tmp/xcjrDlTZV
+7E8 cinit CODE >11304:/tmp/xcjrDlTZV
+7EB cinit CODE >11305:/tmp/xcjrDlTZV
+7EC cinit CODE >11328:/tmp/xcjrDlTZV
+7ED cinit CODE >11329:/tmp/xcjrDlTZV
+7EE cinit CODE >11330:/tmp/xcjrDlTZV
+7EF cinit CODE >11331:/tmp/xcjrDlTZV
+7F0 cinit CODE >11332:/tmp/xcjrDlTZV
+7F1 cinit CODE >11333:/tmp/xcjrDlTZV
+7F2 cinit CODE >11334:/tmp/xcjrDlTZV
+7F3 cinit CODE >11335:/tmp/xcjrDlTZV
+7F4 cinit CODE >11336:/tmp/xcjrDlTZV
+7F6 cinit CODE >11340:/tmp/xcjrDlTZV
+7F7 cinit CODE >11341:/tmp/xcjrDlTZV
+7F8 cinit CODE >11342:/tmp/xcjrDlTZV
+7F9 cinit CODE >11343:/tmp/xcjrDlTZV
+7FA cinit CODE >11344:/tmp/xcjrDlTZV
+7FB cinit CODE >11345:/tmp/xcjrDlTZV
+7FC cinit CODE >11346:/tmp/xcjrDlTZV
+7FD cinit CODE >11352:/tmp/xcjrDlTZV
+7FD cinit CODE >11354:/tmp/xcjrDlTZV
+7FE cinit CODE >11355:/tmp/xcjrDlTZV
 644 text19 CODE >22:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
 644 text19 CODE >23:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
 647 text19 CODE >24:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
@@ -171,65 +171,65 @@ $dist/default/production/SeniorDesign.X.production.o
 750 text18 CODE >42:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
 751 text18 CODE >43:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
 752 text18 CODE >44:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-753 text18 CODE >47:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-755 text18 CODE >48:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-757 text18 CODE >49:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-759 text18 CODE >50:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-75A text18 CODE >51:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-75B text18 CODE >54:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-75C text18 CODE >55:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-75D text18 CODE >56:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-75E text18 CODE >57:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-75F text18 CODE >58:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-760 text18 CODE >61:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-761 text18 CODE >62:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-762 text18 CODE >63:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-763 text18 CODE >64:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-764 text18 CODE >65:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-765 text18 CODE >68:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-767 text18 CODE >69:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-768 text18 CODE >70:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-769 text18 CODE >71:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-76A text18 CODE >74:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-76D text18 CODE >75:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-76F text18 CODE >76:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-770 text18 CODE >79:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-773 text18 CODE >80:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-776 text18 CODE >83:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-778 text18 CODE >84:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-77B text18 CODE >85:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-77D text18 CODE >88:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-780 text18 CODE >89:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-783 text18 CODE >90:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-785 text18 CODE >93:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-788 text18 CODE >94:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-78A text18 CODE >95:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-78B text18 CODE >98:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-78D text18 CODE >99:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-78E text18 CODE >100:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-78F text18 CODE >101:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-790 text18 CODE >104:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-791 text18 CODE >105:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-6C5 text17 CODE >116:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-6C5 text17 CODE >119:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-6C7 text17 CODE >120:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-6C8 text17 CODE >121:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-6C9 text17 CODE >122:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-6CA text17 CODE >125:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-6CD text17 CODE >126:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-6CF text17 CODE >127:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-6D0 text17 CODE >131:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-6D2 text17 CODE >132:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-6D5 text17 CODE >133:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-6D7 text17 CODE >136:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-6DA text17 CODE >137:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-6DC text17 CODE >138:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-6DD text17 CODE >141:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-6DF text17 CODE >142:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-6E0 text17 CODE >143:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-6E1 text17 CODE >144:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-6E2 text17 CODE >147:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
-6E3 text17 CODE >148:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+753 text18 CODE >48:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+755 text18 CODE >49:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+757 text18 CODE >50:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+759 text18 CODE >51:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+75A text18 CODE >52:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+75B text18 CODE >55:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+75C text18 CODE >56:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+75D text18 CODE >57:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+75E text18 CODE >58:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+75F text18 CODE >59:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+760 text18 CODE >62:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+761 text18 CODE >63:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+762 text18 CODE >64:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+763 text18 CODE >65:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+764 text18 CODE >66:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+765 text18 CODE >69:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+767 text18 CODE >70:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+768 text18 CODE >71:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+769 text18 CODE >72:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+76A text18 CODE >75:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+76D text18 CODE >76:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+76F text18 CODE >77:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+770 text18 CODE >80:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+773 text18 CODE >81:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+776 text18 CODE >84:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+778 text18 CODE >85:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+77B text18 CODE >86:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+77D text18 CODE >89:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+780 text18 CODE >90:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+783 text18 CODE >91:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+785 text18 CODE >94:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+788 text18 CODE >95:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+78A text18 CODE >96:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+78B text18 CODE >99:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+78D text18 CODE >100:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+78E text18 CODE >101:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+78F text18 CODE >102:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+790 text18 CODE >105:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+791 text18 CODE >106:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+6C5 text17 CODE >117:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+6C5 text17 CODE >120:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+6C7 text17 CODE >121:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+6C8 text17 CODE >122:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+6C9 text17 CODE >123:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+6CA text17 CODE >126:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+6CD text17 CODE >127:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+6CF text17 CODE >128:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+6D0 text17 CODE >132:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+6D2 text17 CODE >133:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+6D5 text17 CODE >134:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+6D7 text17 CODE >137:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+6DA text17 CODE >138:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+6DC text17 CODE >139:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+6DD text17 CODE >142:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+6DF text17 CODE >143:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+6E0 text17 CODE >144:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+6E1 text17 CODE >145:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+6E2 text17 CODE >148:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
+6E3 text17 CODE >149:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/config.c
 651 text16 CODE >81:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/serial_spi.c
 651 text16 CODE >83:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/serial_spi.c
 654 text16 CODE >84:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/serial_spi.c
@@ -252,10 +252,10 @@ $dist/default/production/SeniorDesign.X.production.o
 69A text13 CODE >33:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/serial_uart.c
 69C text13 CODE >34:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/serial_uart.c
 69E text13 CODE >36:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/serial_uart.c
-634 text12 CODE >17:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/arducam.c
-634 text12 CODE >19:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/arducam.c
-635 text11 CODE >16:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/gnss5.c
-635 text11 CODE >18:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/gnss5.c
+634 text12 CODE >23:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/arducam.c
+634 text12 CODE >25:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/arducam.c
+635 text11 CODE >22:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/gnss5.c
+635 text11 CODE >24:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/gnss5.c
 669 text10 CODE >25:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/serial_i2c.c
 669 text10 CODE >27:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/serial_i2c.c
 66C text10 CODE >28:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/serial_i2c.c
@@ -345,20 +345,20 @@ $dist/default/production/SeniorDesign.X.production.o
 742 maintext CODE >117:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/main.c
 745 maintext CODE >120:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/main.c
 749 maintext CODE >123:/Users/colehinton/Desktop/droneTeam/SeniorDesign.X/main.c
-69F clrtext CODE >11311:/tmp/xcoE4FGZ6
-69F clrtext CODE >11312:/tmp/xcoE4FGZ6
-6A0 clrtext CODE >11313:/tmp/xcoE4FGZ6
-6A0 clrtext CODE >11314:/tmp/xcoE4FGZ6
-6A1 clrtext CODE >11315:/tmp/xcoE4FGZ6
-6A2 clrtext CODE >11316:/tmp/xcoE4FGZ6
-6A3 clrtext CODE >11317:/tmp/xcoE4FGZ6
-6A4 clrtext CODE >11318:/tmp/xcoE4FGZ6
-6A5 clrtext CODE >11319:/tmp/xcoE4FGZ6
-6A6 clrtext CODE >11320:/tmp/xcoE4FGZ6
-6A7 clrtext CODE >11321:/tmp/xcoE4FGZ6
-6A8 clrtext CODE >11322:/tmp/xcoE4FGZ6
-6A9 clrtext CODE >11324:/tmp/xcoE4FGZ6
-6AA clrtext CODE >11323:/tmp/xcoE4FGZ6
+69F clrtext CODE >11311:/tmp/xcjrDlTZV
+69F clrtext CODE >11312:/tmp/xcjrDlTZV
+6A0 clrtext CODE >11313:/tmp/xcjrDlTZV
+6A0 clrtext CODE >11314:/tmp/xcjrDlTZV
+6A1 clrtext CODE >11315:/tmp/xcjrDlTZV
+6A2 clrtext CODE >11316:/tmp/xcjrDlTZV
+6A3 clrtext CODE >11317:/tmp/xcjrDlTZV
+6A4 clrtext CODE >11318:/tmp/xcjrDlTZV
+6A5 clrtext CODE >11319:/tmp/xcjrDlTZV
+6A6 clrtext CODE >11320:/tmp/xcjrDlTZV
+6A7 clrtext CODE >11321:/tmp/xcjrDlTZV
+6A8 clrtext CODE >11322:/tmp/xcjrDlTZV
+6A9 clrtext CODE >11324:/tmp/xcjrDlTZV
+6AA clrtext CODE >11323:/tmp/xcjrDlTZV
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -392,10 +392,10 @@ _LATC 18 0 ABS 0 - dist/default/production/SeniorDesign.X.production.o
 _LATD 19 0 ABS 0 - dist/default/production/SeniorDesign.X.production.o
 _LATE 1A 0 ABS 0 - dist/default/production/SeniorDesign.X.production.o
 _PIR3 70F 0 ABS 0 - dist/default/production/SeniorDesign.X.production.o
-___sp 0 0 STACK 2 stack /tmp/xcH6oAIy3.o
+___sp 0 0 STACK 2 stack /tmp/xc7TEk5tO.o
 _main E28 0 CODE 0 maintext dist/default/production/SeniorDesign.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production/SeniorDesign.X.production.o
-start 4 0 CODE 0 init /tmp/xcH6oAIy3.o
+start 4 0 CODE 0 init /tmp/xc7TEk5tO.o
 _packet_index 7D 0 COMMON 1 dataCOMMON dist/default/production/SeniorDesign.X.production.o
 __end_of_i2c_stop C88 0 CODE 0 text5 dist/default/production/SeniorDesign.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production/SeniorDesign.X.production.o
@@ -407,12 +407,12 @@ __size_of_SPI_Write 0 0 ABS 0 - dist/default/production/SeniorDesign.X.productio
 __Hpowerup 0 0 CODE 0 powerup -
 _i2c_waitForIdle CFA 0 CODE 0 text7 dist/default/production/SeniorDesign.X.production.o
 __HdataCOMMON 0 0 ABS 0 dataCOMMON -
-intlevel0 0 0 ENTRY 0 functab /tmp/xcH6oAIy3.o
-intlevel1 0 0 ENTRY 0 functab /tmp/xcH6oAIy3.o
-intlevel2 0 0 ENTRY 0 functab /tmp/xcH6oAIy3.o
-intlevel3 0 0 ENTRY 0 functab /tmp/xcH6oAIy3.o
-intlevel4 0 0 ENTRY 0 functab /tmp/xcH6oAIy3.o
-intlevel5 0 0 ENTRY 0 functab /tmp/xcH6oAIy3.o
+intlevel0 0 0 ENTRY 0 functab /tmp/xc7TEk5tO.o
+intlevel1 0 0 ENTRY 0 functab /tmp/xc7TEk5tO.o
+intlevel2 0 0 ENTRY 0 functab /tmp/xc7TEk5tO.o
+intlevel3 0 0 ENTRY 0 functab /tmp/xc7TEk5tO.o
+intlevel4 0 0 ENTRY 0 functab /tmp/xc7TEk5tO.o
+intlevel5 0 0 ENTRY 0 functab /tmp/xc7TEk5tO.o
 _SPI_Write CE4 0 CODE 0 text9 dist/default/production/SeniorDesign.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production/SeniorDesign.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -439,8 +439,8 @@ __end_of_i2c_write CD2 0 CODE 0 text4 dist/default/production/SeniorDesign.X.pro
 __size_of_i2c_start 0 0 ABS 0 - dist/default/production/SeniorDesign.X.production.o
 __size_of_i2c_write 0 0 ABS 0 - dist/default/production/SeniorDesign.X.production.o
 __CFG_FEXTOSC$OFF 0 0 ABS 0 - dist/default/production/SeniorDesign.X.production.o
-___stackhi 234B 0 ABS 0 - /tmp/xcH6oAIy3.o
-___stacklo 200A 0 ABS 0 - /tmp/xcH6oAIy3.o
+___stackhi 234B 0 ABS 0 - /tmp/xc7TEk5tO.o
+___stacklo 200A 0 ABS 0 - /tmp/xc7TEk5tO.o
 __LidataCOMMON 0 0 ABS 0 idataCOMMON -
 _SPI_ETHWIZ_Write D10 0 CODE 0 text2 dist/default/production/SeniorDesign.X.production.o
 _i2c_start C74 0 CODE 0 text6 dist/default/production/SeniorDesign.X.production.o
@@ -468,7 +468,7 @@ __end_of_UART_Initialize D3E 0 CODE 0 text13 dist/default/production/SeniorDesig
 _TX1REG 11A 0 ABS 0 - dist/default/production/SeniorDesign.X.production.o
 _TX1STA 11E 0 ABS 0 - dist/default/production/SeniorDesign.X.production.o
 _SPI_Arducam_Initialize CA2 0 CODE 0 text16 dist/default/production/SeniorDesign.X.production.o
-___int_sp 0 0 STACK 2 stack /tmp/xcH6oAIy3.o
+___int_sp 0 0 STACK 2 stack /tmp/xc7TEk5tO.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -568,7 +568,7 @@ __Lsfr29 0 0 ABS 0 sfr29 -
 __Lsfr30 0 0 ABS 0 sfr30 -
 __Lsfr31 0 0 ABS 0 sfr31 -
 __Lstack 0 0 STACK 2 stack -
-_PORTBbits D 0 ABS 0 - dist/default/production/SeniorDesign.X.production.o
+_PORTCbits E 0 ABS 0 - dist/default/production/SeniorDesign.X.production.o
 _PORTDbits F 0 ABS 0 - dist/default/production/SeniorDesign.X.production.o
 __size_of_SPI_FLIR_Initialize 0 0 ABS 0 - dist/default/production/SeniorDesign.X.production.o
 _INTCONbits B 0 ABS 0 - dist/default/production/SeniorDesign.X.production.o
@@ -620,7 +620,7 @@ __HidataCOMMON 0 0 ABS 0 idataCOMMON -
 __end_of_arducam_initialize C6A 0 CODE 0 text12 dist/default/production/SeniorDesign.X.production.o
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production/SeniorDesign.X.production.o
 __Lintentry 4 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcH6oAIy3.o
+reset_vec 0 0 CODE 0 reset_vec /tmp/xc7TEk5tO.o
 _SPI_FLIR_Initialize C94 0 CODE 0 text14 dist/default/production/SeniorDesign.X.production.o
 __pdataBANK0 27 0 BANK0 1 dataBANK0 dist/default/production/SeniorDesign.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -

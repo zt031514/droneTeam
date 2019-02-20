@@ -21038,18 +21038,23 @@ extern uint8_t SPI_Write(uint8_t data);
 # 15 "arducam.c" 2
 
 
+
+
+
+
+
+
 void arducam_initialize(void){
 
 }
-
-
+# 34 "arducam.c"
 void arducam_capture(void){
 
     uint8_t data = SPI_Write(0x00);
 
 
 }
-
+# 49 "arducam.c"
 void arducam_send(void){
 
 }

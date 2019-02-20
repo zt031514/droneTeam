@@ -21079,8 +21079,9 @@ void PORT_PIN_Initialize1(void) {
     ANSELE = 0x00;
 
 
+
     TRISA = 0x00;
-    TRISB = 0b01100100;
+    TRISB = 0b01100101;
     TRISC = 0b10011000;
     TRISD = 0x00;
     TRISE = 0x00;
@@ -21138,7 +21139,7 @@ void PORT_PIN_Initialize1(void) {
 
     PIR3 = 0;
 }
-# 116 "config.c"
+# 117 "config.c"
 void PORT_PIN_Initialize2(void) {
 
 

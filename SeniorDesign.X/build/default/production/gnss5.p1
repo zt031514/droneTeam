@@ -1637,13 +1637,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36645
 [; ;/Applications/microchip/xc8/v2.05/pic/include/pic16f18875.h: 36645: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
-"16 gnss5.c
-[; ;gnss5.c: 16: void gnss5_acquire(void){
+"22 gnss5.c
+[; ;gnss5.c: 22: void gnss5_acquire(void){
 [v _gnss5_acquire `(v ~T0 @X0 1 ef ]
 {
 [e :U _gnss5_acquire ]
 [f ]
-"18
-[; ;gnss5.c: 18: }
+"24
+[; ;gnss5.c: 24: }
 [e :UE 1627 ]
 }

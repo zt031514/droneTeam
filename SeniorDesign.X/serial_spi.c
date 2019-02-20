@@ -24,8 +24,12 @@
 // ************************************************************
 void SPI_ETHWIZ_Initialize(void) {
     
-    SSP2STAT = 0x40;    //not done
-    SSP2CON1 = 0x20;    //not done
+    SSP2STAT = 0x40;    //Sets sampling to middle of data output time and
+                        //sets CLK Edge for transmit on transition from active
+                        //to idle state - CMH
+    
+    SSP2CON1 = 0x20;    //Enables SPI as Master, Sets CLK Idle to low, and
+                        //CLK = Fosc/4 = 8MHz - CMH
     
     SSP2IF = 0;         //Clear interrupt flag - CMH
   
@@ -63,8 +67,12 @@ uint8_t SPI_ETHWIZ_Write(uint8_t data) {
 // ************************************************************
 void SPI_FLIR_Initialize(void) {
     
-    SSP1STAT = 0x00;        //Comment not done - CMH
-    SSP1CON1 = 0x30;        //Comment not done - CMH
+    SSP1STAT = 0x00;    //Sets sampling to middle of data output time and
+                        //sets CLK Edge for transmit on transition from idle
+                        //to active state - CMH
+    
+    SSP1CON1 = 0x30;    //Enables SPI as Master, Sets CLK Idle to high, and
+                        //CLK = Fosc/4 = 8MHz - CMH
     
     SSP1IF = 0;             //Clear interrupt flag - CMH
   
@@ -80,10 +88,14 @@ void SPI_FLIR_Initialize(void) {
 // ************************************************************
 void SPI_Arducam_Initialize(void) {
     
-    SSP1STAT = 0x40;        //Comment not done - CMH
-    SSP1CON1 = 0x20;        //Comment not done - CMH
+    SSP1STAT = 0x40;    //Sets sampling to middle of data output time and
+                        //sets CLK Edge for transmit on transition from active
+                        //to idle state - CMH
+    
+    SSP1CON1 = 0x20;    //Enables SPI as Master, Sets CLK Idle to low, and
+                        //CLK = Fosc/4 = 8MHz - CMHH
             
-    SSP1IF = 0;             //Clear interrupt flag - CMH
+    SSP1IF = 0;         //Clear interrupt flag - CMH
   
 }
 

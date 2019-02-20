@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=/Applications/microchip/xc8/v2.05/pic/dat/en_msgs.txt -cs \
   -h+dist/default/production/SeniorDesign.X.production.sym \
   --cmf=dist/default/production/SeniorDesign.X.production.cmf -z -Q16F18875 \
-  -o/tmp/xcGWOUvAY --defsym=__MPLAB_BUILD=1 \
+  -o/tmp/xc6oatAPv --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/SeniorDesign.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=0200Ah-0234Bh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -31,7 +31,7 @@ Linker command line:
   -pcinit=CODE -pfunctab=ENTRY -ACONFIG=08007h-0800Bh -pconfig=CONFIG \
   -DCONFIG=2 -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 \
   -AEEDATA=00h-0FFh/0F000h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
-  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/xcH6oAIy3.o \
+  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/xc7TEk5tO.o \
   dist/default/production/SeniorDesign.X.production.o 
 
 Object code version is 3.11
@@ -41,7 +41,7 @@ Machine type is 16F18875
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcH6oAIy3.o
+/tmp/xc7TEk5tO.o
                 end_init                              2        2        2        0       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        5    1000E       0
@@ -399,8 +399,8 @@ _PIR3                            (abs)        0070F
 _PIR3bits                        (abs)        0070F
 _PORTA                           (abs)        0000C
 _PORTB                           (abs)        0000D
-_PORTBbits                       (abs)        0000D
 _PORTC                           (abs)        0000E
+_PORTCbits                       (abs)        0000E
 _PORTD                           (abs)        0000F
 _PORTDbits                       (abs)        0000F
 _PORTE                           (abs)        00010
@@ -1118,7 +1118,7 @@ Total ram usage:        0 bytes
 
  *************** function _gnss5_acquire *****************
  Defined at:
-		line 16 in file "gnss5.c"
+		line 22 in file "gnss5.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1147,7 +1147,7 @@ Total ram usage:        0 bytes
 
  *************** function _arducam_initialize *****************
  Defined at:
-		line 17 in file "arducam.c"
+		line 23 in file "arducam.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1292,7 +1292,7 @@ Total ram usage:        0 bytes
 
  *************** function _PORT_PIN_Initialize2 *****************
  Defined at:
-		line 116 in file "config.c"
+		line 117 in file "config.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type

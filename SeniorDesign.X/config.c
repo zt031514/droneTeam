@@ -43,9 +43,10 @@ void PORT_PIN_Initialize1(void) {
     ANSELD = 0x00;
     ANSELE = 0x00;
     
-    //not done
+    //Set up each pin to either be an input(1) or an output(0) based on
+    //its necessary function. Each binary value corresponds to a port - CMH
     TRISA = 0x00;
-    TRISB = 0b01100100;
+    TRISB = 0b01100101;
     TRISC = 0b10011000;
     TRISD = 0x00;
     TRISE = 0x00;

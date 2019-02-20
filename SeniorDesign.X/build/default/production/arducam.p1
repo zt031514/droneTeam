@@ -1640,37 +1640,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36645
 [; ;/Applications/microchip/xc8/v2.05/pic/include/pic16f18875.h: 36645: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
-"17 arducam.c
-[; ;arducam.c: 17: void arducam_initialize(void){
+"23 arducam.c
+[; ;arducam.c: 23: void arducam_initialize(void){
 [v _arducam_initialize `(v ~T0 @X0 1 ef ]
 {
 [e :U _arducam_initialize ]
 [f ]
-"19
-[; ;arducam.c: 19: }
+"25
+[; ;arducam.c: 25: }
 [e :UE 1627 ]
 }
-"22
-[; ;arducam.c: 22: void arducam_capture(void){
+"34
+[; ;arducam.c: 34: void arducam_capture(void){
 [v _arducam_capture `(v ~T0 @X0 1 ef ]
 {
 [e :U _arducam_capture ]
 [f ]
-"24
-[; ;arducam.c: 24:     uint8_t data = SPI_Write(0x00);
+"36
+[; ;arducam.c: 36:     uint8_t data = SPI_Write(0x00);
 [v _data `uc ~T0 @X0 1 a ]
 [e = _data ( _SPI_Write (1 -> -> 0 `i `uc ]
-"27
-[; ;arducam.c: 27: }
+"39
+[; ;arducam.c: 39: }
 [e :UE 1628 ]
 }
-"29
-[; ;arducam.c: 29: void arducam_send(void){
+"49
+[; ;arducam.c: 49: void arducam_send(void){
 [v _arducam_send `(v ~T0 @X0 1 ef ]
 {
 [e :U _arducam_send ]
 [f ]
-"31
-[; ;arducam.c: 31: }
+"51
+[; ;arducam.c: 51: }
 [e :UE 1629 ]
 }

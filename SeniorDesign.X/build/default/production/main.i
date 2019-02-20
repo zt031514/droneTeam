@@ -21172,7 +21172,7 @@ int main(int argc, char** argv)
     PIR3bits.RCIF = 0;
 
 
-    PORTBbits.RB4 = 1;
+    PORTCbits.RC0 = 1;
     PORTDbits.RD1 = 1;
     PORTDbits.RD3 = 1;
 
@@ -21244,12 +21244,12 @@ void lepton_capture_packet(void){
 
     for(int i = 0; i < packet_length; i++){
 
-        PORTBbits.RB4 = 0;
+        PORTCbits.RC0 = 0;
 
         image_packet[i] = SPI_Write(0x00);
 
 
-        PORTBbits.RB4 = 1;
+        PORTCbits.RC0 = 1;
     }
 
     if((image_packet[0]&0x0F) == 0x0F){

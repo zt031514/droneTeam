@@ -1864,185 +1864,185 @@ Version 4.0 HI-TECH Software Intermediate Code
 "44
 [; ;config.c: 44:     ANSELE = 0x00;
 [e = _ANSELE -> -> 0 `i `uc ]
-"47
-[; ;config.c: 47:     TRISA = 0x00;
-[e = _TRISA -> -> 0 `i `uc ]
 "48
-[; ;config.c: 48:     TRISB = 0b01100100;
-[e = _TRISB -> -> 100 `i `uc ]
+[; ;config.c: 48:     TRISA = 0x00;
+[e = _TRISA -> -> 0 `i `uc ]
 "49
-[; ;config.c: 49:     TRISC = 0b10011000;
-[e = _TRISC -> -> 152 `i `uc ]
+[; ;config.c: 49:     TRISB = 0b01100101;
+[e = _TRISB -> -> 101 `i `uc ]
 "50
-[; ;config.c: 50:     TRISD = 0x00;
-[e = _TRISD -> -> 0 `i `uc ]
+[; ;config.c: 50:     TRISC = 0b10011000;
+[e = _TRISC -> -> 152 `i `uc ]
 "51
-[; ;config.c: 51:     TRISE = 0x00;
+[; ;config.c: 51:     TRISD = 0x00;
+[e = _TRISD -> -> 0 `i `uc ]
+"52
+[; ;config.c: 52:     TRISE = 0x00;
 [e = _TRISE -> -> 0 `i `uc ]
-"54
-[; ;config.c: 54:     PORTA = 0x00;
-[e = _PORTA -> -> 0 `i `uc ]
 "55
-[; ;config.c: 55:     PORTB = 0x00;
-[e = _PORTB -> -> 0 `i `uc ]
+[; ;config.c: 55:     PORTA = 0x00;
+[e = _PORTA -> -> 0 `i `uc ]
 "56
-[; ;config.c: 56:     PORTC = 0x00;
-[e = _PORTC -> -> 0 `i `uc ]
+[; ;config.c: 56:     PORTB = 0x00;
+[e = _PORTB -> -> 0 `i `uc ]
 "57
-[; ;config.c: 57:     PORTD = 0x00;
-[e = _PORTD -> -> 0 `i `uc ]
+[; ;config.c: 57:     PORTC = 0x00;
+[e = _PORTC -> -> 0 `i `uc ]
 "58
-[; ;config.c: 58:     PORTE = 0x00;
+[; ;config.c: 58:     PORTD = 0x00;
+[e = _PORTD -> -> 0 `i `uc ]
+"59
+[; ;config.c: 59:     PORTE = 0x00;
 [e = _PORTE -> -> 0 `i `uc ]
-"61
-[; ;config.c: 61:     LATA = 0x00;
-[e = _LATA -> -> 0 `i `uc ]
 "62
-[; ;config.c: 62:     LATB = 0x00;
-[e = _LATB -> -> 0 `i `uc ]
+[; ;config.c: 62:     LATA = 0x00;
+[e = _LATA -> -> 0 `i `uc ]
 "63
-[; ;config.c: 63:     LATC = 0x00;
-[e = _LATC -> -> 0 `i `uc ]
+[; ;config.c: 63:     LATB = 0x00;
+[e = _LATB -> -> 0 `i `uc ]
 "64
-[; ;config.c: 64:     LATD = 0x00;
-[e = _LATD -> -> 0 `i `uc ]
+[; ;config.c: 64:     LATC = 0x00;
+[e = _LATC -> -> 0 `i `uc ]
 "65
-[; ;config.c: 65:     LATE = 0x00;
+[; ;config.c: 65:     LATD = 0x00;
+[e = _LATD -> -> 0 `i `uc ]
+"66
+[; ;config.c: 66:     LATE = 0x00;
 [e = _LATE -> -> 0 `i `uc ]
-"68
-[; ;config.c: 68:     PIE3bits.RCIE = 0;
-[e = . . _PIE3bits 0 5 -> -> 0 `i `uc ]
 "69
-[; ;config.c: 69:     INTCONbits.PEIE = 0;
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;config.c: 69:     PIE3bits.RCIE = 0;
+[e = . . _PIE3bits 0 5 -> -> 0 `i `uc ]
 "70
-[; ;config.c: 70:     INTCONbits.GIE = 0;
-[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
+[; ;config.c: 70:     INTCONbits.PEIE = 0;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
 "71
-[; ;config.c: 71:     PIE0bits.IOCIE = 0;
+[; ;config.c: 71:     INTCONbits.GIE = 0;
+[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
+"72
+[; ;config.c: 72:     PIE0bits.IOCIE = 0;
 [e = . . _PIE0bits 0 2 -> -> 0 `i `uc ]
-"74
-[; ;config.c: 74:     PPSLOCK = 0x55;
-[e = _PPSLOCK -> -> 85 `i `uc ]
 "75
-[; ;config.c: 75:     PPSLOCK = 0xAA;
-[e = _PPSLOCK -> -> 170 `i `uc ]
-"76
-[; ;config.c: 76:     PPSLOCKbits.PPSLOCKED = 0;
-[e = . . _PPSLOCKbits 0 0 -> -> 0 `i `uc ]
-"79
-[; ;config.c: 79:     RC6PPS = 0x10;
-[e = _RC6PPS -> -> 16 `i `uc ]
-"80
-[; ;config.c: 80:     RXPPS = 0x17;
-[e = _RXPPS -> -> 23 `i `uc ]
-"83
-[; ;config.c: 83:     SSP1DATPPS = 0x11;
-[e = _SSP1DATPPS -> -> 17 `i `uc ]
-"84
-[; ;config.c: 84:     RB7PPS = 0x14;
-[e = _RB7PPS -> -> 20 `i `uc ]
-"85
-[; ;config.c: 85:     RC1PPS = 0x15;
-[e = _RC1PPS -> -> 21 `i `uc ]
-"88
-[; ;config.c: 88:     SSP2DATPPS = 0x14;
-[e = _SSP2DATPPS -> -> 20 `i `uc ]
-"89
-[; ;config.c: 89:     RC3PPS = 0x16;
-[e = _RC3PPS -> -> 22 `i `uc ]
-"90
-[; ;config.c: 90:     RC4PPS = 0x17;
-[e = _RC4PPS -> -> 23 `i `uc ]
-"93
-[; ;config.c: 93:     PPSLOCK = 0x55;
+[; ;config.c: 75:     PPSLOCK = 0x55;
 [e = _PPSLOCK -> -> 85 `i `uc ]
-"94
-[; ;config.c: 94:     PPSLOCK = 0xAA;
+"76
+[; ;config.c: 76:     PPSLOCK = 0xAA;
 [e = _PPSLOCK -> -> 170 `i `uc ]
+"77
+[; ;config.c: 77:     PPSLOCKbits.PPSLOCKED = 0;
+[e = . . _PPSLOCKbits 0 0 -> -> 0 `i `uc ]
+"80
+[; ;config.c: 80:     RC6PPS = 0x10;
+[e = _RC6PPS -> -> 16 `i `uc ]
+"81
+[; ;config.c: 81:     RXPPS = 0x17;
+[e = _RXPPS -> -> 23 `i `uc ]
+"84
+[; ;config.c: 84:     SSP1DATPPS = 0x11;
+[e = _SSP1DATPPS -> -> 17 `i `uc ]
+"85
+[; ;config.c: 85:     RB7PPS = 0x14;
+[e = _RB7PPS -> -> 20 `i `uc ]
+"86
+[; ;config.c: 86:     RC1PPS = 0x15;
+[e = _RC1PPS -> -> 21 `i `uc ]
+"89
+[; ;config.c: 89:     SSP2DATPPS = 0x14;
+[e = _SSP2DATPPS -> -> 20 `i `uc ]
+"90
+[; ;config.c: 90:     RC3PPS = 0x16;
+[e = _RC3PPS -> -> 22 `i `uc ]
+"91
+[; ;config.c: 91:     RC4PPS = 0x17;
+[e = _RC4PPS -> -> 23 `i `uc ]
+"94
+[; ;config.c: 94:     PPSLOCK = 0x55;
+[e = _PPSLOCK -> -> 85 `i `uc ]
 "95
-[; ;config.c: 95:     PPSLOCKbits.PPSLOCKED = 1;
+[; ;config.c: 95:     PPSLOCK = 0xAA;
+[e = _PPSLOCK -> -> 170 `i `uc ]
+"96
+[; ;config.c: 96:     PPSLOCKbits.PPSLOCKED = 1;
 [e = . . _PPSLOCKbits 0 0 -> -> 1 `i `uc ]
-"98
-[; ;config.c: 98:     PIE3bits.RCIE = 1;
-[e = . . _PIE3bits 0 5 -> -> 1 `i `uc ]
 "99
-[; ;config.c: 99:     INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 0 2 -> -> 1 `i `uc ]
+[; ;config.c: 99:     PIE3bits.RCIE = 1;
+[e = . . _PIE3bits 0 5 -> -> 1 `i `uc ]
 "100
-[; ;config.c: 100:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+[; ;config.c: 100:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 0 2 -> -> 1 `i `uc ]
 "101
-[; ;config.c: 101:     PIE0bits.IOCIE = 1;
+[; ;config.c: 101:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+"102
+[; ;config.c: 102:     PIE0bits.IOCIE = 1;
 [e = . . _PIE0bits 0 2 -> -> 1 `i `uc ]
-"104
-[; ;config.c: 104:     PIR3 = 0;
-[e = _PIR3 -> -> 0 `i `uc ]
 "105
-[; ;config.c: 105: }
+[; ;config.c: 105:     PIR3 = 0;
+[e = _PIR3 -> -> 0 `i `uc ]
+"106
+[; ;config.c: 106: }
 [e :UE 1628 ]
 }
-"116
-[; ;config.c: 116: void PORT_PIN_Initialize2(void) {
+"117
+[; ;config.c: 117: void PORT_PIN_Initialize2(void) {
 [v _PORT_PIN_Initialize2 `(v ~T0 @X0 1 ef ]
 {
 [e :U _PORT_PIN_Initialize2 ]
 [f ]
-"119
-[; ;config.c: 119:     PIE3bits.RCIE = 0;
-[e = . . _PIE3bits 0 5 -> -> 0 `i `uc ]
 "120
-[; ;config.c: 120:     INTCONbits.PEIE = 0;
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;config.c: 120:     PIE3bits.RCIE = 0;
+[e = . . _PIE3bits 0 5 -> -> 0 `i `uc ]
 "121
-[; ;config.c: 121:     INTCONbits.GIE = 0;
-[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
+[; ;config.c: 121:     INTCONbits.PEIE = 0;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
 "122
-[; ;config.c: 122:     PIE0bits.IOCIE = 0;
+[; ;config.c: 122:     INTCONbits.GIE = 0;
+[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
+"123
+[; ;config.c: 123:     PIE0bits.IOCIE = 0;
 [e = . . _PIE0bits 0 2 -> -> 0 `i `uc ]
-"125
-[; ;config.c: 125:     PPSLOCK = 0x55;
-[e = _PPSLOCK -> -> 85 `i `uc ]
 "126
-[; ;config.c: 126:     PPSLOCK = 0xAA;
-[e = _PPSLOCK -> -> 170 `i `uc ]
-"127
-[; ;config.c: 127:     PPSLOCKbits.PPSLOCKED = 0;
-[e = . . _PPSLOCKbits 0 0 -> -> 0 `i `uc ]
-"131
-[; ;config.c: 131:     SSP2DATPPS = 0x0A;
-[e = _SSP2DATPPS -> -> 10 `i `uc ]
-"132
-[; ;config.c: 132:     RB1PPS = 0x16;
-[e = _RB1PPS -> -> 22 `i `uc ]
-"133
-[; ;config.c: 133:     RB3PPS = 0x17;
-[e = _RB3PPS -> -> 23 `i `uc ]
-"136
-[; ;config.c: 136:     PPSLOCK = 0x55;
+[; ;config.c: 126:     PPSLOCK = 0x55;
 [e = _PPSLOCK -> -> 85 `i `uc ]
-"137
-[; ;config.c: 137:     PPSLOCK = 0xAA;
+"127
+[; ;config.c: 127:     PPSLOCK = 0xAA;
 [e = _PPSLOCK -> -> 170 `i `uc ]
+"128
+[; ;config.c: 128:     PPSLOCKbits.PPSLOCKED = 0;
+[e = . . _PPSLOCKbits 0 0 -> -> 0 `i `uc ]
+"132
+[; ;config.c: 132:     SSP2DATPPS = 0x0A;
+[e = _SSP2DATPPS -> -> 10 `i `uc ]
+"133
+[; ;config.c: 133:     RB1PPS = 0x16;
+[e = _RB1PPS -> -> 22 `i `uc ]
+"134
+[; ;config.c: 134:     RB3PPS = 0x17;
+[e = _RB3PPS -> -> 23 `i `uc ]
+"137
+[; ;config.c: 137:     PPSLOCK = 0x55;
+[e = _PPSLOCK -> -> 85 `i `uc ]
 "138
-[; ;config.c: 138:     PPSLOCKbits.PPSLOCKED = 1;
+[; ;config.c: 138:     PPSLOCK = 0xAA;
+[e = _PPSLOCK -> -> 170 `i `uc ]
+"139
+[; ;config.c: 139:     PPSLOCKbits.PPSLOCKED = 1;
 [e = . . _PPSLOCKbits 0 0 -> -> 1 `i `uc ]
-"141
-[; ;config.c: 141:     PIE3bits.RCIE = 1;
-[e = . . _PIE3bits 0 5 -> -> 1 `i `uc ]
 "142
-[; ;config.c: 142:     INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 0 2 -> -> 1 `i `uc ]
+[; ;config.c: 142:     PIE3bits.RCIE = 1;
+[e = . . _PIE3bits 0 5 -> -> 1 `i `uc ]
 "143
-[; ;config.c: 143:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+[; ;config.c: 143:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 0 2 -> -> 1 `i `uc ]
 "144
-[; ;config.c: 144:     PIE0bits.IOCIE = 1;
+[; ;config.c: 144:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+"145
+[; ;config.c: 145:     PIE0bits.IOCIE = 1;
 [e = . . _PIE0bits 0 2 -> -> 1 `i `uc ]
-"147
-[; ;config.c: 147:     PIR3 = 0;
-[e = _PIR3 -> -> 0 `i `uc ]
 "148
-[; ;config.c: 148: }
+[; ;config.c: 148:     PIR3 = 0;
+[e = _PIR3 -> -> 0 `i `uc ]
+"149
+[; ;config.c: 149: }
 [e :UE 1629 ]
 }

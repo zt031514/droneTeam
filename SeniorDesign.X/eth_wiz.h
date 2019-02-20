@@ -18,5 +18,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+extern void eth_wiz_configure();
+extern void eth_wiz_createSocket();
 extern void eth_wiz_transmit();
 extern void eth_wiz_receive();

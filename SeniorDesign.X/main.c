@@ -91,8 +91,12 @@ int main(int argc, char** argv)
     IOCBFbits.IOCBF5 = 0;
     PIR3bits.RCIF = 0;
    
-    //Set all Slave Select for SPI to active low state - CMH
-    PORTBbits.RB4 = 1;  //FLIR
+    //Pull RST pins high to de-assert - CMH
+    PORTDbits.RD2 = 1; //ETH WIZ
+    PORTDbits.RD0 = 1; //GNSS 5    
+    
+    //De-assert all Slave Select for SPI - CMH
+    PORTCbits.RC0 = 1;  //FLIR
     PORTDbits.RD1 = 1;  //ARDUCAM
     PORTDbits.RD3 = 1;  //ETH WIZ
     
@@ -176,12 +180,12 @@ void lepton_capture_packet(void){
     //For the length of an entire packet - CMH
     for(int i = 0; i < packet_length; i++){
         //Assert the Slave Select (CS) pin for the FLIR - CMH
-        PORTBbits.RB4 = 0;
+        PORTCbits.RC0 = 0;
         //Get the i byte of data - CMH
         image_packet[i] = SPI_Write(0x00);
         //De-assert the CS pin so next byte is not received until
         //pin is asserted again - CMH
-        PORTBbits.RB4 = 1;
+        PORTCbits.RC0 = 1;
     }
     //If the first byte of data says the entire packet is a discard packet - CMH
     if((image_packet[0]&0x0F) == 0x0F){
