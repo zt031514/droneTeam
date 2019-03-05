@@ -20,9 +20,9 @@ import matplotlib.pyplot as plt
 print("Hello World")
 
 #read in hot air ballon image
-image = cv2.imread("blob.jpg", cv2.IMREAD_GRAYSCALE)
+image = cv2.imread("Thermal.jpg", cv2.IMREAD_GRAYSCALE)
 
-#cv2.imshow("Input", image)
+cv2.imshow("Input", image)
 
 #try a simple blob detector
 detector = cv2.SimpleBlobDetector_create()
