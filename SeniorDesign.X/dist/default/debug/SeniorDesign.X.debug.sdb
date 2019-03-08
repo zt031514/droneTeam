@@ -1,63 +1,77 @@
-[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
+[p LITE_MODE AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
 [d version 1.1 ]
 [d edition pro ]
 [d chip 16F18875 ]
 [d frameptr 6 ]
-"17 C:\Users\Cira\Desktop\SeniorDesign.X\arducam.c
+"23 C:\Users\cmh52\Desktop\SeniorDesign.X\arducam.c
 [v _arducam_initialize arducam_initialize `(v  1 e 1 0 ]
-"10 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\sprcadd.c
+"10 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul8_16.c
+"4 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\pic\__eeprom.c
+"6 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"23 C:\Users\Cira\Desktop\SeniorDesign.X\config.c
+"22 C:\Users\cmh52\Desktop\SeniorDesign.X\config.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
-"30
-[v _PORT_PIN_Initialize1 PORT_PIN_Initialize1 `(v  1 e 1 0 ]
-"98
-[v _PORT_PIN_Initialize2 PORT_PIN_Initialize2 `(v  1 e 1 0 ]
-"16 C:\Users\Cira\Desktop\SeniorDesign.X\gnss5.c
-[v _gnss5_acquire gnss5_acquire `(v  1 e 1 0 ]
-"17 C:\Users\Cira\Desktop\SeniorDesign.X\lepton.c
-[v _lepton_initialize lepton_initialize `(v  1 e 1 0 ]
-"48 C:\Users\Cira\Desktop\SeniorDesign.X\main.c
-[v _main main `(i  1 e 2 0 ]
-"135
-[v _lepton_capture_packet lepton_capture_packet `(v  1 e 1 0 ]
-"159
-[v _lepton_send_packet lepton_send_packet `(v  1 e 1 0 ]
-"17 C:\Users\Cira\Desktop\SeniorDesign.X\serial_i2c.c
-[v _i2c_initialize i2c_initialize `(v  1 e 1 0 ]
-"26
-[v _i2c_waitForIdle i2c_waitForIdle `(v  1 e 1 0 ]
-"17 C:\Users\Cira\Desktop\SeniorDesign.X\serial_spi.c
-[v _SPI_ETHWIZ_Initialize SPI_ETHWIZ_Initialize `(v  1 e 1 0 ]
-"27
-[v _SPI_ETHWIZ_Write SPI_ETHWIZ_Write `(uc  1 e 1 0 ]
 "37
+[v _PORT_PIN_Initialize1 PORT_PIN_Initialize1 `(v  1 e 1 0 ]
+"117
+[v _PORT_PIN_Initialize2 PORT_PIN_Initialize2 `(v  1 e 1 0 ]
+"56 C:\Users\cmh52\Desktop\SeniorDesign.X\eth_wiz.c
+[v _eth_wiz_configure eth_wiz_configure `(v  1 e 1 0 ]
+"242
+[v _eth_wiz_createSocket eth_wiz_createSocket `(v  1 e 1 0 ]
+"339
+[v _eth_wiz_transmit_start eth_wiz_transmit_start `(v  1 e 1 0 ]
+"370
+[v _eth_wiz_transmit_end eth_wiz_transmit_end `(v  1 e 1 0 ]
+"22 C:\Users\cmh52\Desktop\SeniorDesign.X\gnss5.c
+[v _gnss5_acquire gnss5_acquire `(v  1 e 1 0 ]
+"30 C:\Users\cmh52\Desktop\SeniorDesign.X\lepton.c
+[v _lepton_initialize lepton_initialize `(v  1 e 1 0 ]
+"63 C:\Users\cmh52\Desktop\SeniorDesign.X\main.c
+[v _main main `(i  1 e 2 0 ]
+"178
+[v _lepton_send_packet lepton_send_packet `(v  1 e 1 0 ]
+"1032
+[v _lepton_capture_packet lepton_capture_packet `(v  1 e 1 0 ]
+"25 C:\Users\cmh52\Desktop\SeniorDesign.X\serial_i2c.c
+[v _i2c_initialize i2c_initialize `(v  1 e 1 0 ]
+"41
+[v _i2c_waitForIdle i2c_waitForIdle `(v  1 e 1 0 ]
+"53
+[v _i2c_start i2c_start `(v  1 e 1 0 ]
+"84
+[v _i2c_stop i2c_stop `(v  1 e 1 0 ]
+"141
+[v _i2c_write i2c_write `(uc  1 e 1 0 ]
+"25 C:\Users\cmh52\Desktop\SeniorDesign.X\serial_spi.c
+[v _SPI_ETHWIZ_Initialize SPI_ETHWIZ_Initialize `(v  1 e 1 0 ]
+"50
+[v _SPI_ETHWIZ_Write SPI_ETHWIZ_Write `(uc  1 e 1 0 ]
+"68
 [v _SPI_FLIR_Initialize SPI_FLIR_Initialize `(v  1 e 1 0 ]
-"47
+"89
 [v _SPI_Arducam_Initialize SPI_Arducam_Initialize `(v  1 e 1 0 ]
-"57
+"114
 [v _SPI_Write SPI_Write `(uc  1 e 1 0 ]
-"17 C:\Users\Cira\Desktop\SeniorDesign.X\serial_uart.c
+"25 C:\Users\cmh52\Desktop\SeniorDesign.X\serial_uart.c
 [v _UART_Initialize UART_Initialize `(v  1 e 1 0 ]
 [s S61 . 1 `uc 1 INTEDG 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-"364 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f18875.h
+"364 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f18875.h
 [u S66 . 1 `S61 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES66  1 e 1 @11 ]
 "384
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
 "446
 [v _PORTB PORTB `VEuc  1 e 1 @13 ]
-[s S189 . 1 `uc 1 RB0 1 0 :1:0 
+[s S748 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -67,13 +81,25 @@
 `uc 1 RB7 1 0 :1:7 
 ]
 "463
-[u S198 . 1 `S189 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES198  1 e 1 @13 ]
+[u S757 . 1 `S748 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES757  1 e 1 @13 ]
 "508
 [v _PORTC PORTC `VEuc  1 e 1 @14 ]
+[s S172 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"525
+[u S181 . 1 `S172 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES181  1 e 1 @14 ]
 "570
 [v _PORTD PORTD `VEuc  1 e 1 @15 ]
-[s S210 . 1 `uc 1 RD0 1 0 :1:0 
+[s S151 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -83,8 +109,8 @@
 `uc 1 RD7 1 0 :1:7 
 ]
 "587
-[u S219 . 1 `S210 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES219  1 e 1 @15 ]
+[u S160 . 1 `S151 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES160  1 e 1 @15 ]
 "632
 [v _PORTE PORTE `VEuc  1 e 1 @16 ]
 "670
@@ -117,7 +143,7 @@
 [v _SP1BRGH SP1BRGH `VEuc  1 e 1 @284 ]
 "4009
 [v _RC1STA RC1STA `VEuc  1 e 1 @285 ]
-[s S642 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S620 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -127,11 +153,11 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "4035
-[u S651 . 1 `S642 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES651  1 e 1 @285 ]
+[u S629 . 1 `S620 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES629  1 e 1 @285 ]
 "4189
 [v _TX1STA TX1STA `VEuc  1 e 1 @286 ]
-[s S685 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S663 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -141,8 +167,8 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "4215
-[u S694 . 1 `S685 1 . 1 0 ]
-[v _TX1STAbits TX1STAbits `VES694  1 e 1 @286 ]
+[u S672 . 1 `S663 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES672  1 e 1 @286 ]
 "4369
 [v _BAUD1CON BAUD1CON `VEuc  1 e 1 @287 ]
 "4615
@@ -157,7 +183,7 @@
 [v _SSP2ADD SSP2ADD `VEuc  1 e 1 @407 ]
 "5768
 [v _SSP2STAT SSP2STAT `VEuc  1 e 1 @409 ]
-[s S315 . 1 `uc 1 BF 1 0 :1:0 
+[s S286 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -167,33 +193,33 @@
 `uc 1 SMP 1 0 :1:7 
 ]
 "5877
-[s S324 . 1 `uc 1 . 1 0 :2:0 
+[s S295 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S329 . 1 `uc 1 . 1 0 :2:0 
+[s S300 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S334 . 1 `uc 1 . 1 0 :2:0 
+[s S305 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S339 . 1 `uc 1 . 1 0 :2:0 
+[s S310 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[s S344 . 1 `uc 1 . 1 0 :2:0 
+[s S315 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DAT 1 0 :1:5 
 ]
-[s S350 . 1 `uc 1 BF2 1 0 :1:0 
+[s S321 . 1 `uc 1 BF2 1 0 :1:0 
 `uc 1 UA2 1 0 :1:1 
 `uc 1 R 1 0 :1:2 
 `uc 1 START 1 0 :1:3 
@@ -202,56 +228,56 @@
 `uc 1 CKE2 1 0 :1:6 
 `uc 1 SMP2 1 0 :1:7 
 ]
-[s S359 . 1 `uc 1 . 1 0 :2:0 
+[s S330 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW 1 0 :1:2 
 `uc 1 START2 1 0 :1:3 
 `uc 1 STOP2 1 0 :1:4 
 `uc 1 DA 1 0 :1:5 
 ]
-[s S365 . 1 `uc 1 . 1 0 :2:0 
+[s S336 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW2 1 0 :1:2 
 `uc 1 I2C_START2 1 0 :1:3 
 `uc 1 I2C_STOP2 1 0 :1:4 
 `uc 1 DA2 1 0 :1:5 
 ]
-[s S371 . 1 `uc 1 . 1 0 :2:0 
+[s S342 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ2 1 0 :1:2 
 `uc 1 S2 1 0 :1:3 
 `uc 1 P2 1 0 :1:4 
 `uc 1 DATA_ADDRESS2 1 0 :1:5 
 ]
-[s S377 . 1 `uc 1 . 1 0 :2:0 
+[s S348 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A2 1 0 :1:5 
 ]
-[s S382 . 1 `uc 1 . 1 0 :2:0 
+[s S353 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_nA2 1 0 :1:5 
 ]
-[s S387 . 1 `uc 1 . 1 0 :2:0 
+[s S358 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_nW2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 I2C_DAT2 1 0 :1:5 
 ]
-[s S392 . 1 `uc 1 . 1 0 :2:0 
+[s S363 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA2 1 0 :1:5 
 ]
-[s S397 . 1 `uc 1 . 1 0 :2:0 
+[s S368 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS2 1 0 :1:5 
 ]
-[u S402 . 1 `S315 1 . 1 0 `S324 1 . 1 0 `S329 1 . 1 0 `S334 1 . 1 0 `S339 1 . 1 0 `S344 1 . 1 0 `S350 1 . 1 0 `S359 1 . 1 0 `S365 1 . 1 0 `S371 1 . 1 0 `S377 1 . 1 0 `S382 1 . 1 0 `S387 1 . 1 0 `S392 1 . 1 0 `S397 1 . 1 0 ]
-[v _SSP2STATbits SSP2STATbits `VES402  1 e 1 @409 ]
+[u S373 . 1 `S286 1 . 1 0 `S295 1 . 1 0 `S300 1 . 1 0 `S305 1 . 1 0 `S310 1 . 1 0 `S315 1 . 1 0 `S321 1 . 1 0 `S330 1 . 1 0 `S336 1 . 1 0 `S342 1 . 1 0 `S348 1 . 1 0 `S353 1 . 1 0 `S358 1 . 1 0 `S363 1 . 1 0 `S368 1 . 1 0 ]
+[v _SSP2STATbits SSP2STATbits `VES373  1 e 1 @409 ]
 "6132
 [v _SSP2CON1 SSP2CON1 `VEuc  1 e 1 @410 ]
 "6252
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @411 ]
-[s S506 . 1 `uc 1 SEN 1 0 :1:0 
+[s S477 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -261,17 +287,17 @@
 `uc 1 GCEN 1 0 :1:7 
 ]
 "6299
-[s S515 . 1 `uc 1 . 1 0 :1:0 
+[s S486 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK 1 0 :5:1 
 ]
-[s S518 . 1 `uc 1 . 1 0 :1:0 
+[s S489 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK1 1 0 :1:1 
 `uc 1 ADMSK2 1 0 :1:2 
 `uc 1 ADMSK3 1 0 :1:3 
 `uc 1 ADMSK4 1 0 :1:4 
 `uc 1 ADMSK5 1 0 :1:5 
 ]
-[s S525 . 1 `uc 1 SEN2 1 0 :1:0 
+[s S496 . 1 `uc 1 SEN2 1 0 :1:0 
 `uc 1 ADMSK12 1 0 :1:1 
 `uc 1 ADMSK22 1 0 :1:2 
 `uc 1 ADMSK32 1 0 :1:3 
@@ -280,18 +306,18 @@
 `uc 1 ACKSTAT2 1 0 :1:6 
 `uc 1 GCEN2 1 0 :1:7 
 ]
-[s S534 . 1 `uc 1 . 1 0 :1:0 
+[s S505 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RSEN2 1 0 :1:1 
 `uc 1 PEN2 1 0 :1:2 
 `uc 1 RCEN2 1 0 :1:3 
 `uc 1 ADMSK42 1 0 :1:4 
 `uc 1 ADMSK52 1 0 :1:5 
 ]
-[u S541 . 1 `S506 1 . 1 0 `S515 1 . 1 0 `S518 1 . 1 0 `S525 1 . 1 0 `S534 1 . 1 0 ]
-[v _SSP2CON2bits SSP2CON2bits `VES541  1 e 1 @411 ]
+[u S512 . 1 `S477 1 . 1 0 `S486 1 . 1 0 `S489 1 . 1 0 `S496 1 . 1 0 `S505 1 . 1 0 ]
+[v _SSP2CON2bits SSP2CON2bits `VES512  1 e 1 @411 ]
 "21517
 [v _PIR3 PIR3 `VEuc  1 e 1 @1807 ]
-[s S172 . 1 `uc 1 SSP1IF 1 0 :1:0 
+[s S603 . 1 `uc 1 SSP1IF 1 0 :1:0 
 `uc 1 BCL1IF 1 0 :1:1 
 `uc 1 SSP2IF 1 0 :1:2 
 `uc 1 BCL2IF 1 0 :1:3 
@@ -299,8 +325,8 @@
 `uc 1 RCIF 1 0 :1:5 
 ]
 "21532
-[u S179 . 1 `S172 1 . 1 0 ]
-[v _PIR3bits PIR3bits `VES179  1 e 1 @1807 ]
+[u S610 . 1 `S603 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES610  1 e 1 @1807 ]
 [s S74 . 1 `uc 1 INTE 1 0 :1:0 
 `uc 1 . 1 0 :3:1 
 `uc 1 IOCIE 1 0 :1:4 
@@ -354,23 +380,9 @@
 [v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
 "34458
 [v _ANSELB ANSELB `VEuc  1 e 1 @3907 ]
-[s S151 . 1 `uc 1 IOCBF0 1 0 :1:0 
-`uc 1 IOCBF1 1 0 :1:1 
-`uc 1 IOCBF2 1 0 :1:2 
-`uc 1 IOCBF3 1 0 :1:3 
-`uc 1 IOCBF4 1 0 :1:4 
-`uc 1 IOCBF5 1 0 :1:5 
-`uc 1 IOCBF6 1 0 :1:6 
-`uc 1 IOCBF7 1 0 :1:7 
-]
-"34909
-[u S160 . 1 `S151 1 . 1 0 ]
-"34909
-"34909
-[v _IOCBFbits IOCBFbits `VES160  1 e 1 @3914 ]
 "35078
 [v _ANSELC ANSELC `VEuc  1 e 1 @3918 ]
-[s S663 . 1 `uc 1 IOCCF0 1 0 :1:0 
+[s S641 . 1 `uc 1 IOCCF0 1 0 :1:0 
 `uc 1 IOCCF1 1 0 :1:1 
 `uc 1 IOCCF2 1 0 :1:2 
 `uc 1 IOCCF3 1 0 :1:3 
@@ -380,10 +392,10 @@
 `uc 1 IOCCF7 1 0 :1:7 
 ]
 "35529
-[u S672 . 1 `S663 1 . 1 0 ]
+[u S650 . 1 `S641 1 . 1 0 ]
 "35529
 "35529
-[v _IOCCFbits IOCCFbits `VES672  1 e 1 @3925 ]
+[v _IOCCFbits IOCCFbits `VES650  1 e 1 @3925 ]
 "35698
 [v _ANSELD ANSELD `VEuc  1 e 1 @3929 ]
 "36132
@@ -393,101 +405,182 @@
 [v _SSP1IF SSP1IF `VEb  1 e 0 @14456 ]
 "43575
 [v _SSP2IF SSP2IF `VEb  1 e 0 @14458 ]
-"32 C:\Users\Cira\Desktop\SeniorDesign.X\main.c
+"26 C:\Users\cmh52\Desktop\SeniorDesign.X\eth_wiz.c
+[v _common_reg_write common_reg_write `uc  1 e 1 0 ]
+"28
+[v _s0_reg_write s0_reg_write `uc  1 e 1 0 ]
+"29
+[v _s0_reg_read s0_reg_read `uc  1 e 1 0 ]
+"30
+[v _s0_tx_buf_write s0_tx_buf_write `uc  1 e 1 0 ]
+"33
+[v _s0_rx_buf_read s0_rx_buf_read `uc  1 e 1 0 ]
+"36
+[v _s0_tx_pointer_high s0_tx_pointer_high `uc  1 e 1 0 ]
+"37
+[v _s0_tx_pointer_low s0_tx_pointer_low `uc  1 e 1 0 ]
+"38
+[v _s0_rx_readpointer_high s0_rx_readpointer_high `uc  1 e 1 0 ]
+"39
+[v _s0_rx_readpointer_low s0_rx_readpointer_low `uc  1 e 1 0 ]
+"40
+[v _s0_rx_writepointer_high s0_rx_writepointer_high `uc  1 e 1 0 ]
+"41
+[v _s0_rx_writepointer_low s0_rx_writepointer_low `uc  1 e 1 0 ]
+"42
+[v _s0_rx_datalength_high s0_rx_datalength_high `uc  1 e 1 0 ]
+"43
+[v _s0_rx_datalength_low s0_rx_datalength_low `uc  1 e 1 0 ]
+"44
+[v _s0_SR_check s0_SR_check `uc  1 e 1 0 ]
+"45
+[v _s0_IR_check s0_IR_check `uc  1 e 1 0 ]
+"28 C:\Users\cmh52\Desktop\SeniorDesign.X\main.c
+[v _mission_stage_check mission_stage_check `uc  1 e 1 0 ]
+"32
 [v _image_packet image_packet `[164]uc  1 e 164 @9036 ]
 "34
 [v _packet_index packet_index `uc  1 e 1 0 ]
 "35
 [v _discard discard `uc  1 e 1 0 ]
-"48
+"36
+[v _num_discard num_discard `uc  1 e 1 0 ]
+"39
+[v _GPS_location GPS_location `us  1 e 2 0 ]
+"40
+[v _GPS_location_current GPS_location_current `us  1 e 2 0 ]
+"41
+[v _GPS_array_length GPS_array_length `us  1 e 2 0 ]
+"63
 [v _main main `(i  1 e 2 0 ]
 {
-"131
-} 0
-"159
-[v _lepton_send_packet lepton_send_packet `(v  1 e 1 0 ]
-{
-"163
-[v lepton_send_packet@i i `i  1 a 2 3 ]
+"155
+[v main@i i `i  1 a 2 6 ]
 "169
 } 0
-"27 C:\Users\Cira\Desktop\SeniorDesign.X\serial_spi.c
+"178
+[v _lepton_send_packet lepton_send_packet `(v  1 e 1 0 ]
+{
+"1011
+[v lepton_send_packet@j j `i  1 a 2 11 ]
+"179
+[v lepton_send_packet@junk junk `uc  1 a 1 10 ]
+"1017
+} 0
+"339 C:\Users\cmh52\Desktop\SeniorDesign.X\eth_wiz.c
+[v _eth_wiz_transmit_start eth_wiz_transmit_start `(v  1 e 1 0 ]
+{
+"357
+} 0
+"370
+[v _eth_wiz_transmit_end eth_wiz_transmit_end `(v  1 e 1 0 ]
+{
+"376
+[v eth_wiz_transmit_end@value value `us  1 a 2 6 ]
+"399
+} 0
+"30 C:\Users\cmh52\Desktop\SeniorDesign.X\lepton.c
+[v _lepton_initialize lepton_initialize `(v  1 e 1 0 ]
+{
+"46
+} 0
+"141 C:\Users\cmh52\Desktop\SeniorDesign.X\serial_i2c.c
+[v _i2c_write i2c_write `(uc  1 e 1 0 ]
+{
+[v i2c_write@i2cWriteData i2cWriteData `uc  1 a 1 wreg ]
+[v i2c_write@i2cWriteData i2cWriteData `uc  1 a 1 wreg ]
+"144
+[v i2c_write@i2cWriteData i2cWriteData `uc  1 a 1 1 ]
+"152
+} 0
+"84
+[v _i2c_stop i2c_stop `(v  1 e 1 0 ]
+{
+"91
+} 0
+"53
+[v _i2c_start i2c_start `(v  1 e 1 0 ]
+{
+"60
+} 0
+"41
+[v _i2c_waitForIdle i2c_waitForIdle `(v  1 e 1 0 ]
+{
+"45
+} 0
+"1032 C:\Users\cmh52\Desktop\SeniorDesign.X\main.c
+[v _lepton_capture_packet lepton_capture_packet `(v  1 e 1 0 ]
+{
+"1730
+} 0
+"25 C:\Users\cmh52\Desktop\SeniorDesign.X\serial_i2c.c
+[v _i2c_initialize i2c_initialize `(v  1 e 1 0 ]
+{
+"32
+} 0
+"22 C:\Users\cmh52\Desktop\SeniorDesign.X\gnss5.c
+[v _gnss5_acquire gnss5_acquire `(v  1 e 1 0 ]
+{
+"24
+} 0
+"242 C:\Users\cmh52\Desktop\SeniorDesign.X\eth_wiz.c
+[v _eth_wiz_createSocket eth_wiz_createSocket `(v  1 e 1 0 ]
+{
+"243
+[v eth_wiz_createSocket@connected connected `uc  1 a 1 2 ]
+"327
+} 0
+"56
+[v _eth_wiz_configure eth_wiz_configure `(v  1 e 1 0 ]
+{
+"233
+} 0
+"50 C:\Users\cmh52\Desktop\SeniorDesign.X\serial_spi.c
 [v _SPI_ETHWIZ_Write SPI_ETHWIZ_Write `(uc  1 e 1 0 ]
 {
 [v SPI_ETHWIZ_Write@data data `uc  1 a 1 wreg ]
 [v SPI_ETHWIZ_Write@data data `uc  1 a 1 wreg ]
-"29
+"52
 [v SPI_ETHWIZ_Write@data data `uc  1 a 1 0 ]
-"34
+"58
 } 0
-"17 C:\Users\Cira\Desktop\SeniorDesign.X\lepton.c
-[v _lepton_initialize lepton_initialize `(v  1 e 1 0 ]
-{
-"19
-} 0
-"135 C:\Users\Cira\Desktop\SeniorDesign.X\main.c
-[v _lepton_capture_packet lepton_capture_packet `(v  1 e 1 0 ]
-{
-"137
-[v lepton_capture_packet@i i `i  1 a 2 6 ]
-"155
-} 0
-"57 C:\Users\Cira\Desktop\SeniorDesign.X\serial_spi.c
-[v _SPI_Write SPI_Write `(uc  1 e 1 0 ]
-{
-[v SPI_Write@data data `uc  1 a 1 wreg ]
-[v SPI_Write@data data `uc  1 a 1 wreg ]
-"59
-[v SPI_Write@data data `uc  1 a 1 0 ]
-"64
-} 0
-"17 C:\Users\Cira\Desktop\SeniorDesign.X\serial_i2c.c
-[v _i2c_initialize i2c_initialize `(v  1 e 1 0 ]
-{
-"24
-} 0
-"16 C:\Users\Cira\Desktop\SeniorDesign.X\gnss5.c
-[v _gnss5_acquire gnss5_acquire `(v  1 e 1 0 ]
-{
-"18
-} 0
-"17 C:\Users\Cira\Desktop\SeniorDesign.X\arducam.c
+"23 C:\Users\cmh52\Desktop\SeniorDesign.X\arducam.c
 [v _arducam_initialize arducam_initialize `(v  1 e 1 0 ]
 {
-"19
+"25
 } 0
-"17 C:\Users\Cira\Desktop\SeniorDesign.X\serial_uart.c
+"25 C:\Users\cmh52\Desktop\SeniorDesign.X\serial_uart.c
 [v _UART_Initialize UART_Initialize `(v  1 e 1 0 ]
 {
-"28
+"39
 } 0
-"37 C:\Users\Cira\Desktop\SeniorDesign.X\serial_spi.c
+"68 C:\Users\cmh52\Desktop\SeniorDesign.X\serial_spi.c
 [v _SPI_FLIR_Initialize SPI_FLIR_Initialize `(v  1 e 1 0 ]
 {
-"44
+"79
 } 0
-"17
+"25
 [v _SPI_ETHWIZ_Initialize SPI_ETHWIZ_Initialize `(v  1 e 1 0 ]
 {
-"24
+"36
 } 0
-"47
+"89
 [v _SPI_Arducam_Initialize SPI_Arducam_Initialize `(v  1 e 1 0 ]
 {
-"54
+"100
 } 0
-"98 C:\Users\Cira\Desktop\SeniorDesign.X\config.c
+"117 C:\Users\cmh52\Desktop\SeniorDesign.X\config.c
 [v _PORT_PIN_Initialize2 PORT_PIN_Initialize2 `(v  1 e 1 0 ]
 {
-"128
+"149
 } 0
-"30
+"37
 [v _PORT_PIN_Initialize1 PORT_PIN_Initialize1 `(v  1 e 1 0 ]
 {
-"95
+"106
 } 0
-"23
+"22
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 {
-"27
+"25
 } 0

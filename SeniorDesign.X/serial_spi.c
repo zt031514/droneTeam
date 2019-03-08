@@ -24,7 +24,7 @@
 // ************************************************************
 void SPI_ETHWIZ_Initialize(void) {
     
-    SSP2STAT = 0x40;    //Sets sampling to middle of data output time and
+    SSP2STAT = 0b11000000;    //Sets sampling to middle of data output time and
                         //sets CLK Edge for transmit on transition from active
                         //to idle state - CMH
     
@@ -66,14 +66,14 @@ uint8_t SPI_ETHWIZ_Write(uint8_t data) {
 //
 // ************************************************************
 void SPI_FLIR_Initialize(void) {
+    SSP1STAT = 0b10000000;  //Sets sampling to end of data output time and
+                            //sets CLK Edge for transmit on transition from idle
+                            //to active state - CMH
     
-    SSP1STAT = 0x00;    //Sets sampling to middle of data output time and
-                        //sets CLK Edge for transmit on transition from idle
-                        //to active state - CMH
-    
-    SSP1CON1 = 0x30;    //Enables SPI as Master, Sets CLK Idle to high, and
-                        //CLK = Fosc/4 = 8MHz - CMH
-    
+    SSP1CON1 = 0b00110000;  //Enables SPI as Master, Sets CLK Idle to high, and
+                            //CLK = Fosc/(4*(SSP1ADD+1)) - CMH
+    //SSP1ADD = 0x01;       //CLK = 4 MHz
+    //SSP1IE = 1;
     SSP1IF = 0;             //Clear interrupt flag - CMH
   
 }
@@ -88,11 +88,11 @@ void SPI_FLIR_Initialize(void) {
 // ************************************************************
 void SPI_Arducam_Initialize(void) {
     
-    SSP1STAT = 0x40;    //Sets sampling to middle of data output time and
+    SSP1STAT = 0b11000000;    //Sets sampling to end of data output time and
                         //sets CLK Edge for transmit on transition from active
                         //to idle state - CMH
     
-    SSP1CON1 = 0x20;    //Enables SPI as Master, Sets CLK Idle to low, and
+    SSP1CON1 = 0b00100000;    //Enables SPI as Master, Sets CLK Idle to low, and
                         //CLK = Fosc/4 = 8MHz - CMHH
             
     SSP1IF = 0;         //Clear interrupt flag - CMH

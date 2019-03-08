@@ -19,7 +19,7 @@ endif
 endif
 
 # Environment
-MKDIR=mkdir -p
+MKDIR=gnumkdir -p
 RM=rm -f 
 MV=mv 
 CP=cp 
@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=config.c main.c serial_i2c.c serial_spi.c serial_uart.c lepton.c arducam.c eth_wiz.c gnss5.c
+SOURCEFILES_QUOTED_IF_SPACED=config.c main.c serial_i2c.c serial_spi.c serial_uart.c lepton.c arducam.c eth_wiz.c gnss5.c delay.asm
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/config.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/serial_i2c.p1 ${OBJECTDIR}/serial_spi.p1 ${OBJECTDIR}/serial_uart.p1 ${OBJECTDIR}/lepton.p1 ${OBJECTDIR}/arducam.p1 ${OBJECTDIR}/eth_wiz.p1 ${OBJECTDIR}/gnss5.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/config.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/serial_i2c.p1.d ${OBJECTDIR}/serial_spi.p1.d ${OBJECTDIR}/serial_uart.p1.d ${OBJECTDIR}/lepton.p1.d ${OBJECTDIR}/arducam.p1.d ${OBJECTDIR}/eth_wiz.p1.d ${OBJECTDIR}/gnss5.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/config.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/serial_i2c.p1 ${OBJECTDIR}/serial_spi.p1 ${OBJECTDIR}/serial_uart.p1 ${OBJECTDIR}/lepton.p1 ${OBJECTDIR}/arducam.p1 ${OBJECTDIR}/eth_wiz.p1 ${OBJECTDIR}/gnss5.p1 ${OBJECTDIR}/delay.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/config.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/serial_i2c.p1.d ${OBJECTDIR}/serial_spi.p1.d ${OBJECTDIR}/serial_uart.p1.d ${OBJECTDIR}/lepton.p1.d ${OBJECTDIR}/arducam.p1.d ${OBJECTDIR}/eth_wiz.p1.d ${OBJECTDIR}/gnss5.p1.d ${OBJECTDIR}/delay.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/config.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/serial_i2c.p1 ${OBJECTDIR}/serial_spi.p1 ${OBJECTDIR}/serial_uart.p1 ${OBJECTDIR}/lepton.p1 ${OBJECTDIR}/arducam.p1 ${OBJECTDIR}/eth_wiz.p1 ${OBJECTDIR}/gnss5.p1
+OBJECTFILES=${OBJECTDIR}/config.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/serial_i2c.p1 ${OBJECTDIR}/serial_spi.p1 ${OBJECTDIR}/serial_uart.p1 ${OBJECTDIR}/lepton.p1 ${OBJECTDIR}/arducam.p1 ${OBJECTDIR}/eth_wiz.p1 ${OBJECTDIR}/gnss5.p1 ${OBJECTDIR}/delay.o
 
 # Source Files
-SOURCEFILES=config.c main.c serial_i2c.c serial_spi.c serial_uart.c lepton.c arducam.c eth_wiz.c gnss5.c
+SOURCEFILES=config.c main.c serial_i2c.c serial_spi.c serial_uart.c lepton.c arducam.c eth_wiz.c gnss5.c delay.asm
 
 
 CFLAGS=
@@ -243,7 +243,23 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assemble
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
+${OBJECTDIR}/delay.o: delay.asm  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/delay.o.d 
+	@${RM} ${OBJECTDIR}/delay.o 
+	${MP_CC} -c $(MP_EXTRA_AS_PRE) -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG=1  -fno-short-double -fno-short-float -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -std=c99 -gdwarf-3 -mstack=compiled:auto:auto   -o ${OBJECTDIR}/delay.o  delay.asm 
+	@-${MV} ${OBJECTDIR}/delay.d ${OBJECTDIR}/delay.o.d 
+	@${FIXDEPS} ${OBJECTDIR}/delay.o.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
+${OBJECTDIR}/delay.o: delay.asm  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/delay.o.d 
+	@${RM} ${OBJECTDIR}/delay.o 
+	${MP_CC} -c $(MP_EXTRA_AS_PRE) -mcpu=$(MP_PROCESSOR_OPTION)  -fno-short-double -fno-short-float -fasmfile -maddrqual=ignore -xassembler-with-cpp -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -std=c99 -gdwarf-3 -mstack=compiled:auto:auto   -o ${OBJECTDIR}/delay.o  delay.asm 
+	@-${MV} ${OBJECTDIR}/delay.d ${OBJECTDIR}/delay.o.d 
+	@${FIXDEPS} ${OBJECTDIR}/delay.o.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 endif
 
 # ------------------------------------------------------------------------------------
@@ -283,7 +299,7 @@ endif
 # Enable dependency checking
 .dep.inc: .depcheck-impl
 
-DEPFILES=$(shell "${PATH_TO_IDE_BIN}"mplabwildcard ${POSSIBLE_DEPFILES})
+DEPFILES=$(shell mplabwildcard ${POSSIBLE_DEPFILES})
 ifneq (${DEPFILES},)
 include ${DEPFILES}
 endif

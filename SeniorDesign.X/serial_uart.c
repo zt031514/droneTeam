@@ -29,9 +29,12 @@ void UART_Initialize(void) {
     TX1STA = 0x24;
     RC1STA = 0x90;
     
-    //Set Baud rate
-    SP1BRGL = 0x40;    
-    SP1BRGH = 0x03;
+    //Set Baud rate - 115.2k
+    SP1BRGL = 0x44;//0x44;    
+    SP1BRGH = 0x00;
+
+    //Clear Interrupt flags - CMH
+    PIR3bits.RCIF = 0;
 
 }
 

@@ -81,9 +81,9 @@ void PORT_PIN_Initialize1(void) {
     RXPPS = 0x17; 
     
     //Sets up the pins for SPI on SSP1 between PIC and Cameras - CMH 
-    SSP1DATPPS = 0x11;  
-    RB7PPS = 0x14;      
-    RC1PPS = 0x15;      
+    SSP1DATPPS = 0x0E;  //MISO - RB6
+    RB7PPS = 0x14;      //SCLK
+    RC1PPS = 0x15;      //MOSI     
         
     //Sets up the pins for I2C on SSP2 between PIC and Cameras - CMH
     SSP2DATPPS = 0x14;  

@@ -26,7 +26,7 @@ void i2c_initialize(void) {
     
     SSP2CON1 = 0x28;        //ON with Master Mode - CMH
     SSP2CON2 = 0x00;        //Clear Flags - CMH
-    SSP2ADD = 0x09;         //100 kHz with 4MHz clock - CMH
+    SSP2ADD = 0x4F;         //100 kHz with 4MHz clock - CMH
     SSP2STATbits.CKE = 0;   //Use I2C signal levels - CMH
     SSP2STATbits.SMP = 1;   //Standard Speed Mode - CMH
 }

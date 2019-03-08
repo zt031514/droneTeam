@@ -12,13 +12,13 @@
  */
 
 #include <xc.h>
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdbool.h>
 
-extern void eth_wiz_configure();
-extern void eth_wiz_createSocket();
-extern void eth_wiz_transmit();
-extern void eth_wiz_receive();
+extern void eth_wiz_configure(void);
+extern void eth_wiz_createSocket(void);
+extern void eth_wiz_transmit_start(void);
+extern void eth_wiz_transmit_end(void);
+extern void eth_wiz_receive(void);
