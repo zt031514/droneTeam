@@ -16,7 +16,7 @@ import socket
 import pickle
 
 def readin():
-	IP = '127.0.0.1'
+	IP = '10.0.0.2'
 	PORT = 10000
 	BUFFER_SIZE = 8192
 
