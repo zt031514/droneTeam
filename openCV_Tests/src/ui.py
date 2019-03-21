@@ -21,7 +21,7 @@ except ImportError:
 from PIL import ImageTk, Image
 
 def buttonClick(button):
-	 = (tk.Button)(button)
+	print "hello world"
 
 
 top = tk.Tk()
@@ -70,13 +70,13 @@ rightBottom.pack(side = tk.BOTTOM, fill=tk.BOTH)
 #Thermal Image canvas
 imgCanvas = tk.Canvas(rightTop)
 imgCanvas.pack(fill=tk.BOTH)
-img = ImageTk.PhotoImage(Image.open("/home/ztumbleson/droneTeam/openCV_Tests/images/test.jpg"))
+img = ImageTk.PhotoImage(Image.open("/home/ztumbleson/droneTeam/openCV_Tests/images/blob.jpg"))
 image = imgCanvas.create_image(0, 0, image=img)
 
 #Map canvas
 mapCanvas = tk.Canvas(rightTop)
 mapCanvas.pack(fill=tk.BOTH)
-mapImg = ImageTk.PhotoImage(Image.open("/home/ztumbleson/droneTeam/openCV_Tests/images/map.jpg"))
+mapImg = ImageTk.PhotoImage(Image.open("/home/ztumbleson/droneTeam/openCV_Tests/images/Thermal.jpg"))
 mapBox = mapCanvas.create_image(0, 0, image=mapImg)
 
 top.mainloop()

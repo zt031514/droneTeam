@@ -16,9 +16,11 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((TCP_IP, TCP_PORT))
 print "connected!"
 s.send(test1)
+index = 0
+
 for x in range(60):
 	data = s.recv(BUFFER_SIZE)
-	print x
+	print("Line " + x + ": " + data.encode("hex"))
 else:
 	print "Done!"	
 s.close()

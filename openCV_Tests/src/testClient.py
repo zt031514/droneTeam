@@ -18,4 +18,4 @@ print "connected!"
 s.send(test)
 data = s.recv(BUFFER_SIZE)
 s.close() 
-#print "received data:", data 
+print "received data:", data 
