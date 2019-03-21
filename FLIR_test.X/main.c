@@ -94,9 +94,9 @@ int main(int argc, char** argv)
             lepton_capture_packet();
             
         }while(packet_index < 59);
-        
-        printf("%d ", frames);
         frames ++;
+        printf("%d ", frames);
+        
     }
     printf("\n\r");
         //Send GPS location over ETH WIZ - CMH
@@ -125,7 +125,7 @@ int main(int argc, char** argv)
 void lepton_capture_packet(void){
     //Initially set the discard flag to 0 - CMH
     discard = 0;
-    
+    int i = 0;
     //Assert the Slave Select (CS) pin for the FLIR - CMH
     PORTCbits.RC0 = 0;
     
@@ -134,7 +134,17 @@ void lepton_capture_packet(void){
     //XC8 compiler for the PIC does not generate optimized code so
     //the program wouldn't run fast enough to get the full image until
     //I wrote in this way - CMH
-    SSP1BUF = 0x00;             
+    
+    while(i < 164){
+        SSP1BUF = 0x00;             
+        delay();
+        SSP1IF = 0;                 
+        image_packet[0] = SSP1BUF;
+        i++;
+    }
+     
+    
+    /*SSP1BUF = 0x00;             
     delay();
     SSP1IF = 0;                 
     image_packet[0] = SSP1BUF;
@@ -790,7 +800,7 @@ void lepton_capture_packet(void){
     SSP1BUF = 0x00;             
     delay();        
     SSP1IF = 0;                 
-    image_packet[163] = SSP1BUF;
+    image_packet[163] = SSP1BUF; */
     
     //De-assert the CS pin so next byte is not received until
     //pin is asserted again - CMH

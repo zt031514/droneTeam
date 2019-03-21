@@ -21055,7 +21055,6 @@ extern void eth_wiz_configure(void);
 extern void eth_wiz_createSocket(void);
 extern void eth_wiz_transmit_start(void);
 extern void eth_wiz_transmit_end(void);
-extern void eth_wiz_receive(void);
 # 22 "eth_wiz.c" 2
 
 # 1 "./serial_spi.h" 1
@@ -21085,16 +21084,20 @@ uint8_t s0_rx_buf_read = 0b00011000;
 
 uint8_t s0_tx_pointer_high = 0x00;
 uint8_t s0_tx_pointer_low = 0x00;
-uint8_t s0_rx_readpointer_high = 0x00;
-uint8_t s0_rx_readpointer_low = 0x00;
-uint8_t s0_rx_writepointer_high = 0x00;
-uint8_t s0_rx_writepointer_low = 0x00;
-uint8_t s0_rx_datalength_high = 0x00;
-uint8_t s0_rx_datalength_low = 0x00;
 uint8_t s0_SR_check = 0x00;
 uint8_t s0_IR_check = 0x00;
-# 56 "eth_wiz.c"
+# 50 "eth_wiz.c"
 void eth_wiz_configure(void){
+
+
+
+    PORTDbits.RD3 = 0;
+    SPI_ETHWIZ_Write(0x00);
+    SPI_ETHWIZ_Write(0x00);
+    SPI_ETHWIZ_Write(common_reg_write);
+    SPI_ETHWIZ_Write(0b10000000);
+    PORTDbits.RD3 = 1;
+    _delay((unsigned long)((1000)*(32000000/4000.0)));
 
 
 
@@ -21106,7 +21109,7 @@ void eth_wiz_configure(void){
     SPI_ETHWIZ_Write(0x00);
     SPI_ETHWIZ_Write(0x00);
     SPI_ETHWIZ_Write(common_reg_write);
-    SPI_ETHWIZ_Write(0b00010000);
+    SPI_ETHWIZ_Write(0b00000000);
     PORTDbits.RD3 = 1;
     _delay((unsigned long)((1)*(32000000/4000.0)));
 
@@ -21139,12 +21142,12 @@ void eth_wiz_configure(void){
     SPI_ETHWIZ_Write(0x00);
     SPI_ETHWIZ_Write(0x09);
     SPI_ETHWIZ_Write(common_reg_write);
-    SPI_ETHWIZ_Write(0x00);
-    SPI_ETHWIZ_Write(0x21);
-    SPI_ETHWIZ_Write(0x74);
-    SPI_ETHWIZ_Write(0x08);
-    SPI_ETHWIZ_Write(0x36);
-    SPI_ETHWIZ_Write(0x85);
+    SPI_ETHWIZ_Write(0xDE);
+    SPI_ETHWIZ_Write(0xAD);
+    SPI_ETHWIZ_Write(0xBE);
+    SPI_ETHWIZ_Write(0xEF);
+    SPI_ETHWIZ_Write(0xFE);
+    SPI_ETHWIZ_Write(0xED);
     PORTDbits.RD3 = 1;
     _delay((unsigned long)((1)*(32000000/4000.0)));
 
@@ -21161,14 +21164,6 @@ void eth_wiz_configure(void){
     _delay((unsigned long)((1)*(32000000/4000.0)));
 
 
-    PORTDbits.RD3 = 0;
-    SPI_ETHWIZ_Write(0x00);
-    SPI_ETHWIZ_Write(0x15);
-    SPI_ETHWIZ_Write(common_reg_write);
-    SPI_ETHWIZ_Write(0b01000000);
-    PORTDbits.RD3 = 1;
-    _delay((unsigned long)((1)*(32000000/4000.0)));
-
 
     PORTDbits.RD3 = 0;
     SPI_ETHWIZ_Write(0x00);
@@ -21181,26 +21176,17 @@ void eth_wiz_configure(void){
 
     PORTDbits.RD3 = 0;
     SPI_ETHWIZ_Write(0x00);
-    SPI_ETHWIZ_Write(0x1B);
-    SPI_ETHWIZ_Write(common_reg_write);
-    SPI_ETHWIZ_Write(0b00000000);
-    PORTDbits.RD3 = 1;
-    _delay((unsigned long)((1)*(32000000/4000.0)));
-
-
-    PORTDbits.RD3 = 0;
-    SPI_ETHWIZ_Write(0x00);
     SPI_ETHWIZ_Write(0x2E);
     SPI_ETHWIZ_Write(common_reg_write);
     SPI_ETHWIZ_Write(0b10111000);
     PORTDbits.RD3 = 1;
     _delay((unsigned long)((1)*(32000000/4000.0)));
-# 165 "eth_wiz.c"
+# 152 "eth_wiz.c"
     PORTDbits.RD3 = 0;
     SPI_ETHWIZ_Write(0x00);
     SPI_ETHWIZ_Write(0x00);
     SPI_ETHWIZ_Write(s0_reg_write);
-    SPI_ETHWIZ_Write(0b10000001);
+    SPI_ETHWIZ_Write(0b00000001);
     PORTDbits.RD3 = 1;
     _delay((unsigned long)((1)*(32000000/4000.0)));
 
@@ -21209,32 +21195,11 @@ void eth_wiz_configure(void){
     SPI_ETHWIZ_Write(0x00);
     SPI_ETHWIZ_Write(0x04);
     SPI_ETHWIZ_Write(s0_reg_write);
-    SPI_ETHWIZ_Write(0x27);
-    SPI_ETHWIZ_Write(0x10);
-    PORTDbits.RD3 = 1;
-    _delay((unsigned long)((1)*(32000000/4000.0)));
-
-
-    PORTDbits.RD3 = 0;
-    SPI_ETHWIZ_Write(0x00);
-    SPI_ETHWIZ_Write(0x0C);
-    SPI_ETHWIZ_Write(s0_reg_write);
-    SPI_ETHWIZ_Write(0x0A);
-    SPI_ETHWIZ_Write(0x00);
-    SPI_ETHWIZ_Write(0x00);
     SPI_ETHWIZ_Write(0x01);
+    SPI_ETHWIZ_Write(0xF4);
     PORTDbits.RD3 = 1;
     _delay((unsigned long)((1)*(32000000/4000.0)));
 
-
-    PORTDbits.RD3 = 0;
-    SPI_ETHWIZ_Write(0x00);
-    SPI_ETHWIZ_Write(0x10);
-    SPI_ETHWIZ_Write(s0_reg_write);
-    SPI_ETHWIZ_Write(0x27);
-    SPI_ETHWIZ_Write(0x10);
-    PORTDbits.RD3 = 1;
-    _delay((unsigned long)((1)*(32000000/4000.0)));
 
 
     PORTDbits.RD3 = 0;
@@ -21243,6 +21208,15 @@ void eth_wiz_configure(void){
     SPI_ETHWIZ_Write(s0_reg_write);
     SPI_ETHWIZ_Write(0x05);
     SPI_ETHWIZ_Write(0xB4);
+    PORTDbits.RD3 = 1;
+    _delay((unsigned long)((1)*(32000000/4000.0)));
+
+
+    PORTDbits.RD3 = 0;
+    SPI_ETHWIZ_Write(0x00);
+    SPI_ETHWIZ_Write(0x2C);
+    SPI_ETHWIZ_Write(s0_reg_write);
+    SPI_ETHWIZ_Write(0b11111111);
     PORTDbits.RD3 = 1;
     _delay((unsigned long)((1)*(32000000/4000.0)));
 
@@ -21264,10 +21238,31 @@ void eth_wiz_configure(void){
     SPI_ETHWIZ_Write(0x0A);
     PORTDbits.RD3 = 1;
     _delay((unsigned long)((1)*(32000000/4000.0)));
+
 }
-# 242 "eth_wiz.c"
+# 218 "eth_wiz.c"
 void eth_wiz_createSocket(void){
     uint8_t connected = 0;
+    uint8_t link_status = 0;
+    do{
+        PORTDbits.RD3 = 0;
+        SPI_ETHWIZ_Write(0x00);
+        SPI_ETHWIZ_Write(0x2E);
+        SPI_ETHWIZ_Write(common_reg_write);
+        SPI_ETHWIZ_Write(0b10111000);
+        PORTDbits.RD3 = 1;
+        _delay((unsigned long)((1)*(32000000/4000.0)));
+
+        PORTDbits.RD3 = 0;
+        SPI_ETHWIZ_Write(0x00);
+        SPI_ETHWIZ_Write(0x2E);
+        SPI_ETHWIZ_Write(common_reg_read);
+        link_status = SPI_ETHWIZ_Write(0x00);
+        PORTDbits.RD3 = 1;
+        _delay((unsigned long)((1)*(32000000/4000.0)));
+
+    }while((link_status & 0x01) != 0x01);
+
     do{
 
         PORTDbits.RD3 = 0;
@@ -21306,7 +21301,16 @@ void eth_wiz_createSocket(void){
             SPI_ETHWIZ_Write(s0_reg_read);
             s0_SR_check = SPI_ETHWIZ_Write(0x00);
             PORTDbits.RD3 = 1;
-        }while(s0_SR_check != 0x13);
+        }while(s0_SR_check != 0x14);
+
+        do{
+            PORTDbits.RD3 = 0;
+            SPI_ETHWIZ_Write(0x00);
+            SPI_ETHWIZ_Write(0x03);
+            SPI_ETHWIZ_Write(s0_reg_read);
+            s0_SR_check = SPI_ETHWIZ_Write(0x00);
+            PORTDbits.RD3 = 1;
+        }while(s0_SR_check != 0x16);
 
         while(PORTBbits.RB0 != 0) continue;
 
@@ -21347,12 +21351,11 @@ void eth_wiz_createSocket(void){
             connected = 1;
         }
 
-
     }while(connected == 0);
 
 
 }
-# 339 "eth_wiz.c"
+# 343 "eth_wiz.c"
 void eth_wiz_transmit_start(void){
 
     PORTDbits.RD3 = 0;
@@ -21372,7 +21375,7 @@ void eth_wiz_transmit_start(void){
 
 
 }
-# 370 "eth_wiz.c"
+# 374 "eth_wiz.c"
 void eth_wiz_transmit_end(void){
 
     PORTDbits.RD3 = 1;
@@ -21402,54 +21405,4 @@ void eth_wiz_transmit_end(void){
     SPI_ETHWIZ_Write(0x20);
     PORTDbits.RD3 = 1;
 
-}
-# 409 "eth_wiz.c"
-void eth_wiz_receive(void){
-
-
-
-    PORTDbits.RD3 = 0;
-    SPI_ETHWIZ_Write(0x00);
-    SPI_ETHWIZ_Write(0x26);
-    SPI_ETHWIZ_Write(s0_reg_read);
-    s0_rx_datalength_high = SPI_ETHWIZ_Write(0x00);
-    s0_rx_datalength_low = SPI_ETHWIZ_Write(0x00);
-    s0_rx_readpointer_high = SPI_ETHWIZ_Write(0x00);
-    s0_rx_readpointer_low = SPI_ETHWIZ_Write(0x00);
-    s0_rx_writepointer_high = SPI_ETHWIZ_Write(0x00);
-    s0_rx_writepointer_low = SPI_ETHWIZ_Write(0x00);
-    PORTDbits.RD3 = 1;
-
-
-    uint16_t datalength = (s0_rx_datalength_high << 8) | s0_rx_datalength_low;
-
-
-    PORTDbits.RD3 = 0;
-
-    SPI_ETHWIZ_Write(s0_rx_readpointer_high);
-    SPI_ETHWIZ_Write(s0_rx_readpointer_low);
-    SPI_ETHWIZ_Write(s0_rx_buf_read);
-    for(int i = 0; i < datalength; i++){
-
-        SPI_ETHWIZ_Write(0x00);
-    }
-    PORTDbits.RD3 = 1;
-    _delay((unsigned long)((1)*(32000000/4000000.0)));
-
-
-    PORTDbits.RD3 = 0;
-    SPI_ETHWIZ_Write(0x00);
-    SPI_ETHWIZ_Write(0x28);
-    SPI_ETHWIZ_Write(s0_reg_write);
-    SPI_ETHWIZ_Write(s0_rx_writepointer_high);
-    SPI_ETHWIZ_Write(s0_rx_writepointer_low);
-    PORTDbits.RD3 = 1;
-
-
-    PORTDbits.RD3 = 0;
-    SPI_ETHWIZ_Write(0x00);
-    SPI_ETHWIZ_Write(0x01);
-    SPI_ETHWIZ_Write(s0_reg_write);
-    SPI_ETHWIZ_Write(0x40);
-    PORTDbits.RD3 = 1;
 }

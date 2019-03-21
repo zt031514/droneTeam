@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC Macro Assembler V2.00 build -1524193055 
-                                                                                                           Thu Mar 07 17:23:55 2019
+                                                                                                           Fri Mar 15 15:57:19 2019
 
 
      1                           	processor	16F18875
@@ -24,32 +24,32 @@ Microchip Technology PIC Macro Assembler V2.00 build -1524193055
     18  0000                     	; extern of bar function goes in the C source file
     19                           
     20                           	psect	barfunc
-    21  0A59                     _delay:	
+    21  027A                     _delay:	
     22                           ; When assembly code is placed in a psect, it can be manipulated as a
     23                           ; whole by the linker and placed in memory.
     24                           ;
     25                           ; In this example, barfunc is the program section (psect) name, 'local' means
     26                           ; that the section will not be combined with other sections even if they have
     27                           ; the same name. class=CODE means the barfunc must go in the CODE container.
-    28                           ; PIC18's should have a delta (addressible unit size) of 1 (default) since they
-    29                           ; are byte addressible. PIC10/12/16's have a delta of 2 since they are word
-    30                           ; addressible. PIC18's should have a reloc (alignment) flag of 2 for any
-    31                           ; psect which contains executable code. PIC10/12/16's can use the default
+    28                           ; PIC18s should have a delta (addressible unit size) of 1 (default) since they
+    29                           ; are byte addressible. PIC10/12/16s have a delta of 2 since they are word
+    30                           ; addressible. PIC18s should have a reloc (alignment) flag of 2 for any
+    31                           ; psect which contains executable code. PIC10/12/16s can use the default
     32                           ; reloc value of 1. Use one of the psects below for the device you use:
     33                           ; psect barfunc,local,class=CODE,reloc=2 ; PIC18
     34                           
-    35  0A59  0000               	nop
-    36  0A5A  0000               	nop
-    37  0A5B  0000               	nop
-    38  0A5C  0000               	nop
-    39  0A5D  0000               	nop
-    40  0A5E  0000               	nop
-    41  0A5F  0000               	nop
-    42  0A60  0000               	nop
-    43  0A61  0008               	return
+    35  027A  0000               	nop
+    36  027B  0000               	nop
+    37  027C  0000               	nop
+    38  027D  0000               	nop
+    39  027E  0000               	nop
+    40  027F  0000               	nop
+    41  0280  0000               	nop
+    42  0281  0000               	nop
+    43  0282  0008               	return
 
 
 Microchip Technology PIC Macro Assembler V2.00 build -1524193055 
-Symbol Table                                                                                               Thu Mar 07 17:23:55 2019
+Symbol Table                                                                                               Fri Mar 15 15:57:19 2019
 
-                          _delay 0A59  
+                          _delay 027A  

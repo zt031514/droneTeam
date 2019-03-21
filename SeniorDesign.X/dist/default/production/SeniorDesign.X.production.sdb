@@ -19,24 +19,24 @@
 [v _PORT_PIN_Initialize1 PORT_PIN_Initialize1 `(v  1 e 1 0 ]
 "117
 [v _PORT_PIN_Initialize2 PORT_PIN_Initialize2 `(v  1 e 1 0 ]
-"56 C:\Users\cmh52\Desktop\SeniorDesign.X\eth_wiz.c
+"50 C:\Users\cmh52\Desktop\SeniorDesign.X\eth_wiz.c
 [v _eth_wiz_configure eth_wiz_configure `(v  1 e 1 0 ]
-"242
+"218
 [v _eth_wiz_createSocket eth_wiz_createSocket `(v  1 e 1 0 ]
-"339
+"343
 [v _eth_wiz_transmit_start eth_wiz_transmit_start `(v  1 e 1 0 ]
-"370
+"374
 [v _eth_wiz_transmit_end eth_wiz_transmit_end `(v  1 e 1 0 ]
-"22 C:\Users\cmh52\Desktop\SeniorDesign.X\gnss5.c
-[v _gnss5_acquire gnss5_acquire `(v  1 e 1 0 ]
 "30 C:\Users\cmh52\Desktop\SeniorDesign.X\lepton.c
 [v _lepton_initialize lepton_initialize `(v  1 e 1 0 ]
-"63 C:\Users\cmh52\Desktop\SeniorDesign.X\main.c
+"76 C:\Users\cmh52\Desktop\SeniorDesign.X\main.c
 [v _main main `(i  1 e 2 0 ]
-"209
+"232
 [v _lepton_send_packet lepton_send_packet `(v  1 e 1 0 ]
-"1063
+"258
 [v _lepton_capture_packet lepton_capture_packet `(v  1 e 1 0 ]
+"318
+[v _eth_wiz_receive eth_wiz_receive `(v  1 e 1 0 ]
 "25 C:\Users\cmh52\Desktop\SeniorDesign.X\serial_i2c.c
 [v _i2c_initialize i2c_initialize `(v  1 e 1 0 ]
 "41
@@ -143,7 +143,7 @@
 [v _SP1BRGH SP1BRGH `VEuc  1 e 1 @284 ]
 "4009
 [v _RC1STA RC1STA `VEuc  1 e 1 @285 ]
-[s S651 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S664 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -153,11 +153,11 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "4035
-[u S660 . 1 `S651 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES660  1 e 1 @285 ]
+[u S673 . 1 `S664 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES673  1 e 1 @285 ]
 "4189
 [v _TX1STA TX1STA `VEuc  1 e 1 @286 ]
-[s S694 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S707 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -167,8 +167,8 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "4215
-[u S703 . 1 `S694 1 . 1 0 ]
-[v _TX1STAbits TX1STAbits `VES703  1 e 1 @286 ]
+[u S716 . 1 `S707 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES716  1 e 1 @286 ]
 "4369
 [v _BAUD1CON BAUD1CON `VEuc  1 e 1 @287 ]
 "4615
@@ -183,7 +183,7 @@
 [v _SSP2ADD SSP2ADD `VEuc  1 e 1 @407 ]
 "5768
 [v _SSP2STAT SSP2STAT `VEuc  1 e 1 @409 ]
-[s S317 . 1 `uc 1 BF 1 0 :1:0 
+[s S330 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -193,33 +193,33 @@
 `uc 1 SMP 1 0 :1:7 
 ]
 "5877
-[s S326 . 1 `uc 1 . 1 0 :2:0 
+[s S339 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S331 . 1 `uc 1 . 1 0 :2:0 
+[s S344 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S336 . 1 `uc 1 . 1 0 :2:0 
+[s S349 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S341 . 1 `uc 1 . 1 0 :2:0 
+[s S354 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[s S346 . 1 `uc 1 . 1 0 :2:0 
+[s S359 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DAT 1 0 :1:5 
 ]
-[s S352 . 1 `uc 1 BF2 1 0 :1:0 
+[s S365 . 1 `uc 1 BF2 1 0 :1:0 
 `uc 1 UA2 1 0 :1:1 
 `uc 1 R 1 0 :1:2 
 `uc 1 START 1 0 :1:3 
@@ -228,56 +228,56 @@
 `uc 1 CKE2 1 0 :1:6 
 `uc 1 SMP2 1 0 :1:7 
 ]
-[s S361 . 1 `uc 1 . 1 0 :2:0 
+[s S374 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW 1 0 :1:2 
 `uc 1 START2 1 0 :1:3 
 `uc 1 STOP2 1 0 :1:4 
 `uc 1 DA 1 0 :1:5 
 ]
-[s S367 . 1 `uc 1 . 1 0 :2:0 
+[s S380 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW2 1 0 :1:2 
 `uc 1 I2C_START2 1 0 :1:3 
 `uc 1 I2C_STOP2 1 0 :1:4 
 `uc 1 DA2 1 0 :1:5 
 ]
-[s S373 . 1 `uc 1 . 1 0 :2:0 
+[s S386 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ2 1 0 :1:2 
 `uc 1 S2 1 0 :1:3 
 `uc 1 P2 1 0 :1:4 
 `uc 1 DATA_ADDRESS2 1 0 :1:5 
 ]
-[s S379 . 1 `uc 1 . 1 0 :2:0 
+[s S392 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A2 1 0 :1:5 
 ]
-[s S384 . 1 `uc 1 . 1 0 :2:0 
+[s S397 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_nA2 1 0 :1:5 
 ]
-[s S389 . 1 `uc 1 . 1 0 :2:0 
+[s S402 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_nW2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 I2C_DAT2 1 0 :1:5 
 ]
-[s S394 . 1 `uc 1 . 1 0 :2:0 
+[s S407 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA2 1 0 :1:5 
 ]
-[s S399 . 1 `uc 1 . 1 0 :2:0 
+[s S412 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS2 1 0 :1:5 
 ]
-[u S404 . 1 `S317 1 . 1 0 `S326 1 . 1 0 `S331 1 . 1 0 `S336 1 . 1 0 `S341 1 . 1 0 `S346 1 . 1 0 `S352 1 . 1 0 `S361 1 . 1 0 `S367 1 . 1 0 `S373 1 . 1 0 `S379 1 . 1 0 `S384 1 . 1 0 `S389 1 . 1 0 `S394 1 . 1 0 `S399 1 . 1 0 ]
-[v _SSP2STATbits SSP2STATbits `VES404  1 e 1 @409 ]
+[u S417 . 1 `S330 1 . 1 0 `S339 1 . 1 0 `S344 1 . 1 0 `S349 1 . 1 0 `S354 1 . 1 0 `S359 1 . 1 0 `S365 1 . 1 0 `S374 1 . 1 0 `S380 1 . 1 0 `S386 1 . 1 0 `S392 1 . 1 0 `S397 1 . 1 0 `S402 1 . 1 0 `S407 1 . 1 0 `S412 1 . 1 0 ]
+[v _SSP2STATbits SSP2STATbits `VES417  1 e 1 @409 ]
 "6132
 [v _SSP2CON1 SSP2CON1 `VEuc  1 e 1 @410 ]
 "6252
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @411 ]
-[s S508 . 1 `uc 1 SEN 1 0 :1:0 
+[s S521 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -287,17 +287,17 @@
 `uc 1 GCEN 1 0 :1:7 
 ]
 "6299
-[s S517 . 1 `uc 1 . 1 0 :1:0 
+[s S530 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK 1 0 :5:1 
 ]
-[s S520 . 1 `uc 1 . 1 0 :1:0 
+[s S533 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK1 1 0 :1:1 
 `uc 1 ADMSK2 1 0 :1:2 
 `uc 1 ADMSK3 1 0 :1:3 
 `uc 1 ADMSK4 1 0 :1:4 
 `uc 1 ADMSK5 1 0 :1:5 
 ]
-[s S527 . 1 `uc 1 SEN2 1 0 :1:0 
+[s S540 . 1 `uc 1 SEN2 1 0 :1:0 
 `uc 1 ADMSK12 1 0 :1:1 
 `uc 1 ADMSK22 1 0 :1:2 
 `uc 1 ADMSK32 1 0 :1:3 
@@ -306,18 +306,18 @@
 `uc 1 ACKSTAT2 1 0 :1:6 
 `uc 1 GCEN2 1 0 :1:7 
 ]
-[s S536 . 1 `uc 1 . 1 0 :1:0 
+[s S549 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RSEN2 1 0 :1:1 
 `uc 1 PEN2 1 0 :1:2 
 `uc 1 RCEN2 1 0 :1:3 
 `uc 1 ADMSK42 1 0 :1:4 
 `uc 1 ADMSK52 1 0 :1:5 
 ]
-[u S543 . 1 `S508 1 . 1 0 `S517 1 . 1 0 `S520 1 . 1 0 `S527 1 . 1 0 `S536 1 . 1 0 ]
-[v _SSP2CON2bits SSP2CON2bits `VES543  1 e 1 @411 ]
+[u S556 . 1 `S521 1 . 1 0 `S530 1 . 1 0 `S533 1 . 1 0 `S540 1 . 1 0 `S549 1 . 1 0 ]
+[v _SSP2CON2bits SSP2CON2bits `VES556  1 e 1 @411 ]
 "21517
 [v _PIR3 PIR3 `VEuc  1 e 1 @1807 ]
-[s S634 . 1 `uc 1 SSP1IF 1 0 :1:0 
+[s S647 . 1 `uc 1 SSP1IF 1 0 :1:0 
 `uc 1 BCL1IF 1 0 :1:1 
 `uc 1 SSP2IF 1 0 :1:2 
 `uc 1 BCL2IF 1 0 :1:3 
@@ -325,8 +325,8 @@
 `uc 1 RCIF 1 0 :1:5 
 ]
 "21532
-[u S641 . 1 `S634 1 . 1 0 ]
-[v _PIR3bits PIR3bits `VES641  1 e 1 @1807 ]
+[u S654 . 1 `S647 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES654  1 e 1 @1807 ]
 [s S74 . 1 `uc 1 INTE 1 0 :1:0 
 `uc 1 . 1 0 :3:1 
 `uc 1 IOCIE 1 0 :1:4 
@@ -382,7 +382,7 @@
 [v _ANSELB ANSELB `VEuc  1 e 1 @3907 ]
 "35078
 [v _ANSELC ANSELC `VEuc  1 e 1 @3918 ]
-[s S672 . 1 `uc 1 IOCCF0 1 0 :1:0 
+[s S685 . 1 `uc 1 IOCCF0 1 0 :1:0 
 `uc 1 IOCCF1 1 0 :1:1 
 `uc 1 IOCCF2 1 0 :1:2 
 `uc 1 IOCCF3 1 0 :1:3 
@@ -392,10 +392,10 @@
 `uc 1 IOCCF7 1 0 :1:7 
 ]
 "35529
-[u S681 . 1 `S672 1 . 1 0 ]
+[u S694 . 1 `S685 1 . 1 0 ]
 "35529
 "35529
-[v _IOCCFbits IOCCFbits `VES681  1 e 1 @3925 ]
+[v _IOCCFbits IOCCFbits `VES694  1 e 1 @3925 ]
 "35698
 [v _ANSELD ANSELD `VEuc  1 e 1 @3929 ]
 "36132
@@ -407,6 +407,8 @@
 [v _SSP2IF SSP2IF `VEb  1 e 0 @14458 ]
 "26 C:\Users\cmh52\Desktop\SeniorDesign.X\eth_wiz.c
 [v _common_reg_write common_reg_write `uc  1 e 1 0 ]
+"27
+[v _common_reg_read common_reg_read `uc  1 e 1 0 ]
 "28
 [v _s0_reg_write s0_reg_write `uc  1 e 1 0 ]
 "29
@@ -420,20 +422,8 @@
 "37
 [v _s0_tx_pointer_low s0_tx_pointer_low `uc  1 e 1 0 ]
 "38
-[v _s0_rx_readpointer_high s0_rx_readpointer_high `uc  1 e 1 0 ]
-"39
-[v _s0_rx_readpointer_low s0_rx_readpointer_low `uc  1 e 1 0 ]
-"40
-[v _s0_rx_writepointer_high s0_rx_writepointer_high `uc  1 e 1 0 ]
-"41
-[v _s0_rx_writepointer_low s0_rx_writepointer_low `uc  1 e 1 0 ]
-"42
-[v _s0_rx_datalength_high s0_rx_datalength_high `uc  1 e 1 0 ]
-"43
-[v _s0_rx_datalength_low s0_rx_datalength_low `uc  1 e 1 0 ]
-"44
 [v _s0_SR_check s0_SR_check `uc  1 e 1 0 ]
-"45
+"39
 [v _s0_IR_check s0_IR_check `uc  1 e 1 0 ]
 "28 C:\Users\cmh52\Desktop\SeniorDesign.X\main.c
 [v _mission_stage_check mission_stage_check `uc  1 e 1 0 ]
@@ -451,37 +441,49 @@
 [v _GPS_location_current GPS_location_current `us  1 e 2 0 ]
 "41
 [v _GPS_array_length GPS_array_length `us  1 e 2 0 ]
-"63
+"44
+[v _s0_rx_readpointer_high s0_rx_readpointer_high `uc  1 e 1 0 ]
+"45
+[v _s0_rx_readpointer_low s0_rx_readpointer_low `uc  1 e 1 0 ]
+"46
+[v _s0_rx_writepointer_high s0_rx_writepointer_high `uc  1 e 1 0 ]
+"47
+[v _s0_rx_writepointer_low s0_rx_writepointer_low `uc  1 e 1 0 ]
+"48
+[v _s0_rx_datalength_high s0_rx_datalength_high `uc  1 e 1 0 ]
+"49
+[v _s0_rx_datalength_low s0_rx_datalength_low `uc  1 e 1 0 ]
+"53
+[v _ethwiz_rx_data ethwiz_rx_data `[164]uc  1 e 164 @8872 ]
+"76
 [v _main main `(i  1 e 2 0 ]
 {
-"186
-[v main@i i `i  1 a 2 6 ]
-"120
-[v main@first_send first_send `uc  1 a 1 9 ]
-"121
-[v main@IR_check IR_check `uc  1 a 1 8 ]
-"200
-} 0
 "209
+[v main@i i `i  1 a 2 4 ]
+"134
+[v main@IR_check IR_check `uc  1 a 1 7 ]
+"133
+[v main@first_send first_send `uc  1 a 1 6 ]
+"223
+} 0
+"232
 [v _lepton_send_packet lepton_send_packet `(v  1 e 1 0 ]
 {
-"1042
-[v lepton_send_packet@j j `i  1 a 2 11 ]
-"210
-[v lepton_send_packet@junk junk `uc  1 a 1 10 ]
-"1048
+"237
+[v lepton_send_packet@j j `i  1 a 2 10 ]
+"243
 } 0
-"339 C:\Users\cmh52\Desktop\SeniorDesign.X\eth_wiz.c
+"343 C:\Users\cmh52\Desktop\SeniorDesign.X\eth_wiz.c
 [v _eth_wiz_transmit_start eth_wiz_transmit_start `(v  1 e 1 0 ]
 {
-"357
+"361
 } 0
-"370
+"374
 [v _eth_wiz_transmit_end eth_wiz_transmit_end `(v  1 e 1 0 ]
 {
-"376
+"380
 [v eth_wiz_transmit_end@value value `us  1 a 2 6 ]
-"399
+"403
 } 0
 "30 C:\Users\cmh52\Desktop\SeniorDesign.X\lepton.c
 [v _lepton_initialize lepton_initialize `(v  1 e 1 0 ]
@@ -512,32 +514,40 @@
 {
 "45
 } 0
-"1063 C:\Users\cmh52\Desktop\SeniorDesign.X\main.c
+"258 C:\Users\cmh52\Desktop\SeniorDesign.X\main.c
 [v _lepton_capture_packet lepton_capture_packet `(v  1 e 1 0 ]
 {
-"1761
+"262
+[v lepton_capture_packet@i i `i  1 a 2 2 ]
+"308
 } 0
 "25 C:\Users\cmh52\Desktop\SeniorDesign.X\serial_i2c.c
 [v _i2c_initialize i2c_initialize `(v  1 e 1 0 ]
 {
 "32
 } 0
-"22 C:\Users\cmh52\Desktop\SeniorDesign.X\gnss5.c
-[v _gnss5_acquire gnss5_acquire `(v  1 e 1 0 ]
+"318 C:\Users\cmh52\Desktop\SeniorDesign.X\main.c
+[v _eth_wiz_receive eth_wiz_receive `(v  1 e 1 0 ]
 {
-"24
+"343
+[v eth_wiz_receive@i i `i  1 a 2 8 ]
+"335
+[v eth_wiz_receive@datalength datalength `us  1 a 2 6 ]
+"369
 } 0
-"242 C:\Users\cmh52\Desktop\SeniorDesign.X\eth_wiz.c
+"218 C:\Users\cmh52\Desktop\SeniorDesign.X\eth_wiz.c
 [v _eth_wiz_createSocket eth_wiz_createSocket `(v  1 e 1 0 ]
 {
-"243
-[v eth_wiz_createSocket@connected connected `uc  1 a 1 2 ]
-"327
+"219
+[v eth_wiz_createSocket@connected connected `uc  1 a 1 3 ]
+"220
+[v eth_wiz_createSocket@link_status link_status `uc  1 a 1 2 ]
+"331
 } 0
-"56
+"50
 [v _eth_wiz_configure eth_wiz_configure `(v  1 e 1 0 ]
 {
-"233
+"209
 } 0
 "50 C:\Users\cmh52\Desktop\SeniorDesign.X\serial_spi.c
 [v _SPI_ETHWIZ_Write SPI_ETHWIZ_Write `(uc  1 e 1 0 ]

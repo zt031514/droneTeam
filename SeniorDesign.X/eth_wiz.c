@@ -30,17 +30,11 @@ uint8_t s0_reg_read      = 0b00001000;
 uint8_t s0_tx_buf_write  = 0b00010100;
 uint8_t s0_tx_buf_read   = 0b00010000;
 uint8_t s0_rx_buf_write  = 0b00011100;
-uint8_t s0_rx_buf_read    = 0b00011000;
+uint8_t s0_rx_buf_read   = 0b00011000;
 
-//Variables for pointer registers of TX and RX - CMH
+//Variables for pointer registers of TX and Status and Interrupt Checks - CMH
 uint8_t s0_tx_pointer_high = 0x00;
 uint8_t s0_tx_pointer_low = 0x00;
-uint8_t s0_rx_readpointer_high = 0x00;
-uint8_t s0_rx_readpointer_low = 0x00;
-uint8_t s0_rx_writepointer_high = 0x00;
-uint8_t s0_rx_writepointer_low = 0x00;
-uint8_t s0_rx_datalength_high = 0x00;
-uint8_t s0_rx_datalength_low = 0x00;
 uint8_t s0_SR_check = 0x00;
 uint8_t s0_IR_check = 0x00;
 
@@ -55,6 +49,16 @@ uint8_t s0_IR_check = 0x00;
 // ************************************************************
 void eth_wiz_configure(void){
     
+    //Mode Register - Wake on LAN disabled, Pinf Block Mode enabled,
+    //PPPoE mode disabled, and Force ARP disabled - CMH
+    PORTDbits.RD3 = 0;
+    SPI_ETHWIZ_Write(0x00);
+    SPI_ETHWIZ_Write(0x00); //Address = 0x0000
+    SPI_ETHWIZ_Write(common_reg_write);
+    SPI_ETHWIZ_Write(0b10000000);
+    PORTDbits.RD3 = 1;
+    __delay_ms(1000);
+    
     /*
      * Start of the Common Registers set up
      */
@@ -65,7 +69,7 @@ void eth_wiz_configure(void){
     SPI_ETHWIZ_Write(0x00);
     SPI_ETHWIZ_Write(0x00); //Address = 0x0000
     SPI_ETHWIZ_Write(common_reg_write);
-    SPI_ETHWIZ_Write(0b00010000);
+    SPI_ETHWIZ_Write(0b00000000);
     PORTDbits.RD3 = 1;
     __delay_ms(1);
     
@@ -81,7 +85,7 @@ void eth_wiz_configure(void){
     PORTDbits.RD3 = 1;
     __delay_ms(1);
 
-    //Set the Subnet Mask address to 255.255.0.0 - CMH
+    //Set the Subnet Mask address to 255.255.0.0 = \16 - CMH
     PORTDbits.RD3 = 0;
     SPI_ETHWIZ_Write(0x00);
     SPI_ETHWIZ_Write(0x05); //Start Address = 0x0005
@@ -98,12 +102,12 @@ void eth_wiz_configure(void){
     SPI_ETHWIZ_Write(0x00);
     SPI_ETHWIZ_Write(0x09); //Start Address = 0x0009
     SPI_ETHWIZ_Write(common_reg_write);
-    SPI_ETHWIZ_Write(0x00); //00
-    SPI_ETHWIZ_Write(0x21); //21
-    SPI_ETHWIZ_Write(0x74); //74
-    SPI_ETHWIZ_Write(0x08); //08
-    SPI_ETHWIZ_Write(0x36); //36
-    SPI_ETHWIZ_Write(0x85); //85
+    SPI_ETHWIZ_Write(0xDE); //00
+    SPI_ETHWIZ_Write(0xAD); //21
+    SPI_ETHWIZ_Write(0xBE); //74
+    SPI_ETHWIZ_Write(0xEF); //08
+    SPI_ETHWIZ_Write(0xFE); //36
+    SPI_ETHWIZ_Write(0xED); //85
     PORTDbits.RD3 = 1;
     __delay_ms(1);
     
@@ -119,16 +123,8 @@ void eth_wiz_configure(void){
     PORTDbits.RD3 = 1;
     __delay_ms(1);
     
-    //Set the Destination unreachable interrupt mask to enabled - CMH
-    PORTDbits.RD3 = 0;
-    SPI_ETHWIZ_Write(0x00);
-    SPI_ETHWIZ_Write(0x15); //Address = 0x0015
-    SPI_ETHWIZ_Write(common_reg_write);
-    SPI_ETHWIZ_Write(0b01000000);
-    PORTDbits.RD3 = 1;
-    __delay_ms(1);
     
-    //Enable the Socket 0 and disable all other sockets - CMH
+    //Enable the Socket 0 interrupt and disable all other sockets - CMH
     PORTDbits.RD3 = 0;
     SPI_ETHWIZ_Write(0x00);
     SPI_ETHWIZ_Write(0x18); //Address = 0x0018
@@ -137,16 +133,7 @@ void eth_wiz_configure(void){
     PORTDbits.RD3 = 1;
     __delay_ms(1);
     
-    //Set Retry Count Register to 0 (=RCR+1) - CMH
-    PORTDbits.RD3 = 0;
-    SPI_ETHWIZ_Write(0x00);
-    SPI_ETHWIZ_Write(0x1B); //Address = 0x001B
-    SPI_ETHWIZ_Write(common_reg_write);
-    SPI_ETHWIZ_Write(0b00000000);
-    PORTDbits.RD3 = 1;
-    __delay_ms(1);
     
-    //Set the Physical Operation Mode to all capable - CMH
     PORTDbits.RD3 = 0;
     SPI_ETHWIZ_Write(0x00);
     SPI_ETHWIZ_Write(0x2E); //Address = 0x002E
@@ -166,41 +153,20 @@ void eth_wiz_configure(void){
     SPI_ETHWIZ_Write(0x00);
     SPI_ETHWIZ_Write(0x00); //Address = 0x0000
     SPI_ETHWIZ_Write(s0_reg_write);
-    SPI_ETHWIZ_Write(0b10000001);
+    SPI_ETHWIZ_Write(0b00000001);
     PORTDbits.RD3 = 1;
     __delay_ms(1);
         
-    //Set the S0 Source Port Register to d'10,000' - CMH
+    //Set the S0 Source Port Register to d'500' - CMH
     PORTDbits.RD3 = 0;
     SPI_ETHWIZ_Write(0x00);
     SPI_ETHWIZ_Write(0x04); //Address = 0x0004
     SPI_ETHWIZ_Write(s0_reg_write);
-    SPI_ETHWIZ_Write(0x27);
-    SPI_ETHWIZ_Write(0x10); //10,000 = 0x2710
+    SPI_ETHWIZ_Write(0x01);
+    SPI_ETHWIZ_Write(0xF4); //500 = 0x01F4
     PORTDbits.RD3 = 1;
     __delay_ms(1);
 
-    //Set the S0 Destination IP Address Register to 10.0.0.1 - CMH
-    PORTDbits.RD3 = 0;
-    SPI_ETHWIZ_Write(0x00);
-    SPI_ETHWIZ_Write(0x0C); //Address = 0x000C
-    SPI_ETHWIZ_Write(s0_reg_write);
-    SPI_ETHWIZ_Write(0x0A); //10
-    SPI_ETHWIZ_Write(0x00); //0
-    SPI_ETHWIZ_Write(0x00); //0
-    SPI_ETHWIZ_Write(0x01); //1
-    PORTDbits.RD3 = 1;
-    __delay_ms(1);
-    
-    //Set the S0 Destination Port Register to d'10,000' - CMH
-    PORTDbits.RD3 = 0;
-    SPI_ETHWIZ_Write(0x00);
-    SPI_ETHWIZ_Write(0x10); //Address = 0x0010
-    SPI_ETHWIZ_Write(s0_reg_write);
-    SPI_ETHWIZ_Write(0x27);
-    SPI_ETHWIZ_Write(0x10); //10,000 = 0x2710
-    PORTDbits.RD3 = 1;
-    __delay_ms(1);
        
     //Set the S0 Max Segment Size Register to d'1460' - CMH
     PORTDbits.RD3 = 0;
@@ -209,6 +175,15 @@ void eth_wiz_configure(void){
     SPI_ETHWIZ_Write(s0_reg_write);
     SPI_ETHWIZ_Write(0x05);
     SPI_ETHWIZ_Write(0xB4); //1,460 = 0x05B4
+    PORTDbits.RD3 = 1;
+    __delay_ms(1);
+    
+    // - CMH
+    PORTDbits.RD3 = 0;
+    SPI_ETHWIZ_Write(0x00);
+    SPI_ETHWIZ_Write(0x2C); //Address = 0x002C
+    SPI_ETHWIZ_Write(s0_reg_write);
+    SPI_ETHWIZ_Write(0b11111111);
     PORTDbits.RD3 = 1;
     __delay_ms(1);
     
@@ -230,6 +205,7 @@ void eth_wiz_configure(void){
     SPI_ETHWIZ_Write(0x0A); //10 = 0x0A
     PORTDbits.RD3 = 1;
     __delay_ms(1);
+    
 }
 
 
@@ -241,6 +217,26 @@ void eth_wiz_configure(void){
 // ************************************************************
 void eth_wiz_createSocket(void){
     uint8_t connected = 0;
+    uint8_t link_status = 0;
+    do{
+        PORTDbits.RD3 = 0;
+        SPI_ETHWIZ_Write(0x00);
+        SPI_ETHWIZ_Write(0x2E); //Address = 0x002E
+        SPI_ETHWIZ_Write(common_reg_write);
+        SPI_ETHWIZ_Write(0b10111000);
+        PORTDbits.RD3 = 1;
+        __delay_ms(1);
+        
+        PORTDbits.RD3 = 0;
+        SPI_ETHWIZ_Write(0x00);
+        SPI_ETHWIZ_Write(0x2E); //Address = 0x002E
+        SPI_ETHWIZ_Write(common_reg_read);
+        link_status = SPI_ETHWIZ_Write(0x00);
+        PORTDbits.RD3 = 1;
+        __delay_ms(1);
+        
+    }while((link_status & 0x01) != 0x01);
+    
     do{
         //Open the Socket 0 - CMH
         PORTDbits.RD3 = 0;
@@ -279,10 +275,19 @@ void eth_wiz_createSocket(void){
             SPI_ETHWIZ_Write(s0_reg_read);
             s0_SR_check = SPI_ETHWIZ_Write(0x00); 
             PORTDbits.RD3 = 1;
-        }while(s0_SR_check != 0x13); //SR needs to equal SOCKET_LISTEN - CMH
-
+        }while(s0_SR_check != 0x14); //SR needs to equal SOCKET_LISTEN - CMH */
+        
+        do{
+            PORTDbits.RD3 = 0;
+            SPI_ETHWIZ_Write(0x00);
+            SPI_ETHWIZ_Write(0x03); //Address = 0x0003
+            SPI_ETHWIZ_Write(s0_reg_read);
+            s0_SR_check = SPI_ETHWIZ_Write(0x00); 
+            PORTDbits.RD3 = 1;
+        }while(s0_SR_check != 0x16);
+        
         while(PORTBbits.RB0 != 0) continue; //until INTn is asserted - CMH
-
+        
         //Read in the S0_IR and S0_SR register for interrupt checking - CMH
         PORTDbits.RD3 = 0;
         SPI_ETHWIZ_Write(0x00);
@@ -307,7 +312,7 @@ void eth_wiz_createSocket(void){
         }
         //if successfully connected and sock_established - CMH
         else if((s0_IR_check & 0x01) == 0x01 && s0_SR_check == 0x17){
-            //Clear (by writing a 1) the tconnection flag 
+            //Clear (by writing a 1) the connection flag 
             //to de-assert the INTn Pin - CMH
             PORTDbits.RD3 = 0;
             SPI_ETHWIZ_Write(0x00);
@@ -319,7 +324,6 @@ void eth_wiz_createSocket(void){
             //Set the connected flag to exit loop and function - CMH
             connected = 1;
         }
-        
         
     }while(connected == 0);
       
@@ -391,68 +395,11 @@ void eth_wiz_transmit_end(void){
     //Initiate the send command in the S0_CR Register - CMH
     PORTDbits.RD3 = 0;
     SPI_ETHWIZ_Write(0x00);
-    SPI_ETHWIZ_Write(0x01); //Address = 0x0024
+    SPI_ETHWIZ_Write(0x01); //Address = 0x0001
     SPI_ETHWIZ_Write(s0_reg_write);
     SPI_ETHWIZ_Write(0x20);   //SEND = 0x20
     PORTDbits.RD3 = 1;
     
 }
 
-
-// ************************************************************
-//
-//  This function performs the receive data sequence. Will only
-//  be called after a receive interrupt is sent from the ETH
-//  WIZ.
-//
-// ************************************************************
-void eth_wiz_receive(void){
-    //Read in Received Data Size Register (0x0026 - 0x0027),
-    //the RX Read Data Pointer Register (0x0028 - 0x0029), and
-    //the RX Write pointer Register (0x002A - 0x002B) - CMH
-    PORTDbits.RD3 = 0;
-    SPI_ETHWIZ_Write(0x00);
-    SPI_ETHWIZ_Write(0x26); //Starting Address = 0x0026
-    SPI_ETHWIZ_Write(s0_reg_read);
-    s0_rx_datalength_high = SPI_ETHWIZ_Write(0x00);         //0x0026
-    s0_rx_datalength_low  = SPI_ETHWIZ_Write(0x00);         //0x0027
-    s0_rx_readpointer_high = SPI_ETHWIZ_Write(0x00);        //0x0028
-    s0_rx_readpointer_low  = SPI_ETHWIZ_Write(0x00);        //0x0029
-    s0_rx_writepointer_high = SPI_ETHWIZ_Write(0x00);       //0x002A
-    s0_rx_writepointer_low  = SPI_ETHWIZ_Write(0x00);       //0x002B
-    PORTDbits.RD3 = 1;
-    
-    //determine the amount of bytes to read in from RX buffer - CMH
-    uint16_t datalength = (s0_rx_datalength_high << 8) | s0_rx_datalength_low;
-    
-    //Read in data from the RX buffer - CMH
-    PORTDbits.RD3 = 0;
-     //Starting Address = RX Read Data Pointer
-    SPI_ETHWIZ_Write(s0_rx_readpointer_high);
-    SPI_ETHWIZ_Write(s0_rx_readpointer_low);
-    SPI_ETHWIZ_Write(s0_rx_buf_read);
-    for(int i = 0; i < datalength; i++){
-        //Collect these values into an array - CMH
-        SPI_ETHWIZ_Write(0x00);
-    }
-    PORTDbits.RD3 = 1;
-    __delay_us(1);
-    
-    //Update the Read Pointer to the Write Pointer Address - CMH
-    PORTDbits.RD3 = 0;
-    SPI_ETHWIZ_Write(0x00);
-    SPI_ETHWIZ_Write(0x28); //Starting Address = 0x0028
-    SPI_ETHWIZ_Write(s0_reg_write);
-    SPI_ETHWIZ_Write(s0_rx_writepointer_high);
-    SPI_ETHWIZ_Write(s0_rx_writepointer_low);
-    PORTDbits.RD3 = 1;
-    
-    //Order the RECV command to notify W5500 that the data was read in - CMH
-    PORTDbits.RD3 = 0;
-    SPI_ETHWIZ_Write(0x00);
-    SPI_ETHWIZ_Write(0x01); //Address = 0x0024
-    SPI_ETHWIZ_Write(s0_reg_write);
-    SPI_ETHWIZ_Write(0x40);   //RECV = 0x40
-    PORTDbits.RD3 = 1;
-}
 

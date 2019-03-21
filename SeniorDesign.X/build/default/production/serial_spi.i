@@ -21028,7 +21028,7 @@ void SPI_ETHWIZ_Initialize(void) {
 
 
 
-    SSP2CON1 = 0x20;
+    SSP2CON1 = 0b00100000;
 
 
     SSP2IF = 0;

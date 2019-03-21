@@ -129,9 +129,9 @@ void PORT_PIN_Initialize2(void) {
     
     //Set up the pins for SPI on SSP2 between PIC and ETH WIZ - CMH
     //Replaces the I2C that was previously on SSP2 - CMH
-    SSP2DATPPS = 0x0A;  
-    RB1PPS = 0x16;      
-    RB3PPS = 0x17;      
+    SSP2DATPPS = 0x0A;  //MISO - RB2
+    RB1PPS = 0x16;      //SCLK
+    RB3PPS = 0x17;      //MOSI      
      
     //Lock the PPS using the locking sequence - CMH
     PPSLOCK = 0x55;

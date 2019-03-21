@@ -21102,7 +21102,6 @@ extern void eth_wiz_configure(void);
 extern void eth_wiz_createSocket(void);
 extern void eth_wiz_transmit_start(void);
 extern void eth_wiz_transmit_end(void);
-extern void eth_wiz_receive(void);
 # 22 "main.c" 2
 
 # 1 "./gnss5.h" 1
@@ -21130,11 +21129,24 @@ uint16_t GPS_location_current = 0;
 uint16_t GPS_array_length = 0;
 
 
+uint8_t s0_rx_readpointer_high = 0x00;
+uint8_t s0_rx_readpointer_low = 0x00;
+uint8_t s0_rx_writepointer_high = 0x00;
+uint8_t s0_rx_writepointer_low = 0x00;
+uint8_t s0_rx_datalength_high = 0x00;
+uint8_t s0_rx_datalength_low = 0x00;
+uint8_t s0_reg_write = 0b00001100;
+uint8_t s0_reg_read = 0b00001000;
+uint8_t s0_rx_buf_read = 0b00011000;
+uint8_t ethwiz_rx_data[164];
+
+
 
 void lepton_capture_packet(void);
 void lepton_send_packet(void);
+void eth_wiz_receive(void);
 extern void delay(void);
-# 63 "main.c"
+# 76 "main.c"
 int main(int argc, char** argv)
 {
 
@@ -21215,7 +21227,7 @@ int main(int argc, char** argv)
                     IR_check = SPI_ETHWIZ_Write(0x00);
                     PORTDbits.RD3 = 1;
 
-                }while((IR_check & 0x10) != 0x10);
+                }while((IR_check & 0x10) != 0x10 || (IR_check & 0x04) != 0x04);
 
 
                 PORTDbits.RD3 = 0;
@@ -21232,11 +21244,21 @@ int main(int argc, char** argv)
             }
 
 
-            lepton_send_packet();
+            if((IR_check & 0x04) != 0x04){
+                packet_index = 60;
+            }
+
+            else{
+                lepton_send_packet();
+            }
+
 
         }while(packet_index < 59);
-# 173 "main.c"
+# 193 "main.c"
     }
+    _delay((unsigned long)((500)*(32000000/4000.0)));
+    eth_wiz_receive();
+    mission_stage_check = 2;
 
 
     SPI_Arducam_Initialize();
@@ -21246,7 +21268,7 @@ int main(int argc, char** argv)
     while (mission_stage_check == 2){
 
 
-        gnss5_acquire();
+
 
 
         for(int i = 0; i == GPS_array_length; i++){
@@ -21264,12 +21286,12 @@ int main(int argc, char** argv)
 
     while(1) continue;
 }
-# 209 "main.c"
+# 232 "main.c"
 void lepton_send_packet(void){
-    uint8_t junk = 0;
+
 
     eth_wiz_transmit_start();
-# 1042 "main.c"
+
     for(int j = 0; j <164; j++){
         SPI_ETHWIZ_Write(image_packet[j]);
         image_packet[j] = 0;
@@ -21277,10 +21299,12 @@ void lepton_send_packet(void){
 
     eth_wiz_transmit_end();
 }
-# 1063 "main.c"
+# 258 "main.c"
 void lepton_capture_packet(void){
 
     discard = 0;
+
+    int i = 0;
 
 
     PORTCbits.RC0 = 0;
@@ -21290,663 +21314,13 @@ void lepton_capture_packet(void){
 
 
 
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[0] = SSP1BUF;
-
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[1] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[2] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[3] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[4] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[5] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[6] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[7] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[8] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[9] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[10] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[11] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[12] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[13] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[14] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[15] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[16] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[17] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[18] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[19] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[20] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[21] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[22] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[23] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[24] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[25] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[26] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[27] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[28] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[29] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[30] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[31] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[32] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[33] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[34] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[35] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[36] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[37] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[38] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[39] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[40] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[41] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[42] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[43] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[44] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[45] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[46] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[47] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[48] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[49] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[50] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[51] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[52] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[53] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[54] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[55] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[56] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[57] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[58] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[59] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[60] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[61] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[62] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[63] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[64] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[65] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[66] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[67] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[68] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[69] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[70] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[71] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[72] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[73] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[74] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[75] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[76] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[77] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[78] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[79] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[80] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[81] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[82] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[83] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[84] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[85] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[86] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[87] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[88] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[89] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[90] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[91] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[92] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[93] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[94] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[95] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[96] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[97] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[98] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[99] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[100] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[101] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[102] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[103] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[104] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[105] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[106] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[107] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[108] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[109] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[110] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[111] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[112] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[113] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[114] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[115] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[116] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[117] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[118] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[119] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[120] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[121] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[122] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[123] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[124] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[125] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[126] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[127] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[128] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[129] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[130] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[131] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[132] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[133] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-   SSP1IF = 0;
-    image_packet[134] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[135] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[136] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[137] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[138] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[139] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[140] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[141] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-   SSP1IF = 0;
-    image_packet[142] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[143] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[144] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[145] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[146] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[147] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[148] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[149] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[150] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[151] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[152] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-   SSP1IF = 0;
-    image_packet[153] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[154] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[155] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-   SSP1IF = 0;
-    image_packet[156] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-   SSP1IF = 0;
-    image_packet[157] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-   SSP1IF = 0;
-    image_packet[158] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[159] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[160] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-   SSP1IF = 0;
-    image_packet[161] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[162] = SSP1BUF;
-    SSP1BUF = 0x00;
-    delay();
-    SSP1IF = 0;
-    image_packet[163] = SSP1BUF;
+    while(i < 164){
+        SSP1BUF = 0x00;
+        delay();
+        SSP1IF = 0;
+        image_packet[0] = SSP1BUF;
+        i++;
+    }
 
 
 
@@ -21975,5 +21349,58 @@ void lepton_capture_packet(void){
         _delay((unsigned long)((2000)*(32000000/4000.0)));
         num_discard = 0;
     }
+
+}
+# 318 "main.c"
+void eth_wiz_receive(void){
+
+
+
+    PORTDbits.RD3 = 0;
+    SPI_ETHWIZ_Write(0x00);
+    SPI_ETHWIZ_Write(0x26);
+    SPI_ETHWIZ_Write(s0_reg_read);
+    s0_rx_datalength_high = SPI_ETHWIZ_Write(0x00);
+    s0_rx_datalength_low = SPI_ETHWIZ_Write(0x00);
+    s0_rx_readpointer_high = SPI_ETHWIZ_Write(0x00);
+    s0_rx_readpointer_low = SPI_ETHWIZ_Write(0x00);
+    s0_rx_writepointer_high = SPI_ETHWIZ_Write(0x00);
+    s0_rx_writepointer_low = SPI_ETHWIZ_Write(0x00);
+    PORTDbits.RD3 = 1;
+
+
+    uint16_t datalength = (s0_rx_datalength_high << 8) | s0_rx_datalength_low;
+
+
+    PORTDbits.RD3 = 0;
+
+    SPI_ETHWIZ_Write(s0_rx_readpointer_high);
+    SPI_ETHWIZ_Write(s0_rx_readpointer_low);
+    SPI_ETHWIZ_Write(s0_rx_buf_read);
+    for(int i = 0; i < datalength; i++){
+
+        ethwiz_rx_data[i] = SPI_ETHWIZ_Write(0x00);
+    }
+    PORTDbits.RD3 = 1;
+
+
+
+    PORTDbits.RD3 = 0;
+    SPI_ETHWIZ_Write(0x00);
+    SPI_ETHWIZ_Write(0x28);
+    SPI_ETHWIZ_Write(s0_reg_write);
+    SPI_ETHWIZ_Write(s0_rx_writepointer_high);
+    SPI_ETHWIZ_Write(s0_rx_writepointer_low);
+    PORTDbits.RD3 = 1;
+
+
+    PORTDbits.RD3 = 0;
+    SPI_ETHWIZ_Write(0x00);
+    SPI_ETHWIZ_Write(0x01);
+    SPI_ETHWIZ_Write(s0_reg_write);
+    SPI_ETHWIZ_Write(0x40);
+    SPI_ETHWIZ_Write(0b00000100);
+    PORTDbits.RD3 = 1;
+
 
 }

@@ -33,9 +33,9 @@
 [v _lepton_initialize lepton_initialize `(v  1 e 1 0 ]
 "63 C:\Users\cmh52\Desktop\SeniorDesign.X\main.c
 [v _main main `(i  1 e 2 0 ]
-"178
+"209
 [v _lepton_send_packet lepton_send_packet `(v  1 e 1 0 ]
-"1032
+"248
 [v _lepton_capture_packet lepton_capture_packet `(v  1 e 1 0 ]
 "25 C:\Users\cmh52\Desktop\SeniorDesign.X\serial_i2c.c
 [v _i2c_initialize i2c_initialize `(v  1 e 1 0 ]
@@ -71,7 +71,7 @@
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
 "446
 [v _PORTB PORTB `VEuc  1 e 1 @13 ]
-[s S748 . 1 `uc 1 RB0 1 0 :1:0 
+[s S211 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -81,8 +81,8 @@
 `uc 1 RB7 1 0 :1:7 
 ]
 "463
-[u S757 . 1 `S748 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES757  1 e 1 @13 ]
+[u S220 . 1 `S211 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES220  1 e 1 @13 ]
 "508
 [v _PORTC PORTC `VEuc  1 e 1 @14 ]
 [s S172 . 1 `uc 1 RC0 1 0 :1:0 
@@ -143,7 +143,7 @@
 [v _SP1BRGH SP1BRGH `VEuc  1 e 1 @284 ]
 "4009
 [v _RC1STA RC1STA `VEuc  1 e 1 @285 ]
-[s S620 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S654 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -153,11 +153,11 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "4035
-[u S629 . 1 `S620 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES629  1 e 1 @285 ]
+[u S663 . 1 `S654 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES663  1 e 1 @285 ]
 "4189
 [v _TX1STA TX1STA `VEuc  1 e 1 @286 ]
-[s S663 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S697 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -167,8 +167,8 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "4215
-[u S672 . 1 `S663 1 . 1 0 ]
-[v _TX1STAbits TX1STAbits `VES672  1 e 1 @286 ]
+[u S706 . 1 `S697 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES706  1 e 1 @286 ]
 "4369
 [v _BAUD1CON BAUD1CON `VEuc  1 e 1 @287 ]
 "4615
@@ -183,7 +183,7 @@
 [v _SSP2ADD SSP2ADD `VEuc  1 e 1 @407 ]
 "5768
 [v _SSP2STAT SSP2STAT `VEuc  1 e 1 @409 ]
-[s S286 . 1 `uc 1 BF 1 0 :1:0 
+[s S320 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -193,33 +193,33 @@
 `uc 1 SMP 1 0 :1:7 
 ]
 "5877
-[s S295 . 1 `uc 1 . 1 0 :2:0 
+[s S329 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S300 . 1 `uc 1 . 1 0 :2:0 
+[s S334 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S305 . 1 `uc 1 . 1 0 :2:0 
+[s S339 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S310 . 1 `uc 1 . 1 0 :2:0 
+[s S344 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[s S315 . 1 `uc 1 . 1 0 :2:0 
+[s S349 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DAT 1 0 :1:5 
 ]
-[s S321 . 1 `uc 1 BF2 1 0 :1:0 
+[s S355 . 1 `uc 1 BF2 1 0 :1:0 
 `uc 1 UA2 1 0 :1:1 
 `uc 1 R 1 0 :1:2 
 `uc 1 START 1 0 :1:3 
@@ -228,56 +228,56 @@
 `uc 1 CKE2 1 0 :1:6 
 `uc 1 SMP2 1 0 :1:7 
 ]
-[s S330 . 1 `uc 1 . 1 0 :2:0 
+[s S364 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW 1 0 :1:2 
 `uc 1 START2 1 0 :1:3 
 `uc 1 STOP2 1 0 :1:4 
 `uc 1 DA 1 0 :1:5 
 ]
-[s S336 . 1 `uc 1 . 1 0 :2:0 
+[s S370 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW2 1 0 :1:2 
 `uc 1 I2C_START2 1 0 :1:3 
 `uc 1 I2C_STOP2 1 0 :1:4 
 `uc 1 DA2 1 0 :1:5 
 ]
-[s S342 . 1 `uc 1 . 1 0 :2:0 
+[s S376 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ2 1 0 :1:2 
 `uc 1 S2 1 0 :1:3 
 `uc 1 P2 1 0 :1:4 
 `uc 1 DATA_ADDRESS2 1 0 :1:5 
 ]
-[s S348 . 1 `uc 1 . 1 0 :2:0 
+[s S382 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A2 1 0 :1:5 
 ]
-[s S353 . 1 `uc 1 . 1 0 :2:0 
+[s S387 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_nA2 1 0 :1:5 
 ]
-[s S358 . 1 `uc 1 . 1 0 :2:0 
+[s S392 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_nW2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 I2C_DAT2 1 0 :1:5 
 ]
-[s S363 . 1 `uc 1 . 1 0 :2:0 
+[s S397 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA2 1 0 :1:5 
 ]
-[s S368 . 1 `uc 1 . 1 0 :2:0 
+[s S402 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS2 1 0 :1:5 
 ]
-[u S373 . 1 `S286 1 . 1 0 `S295 1 . 1 0 `S300 1 . 1 0 `S305 1 . 1 0 `S310 1 . 1 0 `S315 1 . 1 0 `S321 1 . 1 0 `S330 1 . 1 0 `S336 1 . 1 0 `S342 1 . 1 0 `S348 1 . 1 0 `S353 1 . 1 0 `S358 1 . 1 0 `S363 1 . 1 0 `S368 1 . 1 0 ]
-[v _SSP2STATbits SSP2STATbits `VES373  1 e 1 @409 ]
+[u S407 . 1 `S320 1 . 1 0 `S329 1 . 1 0 `S334 1 . 1 0 `S339 1 . 1 0 `S344 1 . 1 0 `S349 1 . 1 0 `S355 1 . 1 0 `S364 1 . 1 0 `S370 1 . 1 0 `S376 1 . 1 0 `S382 1 . 1 0 `S387 1 . 1 0 `S392 1 . 1 0 `S397 1 . 1 0 `S402 1 . 1 0 ]
+[v _SSP2STATbits SSP2STATbits `VES407  1 e 1 @409 ]
 "6132
 [v _SSP2CON1 SSP2CON1 `VEuc  1 e 1 @410 ]
 "6252
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @411 ]
-[s S477 . 1 `uc 1 SEN 1 0 :1:0 
+[s S511 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -287,17 +287,17 @@
 `uc 1 GCEN 1 0 :1:7 
 ]
 "6299
-[s S486 . 1 `uc 1 . 1 0 :1:0 
+[s S520 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK 1 0 :5:1 
 ]
-[s S489 . 1 `uc 1 . 1 0 :1:0 
+[s S523 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK1 1 0 :1:1 
 `uc 1 ADMSK2 1 0 :1:2 
 `uc 1 ADMSK3 1 0 :1:3 
 `uc 1 ADMSK4 1 0 :1:4 
 `uc 1 ADMSK5 1 0 :1:5 
 ]
-[s S496 . 1 `uc 1 SEN2 1 0 :1:0 
+[s S530 . 1 `uc 1 SEN2 1 0 :1:0 
 `uc 1 ADMSK12 1 0 :1:1 
 `uc 1 ADMSK22 1 0 :1:2 
 `uc 1 ADMSK32 1 0 :1:3 
@@ -306,18 +306,18 @@
 `uc 1 ACKSTAT2 1 0 :1:6 
 `uc 1 GCEN2 1 0 :1:7 
 ]
-[s S505 . 1 `uc 1 . 1 0 :1:0 
+[s S539 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RSEN2 1 0 :1:1 
 `uc 1 PEN2 1 0 :1:2 
 `uc 1 RCEN2 1 0 :1:3 
 `uc 1 ADMSK42 1 0 :1:4 
 `uc 1 ADMSK52 1 0 :1:5 
 ]
-[u S512 . 1 `S477 1 . 1 0 `S486 1 . 1 0 `S489 1 . 1 0 `S496 1 . 1 0 `S505 1 . 1 0 ]
-[v _SSP2CON2bits SSP2CON2bits `VES512  1 e 1 @411 ]
+[u S546 . 1 `S511 1 . 1 0 `S520 1 . 1 0 `S523 1 . 1 0 `S530 1 . 1 0 `S539 1 . 1 0 ]
+[v _SSP2CON2bits SSP2CON2bits `VES546  1 e 1 @411 ]
 "21517
 [v _PIR3 PIR3 `VEuc  1 e 1 @1807 ]
-[s S603 . 1 `uc 1 SSP1IF 1 0 :1:0 
+[s S637 . 1 `uc 1 SSP1IF 1 0 :1:0 
 `uc 1 BCL1IF 1 0 :1:1 
 `uc 1 SSP2IF 1 0 :1:2 
 `uc 1 BCL2IF 1 0 :1:3 
@@ -325,8 +325,8 @@
 `uc 1 RCIF 1 0 :1:5 
 ]
 "21532
-[u S610 . 1 `S603 1 . 1 0 ]
-[v _PIR3bits PIR3bits `VES610  1 e 1 @1807 ]
+[u S644 . 1 `S637 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES644  1 e 1 @1807 ]
 [s S74 . 1 `uc 1 INTE 1 0 :1:0 
 `uc 1 . 1 0 :3:1 
 `uc 1 IOCIE 1 0 :1:4 
@@ -382,7 +382,7 @@
 [v _ANSELB ANSELB `VEuc  1 e 1 @3907 ]
 "35078
 [v _ANSELC ANSELC `VEuc  1 e 1 @3918 ]
-[s S641 . 1 `uc 1 IOCCF0 1 0 :1:0 
+[s S675 . 1 `uc 1 IOCCF0 1 0 :1:0 
 `uc 1 IOCCF1 1 0 :1:1 
 `uc 1 IOCCF2 1 0 :1:2 
 `uc 1 IOCCF3 1 0 :1:3 
@@ -392,10 +392,10 @@
 `uc 1 IOCCF7 1 0 :1:7 
 ]
 "35529
-[u S650 . 1 `S641 1 . 1 0 ]
+[u S684 . 1 `S675 1 . 1 0 ]
 "35529
 "35529
-[v _IOCCFbits IOCCFbits `VES650  1 e 1 @3925 ]
+[v _IOCCFbits IOCCFbits `VES684  1 e 1 @3925 ]
 "35698
 [v _ANSELD ANSELD `VEuc  1 e 1 @3929 ]
 "36132
@@ -454,18 +454,22 @@
 "63
 [v _main main `(i  1 e 2 0 ]
 {
-"155
-[v main@i i `i  1 a 2 6 ]
-"169
+"186
+[v main@i i `i  1 a 2 4 ]
+"120
+[v main@first_send first_send `uc  1 a 1 7 ]
+"121
+[v main@IR_check IR_check `uc  1 a 1 6 ]
+"200
 } 0
-"178
+"209
 [v _lepton_send_packet lepton_send_packet `(v  1 e 1 0 ]
 {
-"1011
-[v lepton_send_packet@j j `i  1 a 2 11 ]
-"179
-[v lepton_send_packet@junk junk `uc  1 a 1 10 ]
-"1017
+"211
+[v lepton_send_packet@i i `uc  1 a 1 10 ]
+"210
+[v lepton_send_packet@junk junk `uc  1 a 1 9 ]
+"233
 } 0
 "339 C:\Users\cmh52\Desktop\SeniorDesign.X\eth_wiz.c
 [v _eth_wiz_transmit_start eth_wiz_transmit_start `(v  1 e 1 0 ]
@@ -508,10 +512,12 @@
 {
 "45
 } 0
-"1032 C:\Users\cmh52\Desktop\SeniorDesign.X\main.c
+"248 C:\Users\cmh52\Desktop\SeniorDesign.X\main.c
 [v _lepton_capture_packet lepton_capture_packet `(v  1 e 1 0 ]
 {
-"1730
+"252
+[v lepton_capture_packet@i i `i  1 a 2 2 ]
+"298
 } 0
 "25 C:\Users\cmh52\Desktop\SeniorDesign.X\serial_i2c.c
 [v _i2c_initialize i2c_initialize `(v  1 e 1 0 ]

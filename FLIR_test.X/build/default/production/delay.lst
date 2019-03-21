@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC Macro Assembler V2.00 build -1524193055 
-                                                                                                           Tue Feb 26 14:02:18 2019
+                                                                                                           Mon Mar 18 11:36:57 2019
 
 
      1                           	processor	16F18875
@@ -24,7 +24,7 @@ Microchip Technology PIC Macro Assembler V2.00 build -1524193055
     18  0000                     	; extern of bar function goes in the C source file
     19                           
     20                           	psect	barfunc
-    21  0CCE                     _delay:	
+    21  0509                     _delay:	
     22                           ; When assembly code is placed in a psect, it can be manipulated as a
     23                           ; whole by the linker and placed in memory.
     24                           ;
@@ -38,18 +38,18 @@ Microchip Technology PIC Macro Assembler V2.00 build -1524193055
     32                           ; reloc value of 1. Use one of the psects below for the device you use:
     33                           ; psect barfunc,local,class=CODE,reloc=2 ; PIC18
     34                           
-    35  0CCE  0000               	nop
-    36  0CCF  0000               	nop
-    37  0CD0  0000               	nop
-    38  0CD1  0000               	nop
-    39  0CD2  0000               	nop
-    40  0CD3  0000               	nop
-    41  0CD4  0000               	nop
-    42  0CD5  0000               	nop
-    43  0CD6  0008               	return
+    35  0509  0000               	nop
+    36  050A  0000               	nop
+    37  050B  0000               	nop
+    38  050C  0000               	nop
+    39  050D  0000               	nop
+    40  050E  0000               	nop
+    41  050F  0000               	nop
+    42  0510  0000               	nop
+    43  0511  0008               	return
 
 
 Microchip Technology PIC Macro Assembler V2.00 build -1524193055 
-Symbol Table                                                                                               Tue Feb 26 14:02:18 2019
+Symbol Table                                                                                               Mon Mar 18 11:36:57 2019
 
-                          _delay 0CCE  
+                          _delay 0509  

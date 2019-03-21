@@ -21,4 +21,3 @@ extern void eth_wiz_configure(void);
 extern void eth_wiz_createSocket(void);
 extern void eth_wiz_transmit_start(void);
 extern void eth_wiz_transmit_end(void);
-extern void eth_wiz_receive(void);

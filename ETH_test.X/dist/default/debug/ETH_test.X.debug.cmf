@@ -1,0 +1,1286 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$dist/default/debug\ETH_test.X.debug.o
+cinit CODE 0 7CC 7CC 34 2
+text1 CODE 0 36 36 1B 2
+text2 CODE 0 FDD FDD A 2
+text3 CODE 0 FAC FAC 6 2
+text4 CODE 0 FA6 FA6 6 2
+text5 CODE 0 14 14 10 2
+text6 CODE 0 FC2 FC2 9 2
+text7 CODE 0 51 51 33 2
+text8 CODE 0 146 146 51 2
+text9 CODE 0 251 251 E5 2
+text10 CODE 0 425 425 167 2
+text11 CODE 0 58C 58C 240 2
+text12 CODE 0 336 336 EF 2
+text13 CODE 0 24 24 12 2
+text14 CODE 0 84 84 3B 2
+text15 CODE 0 BF BF 43 2
+text16 CODE 0 5 5 F 2
+text17 CODE 0 FF3 FF3 D 2
+text18 CODE 0 FBA FBA 8 2
+text19 CODE 0 FB2 FB2 8 2
+text20 CODE 0 102 102 44 2
+text21 CODE 0 FA0 FA0 6 2
+maintext CODE 0 197 197 BA 2
+cstackCOMMON COMMON 1 70 70 E 1
+cstackBANK0 BANK0 1 20 20 4F 1
+cstackBANK1 BANK1 1 B6 B6 6 1
+stringtext1 STRCODE 0 800 800 3C 2
+stringtext2 STRCODE 0 83C 83C 23 2
+stringtext3 STRCODE 0 85F 85F 16 2
+stringtext4 STRCODE 0 875 875 E 2
+stringtext5 STRCODE 0 1000 1000 B 2
+stringtext6 STRCODE 0 100B 100B 9 2
+stringtext7 STRCODE 0 1014 1014 3 2
+bssBANK1 BANK1 1 A0 A0 D 1
+idataBANK0 CODE 0 4 4 1 2
+idataBANK1 CODE 0 FCB FCB 9 2
+dataBANK0 BANK0 1 6F 6F 1 1
+dataBANK1 BANK1 1 AD AD 9 1
+clrtext CODE 0 FE7 FE7 C 2
+$C:\Users\cmh52\AppData\Local\Temp\s8k4.o
+reset_vec CODE 0 0 0 2 2
+end_init CODE 0 2 2 2 2
+config CONFIG 0 8007 8007 5 2
+$build/default/debug/delay.o
+barfunc CODE 0 FD4 FD4 9 2
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM BC-EF 1
+RAM 120-16F 1
+RAM 1A0-1EF 1
+RAM 220-26F 1
+RAM 2A0-2EF 1
+RAM 320-36F 1
+RAM 3A0-3EF 1
+RAM 420-46F 1
+RAM 4A0-4EF 1
+RAM 520-54B 1
+BANK1 BC-EF 1
+BANK2 120-16F 1
+BANK3 1A0-1EF 1
+BANK4 220-26F 1
+BANK5 2A0-2EF 1
+BANK6 320-36F 1
+BANK7 3A0-3EF 1
+BANK8 420-46F 1
+BANK9 4A0-4EF 1
+CONST 883-F9F 2
+CONST 1017-1FFF 2
+ENTRY 883-F9F 2
+ENTRY 1017-1FFF 2
+IDLOC 8000-8003 2
+SFR10 500-51F 1
+SFR11 580-59F 1
+SFR12 600-61F 1
+SFR13 680-6EF 1
+SFR14 700-76F 1
+SFR15 780-7EF 1
+SFR16 800-86F 1
+SFR17 880-8EF 1
+SFR18 900-96F 1
+SFR19 980-9EF 1
+SFR20 A00-A6F 1
+SFR21 A80-AEF 1
+SFR22 B00-B6F 1
+SFR23 B80-BEF 1
+SFR24 C00-C6F 1
+SFR25 C80-CEF 1
+SFR26 D00-D6F 1
+SFR27 D80-DEF 1
+SFR28 E00-E6F 1
+SFR29 E80-EEF 1
+SFR30 F00-F6F 1
+SFR31 F80-FEF 1
+STACK 206C-234B 1
+CODE 883-F9F 2
+CODE 1017-1FFF 2
+SFR0 0-1F 1
+SFR1 80-9F 1
+SFR2 100-11F 1
+SFR3 180-19F 1
+SFR4 200-21F 1
+SFR5 280-29F 1
+SFR6 300-31F 1
+SFR7 380-39F 1
+SFR8 400-41F 1
+SFR9 480-49F 1
+BANK10 520-54B 1
+BIGRAM 2000-23EF 1
+EEDATA F000-F0FF 2
+STRCODE 883-F9F 2
+STRCODE 1017-1FFF 2
+STRING 883-F9F 2
+STRING 1017-1FFF 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/debug\ETH_test.X.debug.o
+7CC cinit CODE >9314:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7CC cinit CODE >9317:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7CC cinit CODE >9430:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7CF cinit CODE >9431:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7D0 cinit CODE >9435:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7D1 cinit CODE >9436:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7D2 cinit CODE >9437:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7D3 cinit CODE >9438:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7D4 cinit CODE >9439:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7D5 cinit CODE >9440:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7D6 cinit CODE >9441:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7D7 cinit CODE >9442:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7D8 cinit CODE >9443:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7D9 cinit CODE >9444:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7DA cinit CODE >9445:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7DB cinit CODE >9446:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7DC cinit CODE >9447:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7DD cinit CODE >9448:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7DE cinit CODE >9449:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7DF cinit CODE >9450:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7E0 cinit CODE >9451:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7E1 cinit CODE >9452:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7E2 cinit CODE >9453:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7E3 cinit CODE >9454:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7E4 cinit CODE >9455:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7E5 cinit CODE >9456:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7E6 cinit CODE >9457:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7E7 cinit CODE >9480:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7E8 cinit CODE >9481:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7E9 cinit CODE >9482:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7EA cinit CODE >9483:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7EB cinit CODE >9484:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7EC cinit CODE >9485:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7ED cinit CODE >9486:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7EE cinit CODE >9487:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7EF cinit CODE >9488:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7F2 cinit CODE >9492:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7F3 cinit CODE >9493:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7F4 cinit CODE >9494:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7F5 cinit CODE >9495:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7F6 cinit CODE >9496:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7F7 cinit CODE >9497:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7F8 cinit CODE >9498:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7F9 cinit CODE >9499:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7FA cinit CODE >9500:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7FD cinit CODE >9506:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7FD cinit CODE >9508:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+7FE cinit CODE >9509:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+FA0 text21 CODE >22:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+FA0 text21 CODE >23:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+FA3 text21 CODE >24:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+FA5 text21 CODE >25:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+102 text20 CODE >37:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+102 text20 CODE >40:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+104 text20 CODE >41:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+105 text20 CODE >42:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+106 text20 CODE >43:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+107 text20 CODE >44:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+108 text20 CODE >48:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+10A text20 CODE >49:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+10C text20 CODE >50:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+10E text20 CODE >51:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+10F text20 CODE >52:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+110 text20 CODE >55:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+111 text20 CODE >56:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+112 text20 CODE >57:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+113 text20 CODE >58:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+114 text20 CODE >59:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+115 text20 CODE >62:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+116 text20 CODE >63:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+117 text20 CODE >64:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+118 text20 CODE >65:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+119 text20 CODE >66:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+11A text20 CODE >69:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+11C text20 CODE >70:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+11D text20 CODE >71:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+11E text20 CODE >72:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+11F text20 CODE >75:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+122 text20 CODE >76:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+124 text20 CODE >77:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+125 text20 CODE >80:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+128 text20 CODE >81:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+12B text20 CODE >84:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+12D text20 CODE >85:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+130 text20 CODE >86:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+132 text20 CODE >90:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+135 text20 CODE >91:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+138 text20 CODE >92:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+13A text20 CODE >95:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+13D text20 CODE >96:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+13F text20 CODE >97:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+140 text20 CODE >100:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+142 text20 CODE >101:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+143 text20 CODE >102:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+144 text20 CODE >106:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+145 text20 CODE >107:C:\Users\cmh52\Desktop\ETH_test.X\config.c
+FB2 text19 CODE >25:C:\Users\cmh52\Desktop\ETH_test.X\serial_spi.c
+FB2 text19 CODE >27:C:\Users\cmh52\Desktop\ETH_test.X\serial_spi.c
+FB5 text19 CODE >31:C:\Users\cmh52\Desktop\ETH_test.X\serial_spi.c
+FB7 text19 CODE >34:C:\Users\cmh52\Desktop\ETH_test.X\serial_spi.c
+FB9 text19 CODE >36:C:\Users\cmh52\Desktop\ETH_test.X\serial_spi.c
+FBA text18 CODE >68:C:\Users\cmh52\Desktop\ETH_test.X\serial_spi.c
+FBA text18 CODE >69:C:\Users\cmh52\Desktop\ETH_test.X\serial_spi.c
+FBD text18 CODE >73:C:\Users\cmh52\Desktop\ETH_test.X\serial_spi.c
+FBF text18 CODE >77:C:\Users\cmh52\Desktop\ETH_test.X\serial_spi.c
+FC1 text18 CODE >79:C:\Users\cmh52\Desktop\ETH_test.X\serial_spi.c
+FF3 text17 CODE >25:C:\Users\cmh52\Desktop\ETH_test.X\serial_uart.c
+FF3 text17 CODE >28:C:\Users\cmh52\Desktop\ETH_test.X\serial_uart.c
+FF6 text17 CODE >29:C:\Users\cmh52\Desktop\ETH_test.X\serial_uart.c
+FF8 text17 CODE >30:C:\Users\cmh52\Desktop\ETH_test.X\serial_uart.c
+FFA text17 CODE >33:C:\Users\cmh52\Desktop\ETH_test.X\serial_uart.c
+FFC text17 CODE >34:C:\Users\cmh52\Desktop\ETH_test.X\serial_uart.c
+FFD text17 CODE >37:C:\Users\cmh52\Desktop\ETH_test.X\serial_uart.c
+FFF text17 CODE >38:C:\Users\cmh52\Desktop\ETH_test.X\serial_uart.c
+5 text16 CODE >50:C:\Users\cmh52\Desktop\ETH_test.X\serial_spi.c
+6 text16 CODE >52:C:\Users\cmh52\Desktop\ETH_test.X\serial_spi.c
+9 text16 CODE >53:C:\Users\cmh52\Desktop\ETH_test.X\serial_spi.c
+F text16 CODE >55:C:\Users\cmh52\Desktop\ETH_test.X\serial_spi.c
+10 text16 CODE >56:C:\Users\cmh52\Desktop\ETH_test.X\serial_spi.c
+13 text16 CODE >58:C:\Users\cmh52\Desktop\ETH_test.X\serial_spi.c
+BF text15 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwdiv.c
+BF text15 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwdiv.c
+C1 text15 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwdiv.c
+C7 text15 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwdiv.c
+C9 text15 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwdiv.c
+CA text15 CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwdiv.c
+CF text15 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwdiv.c
+D4 text15 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwdiv.c
+D4 text15 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwdiv.c
+DA text15 CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwdiv.c
+DA text15 CODE >21:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwdiv.c
+DF text15 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwdiv.c
+E9 text15 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwdiv.c
+ED text15 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwdiv.c
+EF text15 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwdiv.c
+EF text15 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwdiv.c
+F4 text15 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwdiv.c
+FC text15 CODE >28:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwdiv.c
+FC text15 CODE >29:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwdiv.c
+101 text15 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwdiv.c
+84 text14 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwmod.c
+84 text14 CODE >12:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwmod.c
+8A text14 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwmod.c
+8C text14 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwmod.c
+8D text14 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwmod.c
+92 text14 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwmod.c
+97 text14 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwmod.c
+97 text14 CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwmod.c
+9D text14 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwmod.c
+9D text14 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwmod.c
+A7 text14 CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwmod.c
+AC text14 CODE >21:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwmod.c
+B1 text14 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwmod.c
+B9 text14 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwmod.c
+B9 text14 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwmod.c
+BE text14 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\lwmod.c
+24 text13 CODE >87:C:\Users\cmh52\Desktop\ETH_test.X\serial_uart.c
+25 text13 CODE >90:C:\Users\cmh52\Desktop\ETH_test.X\serial_uart.c
+32 text13 CODE >93:C:\Users\cmh52\Desktop\ETH_test.X\serial_uart.c
+35 text13 CODE >94:C:\Users\cmh52\Desktop\ETH_test.X\serial_uart.c
+336 text12 CODE >472:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+336 text12 CODE >545:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+33B text12 CODE >548:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+33C text12 CODE >550:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+342 text12 CODE >553:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+346 text12 CODE >554:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+347 text12 CODE >555:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+347 text12 CODE >560:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+349 text12 CODE >654:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+34A text12 CODE >656:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+34A text12 CODE >657:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+34B text12 CODE >716:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+34C text12 CODE >717:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+34C text12 CODE >718:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+34D text12 CODE >803:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+34D text12 CODE >818:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+359 text12 CODE >821:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+359 text12 CODE >828:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+35D text12 CODE >829:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+35E text12 CODE >841:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+35F text12 CODE >654:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+37A text12 CODE >841:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+37A text12 CODE >1278:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+386 text12 CODE >1280:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+38A text12 CODE >1281:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+38E text12 CODE >1282:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+394 text12 CODE >1283:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+394 text12 CODE >1324:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+39E text12 CODE >1325:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+3B8 text12 CODE >1326:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+3B9 text12 CODE >1324:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+3C4 text12 CODE >1457:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+3CA text12 CODE >1458:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+3CF text12 CODE >1491:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+3D4 text12 CODE >1493:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+3D5 text12 CODE >1508:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+3FC text12 CODE >1543:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+401 text12 CODE >1493:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+401 text12 CODE >1544:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+40D text12 CODE >548:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+40D text12 CODE >1552:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+424 text12 CODE >1554:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+424 text12 CODE >1560:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
+58C text11 CODE >56:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+58C text11 CODE >60:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+58E text11 CODE >61:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+592 text11 CODE >62:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+596 text11 CODE >63:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+59B text11 CODE >64:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+59F text11 CODE >65:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5A1 text11 CODE >66:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5AD text11 CODE >74:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5AF text11 CODE >75:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5B3 text11 CODE >76:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5B7 text11 CODE >77:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5BC text11 CODE >78:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5C0 text11 CODE >79:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5C2 text11 CODE >80:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5CB text11 CODE >83:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5CD text11 CODE >84:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5D1 text11 CODE >85:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5D5 text11 CODE >86:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5DA text11 CODE >87:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5DE text11 CODE >88:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5E2 text11 CODE >89:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5E6 text11 CODE >90:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5EA text11 CODE >91:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5EC text11 CODE >92:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5F5 text11 CODE >95:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5F7 text11 CODE >96:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5FB text11 CODE >97:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5FF text11 CODE >98:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+604 text11 CODE >99:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+608 text11 CODE >100:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+60C text11 CODE >101:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+610 text11 CODE >102:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+614 text11 CODE >103:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+616 text11 CODE >104:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+61F text11 CODE >107:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+621 text11 CODE >108:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+625 text11 CODE >109:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+629 text11 CODE >110:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+62E text11 CODE >111:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+632 text11 CODE >112:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+636 text11 CODE >113:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+63A text11 CODE >114:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+63E text11 CODE >115:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+642 text11 CODE >116:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+646 text11 CODE >117:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+648 text11 CODE >118:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+651 text11 CODE >121:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+653 text11 CODE >122:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+657 text11 CODE >123:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+65B text11 CODE >124:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+660 text11 CODE >125:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+664 text11 CODE >126:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+668 text11 CODE >127:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+66C text11 CODE >128:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+670 text11 CODE >129:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+672 text11 CODE >130:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+67B text11 CODE >134:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+67D text11 CODE >135:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+681 text11 CODE >136:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+685 text11 CODE >137:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+68A text11 CODE >138:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+68E text11 CODE >139:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+690 text11 CODE >140:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+699 text11 CODE >152:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+69B text11 CODE >153:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+69F text11 CODE >154:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6A3 text11 CODE >155:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6A8 text11 CODE >156:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6AC text11 CODE >157:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6AE text11 CODE >158:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6B7 text11 CODE >167:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6B9 text11 CODE >168:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6BD text11 CODE >169:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6C1 text11 CODE >170:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6C6 text11 CODE >171:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6CA text11 CODE >172:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6CC text11 CODE >173:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6D5 text11 CODE >176:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6D7 text11 CODE >177:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6DB text11 CODE >178:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6DF text11 CODE >179:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6E4 text11 CODE >180:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6E8 text11 CODE >181:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6EC text11 CODE >182:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6EE text11 CODE >183:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6F7 text11 CODE >222:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6F9 text11 CODE >223:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+6FD text11 CODE >224:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+701 text11 CODE >225:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+706 text11 CODE >226:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+70A text11 CODE >227:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+70E text11 CODE >228:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+710 text11 CODE >229:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+719 text11 CODE >233:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+71B text11 CODE >234:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+71F text11 CODE >235:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+723 text11 CODE >236:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+728 text11 CODE >237:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+72C text11 CODE >238:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+72E text11 CODE >239:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+737 text11 CODE >242:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+739 text11 CODE >243:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+73D text11 CODE >244:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+741 text11 CODE >245:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+746 text11 CODE >246:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+74A text11 CODE >247:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+74E text11 CODE >248:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+750 text11 CODE >249:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+759 text11 CODE >252:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+75B text11 CODE >253:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+75F text11 CODE >254:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+763 text11 CODE >255:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+768 text11 CODE >256:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+76C text11 CODE >257:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+76E text11 CODE >258:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+777 text11 CODE >263:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+779 text11 CODE >264:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+77A text11 CODE >265:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+77E text11 CODE >266:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+782 text11 CODE >267:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+787 text11 CODE >268:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+78F text11 CODE >269:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+797 text11 CODE >270:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+79F text11 CODE >271:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+7A7 text11 CODE >272:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+7A8 text11 CODE >275:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+7CB text11 CODE >276:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+425 text10 CODE >285:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+425 text10 CODE >286:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+427 text10 CODE >287:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+429 text10 CODE >288:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+429 text10 CODE >289:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+42A text10 CODE >290:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+42E text10 CODE >291:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+432 text10 CODE >292:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+437 text10 CODE >293:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+43B text10 CODE >294:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+43D text10 CODE >295:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+446 text10 CODE >297:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+448 text10 CODE >298:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+44C text10 CODE >299:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+450 text10 CODE >300:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+455 text10 CODE >301:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+45D text10 CODE >302:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+45E text10 CODE >303:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+467 text10 CODE >305:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+46D text10 CODE >307:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+475 text10 CODE >309:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+475 text10 CODE >311:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+477 text10 CODE >312:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+47B text10 CODE >313:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+47F text10 CODE >314:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+484 text10 CODE >315:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+488 text10 CODE >316:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+48A text10 CODE >317:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+494 text10 CODE >320:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+494 text10 CODE >321:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+496 text10 CODE >322:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+49A text10 CODE >323:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+49E text10 CODE >324:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4A3 text10 CODE >325:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4AC text10 CODE >326:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4AE text10 CODE >327:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4B5 text10 CODE >331:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4B7 text10 CODE >332:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4BB text10 CODE >333:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4BF text10 CODE >334:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4C4 text10 CODE >335:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4C8 text10 CODE >336:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4CA text10 CODE >337:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4D4 text10 CODE >340:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4D4 text10 CODE >341:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4D6 text10 CODE >342:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4DA text10 CODE >343:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4DE text10 CODE >344:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4E3 text10 CODE >345:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4EC text10 CODE >346:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4EE text10 CODE >347:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4F6 text10 CODE >349:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4F6 text10 CODE >350:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4F8 text10 CODE >351:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+4FC text10 CODE >352:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+500 text10 CODE >353:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+505 text10 CODE >354:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+50E text10 CODE >355:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+510 text10 CODE >356:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+518 text10 CODE >358:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+51E text10 CODE >372:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+51F text10 CODE >373:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+523 text10 CODE >374:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+527 text10 CODE >375:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+52C text10 CODE >376:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+535 text10 CODE >377:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+53E text10 CODE >378:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+540 text10 CODE >382:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+54A text10 CODE >385:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+54C text10 CODE >386:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+550 text10 CODE >387:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+554 text10 CODE >388:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+559 text10 CODE >389:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+55D text10 CODE >390:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+55F text10 CODE >392:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+560 text10 CODE >393:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+561 text10 CODE >395:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+56B text10 CODE >398:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+56D text10 CODE >399:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+571 text10 CODE >400:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+575 text10 CODE >401:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+57A text10 CODE >402:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+57E text10 CODE >403:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+580 text10 CODE >406:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+583 text10 CODE >407:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+584 text10 CODE >411:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+58B text10 CODE >414:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+251 text9 CODE >527:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+251 text9 CODE >533:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+253 text9 CODE >534:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+257 text9 CODE >535:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+25B text9 CODE >536:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+260 text9 CODE >537:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+269 text9 CODE >538:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+272 text9 CODE >539:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+27B text9 CODE >540:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+284 text9 CODE >541:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+28D text9 CODE >542:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+296 text9 CODE >543:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+298 text9 CODE >546:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+2AB text9 CODE >547:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+2B2 text9 CODE >549:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+2B4 text9 CODE >551:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+2B9 text9 CODE >552:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+2BE text9 CODE >553:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+2C3 text9 CODE >554:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+2C7 text9 CODE >556:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+2D3 text9 CODE >557:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+2E5 text9 CODE >554:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+2F5 text9 CODE >559:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+2F6 text9 CODE >560:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+2FA text9 CODE >561:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+302 text9 CODE >564:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+304 text9 CODE >565:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+308 text9 CODE >566:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+30C text9 CODE >567:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+311 text9 CODE >568:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+316 text9 CODE >569:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+31B text9 CODE >570:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+31D text9 CODE >573:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+31E text9 CODE >574:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+322 text9 CODE >575:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+326 text9 CODE >576:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+32B text9 CODE >577:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+32F text9 CODE >578:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+333 text9 CODE >579:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+335 text9 CODE >582:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+146 text8 CODE >488:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+146 text8 CODE >490:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+148 text8 CODE >494:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+158 text8 CODE >495:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+15E text8 CODE >496:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+162 text8 CODE >497:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+166 text8 CODE >500:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+168 text8 CODE >501:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+16C text8 CODE >502:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+170 text8 CODE >503:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+175 text8 CODE >504:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+17A text8 CODE >505:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+17F text8 CODE >506:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+181 text8 CODE >507:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+182 text8 CODE >510:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+183 text8 CODE >511:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+187 text8 CODE >512:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+18B text8 CODE >513:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+190 text8 CODE >514:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+194 text8 CODE >515:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+196 text8 CODE >517:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+51 text7 CODE >426:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+51 text7 CODE >428:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+53 text7 CODE >429:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+57 text7 CODE >430:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+5B text7 CODE >431:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+60 text7 CODE >432:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+68 text7 CODE >433:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+70 text7 CODE >434:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+72 text7 CODE >435:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+73 text7 CODE >438:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+74 text7 CODE >439:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+79 text7 CODE >440:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+7E text7 CODE >441:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+83 text7 CODE >444:C:\Users\cmh52\Desktop\ETH_test.X\eth_wiz.c
+FC2 text6 CODE >25:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+FC2 text6 CODE >27:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+FC5 text6 CODE >28:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+FC6 text6 CODE >29:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+FC8 text6 CODE >30:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+FC9 text6 CODE >31:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+FCA text6 CODE >32:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+14 text5 CODE >41:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+14 text5 CODE >44:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+23 text5 CODE >45:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+FA6 text4 CODE >53:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+FA6 text4 CODE >56:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+FA9 text4 CODE >59:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+FAB text4 CODE >60:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+FAC text3 CODE >84:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+FAC text3 CODE >87:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+FAF text3 CODE >90:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+FB1 text3 CODE >91:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+FDD text2 CODE >141:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+FDE text2 CODE >144:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+FE1 text2 CODE >147:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+FE4 text2 CODE >150:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+FE6 text2 CODE >152:C:\Users\cmh52\Desktop\ETH_test.X\serial_i2c.c
+36 text1 CODE >30:C:\Users\cmh52\Desktop\ETH_test.X\lepton.c
+36 text1 CODE >33:C:\Users\cmh52\Desktop\ETH_test.X\lepton.c
+39 text1 CODE >34:C:\Users\cmh52\Desktop\ETH_test.X\lepton.c
+3D text1 CODE >35:C:\Users\cmh52\Desktop\ETH_test.X\lepton.c
+41 text1 CODE >36:C:\Users\cmh52\Desktop\ETH_test.X\lepton.c
+45 text1 CODE >37:C:\Users\cmh52\Desktop\ETH_test.X\lepton.c
+49 text1 CODE >38:C:\Users\cmh52\Desktop\ETH_test.X\lepton.c
+4D text1 CODE >39:C:\Users\cmh52\Desktop\ETH_test.X\lepton.c
+50 text1 CODE >46:C:\Users\cmh52\Desktop\ETH_test.X\lepton.c
+197 maintext CODE >46:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+197 maintext CODE >49:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+19A maintext CODE >52:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+19D maintext CODE >55:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+1A0 maintext CODE >58:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+1A3 maintext CODE >61:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+1A6 maintext CODE >64:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+1A9 maintext CODE >70:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+1AC maintext CODE >73:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+1AE maintext CODE >74:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+1BA maintext CODE >77:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+1BC maintext CODE >78:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+1BD maintext CODE >79:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+1BE maintext CODE >81:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+1CA maintext CODE >82:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+1CC maintext CODE >83:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+1CD maintext CODE >84:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+1DA maintext CODE >86:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+1DE maintext CODE >87:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+1E6 maintext CODE >90:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+1E9 maintext CODE >91:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+1F1 maintext CODE >94:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+1F4 maintext CODE >95:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+1FC maintext CODE >124:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+208 maintext CODE >125:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+20B maintext CODE >126:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+20F maintext CODE >127:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+213 maintext CODE >128:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+217 maintext CODE >129:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+21B maintext CODE >130:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+21F maintext CODE >131:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+222 maintext CODE >133:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+225 maintext CODE >135:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+231 maintext CODE >136:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+234 maintext CODE >137:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+238 maintext CODE >138:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+23C maintext CODE >139:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+240 maintext CODE >140:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+244 maintext CODE >141:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+248 maintext CODE >142:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+24B maintext CODE >144:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+24E maintext CODE >146:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+24F maintext CODE >148:C:\Users\cmh52\Desktop\ETH_test.X\main.c
+FE7 clrtext CODE >9463:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+FE7 clrtext CODE >9464:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+FE8 clrtext CODE >9465:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+FE8 clrtext CODE >9466:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+FE9 clrtext CODE >9467:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+FEA clrtext CODE >9468:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+FEB clrtext CODE >9469:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+FEC clrtext CODE >9470:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+FED clrtext CODE >9471:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+FEE clrtext CODE >9472:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+FEF clrtext CODE >9473:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+FF0 clrtext CODE >9474:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+FF1 clrtext CODE >9475:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+FF2 clrtext CODE >9476:C:\Users\cmh52\AppData\Local\Temp\s8k4.
+$build/default/debug/delay.o
+FD4 barfunc CODE >20:C:\Users\cmh52\Desktop\ETH_test.X\delay.asm
+FD4 barfunc CODE >21:C:\Users\cmh52\Desktop\ETH_test.X\delay.asm
+FD5 barfunc CODE >22:C:\Users\cmh52\Desktop\ETH_test.X\delay.asm
+FD6 barfunc CODE >23:C:\Users\cmh52\Desktop\ETH_test.X\delay.asm
+FD7 barfunc CODE >24:C:\Users\cmh52\Desktop\ETH_test.X\delay.asm
+FD8 barfunc CODE >25:C:\Users\cmh52\Desktop\ETH_test.X\delay.asm
+FD9 barfunc CODE >26:C:\Users\cmh52\Desktop\ETH_test.X\delay.asm
+FDA barfunc CODE >27:C:\Users\cmh52\Desktop\ETH_test.X\delay.asm
+FDB barfunc CODE >28:C:\Users\cmh52\Desktop\ETH_test.X\delay.asm
+FDC barfunc CODE >29:C:\Users\cmh52\Desktop\ETH_test.X\delay.asm
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+___latbits 2 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_s0_rx_writepointer_low A4 0 BANK1 1 bssBANK1 dist/default/debug\ETH_test.X.debug.o
+putch@byte 70 0 COMMON 1 cstackCOMMON dist/default/debug\ETH_test.X.debug.o
+__end_of_i2c_waitForIdle 48 0 CODE 0 text5 dist/default/debug\ETH_test.X.debug.o
+__end_of_lepton_initialize A2 0 CODE 0 text1 dist/default/debug\ETH_test.X.debug.o
+___lwmod@counter 7D 0 COMMON 1 cstackCOMMON dist/default/debug\ETH_test.X.debug.o
+__LdataBANK0 0 0 ABS 0 dataBANK0 -
+__LdataBANK1 0 0 ABS 0 dataBANK1 -
+__end_of_i2c_initialize 1F96 0 CODE 0 text6 dist/default/debug\ETH_test.X.debug.o
+__Hspace_0 800C 0 ABS 0 - -
+__Hspace_1 BC 0 ABS 0 - -
+__Hspace_2 0 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+_eth_wiz_receive 4A2 0 CODE 0 text9 dist/default/debug\ETH_test.X.debug.o
+_s0_tx_pointer_low A8 0 BANK1 1 bssBANK1 dist/default/debug\ETH_test.X.debug.o
+__HidataBANK0 0 0 ABS 0 idataBANK0 -
+__HidataBANK1 0 0 ABS 0 idataBANK1 -
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+_i2c_stop 1F58 0 CODE 0 text3 dist/default/debug\ETH_test.X.debug.o
+__CFG_MCLRE$ON 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+eth_wiz_configure@one 3C 0 BANK0 1 cstackBANK0 dist/default/debug\ETH_test.X.debug.o
+eth_wiz_configure@two 3D 0 BANK0 1 cstackBANK0 dist/default/debug\ETH_test.X.debug.o
+__Hstrings 0 0 ABS 0 strings -
+__CFG_WDTCCS$SC 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_LATA 16 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_LATB 17 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_LATC 18 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_LATD 19 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_LATE 1A 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_PIR3 70F 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+___sp 0 0 STACK 2 stack C:\Users\cmh52\AppData\Local\Temp\s8k4.o
+_main 32E 0 CODE 0 maintext dist/default/debug\ETH_test.X.debug.o
+btemp 7E 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_eth_wiz_configure B18 0 CODE 0 text11 dist/default/debug\ETH_test.X.debug.o
+start 4 0 CODE 0 init C:\Users\cmh52\AppData\Local\Temp\s8k4.o
+_packet_index B3 0 BANK1 1 dataBANK1 dist/default/debug\ETH_test.X.debug.o
+__end_of_i2c_stop 1F64 0 CODE 0 text3 dist/default/debug\ETH_test.X.debug.o
+__size_of_main 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__size_of___lwdiv 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__size_of___lwmod 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__CFG_SCANE$available 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_common_reg_read AA 0 BANK1 1 bssBANK1 dist/default/debug\ETH_test.X.debug.o
+_s0_rx_readpointer_low A6 0 BANK1 1 bssBANK1 dist/default/debug\ETH_test.X.debug.o
+__size_of_SPI_ETHWIZ_Initialize 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+eth_wiz_receive@i 6D 0 BANK0 1 cstackBANK0 dist/default/debug\ETH_test.X.debug.o
+_s0_rx_writepointer_high A5 0 BANK1 1 bssBANK1 dist/default/debug\ETH_test.X.debug.o
+__size_of_eth_wiz_transmit_start 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__LidataBANK0 0 0 ABS 0 idataBANK0 -
+__LidataBANK1 0 0 ABS 0 idataBANK1 -
+__Hpowerup 0 0 CODE 0 powerup -
+printf@c 33 0 BANK0 1 cstackBANK0 dist/default/debug\ETH_test.X.debug.o
+printf@f 20 0 BANK0 1 cstackBANK0 dist/default/debug\ETH_test.X.debug.o
+_i2c_waitForIdle 28 0 CODE 0 text5 dist/default/debug\ETH_test.X.debug.o
+eth_wiz_transmit_end_single_byte@value 76 0 COMMON 1 cstackCOMMON dist/default/debug\ETH_test.X.debug.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\cmh52\AppData\Local\Temp\s8k4.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\cmh52\AppData\Local\Temp\s8k4.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\cmh52\AppData\Local\Temp\s8k4.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\cmh52\AppData\Local\Temp\s8k4.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\cmh52\AppData\Local\Temp\s8k4.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\cmh52\AppData\Local\Temp\s8k4.o
+_s0_rx_datalength_high A3 0 BANK1 1 bssBANK1 dist/default/debug\ETH_test.X.debug.o
+eth_wiz_receive@data 39 0 BANK0 1 cstackBANK0 dist/default/debug\ETH_test.X.debug.o
+wtemp0 7E 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__Hfunctab 0 0 ENTRY 0 functab -
+_RC1STAbits 11D 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_PORT_PIN_Initialize1 204 0 CODE 0 text20 dist/default/debug\ETH_test.X.debug.o
+__Hclrtext 0 0 ABS 0 clrtext -
+i2c_write@i2cWriteData 71 0 COMMON 1 cstackCOMMON dist/default/debug\ETH_test.X.debug.o
+_eth_wiz_transmit_end_single_byte 28C 0 CODE 0 text8 dist/default/debug\ETH_test.X.debug.o
+SPI_ETHWIZ_Write@data 70 0 COMMON 1 cstackCOMMON dist/default/debug\ETH_test.X.debug.o
+printf@flag 2E 0 BANK0 1 cstackBANK0 dist/default/debug\ETH_test.X.debug.o
+printf@prec 2F 0 BANK0 1 cstackBANK0 dist/default/debug\ETH_test.X.debug.o
+_lepton_initialize 6C 0 CODE 0 text1 dist/default/debug\ETH_test.X.debug.o
+_ANSELA F38 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_ANSELB F43 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_ANSELC F4E 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_ANSELD F59 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_ANSELE F64 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__size_of_eth_wiz_receive 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_discard AC 0 BANK1 1 bssBANK1 dist/default/debug\ETH_test.X.debug.o
+__Lmaintext 0 0 ABS 0 maintext -
+__end_of_i2c_start 1F58 0 CODE 0 text4 dist/default/debug\ETH_test.X.debug.o
+__end_of_i2c_write 1FCE 0 CODE 0 text2 dist/default/debug\ETH_test.X.debug.o
+?_printf 20 0 BANK0 1 cstackBANK0 dist/default/debug\ETH_test.X.debug.o
+__size_of_i2c_start 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+___lwmod@divisor 78 0 COMMON 1 cstackCOMMON dist/default/debug\ETH_test.X.debug.o
+__size_of_i2c_write 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__CFG_FEXTOSC$OFF 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__end_of___lwdiv 204 0 CODE 0 text15 dist/default/debug\ETH_test.X.debug.o
+__end_of___lwmod 17E 0 CODE 0 text14 dist/default/debug\ETH_test.X.debug.o
+_dpowers 1000 0 STRCODE 0 stringtext1 dist/default/debug\ETH_test.X.debug.o
+___lwdiv@quotient 75 0 COMMON 1 cstackCOMMON dist/default/debug\ETH_test.X.debug.o
+_SPI_ETHWIZ_Write A 0 CODE 0 text16 dist/default/debug\ETH_test.X.debug.o
+__size_of_putch 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_i2c_start 1F4C 0 CODE 0 text4 dist/default/debug\ETH_test.X.debug.o
+_i2c_write 1FBA 0 CODE 0 text2 dist/default/debug\ETH_test.X.debug.o
+eth_wiz_receive@datalength 6B 0 BANK0 1 cstackBANK0 dist/default/debug\ETH_test.X.debug.o
+___lwmod@dividend 7A 0 COMMON 1 cstackCOMMON dist/default/debug\ETH_test.X.debug.o
+__CFG_PPS1WAY$OFF 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__size_of_i2c_waitForIdle 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+start_initialization F98 0 CODE 0 cinit dist/default/debug\ETH_test.X.debug.o
+_SSP2CON2bits 19B 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_OSCFRQ 893 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_s0_IR_check A0 0 BANK1 1 bssBANK1 dist/default/debug\ETH_test.X.debug.o
+_s0_reg_write 6F 0 BANK0 1 dataBANK0 dist/default/debug\ETH_test.X.debug.o
+__CFG_WDTCPS$WDTCPS_31 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_RB1PPS F19 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_RB3PPS F1B 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_RB7PPS F1F 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_RC1PPS F21 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_RC1REG 119 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_RC1STA 11D 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_RC6PPS F26 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+clear_ram0 1FCE 0 CODE 0 clrtext dist/default/debug\ETH_test.X.debug.o
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/debug\ETH_test.X.debug.o
+__pcstackBANK1 B6 0 BANK1 1 cstackBANK1 dist/default/debug\ETH_test.X.debug.o
+_SSP1IF 3878 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_SSP2IF 387A 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__end_of_UART_Initialize 2000 0 CODE 0 text17 dist/default/debug\ETH_test.X.debug.o
+_TX1REG 11A 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_TX1STA 11E 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+eth_wiz_configure@four 3F 0 BANK0 1 cstackBANK0 dist/default/debug\ETH_test.X.debug.o
+__end_of_printf 84A 0 CODE 0 text12 dist/default/debug\ETH_test.X.debug.o
+___int_sp 0 0 STACK 2 stack C:\Users\cmh52\AppData\Local\Temp\s8k4.o
+eth_wiz_configure@three 3E 0 BANK0 1 cstackBANK0 dist/default/debug\ETH_test.X.debug.o
+__Hbank0 0 0 ABS 0 bank0 -
+__Hbank1 0 0 ABS 0 bank1 -
+__Hbank2 0 0 ABS 0 bank2 -
+__Hbank3 0 0 ABS 0 bank3 -
+__Hbank4 0 0 ABS 0 bank4 -
+__Hbank5 0 0 ABS 0 bank5 -
+__Hbank6 0 0 ABS 0 bank6 -
+__Hbank7 0 0 ABS 0 bank7 -
+__Hbank8 0 0 ABS 0 bank8 -
+__Hbank9 0 0 ABS 0 bank9 -
+__Hcinit 1000 0 CODE 0 cinit -
+__Hidloc 0 0 IDLOC 0 idloc -
+__size_of_OSCILLATOR_Initialize 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__Hsfr10 0 0 ABS 0 sfr10 -
+__Hsfr11 0 0 ABS 0 sfr11 -
+__Hsfr12 0 0 ABS 0 sfr12 -
+__Hsfr13 0 0 ABS 0 sfr13 -
+__Hsfr14 0 0 ABS 0 sfr14 -
+__Hsfr15 0 0 ABS 0 sfr15 -
+__Hsfr16 0 0 ABS 0 sfr16 -
+__Hsfr17 0 0 ABS 0 sfr17 -
+__Hsfr18 0 0 ABS 0 sfr18 -
+__Hsfr19 0 0 ABS 0 sfr19 -
+__Hsfr20 0 0 ABS 0 sfr20 -
+__Hsfr21 0 0 ABS 0 sfr21 -
+__Hsfr22 0 0 ABS 0 sfr22 -
+__Hsfr23 0 0 ABS 0 sfr23 -
+__Hsfr24 0 0 ABS 0 sfr24 -
+__Hsfr25 0 0 ABS 0 sfr25 -
+__Hsfr26 0 0 ABS 0 sfr26 -
+__Hsfr27 0 0 ABS 0 sfr27 -
+__Hsfr28 0 0 ABS 0 sfr28 -
+__Hsfr29 0 0 ABS 0 sfr29 -
+__Hsfr30 0 0 ABS 0 sfr30 -
+__Hsfr31 0 0 ABS 0 sfr31 -
+__Hstack 0 0 STACK 2 stack -
+___lwdiv@counter 77 0 COMMON 1 cstackCOMMON dist/default/debug\ETH_test.X.debug.o
+__Hbank10 0 0 ABS 0 bank10 -
+__Hbank11 0 0 ABS 0 bank11 -
+__Hbank12 0 0 ABS 0 bank12 -
+__Hbank13 0 0 BANK13 1 bank13 -
+__Hbank14 0 0 BANK14 1 bank14 -
+__Hbank15 0 0 BANK15 1 bank15 -
+__Hbank16 0 0 BANK16 1 bank16 -
+__Hbank17 0 0 BANK17 1 bank17 -
+__Hbank18 0 0 BANK18 1 bank18 -
+__Hbank19 0 0 BANK19 1 bank19 -
+__Hbank20 0 0 BANK20 1 bank20 -
+__Hbank21 0 0 BANK21 1 bank21 -
+__Hbank22 0 0 BANK22 1 bank22 -
+__Hbank23 0 0 BANK23 1 bank23 -
+__Hbank24 0 0 BANK24 1 bank24 -
+__Hbank25 0 0 BANK25 1 bank25 -
+__Hbank26 0 0 BANK26 1 bank26 -
+__Hbank27 0 0 BANK27 1 bank27 -
+__Hbank28 0 0 BANK28 1 bank28 -
+__Hbank29 0 0 BANK29 1 bank29 -
+__Hbank30 0 0 BANK30 1 bank30 -
+__Hbank31 0 0 BANK31 1 bank31 -
+__Hbigram 0 0 ABS 0 bigram -
+__Hmaintext 0 0 ABS 0 maintext -
+_BAUD1CON 11F 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__Hcommon 0 0 ABS 0 common -
+__Hconfig 10018 0 CONFIG 0 config -
+__size_of_i2c_initialize 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__Lbank0 0 0 ABS 0 bank0 -
+__Lbank1 0 0 ABS 0 bank1 -
+__Lbank2 0 0 ABS 0 bank2 -
+__Lbank3 0 0 ABS 0 bank3 -
+__Lbank4 0 0 ABS 0 bank4 -
+__Lbank5 0 0 ABS 0 bank5 -
+__Lbank6 0 0 ABS 0 bank6 -
+__Lbank7 0 0 ABS 0 bank7 -
+__Lbank8 0 0 ABS 0 bank8 -
+__Lbank9 0 0 ABS 0 bank9 -
+__Lcinit F98 0 CODE 0 cinit -
+__Lidloc 0 0 IDLOC 0 idloc -
+__Lsfr10 0 0 ABS 0 sfr10 -
+__Lsfr11 0 0 ABS 0 sfr11 -
+__Lsfr12 0 0 ABS 0 sfr12 -
+__Lsfr13 0 0 ABS 0 sfr13 -
+__Lsfr14 0 0 ABS 0 sfr14 -
+__Lsfr15 0 0 ABS 0 sfr15 -
+__Lsfr16 0 0 ABS 0 sfr16 -
+__Lsfr17 0 0 ABS 0 sfr17 -
+__Lsfr18 0 0 ABS 0 sfr18 -
+__Lsfr19 0 0 ABS 0 sfr19 -
+__Lsfr20 0 0 ABS 0 sfr20 -
+__Lsfr21 0 0 ABS 0 sfr21 -
+__Lsfr22 0 0 ABS 0 sfr22 -
+__Lsfr23 0 0 ABS 0 sfr23 -
+__Lsfr24 0 0 ABS 0 sfr24 -
+__Lsfr25 0 0 ABS 0 sfr25 -
+__Lsfr26 0 0 ABS 0 sfr26 -
+__Lsfr27 0 0 ABS 0 sfr27 -
+__Lsfr28 0 0 ABS 0 sfr28 -
+__Lsfr29 0 0 ABS 0 sfr29 -
+__Lsfr30 0 0 ABS 0 sfr30 -
+__Lsfr31 0 0 ABS 0 sfr31 -
+__Lstack 0 0 STACK 2 stack -
+eth_wiz_createSocket@connected 36 0 BANK0 1 cstackBANK0 dist/default/debug\ETH_test.X.debug.o
+_PORTAbits C 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_PORTCbits E 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_PORTDbits F 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__size_of_SPI_FLIR_Initialize 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_INTCONbits B 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__Habs1 0 0 ABS 0 abs1 -
+__Hcode 0 0 ABS 0 code -
+__Hinit 4 0 CODE 0 init -
+__Hsfr0 0 0 ABS 0 sfr0 -
+__Hsfr1 0 0 ABS 0 sfr1 -
+__Hsfr2 0 0 ABS 0 sfr2 -
+__Hsfr3 0 0 ABS 0 sfr3 -
+__Hsfr4 0 0 ABS 0 sfr4 -
+__Hsfr5 0 0 ABS 0 sfr5 -
+__Hsfr6 0 0 ABS 0 sfr6 -
+__Hsfr7 0 0 ABS 0 sfr7 -
+__Hsfr8 0 0 ABS 0 sfr8 -
+__Hsfr9 0 0 ABS 0 sfr9 -
+__Htext 0 0 ABS 0 text -
+__Labs1 0 0 ABS 0 abs1 -
+__Lcode 0 0 ABS 0 code -
+__Linit 4 0 CODE 0 init -
+__Lsfr0 0 0 ABS 0 sfr0 -
+__Lsfr1 0 0 ABS 0 sfr1 -
+__Lsfr2 0 0 ABS 0 sfr2 -
+__Lsfr3 0 0 ABS 0 sfr3 -
+__Lsfr4 0 0 ABS 0 sfr4 -
+__Lsfr5 0 0 ABS 0 sfr5 -
+__Lsfr6 0 0 ABS 0 sfr6 -
+__Lsfr7 0 0 ABS 0 sfr7 -
+__Lsfr8 0 0 ABS 0 sfr8 -
+__Lsfr9 0 0 ABS 0 sfr9 -
+__Ltext 0 0 ABS 0 text -
+__pstringtext1 1000 0 STRCODE 0 stringtext1 dist/default/debug\ETH_test.X.debug.o
+__pstringtext2 1078 0 STRCODE 0 stringtext2 dist/default/debug\ETH_test.X.debug.o
+__pstringtext3 10BE 0 STRCODE 0 stringtext3 dist/default/debug\ETH_test.X.debug.o
+__pstringtext4 10EA 0 STRCODE 0 stringtext4 dist/default/debug\ETH_test.X.debug.o
+__pstringtext5 2000 0 STRCODE 0 stringtext5 dist/default/debug\ETH_test.X.debug.o
+__pstringtext6 2016 0 STRCODE 0 stringtext6 dist/default/debug\ETH_test.X.debug.o
+__pstringtext7 2028 0 STRCODE 0 stringtext7 dist/default/debug\ETH_test.X.debug.o
+__pstringtext8 0 0 STRCODE 0 stringtext8 dist/default/debug\ETH_test.X.debug.o
+__end_of_SPI_ETHWIZ_Write 28 0 CODE 0 text16 dist/default/debug\ETH_test.X.debug.o
+_SSP1CON1 190 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_SSP1STAT 18F 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_SSP2CON1 19A 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_SSP2CON2 19B 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_SSP2STAT 199 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__size_of_eth_wiz_createSocket 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__CFG_WDTCWS$WDTCWS_7 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__LcstackBANK1 0 0 ABS 0 cstackBANK1 -
+_SSP2STATbits 199 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_eth_wiz_transmit_start A2 0 CODE 0 text7 dist/default/debug\ETH_test.X.debug.o
+_UART_Initialize 1FE6 0 CODE 0 text17 dist/default/debug\ETH_test.X.debug.o
+__HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+_common_reg_write B2 0 BANK1 1 dataBANK1 dist/default/debug\ETH_test.X.debug.o
+_RB0 68 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__S0 800C 0 ABS 0 - -
+__S1 BC 0 ABS 0 - -
+__S2 0 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+__size_of_SPI_ETHWIZ_Write 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_s0_tx_pointer_high A9 0 BANK1 1 bssBANK1 dist/default/debug\ETH_test.X.debug.o
+_s0_tx_buf_write B0 0 BANK1 1 dataBANK1 dist/default/debug\ETH_test.X.debug.o
+__end_of_eth_wiz_createSocket B18 0 CODE 0 text10 dist/default/debug\ETH_test.X.debug.o
+__CFG_BOREN$ON 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_s0_rx_datalength_low A2 0 BANK1 1 bssBANK1 dist/default/debug\ETH_test.X.debug.o
+_s0_SR_check A1 0 BANK1 1 bssBANK1 dist/default/debug\ETH_test.X.debug.o
+__Lintentry 4 0 CODE 0 intentry -
+reset_vec 0 0 CODE 0 reset_vec C:\Users\cmh52\AppData\Local\Temp\s8k4.o
+_s0_rx_readpointer_high A7 0 BANK1 1 bssBANK1 dist/default/debug\ETH_test.X.debug.o
+_SPI_FLIR_Initialize 1F74 0 CODE 0 text18 dist/default/debug\ETH_test.X.debug.o
+__pdataBANK0 6F 0 BANK0 1 dataBANK0 dist/default/debug\ETH_test.X.debug.o
+__pdataBANK1 AD 0 BANK1 1 dataBANK1 dist/default/debug\ETH_test.X.debug.o
+__LbssBANK1 0 0 ABS 0 bssBANK1 -
+__CFG_FCMEN$ON 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__Lstringtext1 0 0 ABS 0 stringtext1 -
+__Lstringtext2 0 0 ABS 0 stringtext2 -
+__Lstringtext3 0 0 ABS 0 stringtext3 -
+__Lstringtext4 0 0 ABS 0 stringtext4 -
+__Lstringtext5 0 0 ABS 0 stringtext5 -
+__Lstringtext6 0 0 ABS 0 stringtext6 -
+__Lstringtext7 0 0 ABS 0 stringtext7 -
+__Lstringtext8 0 0 ABS 0 stringtext8 -
+_PIE0bits 716 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_PIE3bits 719 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__ptext10 84A 0 CODE 0 text10 dist/default/debug\ETH_test.X.debug.o
+__ptext11 B18 0 CODE 0 text11 dist/default/debug\ETH_test.X.debug.o
+__ptext12 66C 0 CODE 0 text12 dist/default/debug\ETH_test.X.debug.o
+__ptext13 48 0 CODE 0 text13 dist/default/debug\ETH_test.X.debug.o
+__ptext14 108 0 CODE 0 text14 dist/default/debug\ETH_test.X.debug.o
+__ptext15 17E 0 CODE 0 text15 dist/default/debug\ETH_test.X.debug.o
+__ptext16 A 0 CODE 0 text16 dist/default/debug\ETH_test.X.debug.o
+__ptext17 1FE6 0 CODE 0 text17 dist/default/debug\ETH_test.X.debug.o
+__ptext18 1F74 0 CODE 0 text18 dist/default/debug\ETH_test.X.debug.o
+__ptext19 1F64 0 CODE 0 text19 dist/default/debug\ETH_test.X.debug.o
+__ptext20 204 0 CODE 0 text20 dist/default/debug\ETH_test.X.debug.o
+__ptext21 1F40 0 CODE 0 text21 dist/default/debug\ETH_test.X.debug.o
+_IOCCFbits F55 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+___lwdiv 17E 0 CODE 0 text15 dist/default/debug\ETH_test.X.debug.o
+___lwmod 108 0 CODE 0 text14 dist/default/debug\ETH_test.X.debug.o
+__Lbank10 0 0 ABS 0 bank10 -
+__Lbank11 0 0 ABS 0 bank11 -
+__Lbank12 0 0 ABS 0 bank12 -
+__Lbank13 0 0 BANK13 1 bank13 -
+__Lbank14 0 0 BANK14 1 bank14 -
+__Lbank15 0 0 BANK15 1 bank15 -
+__Lbank16 0 0 BANK16 1 bank16 -
+__Lbank17 0 0 BANK17 1 bank17 -
+__Lbank18 0 0 BANK18 1 bank18 -
+__Lbank19 0 0 BANK19 1 bank19 -
+__Lbank20 0 0 BANK20 1 bank20 -
+__Lbank21 0 0 BANK21 1 bank21 -
+__Lbank22 0 0 BANK22 1 bank22 -
+__Lbank23 0 0 BANK23 1 bank23 -
+__Lbank24 0 0 BANK24 1 bank24 -
+__Lbank25 0 0 BANK25 1 bank25 -
+__Lbank26 0 0 BANK26 1 bank26 -
+__Lbank27 0 0 BANK27 1 bank27 -
+__Lbank28 0 0 BANK28 1 bank28 -
+__Lbank29 0 0 BANK29 1 bank29 -
+__Lbank30 0 0 BANK30 1 bank30 -
+__Lbank31 0 0 BANK31 1 bank31 -
+__end_of_SPI_ETHWIZ_Initialize 1F74 0 CODE 0 text19 dist/default/debug\ETH_test.X.debug.o
+__pmaintext 32E 0 CODE 0 maintext dist/default/debug\ETH_test.X.debug.o
+__Lbigram 0 0 ABS 0 bigram -
+__CFG_BORV$LO 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__CFG_RSTOSC$HFINT1 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__Lcommon 0 0 ABS 0 common -
+__Lconfig 1000E 0 CONFIG 0 config -
+_printf 66C 0 CODE 0 text12 dist/default/debug\ETH_test.X.debug.o
+__CFG_CP$OFF 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__end_of_eth_wiz_transmit_end_single_byte 32E 0 CODE 0 text8 dist/default/debug\ETH_test.X.debug.o
+__CFG_WDTE$OFF 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__size_of_eth_wiz_configure 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__size_of_eth_wiz_transmit_end_single_byte 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+___lwdiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/debug\ETH_test.X.debug.o
+__size_of_UART_Initialize 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_SPI_ETHWIZ_Initialize 1F64 0 CODE 0 text19 dist/default/debug\ETH_test.X.debug.o
+stackhi 234B 0 ABS 0 - C:\Users\cmh52\AppData\Local\Temp\s8k4.o
+stacklo 206C 0 ABS 0 - C:\Users\cmh52\AppData\Local\Temp\s8k4.o
+__size_of_PORT_PIN_Initialize1 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_OSCCON1 88D 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_SSP1DATPPS EC6 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__pbssBIGRAM 234C 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_2 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__CFG_LPBOREN$OFF 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__HcstackBANK1 0 0 ABS 0 cstackBANK1 -
+_PIR3bits 70F 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__Lend_init 4 0 CODE 0 end_init -
+__CFG_LVP$ON 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__CFG_CSWEN$ON 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+printf@ap 30 0 BANK0 1 cstackBANK0 dist/default/debug\ETH_test.X.debug.o
+__CFG_ZCD$OFF 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+end_of_initialization FFA 0 CODE 0 cinit dist/default/debug\ETH_test.X.debug.o
+__end_of_PORT_PIN_Initialize1 28C 0 CODE 0 text20 dist/default/debug\ETH_test.X.debug.o
+__Hintentry 4 0 CODE 0 intentry -
+__CFG_STVREN$ON 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__size_of_printf 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_TX1STAbits 11E 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_PPSLOCKbits E8F 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__Lstrings 0 0 ABS 0 strings -
+___lwdiv@dividend 72 0 COMMON 1 cstackCOMMON dist/default/debug\ETH_test.X.debug.o
+?___lwdiv 70 0 COMMON 1 cstackCOMMON dist/default/debug\ETH_test.X.debug.o
+?___lwmod 78 0 COMMON 1 cstackCOMMON dist/default/debug\ETH_test.X.debug.o
+__Hreset_vec 4 0 CODE 0 reset_vec -
+eth_wiz_createSocket@link_status 35 0 BANK0 1 cstackBANK0 dist/default/debug\ETH_test.X.debug.o
+__HbssBANK1 0 0 ABS 0 bssBANK1 -
+__end_of_SPI_FLIR_Initialize 1F84 0 CODE 0 text18 dist/default/debug\ETH_test.X.debug.o
+__ptext1 6C 0 CODE 0 text1 dist/default/debug\ETH_test.X.debug.o
+__ptext2 1FBA 0 CODE 0 text2 dist/default/debug\ETH_test.X.debug.o
+__ptext3 1F58 0 CODE 0 text3 dist/default/debug\ETH_test.X.debug.o
+__ptext4 1F4C 0 CODE 0 text4 dist/default/debug\ETH_test.X.debug.o
+__ptext5 28 0 CODE 0 text5 dist/default/debug\ETH_test.X.debug.o
+__ptext6 1F84 0 CODE 0 text6 dist/default/debug\ETH_test.X.debug.o
+__ptext7 A2 0 CODE 0 text7 dist/default/debug\ETH_test.X.debug.o
+__ptext8 28C 0 CODE 0 text8 dist/default/debug\ETH_test.X.debug.o
+__ptext9 4A2 0 CODE 0 text9 dist/default/debug\ETH_test.X.debug.o
+__size_of_lepton_initialize 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__end_of_eth_wiz_transmit_start 108 0 CODE 0 text7 dist/default/debug\ETH_test.X.debug.o
+__Lpowerup 0 0 CODE 0 powerup -
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+__Lreset_vec 0 0 CODE 0 reset_vec -
+__Hstringtext1 0 0 ABS 0 stringtext1 -
+__Hstringtext2 0 0 ABS 0 stringtext2 -
+__Hstringtext3 0 0 ABS 0 stringtext3 -
+__Hstringtext4 0 0 ABS 0 stringtext4 -
+__Hstringtext5 0 0 ABS 0 stringtext5 -
+__Hstringtext6 0 0 ABS 0 stringtext6 -
+__Hstringtext7 0 0 ABS 0 stringtext7 -
+__Hstringtext8 0 0 ABS 0 stringtext8 -
+__CFG_CLKOUTEN$OFF 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__end_of__initialization FFA 0 CODE 0 cinit dist/default/debug\ETH_test.X.debug.o
+__Lfunctab 0 0 ENTRY 0 functab -
+__pidataBANK0 8 0 CODE 0 idataBANK0 dist/default/debug\ETH_test.X.debug.o
+__pidataBANK1 1F96 0 CODE 0 idataBANK1 dist/default/debug\ETH_test.X.debug.o
+_SP1BRGH 11C 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_SP1BRGL 11B 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__Lclrtext 0 0 ABS 0 clrtext -
+__end_of_eth_wiz_configure F98 0 CODE 0 text11 dist/default/debug\ETH_test.X.debug.o
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/debug\ETH_test.X.debug.o
+_i2c_initialize 1F84 0 CODE 0 text6 dist/default/debug\ETH_test.X.debug.o
+_SSP1BUF 18C 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_SSP2ADD 197 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_SSP2BUF 196 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__Hend_init 8 0 CODE 0 end_init -
+__end_of_eth_wiz_receive 66C 0 CODE 0 text9 dist/default/debug\ETH_test.X.debug.o
+__end_of_main 4A2 0 CODE 0 maintext dist/default/debug\ETH_test.X.debug.o
+printf@val 31 0 BANK0 1 cstackBANK0 dist/default/debug\ETH_test.X.debug.o
+__end_of_dpowers 1014 0 STRCODE 0 stringtext1 dist/default/debug\ETH_test.X.debug.o
+__size_of_i2c_stop 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_PORTA C 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_PORTB D 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_PORTC E 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_PORTD F 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_PORTE 10 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_RXPPS ECB 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_TRISA 11 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_TRISB 12 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_TRISC 13 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_TRISD 14 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_TRISE 15 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__end_of_putch 6C 0 CODE 0 text13 dist/default/debug\ETH_test.X.debug.o
+__Hram 0 0 ABS 0 ram -
+__Lram 0 0 ABS 0 ram -
+_delay 1FA8 0 CODE 0 barfunc build/default/debug/delay.o
+_putch 48 0 CODE 0 text13 dist/default/debug\ETH_test.X.debug.o
+__CFG_CPD$OFF 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__HdataBANK0 0 0 ABS 0 dataBANK0 -
+__HdataBANK1 0 0 ABS 0 dataBANK1 -
+_s0_rx_buf_read AD 0 BANK1 1 dataBANK1 dist/default/debug\ETH_test.X.debug.o
+__end_of_OSCILLATOR_Initialize 1F4C 0 CODE 0 text21 dist/default/debug\ETH_test.X.debug.o
+_eth_wiz_createSocket 84A 0 CODE 0 text10 dist/default/debug\ETH_test.X.debug.o
+_s0_reg_read B1 0 BANK1 1 dataBANK1 dist/default/debug\ETH_test.X.debug.o
+__initialization F98 0 CODE 0 cinit dist/default/debug\ETH_test.X.debug.o
+__CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__pbssBANK1 A0 0 BANK1 1 bssBANK1 dist/default/debug\ETH_test.X.debug.o
+_image_packet 234C 0 ABS 1 - dist/default/debug\ETH_test.X.debug.o
+_PPSLOCK E8F 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+__CFG_WRT$OFF 0 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_SSP2DATPPS EC9 0 ABS 0 - dist/default/debug\ETH_test.X.debug.o
+_num_discard AB 0 BANK1 1 bssBANK1 dist/default/debug\ETH_test.X.debug.o
+_OSCILLATOR_Initialize 1F40 0 CODE 0 text21 dist/default/debug\ETH_test.X.debug.o
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+_image_packet 1 234C 0
+- 1 620 30
+- 1 5A0 50
+- 1 54C 24
+- 1 7E 2
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+cinit 0 7CC F98 34 2
+text1 0 36 6C 1B 2
+text2 0 FDD 1FBA A 2
+text3 0 FAC 1F58 6 2
+text4 0 FA6 1F4C 6 2
+text5 0 14 28 10 2
+text6 0 FC2 1F84 9 2
+text7 0 51 A2 33 2
+text8 0 146 28C 51 2
+text9 0 251 4A2 E5 2
+text10 0 425 84A 167 2
+text11 0 58C B18 240 2
+text12 0 336 66C EF 2
+text13 0 24 48 12 2
+text14 0 84 108 3B 2
+text15 0 BF 17E 43 2
+text16 0 5 A F 2
+text17 0 FF3 1FE6 D 2
+text18 0 FBA 1F74 8 2
+text19 0 FB2 1F64 8 2
+text20 0 102 204 44 2
+text21 0 FA0 1F40 6 2
+maintext 0 197 32E BA 2
+cstackCOMMON 1 70 70 E 1
+cstackBANK0 1 20 20 50 1
+barfunc 0 FD4 1FA8 9 2
+stringtext1 0 800 1000 83 2
+stringtext5 0 1000 2000 17 2
+reset_vec 0 0 0 5 2
+bssBANK1 1 A0 A0 1C 1
+idataBANK1 0 FCB 1F96 9 2
+clrtext 0 FE7 1FCE C 2
+config 0 8007 1000E 5 2

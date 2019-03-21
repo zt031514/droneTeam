@@ -59,8 +59,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "21
 [; ;./eth_wiz.h: 21: extern void eth_wiz_createSocket(void);
 [v _eth_wiz_createSocket `(v ~T0 @X0 0 ef ]
-"45 main.c
-[; ;main.c: 45: void lepton_capture_packet(void);
+"57 main.c
+[; ;main.c: 57: void lepton_capture_packet(void);
 [v _lepton_capture_packet `(v ~T0 @X0 0 ef ]
 "452 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f18875.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f18875.h: 452:     struct {
@@ -76,15 +76,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "23 ./serial_spi.h
 [; ;./serial_spi.h: 23: extern uint8_t SPI_ETHWIZ_Write(uint8_t data);
 [v _SPI_ETHWIZ_Write `(uc ~T0 @X0 0 ef1`uc ]
-"46 main.c
-[; ;main.c: 46: void lepton_send_packet(void);
+"58 main.c
+[; ;main.c: 58: void lepton_send_packet(void);
 [v _lepton_send_packet `(v ~T0 @X0 0 ef ]
+"59
+[; ;main.c: 59: void eth_wiz_receive(void);
+[v _eth_wiz_receive `(v ~T0 @X0 0 ef ]
 "27 ./serial_spi.h
 [; ;./serial_spi.h: 27: extern void SPI_Arducam_Initialize(void);
 [v _SPI_Arducam_Initialize `(v ~T0 @X0 0 ef ]
-"21 ./gnss5.h
-[; ;./gnss5.h: 21: extern void gnss5_acquire(void);
-[v _gnss5_acquire `(v ~T0 @X0 0 ef ]
 "22 ./eth_wiz.h
 [; ;./eth_wiz.h: 22: extern void eth_wiz_transmit_start(void);
 [v _eth_wiz_transmit_start `(v ~T0 @X0 0 ef ]
@@ -94,8 +94,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4615 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f18875.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f18875.h: 4615: extern volatile unsigned char SSP1BUF __attribute__((address(0x18C)));
 [v _SSP1BUF `Vuc ~T0 @X0 0 e@396 ]
-"47 main.c
-[; ;main.c: 47: extern void delay(void);
+"60 main.c
+[; ;main.c: 60: extern void delay(void);
 [v _delay `(v ~T0 @X0 0 ef ]
 "43524 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f18875.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f18875.h: 43524: extern volatile __bit SSP1IF __attribute__((address(0x3878)));
@@ -1839,2346 +1839,611 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _GPS_array_length
 -> -> 0 `i `us
 ]
+"44
+[; ;main.c: 44: uint8_t s0_rx_readpointer_high = 0x00;
+[v _s0_rx_readpointer_high `uc ~T0 @X0 1 e ]
+[i _s0_rx_readpointer_high
+-> -> 0 `i `uc
+]
+"45
+[; ;main.c: 45: uint8_t s0_rx_readpointer_low = 0x00;
+[v _s0_rx_readpointer_low `uc ~T0 @X0 1 e ]
+[i _s0_rx_readpointer_low
+-> -> 0 `i `uc
+]
+"46
+[; ;main.c: 46: uint8_t s0_rx_writepointer_high = 0x00;
+[v _s0_rx_writepointer_high `uc ~T0 @X0 1 e ]
+[i _s0_rx_writepointer_high
+-> -> 0 `i `uc
+]
+"47
+[; ;main.c: 47: uint8_t s0_rx_writepointer_low = 0x00;
+[v _s0_rx_writepointer_low `uc ~T0 @X0 1 e ]
+[i _s0_rx_writepointer_low
+-> -> 0 `i `uc
+]
+"48
+[; ;main.c: 48: uint8_t s0_rx_datalength_high = 0x00;
+[v _s0_rx_datalength_high `uc ~T0 @X0 1 e ]
+[i _s0_rx_datalength_high
+-> -> 0 `i `uc
+]
+"49
+[; ;main.c: 49: uint8_t s0_rx_datalength_low = 0x00;
+[v _s0_rx_datalength_low `uc ~T0 @X0 1 e ]
+[i _s0_rx_datalength_low
+-> -> 0 `i `uc
+]
+"50
+[; ;main.c: 50: uint8_t s0_reg_write = 0b00001100;
+[v _s0_reg_write `uc ~T0 @X0 1 e ]
+[i _s0_reg_write
+-> -> 12 `i `uc
+]
+"51
+[; ;main.c: 51: uint8_t s0_reg_read = 0b00001000;
+[v _s0_reg_read `uc ~T0 @X0 1 e ]
+[i _s0_reg_read
+-> -> 8 `i `uc
+]
+"52
+[; ;main.c: 52: uint8_t s0_rx_buf_read = 0b00011000;
+[v _s0_rx_buf_read `uc ~T0 @X0 1 e ]
+[i _s0_rx_buf_read
+-> -> 24 `i `uc
+]
+"53
+[; ;main.c: 53: uint8_t ethwiz_rx_data[164];
+[v _ethwiz_rx_data `uc ~T0 @X0 -> 164 `i e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"63
-[; ;main.c: 63: int main(int argc, char** argv)
+"76
+[; ;main.c: 76: int main(int argc, char** argv)
 [v _main `(i ~T0 @X0 1 ef2`i`**uc ]
-"64
-[; ;main.c: 64: {
+"77
+[; ;main.c: 77: {
 {
 [e :U _main ]
-"63
-[; ;main.c: 63: int main(int argc, char** argv)
+"76
+[; ;main.c: 76: int main(int argc, char** argv)
 [v _argc `i ~T0 @X0 1 r1 ]
 [v _argv `**uc ~T0 @X0 1 r2 ]
-"64
-[; ;main.c: 64: {
+"77
+[; ;main.c: 77: {
 [f ]
-"66
-[; ;main.c: 66:     OSCILLATOR_Initialize();
+"79
+[; ;main.c: 79:     OSCILLATOR_Initialize();
 [e ( _OSCILLATOR_Initialize ..  ]
-"69
-[; ;main.c: 69:     PORT_PIN_Initialize1();
+"82
+[; ;main.c: 82:     PORT_PIN_Initialize1();
 [e ( _PORT_PIN_Initialize1 ..  ]
-"72
-[; ;main.c: 72:     i2c_initialize();
+"85
+[; ;main.c: 85:     i2c_initialize();
 [e ( _i2c_initialize ..  ]
-"75
-[; ;main.c: 75:     lepton_initialize();
+"88
+[; ;main.c: 88:     lepton_initialize();
 [e ( _lepton_initialize ..  ]
-"78
-[; ;main.c: 78:     arducam_initialize();
+"91
+[; ;main.c: 91:     arducam_initialize();
 [e ( _arducam_initialize ..  ]
-"81
-[; ;main.c: 81:     PORT_PIN_Initialize2();
-[e ( _PORT_PIN_Initialize2 ..  ]
-"84
-[; ;main.c: 84:     UART_Initialize();
-[e ( _UART_Initialize ..  ]
-"87
-[; ;main.c: 87:     SPI_ETHWIZ_Initialize();
-[e ( _SPI_ETHWIZ_Initialize ..  ]
-"90
-[; ;main.c: 90:     SPI_FLIR_Initialize();
-[e ( _SPI_FLIR_Initialize ..  ]
-"93
-[; ;main.c: 93:     PORTDbits.RD2 = 1;
-[e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
 "94
-[; ;main.c: 94:     PORTDbits.RD0 = 1;
-[e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 94:     PORT_PIN_Initialize2();
+[e ( _PORT_PIN_Initialize2 ..  ]
 "97
-[; ;main.c: 97:     PORTCbits.RC0 = 1;
-[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-"98
-[; ;main.c: 98:     PORTDbits.RD1 = 1;
-[e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
-"99
-[; ;main.c: 99:     PORTDbits.RD3 = 1;
-[e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
-"102
-[; ;main.c: 102:     _delay((unsigned long)((1000)*(32000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+[; ;main.c: 97:     UART_Initialize();
+[e ( _UART_Initialize ..  ]
+"100
+[; ;main.c: 100:     SPI_ETHWIZ_Initialize();
+[e ( _SPI_ETHWIZ_Initialize ..  ]
 "103
-[; ;main.c: 103:     PORTCbits.RC0 = 0;
-[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-"104
-[; ;main.c: 104:     PORTCbits.RC0 = 1;
+[; ;main.c: 103:     SPI_FLIR_Initialize();
+[e ( _SPI_FLIR_Initialize ..  ]
+"106
+[; ;main.c: 106:     PORTDbits.RD2 = 1;
+[e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
+"107
+[; ;main.c: 107:     PORTDbits.RD0 = 1;
+[e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
+"110
+[; ;main.c: 110:     PORTCbits.RC0 = 1;
 [e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-"105
-[; ;main.c: 105:     _delay((unsigned long)((500)*(32000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-"108
-[; ;main.c: 108:     eth_wiz_configure();
-[e ( _eth_wiz_configure ..  ]
 "111
-[; ;main.c: 111:     eth_wiz_createSocket();
+[; ;main.c: 111:     PORTDbits.RD1 = 1;
+[e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
+"112
+[; ;main.c: 112:     PORTDbits.RD3 = 1;
+[e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
+"115
+[; ;main.c: 115:     _delay((unsigned long)((1000)*(32000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+"116
+[; ;main.c: 116:     PORTCbits.RC0 = 0;
+[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
+"117
+[; ;main.c: 117:     PORTCbits.RC0 = 1;
+[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
+"118
+[; ;main.c: 118:     _delay((unsigned long)((500)*(32000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+"121
+[; ;main.c: 121:     eth_wiz_configure();
+[e ( _eth_wiz_configure ..  ]
+"124
+[; ;main.c: 124:     eth_wiz_createSocket();
 [e ( _eth_wiz_createSocket ..  ]
-"114
-[; ;main.c: 114:     while(mission_stage_check == 0) {
+"127
+[; ;main.c: 127:     while(mission_stage_check == 0) {
 [e $U 1628  ]
 [e :U 1629 ]
 {
-"117
-[; ;main.c: 117:     }
+"130
+[; ;main.c: 130:     }
 }
 [e :U 1628 ]
-"114
-[; ;main.c: 114:     while(mission_stage_check == 0) {
+"127
+[; ;main.c: 127:     while(mission_stage_check == 0) {
 [e $ == -> _mission_stage_check `i -> 0 `i 1629  ]
 [e :U 1630 ]
-"120
-[; ;main.c: 120:     uint8_t first_send = 0;
+"133
+[; ;main.c: 133:     uint8_t first_send = 0;
 [v _first_send `uc ~T0 @X0 1 a ]
 [e = _first_send -> -> 0 `i `uc ]
-"121
-[; ;main.c: 121:     uint8_t IR_check = 0x00;
+"134
+[; ;main.c: 134:     uint8_t IR_check = 0x00;
 [v _IR_check `uc ~T0 @X0 1 a ]
 [e = _IR_check -> -> 0 `i `uc ]
-"123
-[; ;main.c: 123:     while (mission_stage_check == 1)
+"136
+[; ;main.c: 136:     while (mission_stage_check == 1)
 [e $U 1631  ]
 [e :U 1632 ]
-"124
-[; ;main.c: 124:     {
+"137
+[; ;main.c: 137:     {
 {
-"125
-[; ;main.c: 125:         packet_index = -1;
+"138
+[; ;main.c: 138:         packet_index = -1;
 [e = _packet_index -> -U -> 1 `i `uc ]
-"126
-[; ;main.c: 126:         do{
+"139
+[; ;main.c: 139:         do{
 [e :U 1636 ]
 {
-"128
-[; ;main.c: 128:             lepton_capture_packet();
+"141
+[; ;main.c: 141:             lepton_capture_packet();
 [e ( _lepton_capture_packet ..  ]
-"131
-[; ;main.c: 131:             if(first_send == 1){
+"144
+[; ;main.c: 144:             if(first_send == 1){
 [e $ ! == -> _first_send `i -> 1 `i 1637  ]
 {
-"132
-[; ;main.c: 132:                 while(PORTBbits.RB0 == 1) continue;
+"145
+[; ;main.c: 145:                 while(PORTBbits.RB0 == 1) continue;
 [e $U 1638  ]
 [e :U 1639 ]
 [e $U 1638  ]
 [e :U 1638 ]
 [e $ == -> . . _PORTBbits 0 0 `i -> 1 `i 1639  ]
 [e :U 1640 ]
-"135
-[; ;main.c: 135:                 do{
+"148
+[; ;main.c: 148:                 do{
 [e :U 1643 ]
 {
-"136
-[; ;main.c: 136:                     PORTDbits.RD3 = 0;
-[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
-"137
-[; ;main.c: 137:                     SPI_ETHWIZ_Write(0x00);
-[e ( _SPI_ETHWIZ_Write (1 -> -> 0 `i `uc ]
-"138
-[; ;main.c: 138:                     SPI_ETHWIZ_Write(0x02);
-[e ( _SPI_ETHWIZ_Write (1 -> -> 2 `i `uc ]
-"139
-[; ;main.c: 139:                     SPI_ETHWIZ_Write(0b00001000);
-[e ( _SPI_ETHWIZ_Write (1 -> -> 8 `i `uc ]
-"140
-[; ;main.c: 140:                     IR_check = SPI_ETHWIZ_Write(0x00);
-[e = _IR_check ( _SPI_ETHWIZ_Write (1 -> -> 0 `i `uc ]
-"141
-[; ;main.c: 141:                     PORTDbits.RD3 = 1;
-[e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
-"143
-[; ;main.c: 143:                 }while((IR_check & 0x10) != 0x10);
-}
-[e $ != & -> _IR_check `i -> 16 `i -> 16 `i 1643  ]
-[e :U 1642 ]
-"146
-[; ;main.c: 146:                 PORTDbits.RD3 = 0;
-[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
-"147
-[; ;main.c: 147:                 SPI_ETHWIZ_Write(0x00);
-[e ( _SPI_ETHWIZ_Write (1 -> -> 0 `i `uc ]
-"148
-[; ;main.c: 148:                 SPI_ETHWIZ_Write(0x02);
-[e ( _SPI_ETHWIZ_Write (1 -> -> 2 `i `uc ]
 "149
-[; ;main.c: 149:                 SPI_ETHWIZ_Write(0b00001100);
-[e ( _SPI_ETHWIZ_Write (1 -> -> 12 `i `uc ]
+[; ;main.c: 149:                     PORTDbits.RD3 = 0;
+[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
 "150
-[; ;main.c: 150:                 SPI_ETHWIZ_Write(0x10);
-[e ( _SPI_ETHWIZ_Write (1 -> -> 16 `i `uc ]
+[; ;main.c: 150:                     SPI_ETHWIZ_Write(0x00);
+[e ( _SPI_ETHWIZ_Write (1 -> -> 0 `i `uc ]
 "151
-[; ;main.c: 151:                 PORTDbits.RD3 = 1;
-[e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
+[; ;main.c: 151:                     SPI_ETHWIZ_Write(0x02);
+[e ( _SPI_ETHWIZ_Write (1 -> -> 2 `i `uc ]
+"152
+[; ;main.c: 152:                     SPI_ETHWIZ_Write(0b00001000);
+[e ( _SPI_ETHWIZ_Write (1 -> -> 8 `i `uc ]
 "153
-[; ;main.c: 153:                 first_send = 1;
-[e = _first_send -> -> 1 `i `uc ]
+[; ;main.c: 153:                     IR_check = SPI_ETHWIZ_Write(0x00);
+[e = _IR_check ( _SPI_ETHWIZ_Write (1 -> -> 0 `i `uc ]
 "154
-[; ;main.c: 154:             }
+[; ;main.c: 154:                     PORTDbits.RD3 = 1;
+[e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
+"156
+[; ;main.c: 156:                 }while((IR_check & 0x10) != 0x10 || (IR_check & 0x04) != 0x04);
+}
+[e $ || != & -> _IR_check `i -> 16 `i -> 16 `i != & -> _IR_check `i -> 4 `i -> 4 `i 1643  ]
+[e :U 1642 ]
+"159
+[; ;main.c: 159:                 PORTDbits.RD3 = 0;
+[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
+"160
+[; ;main.c: 160:                 SPI_ETHWIZ_Write(0x00);
+[e ( _SPI_ETHWIZ_Write (1 -> -> 0 `i `uc ]
+"161
+[; ;main.c: 161:                 SPI_ETHWIZ_Write(0x02);
+[e ( _SPI_ETHWIZ_Write (1 -> -> 2 `i `uc ]
+"162
+[; ;main.c: 162:                 SPI_ETHWIZ_Write(0b00001100);
+[e ( _SPI_ETHWIZ_Write (1 -> -> 12 `i `uc ]
+"163
+[; ;main.c: 163:                 SPI_ETHWIZ_Write(0x10);
+[e ( _SPI_ETHWIZ_Write (1 -> -> 16 `i `uc ]
+"164
+[; ;main.c: 164:                 PORTDbits.RD3 = 1;
+[e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
+"166
+[; ;main.c: 166:                 first_send = 1;
+[e = _first_send -> -> 1 `i `uc ]
+"167
+[; ;main.c: 167:             }
 }
 [e $U 1644  ]
-"155
-[; ;main.c: 155:             else {
+"168
+[; ;main.c: 168:             else {
 [e :U 1637 ]
 {
-"156
-[; ;main.c: 156:                 first_send = 1;
+"169
+[; ;main.c: 169:                 first_send = 1;
 [e = _first_send -> -> 1 `i `uc ]
-"157
-[; ;main.c: 157:             }
+"170
+[; ;main.c: 170:             }
 }
 [e :U 1644 ]
-"160
-[; ;main.c: 160:             lepton_send_packet();
+"173
+[; ;main.c: 173:             if((IR_check & 0x04) != 0x04){
+[e $ ! != & -> _IR_check `i -> 4 `i -> 4 `i 1645  ]
+{
+"174
+[; ;main.c: 174:                 packet_index = 60;
+[e = _packet_index -> -> 60 `i `uc ]
+"175
+[; ;main.c: 175:             }
+}
+[e $U 1646  ]
+"177
+[; ;main.c: 177:             else{
+[e :U 1645 ]
+{
+"178
+[; ;main.c: 178:                 lepton_send_packet();
 [e ( _lepton_send_packet ..  ]
-"162
-[; ;main.c: 162:         }while(packet_index < 59);
+"179
+[; ;main.c: 179:             }
+}
+[e :U 1646 ]
+"182
+[; ;main.c: 182:         }while(packet_index < 59);
 }
 [e $ < -> _packet_index `i -> 59 `i 1636  ]
 [e :U 1635 ]
-"173
-[; ;main.c: 173:     }
+"193
+[; ;main.c: 193:     }
 }
 [e :U 1631 ]
-"123
-[; ;main.c: 123:     while (mission_stage_check == 1)
+"136
+[; ;main.c: 136:     while (mission_stage_check == 1)
 [e $ == -> _mission_stage_check `i -> 1 `i 1632  ]
 [e :U 1633 ]
-"176
-[; ;main.c: 176:     SPI_Arducam_Initialize();
+"194
+[; ;main.c: 194:     _delay((unsigned long)((500)*(32000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+"195
+[; ;main.c: 195:     eth_wiz_receive();
+[e ( _eth_wiz_receive ..  ]
+"196
+[; ;main.c: 196:     mission_stage_check = 2;
+[e = _mission_stage_check -> -> 2 `i `uc ]
+"199
+[; ;main.c: 199:     SPI_Arducam_Initialize();
 [e ( _SPI_Arducam_Initialize ..  ]
-"180
-[; ;main.c: 180:     while (mission_stage_check == 2){
-[e $U 1645  ]
-[e :U 1646 ]
+"203
+[; ;main.c: 203:     while (mission_stage_check == 2){
+[e $U 1647  ]
+[e :U 1648 ]
 {
-"183
-[; ;main.c: 183:         gnss5_acquire();
-[e ( _gnss5_acquire ..  ]
-"186
-[; ;main.c: 186:         for(int i = 0; i == GPS_array_length; i++){
+"209
+[; ;main.c: 209:         for(int i = 0; i == GPS_array_length; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 1651  ]
-[e :U 1648 ]
+[e $U 1653  ]
+[e :U 1650 ]
 {
-"188
-[; ;main.c: 188:             if (GPS_location_current == GPS_location){
-[e $ ! == -> _GPS_location_current `ui -> _GPS_location `ui 1652  ]
+"211
+[; ;main.c: 211:             if (GPS_location_current == GPS_location){
+[e $ ! == -> _GPS_location_current `ui -> _GPS_location `ui 1654  ]
 {
-"193
-[; ;main.c: 193:             }
+"216
+[; ;main.c: 216:             }
 }
-[e :U 1652 ]
-"194
-[; ;main.c: 194:         }
+[e :U 1654 ]
+"217
+[; ;main.c: 217:         }
 }
 [e ++ _i -> 1 `i ]
-[e :U 1651 ]
-[e $ == -> _i `ui -> _GPS_array_length `ui 1648  ]
-[e :U 1649 ]
-}
-"196
-[; ;main.c: 196:     }
-}
-[e :U 1645 ]
-"180
-[; ;main.c: 180:     while (mission_stage_check == 2){
-[e $ == -> _mission_stage_check `i -> 2 `i 1646  ]
-[e :U 1647 ]
-"199
-[; ;main.c: 199:     while(1) continue;
-[e :U 1654 ]
-[e $U 1653  ]
 [e :U 1653 ]
-[e $U 1654  ]
+[e $ == -> _i `ui -> _GPS_array_length `ui 1650  ]
+[e :U 1651 ]
+}
+"219
+[; ;main.c: 219:     }
+}
+[e :U 1647 ]
+"203
+[; ;main.c: 203:     while (mission_stage_check == 2){
+[e $ == -> _mission_stage_check `i -> 2 `i 1648  ]
+[e :U 1649 ]
+"222
+[; ;main.c: 222:     while(1) continue;
+[e :U 1656 ]
+[e $U 1655  ]
 [e :U 1655 ]
-"200
-[; ;main.c: 200: }
+[e $U 1656  ]
+[e :U 1657 ]
+"223
+[; ;main.c: 223: }
 [e :UE 1627 ]
 }
-"209
-[; ;main.c: 209: void lepton_send_packet(void){
+"232
+[; ;main.c: 232: void lepton_send_packet(void){
 [v _lepton_send_packet `(v ~T0 @X0 1 ef ]
 {
 [e :U _lepton_send_packet ]
 [f ]
-"210
-[; ;main.c: 210:     uint8_t junk = 0;
-[v _junk `uc ~T0 @X0 1 a ]
-[e = _junk -> -> 0 `i `uc ]
-"212
-[; ;main.c: 212:     eth_wiz_transmit_start();
+"235
+[; ;main.c: 235:     eth_wiz_transmit_start();
 [e ( _eth_wiz_transmit_start ..  ]
-"1042
-[; ;main.c: 1042:     for(int j = 0; j <164; j++){
+"237
+[; ;main.c: 237:     for(int j = 0; j <164; j++){
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
-[e $ < _j -> 164 `i 1657  ]
-[e $U 1658  ]
-[e :U 1657 ]
+[e $ < _j -> 164 `i 1659  ]
+[e $U 1660  ]
+[e :U 1659 ]
 {
-"1043
-[; ;main.c: 1043:         SPI_ETHWIZ_Write(image_packet[j]);
+"238
+[; ;main.c: 238:         SPI_ETHWIZ_Write(image_packet[j]);
 [e ( _SPI_ETHWIZ_Write (1 *U + &U _image_packet * -> -> _j `ui `ux -> -> # *U &U _image_packet `ui `ux ]
-"1044
-[; ;main.c: 1044:         image_packet[j] = 0;
+"239
+[; ;main.c: 239:         image_packet[j] = 0;
 [e = *U + &U _image_packet * -> -> _j `ui `ux -> -> # *U &U _image_packet `ui `ux -> -> 0 `i `uc ]
-"1045
-[; ;main.c: 1045:     }
+"240
+[; ;main.c: 240:     }
 }
 [e ++ _j -> 1 `i ]
-[e $ < _j -> 164 `i 1657  ]
-[e :U 1658 ]
+[e $ < _j -> 164 `i 1659  ]
+[e :U 1660 ]
 }
-"1047
-[; ;main.c: 1047:     eth_wiz_transmit_end();
+"242
+[; ;main.c: 242:     eth_wiz_transmit_end();
 [e ( _eth_wiz_transmit_end ..  ]
-"1048
-[; ;main.c: 1048: }
-[e :UE 1656 ]
+"243
+[; ;main.c: 243: }
+[e :UE 1658 ]
 }
-"1063
-[; ;main.c: 1063: void lepton_capture_packet(void){
+"258
+[; ;main.c: 258: void lepton_capture_packet(void){
 [v _lepton_capture_packet `(v ~T0 @X0 1 ef ]
 {
 [e :U _lepton_capture_packet ]
 [f ]
-"1065
-[; ;main.c: 1065:     discard = 0;
+"260
+[; ;main.c: 260:     discard = 0;
 [e = _discard -> -> 0 `i `uc ]
-"1068
-[; ;main.c: 1068:     PORTCbits.RC0 = 0;
+"262
+[; ;main.c: 262:     int i = 0;
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+"265
+[; ;main.c: 265:     PORTCbits.RC0 = 0;
 [e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-"1075
-[; ;main.c: 1075:     SSP1BUF = 0x00;
+"272
+[; ;main.c: 272:     while(i < 164){
+[e $U 1663  ]
+[e :U 1664 ]
+{
+"273
+[; ;main.c: 273:         SSP1BUF = 0x00;
 [e = _SSP1BUF -> -> 0 `i `uc ]
-"1076
-[; ;main.c: 1076:     delay();
+"274
+[; ;main.c: 274:         delay();
 [e ( _delay ..  ]
-"1077
-[; ;main.c: 1077:     SSP1IF = 0;
+"275
+[; ;main.c: 275:         SSP1IF = 0;
 [e = _SSP1IF -> -> 0 `i `b ]
-"1078
-[; ;main.c: 1078:     image_packet[0] = SSP1BUF;
+"276
+[; ;main.c: 276:         image_packet[0] = SSP1BUF;
 [e = *U + &U _image_packet * -> -> -> 0 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1080
-[; ;main.c: 1080:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1081
-[; ;main.c: 1081:     delay();
-[e ( _delay ..  ]
-"1082
-[; ;main.c: 1082:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1083
-[; ;main.c: 1083:     image_packet[1] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 1 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1084
-[; ;main.c: 1084:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1085
-[; ;main.c: 1085:     delay();
-[e ( _delay ..  ]
-"1086
-[; ;main.c: 1086:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1087
-[; ;main.c: 1087:     image_packet[2] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 2 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1088
-[; ;main.c: 1088:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1089
-[; ;main.c: 1089:     delay();
-[e ( _delay ..  ]
-"1090
-[; ;main.c: 1090:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1091
-[; ;main.c: 1091:     image_packet[3] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 3 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1092
-[; ;main.c: 1092:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1093
-[; ;main.c: 1093:     delay();
-[e ( _delay ..  ]
-"1094
-[; ;main.c: 1094:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1095
-[; ;main.c: 1095:     image_packet[4] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 4 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1096
-[; ;main.c: 1096:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1097
-[; ;main.c: 1097:     delay();
-[e ( _delay ..  ]
-"1098
-[; ;main.c: 1098:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1099
-[; ;main.c: 1099:     image_packet[5] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 5 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1100
-[; ;main.c: 1100:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1101
-[; ;main.c: 1101:     delay();
-[e ( _delay ..  ]
-"1102
-[; ;main.c: 1102:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1103
-[; ;main.c: 1103:     image_packet[6] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 6 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1104
-[; ;main.c: 1104:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1105
-[; ;main.c: 1105:     delay();
-[e ( _delay ..  ]
-"1106
-[; ;main.c: 1106:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1107
-[; ;main.c: 1107:     image_packet[7] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 7 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1108
-[; ;main.c: 1108:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1109
-[; ;main.c: 1109:     delay();
-[e ( _delay ..  ]
-"1110
-[; ;main.c: 1110:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1111
-[; ;main.c: 1111:     image_packet[8] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 8 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1112
-[; ;main.c: 1112:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1113
-[; ;main.c: 1113:     delay();
-[e ( _delay ..  ]
-"1114
-[; ;main.c: 1114:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1115
-[; ;main.c: 1115:     image_packet[9] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 9 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1116
-[; ;main.c: 1116:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1117
-[; ;main.c: 1117:     delay();
-[e ( _delay ..  ]
-"1118
-[; ;main.c: 1118:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1119
-[; ;main.c: 1119:     image_packet[10] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 10 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1120
-[; ;main.c: 1120:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1121
-[; ;main.c: 1121:     delay();
-[e ( _delay ..  ]
-"1122
-[; ;main.c: 1122:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1123
-[; ;main.c: 1123:     image_packet[11] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 11 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1124
-[; ;main.c: 1124:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1125
-[; ;main.c: 1125:     delay();
-[e ( _delay ..  ]
-"1126
-[; ;main.c: 1126:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1127
-[; ;main.c: 1127:     image_packet[12] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 12 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1128
-[; ;main.c: 1128:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1129
-[; ;main.c: 1129:     delay();
-[e ( _delay ..  ]
-"1130
-[; ;main.c: 1130:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1131
-[; ;main.c: 1131:     image_packet[13] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 13 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1132
-[; ;main.c: 1132:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1133
-[; ;main.c: 1133:     delay();
-[e ( _delay ..  ]
-"1134
-[; ;main.c: 1134:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1135
-[; ;main.c: 1135:     image_packet[14] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 14 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1136
-[; ;main.c: 1136:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1137
-[; ;main.c: 1137:     delay();
-[e ( _delay ..  ]
-"1138
-[; ;main.c: 1138:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1139
-[; ;main.c: 1139:     image_packet[15] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 15 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1140
-[; ;main.c: 1140:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1141
-[; ;main.c: 1141:     delay();
-[e ( _delay ..  ]
-"1142
-[; ;main.c: 1142:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1143
-[; ;main.c: 1143:     image_packet[16] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 16 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1144
-[; ;main.c: 1144:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1145
-[; ;main.c: 1145:     delay();
-[e ( _delay ..  ]
-"1146
-[; ;main.c: 1146:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1147
-[; ;main.c: 1147:     image_packet[17] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 17 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1148
-[; ;main.c: 1148:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1149
-[; ;main.c: 1149:     delay();
-[e ( _delay ..  ]
-"1150
-[; ;main.c: 1150:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1151
-[; ;main.c: 1151:     image_packet[18] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 18 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1152
-[; ;main.c: 1152:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1153
-[; ;main.c: 1153:     delay();
-[e ( _delay ..  ]
-"1154
-[; ;main.c: 1154:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1155
-[; ;main.c: 1155:     image_packet[19] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 19 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1156
-[; ;main.c: 1156:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1157
-[; ;main.c: 1157:     delay();
-[e ( _delay ..  ]
-"1158
-[; ;main.c: 1158:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1159
-[; ;main.c: 1159:     image_packet[20] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 20 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1160
-[; ;main.c: 1160:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1161
-[; ;main.c: 1161:     delay();
-[e ( _delay ..  ]
-"1162
-[; ;main.c: 1162:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1163
-[; ;main.c: 1163:     image_packet[21] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 21 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1164
-[; ;main.c: 1164:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1165
-[; ;main.c: 1165:     delay();
-[e ( _delay ..  ]
-"1166
-[; ;main.c: 1166:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1167
-[; ;main.c: 1167:     image_packet[22] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 22 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1168
-[; ;main.c: 1168:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1169
-[; ;main.c: 1169:     delay();
-[e ( _delay ..  ]
-"1170
-[; ;main.c: 1170:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1171
-[; ;main.c: 1171:     image_packet[23] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 23 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1172
-[; ;main.c: 1172:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1173
-[; ;main.c: 1173:     delay();
-[e ( _delay ..  ]
-"1174
-[; ;main.c: 1174:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1175
-[; ;main.c: 1175:     image_packet[24] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 24 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1176
-[; ;main.c: 1176:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1177
-[; ;main.c: 1177:     delay();
-[e ( _delay ..  ]
-"1178
-[; ;main.c: 1178:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1179
-[; ;main.c: 1179:     image_packet[25] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 25 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1180
-[; ;main.c: 1180:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1181
-[; ;main.c: 1181:     delay();
-[e ( _delay ..  ]
-"1182
-[; ;main.c: 1182:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1183
-[; ;main.c: 1183:     image_packet[26] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 26 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1184
-[; ;main.c: 1184:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1185
-[; ;main.c: 1185:     delay();
-[e ( _delay ..  ]
-"1186
-[; ;main.c: 1186:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1187
-[; ;main.c: 1187:     image_packet[27] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 27 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1188
-[; ;main.c: 1188:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1189
-[; ;main.c: 1189:     delay();
-[e ( _delay ..  ]
-"1190
-[; ;main.c: 1190:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1191
-[; ;main.c: 1191:     image_packet[28] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 28 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1192
-[; ;main.c: 1192:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1193
-[; ;main.c: 1193:     delay();
-[e ( _delay ..  ]
-"1194
-[; ;main.c: 1194:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1195
-[; ;main.c: 1195:     image_packet[29] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 29 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1196
-[; ;main.c: 1196:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1197
-[; ;main.c: 1197:     delay();
-[e ( _delay ..  ]
-"1198
-[; ;main.c: 1198:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1199
-[; ;main.c: 1199:     image_packet[30] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 30 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1200
-[; ;main.c: 1200:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1201
-[; ;main.c: 1201:     delay();
-[e ( _delay ..  ]
-"1202
-[; ;main.c: 1202:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1203
-[; ;main.c: 1203:     image_packet[31] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 31 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1204
-[; ;main.c: 1204:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1205
-[; ;main.c: 1205:     delay();
-[e ( _delay ..  ]
-"1206
-[; ;main.c: 1206:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1207
-[; ;main.c: 1207:     image_packet[32] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 32 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1208
-[; ;main.c: 1208:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1209
-[; ;main.c: 1209:     delay();
-[e ( _delay ..  ]
-"1210
-[; ;main.c: 1210:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1211
-[; ;main.c: 1211:     image_packet[33] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 33 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1212
-[; ;main.c: 1212:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1213
-[; ;main.c: 1213:     delay();
-[e ( _delay ..  ]
-"1214
-[; ;main.c: 1214:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1215
-[; ;main.c: 1215:     image_packet[34] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 34 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1216
-[; ;main.c: 1216:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1217
-[; ;main.c: 1217:     delay();
-[e ( _delay ..  ]
-"1218
-[; ;main.c: 1218:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1219
-[; ;main.c: 1219:     image_packet[35] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 35 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1220
-[; ;main.c: 1220:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1221
-[; ;main.c: 1221:     delay();
-[e ( _delay ..  ]
-"1222
-[; ;main.c: 1222:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1223
-[; ;main.c: 1223:     image_packet[36] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 36 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1224
-[; ;main.c: 1224:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1225
-[; ;main.c: 1225:     delay();
-[e ( _delay ..  ]
-"1226
-[; ;main.c: 1226:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1227
-[; ;main.c: 1227:     image_packet[37] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 37 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1228
-[; ;main.c: 1228:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1229
-[; ;main.c: 1229:     delay();
-[e ( _delay ..  ]
-"1230
-[; ;main.c: 1230:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1231
-[; ;main.c: 1231:     image_packet[38] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 38 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1232
-[; ;main.c: 1232:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1233
-[; ;main.c: 1233:     delay();
-[e ( _delay ..  ]
-"1234
-[; ;main.c: 1234:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1235
-[; ;main.c: 1235:     image_packet[39] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 39 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1236
-[; ;main.c: 1236:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1237
-[; ;main.c: 1237:     delay();
-[e ( _delay ..  ]
-"1238
-[; ;main.c: 1238:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1239
-[; ;main.c: 1239:     image_packet[40] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 40 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1240
-[; ;main.c: 1240:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1241
-[; ;main.c: 1241:     delay();
-[e ( _delay ..  ]
-"1242
-[; ;main.c: 1242:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1243
-[; ;main.c: 1243:     image_packet[41] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 41 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1244
-[; ;main.c: 1244:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1245
-[; ;main.c: 1245:     delay();
-[e ( _delay ..  ]
-"1246
-[; ;main.c: 1246:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1247
-[; ;main.c: 1247:     image_packet[42] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 42 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1248
-[; ;main.c: 1248:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1249
-[; ;main.c: 1249:     delay();
-[e ( _delay ..  ]
-"1250
-[; ;main.c: 1250:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1251
-[; ;main.c: 1251:     image_packet[43] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 43 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1252
-[; ;main.c: 1252:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1253
-[; ;main.c: 1253:     delay();
-[e ( _delay ..  ]
-"1254
-[; ;main.c: 1254:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1255
-[; ;main.c: 1255:     image_packet[44] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 44 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1256
-[; ;main.c: 1256:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1257
-[; ;main.c: 1257:     delay();
-[e ( _delay ..  ]
-"1258
-[; ;main.c: 1258:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1259
-[; ;main.c: 1259:     image_packet[45] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 45 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1260
-[; ;main.c: 1260:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1261
-[; ;main.c: 1261:     delay();
-[e ( _delay ..  ]
-"1262
-[; ;main.c: 1262:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1263
-[; ;main.c: 1263:     image_packet[46] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 46 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1264
-[; ;main.c: 1264:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1265
-[; ;main.c: 1265:     delay();
-[e ( _delay ..  ]
-"1266
-[; ;main.c: 1266:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1267
-[; ;main.c: 1267:     image_packet[47] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 47 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1268
-[; ;main.c: 1268:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1269
-[; ;main.c: 1269:     delay();
-[e ( _delay ..  ]
-"1270
-[; ;main.c: 1270:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1271
-[; ;main.c: 1271:     image_packet[48] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 48 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1272
-[; ;main.c: 1272:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1273
-[; ;main.c: 1273:     delay();
-[e ( _delay ..  ]
-"1274
-[; ;main.c: 1274:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1275
-[; ;main.c: 1275:     image_packet[49] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 49 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1276
-[; ;main.c: 1276:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1277
-[; ;main.c: 1277:     delay();
-[e ( _delay ..  ]
-"1278
-[; ;main.c: 1278:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1279
-[; ;main.c: 1279:     image_packet[50] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 50 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1280
-[; ;main.c: 1280:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1281
-[; ;main.c: 1281:     delay();
-[e ( _delay ..  ]
-"1282
-[; ;main.c: 1282:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1283
-[; ;main.c: 1283:     image_packet[51] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 51 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1284
-[; ;main.c: 1284:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1285
-[; ;main.c: 1285:     delay();
-[e ( _delay ..  ]
-"1286
-[; ;main.c: 1286:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1287
-[; ;main.c: 1287:     image_packet[52] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 52 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1288
-[; ;main.c: 1288:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1289
-[; ;main.c: 1289:     delay();
-[e ( _delay ..  ]
-"1290
-[; ;main.c: 1290:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1291
-[; ;main.c: 1291:     image_packet[53] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 53 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1292
-[; ;main.c: 1292:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1293
-[; ;main.c: 1293:     delay();
-[e ( _delay ..  ]
-"1294
-[; ;main.c: 1294:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1295
-[; ;main.c: 1295:     image_packet[54] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 54 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1296
-[; ;main.c: 1296:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1297
-[; ;main.c: 1297:     delay();
-[e ( _delay ..  ]
-"1298
-[; ;main.c: 1298:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1299
-[; ;main.c: 1299:     image_packet[55] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 55 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1300
-[; ;main.c: 1300:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1301
-[; ;main.c: 1301:     delay();
-[e ( _delay ..  ]
-"1302
-[; ;main.c: 1302:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1303
-[; ;main.c: 1303:     image_packet[56] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 56 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1304
-[; ;main.c: 1304:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1305
-[; ;main.c: 1305:     delay();
-[e ( _delay ..  ]
-"1306
-[; ;main.c: 1306:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1307
-[; ;main.c: 1307:     image_packet[57] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 57 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1308
-[; ;main.c: 1308:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1309
-[; ;main.c: 1309:     delay();
-[e ( _delay ..  ]
-"1310
-[; ;main.c: 1310:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1311
-[; ;main.c: 1311:     image_packet[58] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 58 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1312
-[; ;main.c: 1312:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1313
-[; ;main.c: 1313:     delay();
-[e ( _delay ..  ]
-"1314
-[; ;main.c: 1314:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1315
-[; ;main.c: 1315:     image_packet[59] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 59 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1316
-[; ;main.c: 1316:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1317
-[; ;main.c: 1317:     delay();
-[e ( _delay ..  ]
-"1318
-[; ;main.c: 1318:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1319
-[; ;main.c: 1319:     image_packet[60] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 60 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1320
-[; ;main.c: 1320:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1321
-[; ;main.c: 1321:     delay();
-[e ( _delay ..  ]
-"1322
-[; ;main.c: 1322:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1323
-[; ;main.c: 1323:     image_packet[61] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 61 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1324
-[; ;main.c: 1324:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1325
-[; ;main.c: 1325:     delay();
-[e ( _delay ..  ]
-"1326
-[; ;main.c: 1326:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1327
-[; ;main.c: 1327:     image_packet[62] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 62 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1328
-[; ;main.c: 1328:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1329
-[; ;main.c: 1329:     delay();
-[e ( _delay ..  ]
-"1330
-[; ;main.c: 1330:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1331
-[; ;main.c: 1331:     image_packet[63] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 63 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1332
-[; ;main.c: 1332:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1333
-[; ;main.c: 1333:     delay();
-[e ( _delay ..  ]
-"1334
-[; ;main.c: 1334:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1335
-[; ;main.c: 1335:     image_packet[64] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 64 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1336
-[; ;main.c: 1336:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1337
-[; ;main.c: 1337:     delay();
-[e ( _delay ..  ]
-"1338
-[; ;main.c: 1338:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1339
-[; ;main.c: 1339:     image_packet[65] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 65 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1340
-[; ;main.c: 1340:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1341
-[; ;main.c: 1341:     delay();
-[e ( _delay ..  ]
-"1342
-[; ;main.c: 1342:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1343
-[; ;main.c: 1343:     image_packet[66] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 66 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1344
-[; ;main.c: 1344:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1345
-[; ;main.c: 1345:     delay();
-[e ( _delay ..  ]
-"1346
-[; ;main.c: 1346:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1347
-[; ;main.c: 1347:     image_packet[67] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 67 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1348
-[; ;main.c: 1348:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1349
-[; ;main.c: 1349:     delay();
-[e ( _delay ..  ]
-"1350
-[; ;main.c: 1350:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1351
-[; ;main.c: 1351:     image_packet[68] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 68 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1352
-[; ;main.c: 1352:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1353
-[; ;main.c: 1353:     delay();
-[e ( _delay ..  ]
-"1354
-[; ;main.c: 1354:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1355
-[; ;main.c: 1355:     image_packet[69] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 69 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1356
-[; ;main.c: 1356:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1357
-[; ;main.c: 1357:     delay();
-[e ( _delay ..  ]
-"1358
-[; ;main.c: 1358:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1359
-[; ;main.c: 1359:     image_packet[70] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 70 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1360
-[; ;main.c: 1360:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1361
-[; ;main.c: 1361:     delay();
-[e ( _delay ..  ]
-"1362
-[; ;main.c: 1362:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1363
-[; ;main.c: 1363:     image_packet[71] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 71 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1364
-[; ;main.c: 1364:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1365
-[; ;main.c: 1365:     delay();
-[e ( _delay ..  ]
-"1366
-[; ;main.c: 1366:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1367
-[; ;main.c: 1367:     image_packet[72] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 72 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1368
-[; ;main.c: 1368:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1369
-[; ;main.c: 1369:     delay();
-[e ( _delay ..  ]
-"1370
-[; ;main.c: 1370:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1371
-[; ;main.c: 1371:     image_packet[73] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 73 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1372
-[; ;main.c: 1372:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1373
-[; ;main.c: 1373:     delay();
-[e ( _delay ..  ]
-"1374
-[; ;main.c: 1374:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1375
-[; ;main.c: 1375:     image_packet[74] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 74 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1376
-[; ;main.c: 1376:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1377
-[; ;main.c: 1377:     delay();
-[e ( _delay ..  ]
-"1378
-[; ;main.c: 1378:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1379
-[; ;main.c: 1379:     image_packet[75] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 75 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1380
-[; ;main.c: 1380:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1381
-[; ;main.c: 1381:     delay();
-[e ( _delay ..  ]
-"1382
-[; ;main.c: 1382:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1383
-[; ;main.c: 1383:     image_packet[76] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 76 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1384
-[; ;main.c: 1384:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1385
-[; ;main.c: 1385:     delay();
-[e ( _delay ..  ]
-"1386
-[; ;main.c: 1386:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1387
-[; ;main.c: 1387:     image_packet[77] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 77 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1388
-[; ;main.c: 1388:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1389
-[; ;main.c: 1389:     delay();
-[e ( _delay ..  ]
-"1390
-[; ;main.c: 1390:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1391
-[; ;main.c: 1391:     image_packet[78] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 78 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1392
-[; ;main.c: 1392:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1393
-[; ;main.c: 1393:     delay();
-[e ( _delay ..  ]
-"1394
-[; ;main.c: 1394:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1395
-[; ;main.c: 1395:     image_packet[79] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 79 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1396
-[; ;main.c: 1396:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1397
-[; ;main.c: 1397:     delay();
-[e ( _delay ..  ]
-"1398
-[; ;main.c: 1398:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1399
-[; ;main.c: 1399:     image_packet[80] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 80 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1400
-[; ;main.c: 1400:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1401
-[; ;main.c: 1401:     delay();
-[e ( _delay ..  ]
-"1402
-[; ;main.c: 1402:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1403
-[; ;main.c: 1403:     image_packet[81] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 81 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1404
-[; ;main.c: 1404:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1405
-[; ;main.c: 1405:     delay();
-[e ( _delay ..  ]
-"1406
-[; ;main.c: 1406:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1407
-[; ;main.c: 1407:     image_packet[82] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 82 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1408
-[; ;main.c: 1408:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1409
-[; ;main.c: 1409:     delay();
-[e ( _delay ..  ]
-"1410
-[; ;main.c: 1410:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1411
-[; ;main.c: 1411:     image_packet[83] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 83 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1412
-[; ;main.c: 1412:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1413
-[; ;main.c: 1413:     delay();
-[e ( _delay ..  ]
-"1414
-[; ;main.c: 1414:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1415
-[; ;main.c: 1415:     image_packet[84] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 84 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1416
-[; ;main.c: 1416:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1417
-[; ;main.c: 1417:     delay();
-[e ( _delay ..  ]
-"1418
-[; ;main.c: 1418:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1419
-[; ;main.c: 1419:     image_packet[85] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 85 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1420
-[; ;main.c: 1420:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1421
-[; ;main.c: 1421:     delay();
-[e ( _delay ..  ]
-"1422
-[; ;main.c: 1422:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1423
-[; ;main.c: 1423:     image_packet[86] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 86 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1424
-[; ;main.c: 1424:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1425
-[; ;main.c: 1425:     delay();
-[e ( _delay ..  ]
-"1426
-[; ;main.c: 1426:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1427
-[; ;main.c: 1427:     image_packet[87] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 87 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1428
-[; ;main.c: 1428:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1429
-[; ;main.c: 1429:     delay();
-[e ( _delay ..  ]
-"1430
-[; ;main.c: 1430:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1431
-[; ;main.c: 1431:     image_packet[88] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 88 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1432
-[; ;main.c: 1432:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1433
-[; ;main.c: 1433:     delay();
-[e ( _delay ..  ]
-"1434
-[; ;main.c: 1434:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1435
-[; ;main.c: 1435:     image_packet[89] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 89 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1436
-[; ;main.c: 1436:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1437
-[; ;main.c: 1437:     delay();
-[e ( _delay ..  ]
-"1438
-[; ;main.c: 1438:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1439
-[; ;main.c: 1439:     image_packet[90] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 90 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1440
-[; ;main.c: 1440:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1441
-[; ;main.c: 1441:     delay();
-[e ( _delay ..  ]
-"1442
-[; ;main.c: 1442:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1443
-[; ;main.c: 1443:     image_packet[91] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 91 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1444
-[; ;main.c: 1444:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1445
-[; ;main.c: 1445:     delay();
-[e ( _delay ..  ]
-"1446
-[; ;main.c: 1446:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1447
-[; ;main.c: 1447:     image_packet[92] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 92 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1448
-[; ;main.c: 1448:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1449
-[; ;main.c: 1449:     delay();
-[e ( _delay ..  ]
-"1450
-[; ;main.c: 1450:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1451
-[; ;main.c: 1451:     image_packet[93] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 93 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1452
-[; ;main.c: 1452:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1453
-[; ;main.c: 1453:     delay();
-[e ( _delay ..  ]
-"1454
-[; ;main.c: 1454:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1455
-[; ;main.c: 1455:     image_packet[94] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 94 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1456
-[; ;main.c: 1456:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1457
-[; ;main.c: 1457:     delay();
-[e ( _delay ..  ]
-"1458
-[; ;main.c: 1458:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1459
-[; ;main.c: 1459:     image_packet[95] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 95 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1460
-[; ;main.c: 1460:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1461
-[; ;main.c: 1461:     delay();
-[e ( _delay ..  ]
-"1462
-[; ;main.c: 1462:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1463
-[; ;main.c: 1463:     image_packet[96] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 96 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1464
-[; ;main.c: 1464:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1465
-[; ;main.c: 1465:     delay();
-[e ( _delay ..  ]
-"1466
-[; ;main.c: 1466:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1467
-[; ;main.c: 1467:     image_packet[97] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 97 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1468
-[; ;main.c: 1468:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1469
-[; ;main.c: 1469:     delay();
-[e ( _delay ..  ]
-"1470
-[; ;main.c: 1470:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1471
-[; ;main.c: 1471:     image_packet[98] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 98 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1472
-[; ;main.c: 1472:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1473
-[; ;main.c: 1473:     delay();
-[e ( _delay ..  ]
-"1474
-[; ;main.c: 1474:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1475
-[; ;main.c: 1475:     image_packet[99] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 99 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1476
-[; ;main.c: 1476:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1477
-[; ;main.c: 1477:     delay();
-[e ( _delay ..  ]
-"1478
-[; ;main.c: 1478:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1479
-[; ;main.c: 1479:     image_packet[100] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 100 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1480
-[; ;main.c: 1480:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1481
-[; ;main.c: 1481:     delay();
-[e ( _delay ..  ]
-"1482
-[; ;main.c: 1482:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1483
-[; ;main.c: 1483:     image_packet[101] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 101 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1484
-[; ;main.c: 1484:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1485
-[; ;main.c: 1485:     delay();
-[e ( _delay ..  ]
-"1486
-[; ;main.c: 1486:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1487
-[; ;main.c: 1487:     image_packet[102] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 102 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1488
-[; ;main.c: 1488:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1489
-[; ;main.c: 1489:     delay();
-[e ( _delay ..  ]
-"1490
-[; ;main.c: 1490:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1491
-[; ;main.c: 1491:     image_packet[103] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 103 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1492
-[; ;main.c: 1492:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1493
-[; ;main.c: 1493:     delay();
-[e ( _delay ..  ]
-"1494
-[; ;main.c: 1494:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1495
-[; ;main.c: 1495:     image_packet[104] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 104 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1496
-[; ;main.c: 1496:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1497
-[; ;main.c: 1497:     delay();
-[e ( _delay ..  ]
-"1498
-[; ;main.c: 1498:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1499
-[; ;main.c: 1499:     image_packet[105] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 105 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1500
-[; ;main.c: 1500:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1501
-[; ;main.c: 1501:     delay();
-[e ( _delay ..  ]
-"1502
-[; ;main.c: 1502:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1503
-[; ;main.c: 1503:     image_packet[106] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 106 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1504
-[; ;main.c: 1504:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1505
-[; ;main.c: 1505:     delay();
-[e ( _delay ..  ]
-"1506
-[; ;main.c: 1506:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1507
-[; ;main.c: 1507:     image_packet[107] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 107 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1508
-[; ;main.c: 1508:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1509
-[; ;main.c: 1509:     delay();
-[e ( _delay ..  ]
-"1510
-[; ;main.c: 1510:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1511
-[; ;main.c: 1511:     image_packet[108] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 108 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1512
-[; ;main.c: 1512:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1513
-[; ;main.c: 1513:     delay();
-[e ( _delay ..  ]
-"1514
-[; ;main.c: 1514:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1515
-[; ;main.c: 1515:     image_packet[109] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 109 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1516
-[; ;main.c: 1516:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1517
-[; ;main.c: 1517:     delay();
-[e ( _delay ..  ]
-"1518
-[; ;main.c: 1518:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1519
-[; ;main.c: 1519:     image_packet[110] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 110 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1520
-[; ;main.c: 1520:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1521
-[; ;main.c: 1521:     delay();
-[e ( _delay ..  ]
-"1522
-[; ;main.c: 1522:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1523
-[; ;main.c: 1523:     image_packet[111] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 111 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1524
-[; ;main.c: 1524:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1525
-[; ;main.c: 1525:     delay();
-[e ( _delay ..  ]
-"1526
-[; ;main.c: 1526:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1527
-[; ;main.c: 1527:     image_packet[112] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 112 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1528
-[; ;main.c: 1528:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1529
-[; ;main.c: 1529:     delay();
-[e ( _delay ..  ]
-"1530
-[; ;main.c: 1530:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1531
-[; ;main.c: 1531:     image_packet[113] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 113 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1532
-[; ;main.c: 1532:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1533
-[; ;main.c: 1533:     delay();
-[e ( _delay ..  ]
-"1534
-[; ;main.c: 1534:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1535
-[; ;main.c: 1535:     image_packet[114] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 114 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1536
-[; ;main.c: 1536:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1537
-[; ;main.c: 1537:     delay();
-[e ( _delay ..  ]
-"1538
-[; ;main.c: 1538:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1539
-[; ;main.c: 1539:     image_packet[115] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 115 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1540
-[; ;main.c: 1540:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1541
-[; ;main.c: 1541:     delay();
-[e ( _delay ..  ]
-"1542
-[; ;main.c: 1542:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1543
-[; ;main.c: 1543:     image_packet[116] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 116 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1544
-[; ;main.c: 1544:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1545
-[; ;main.c: 1545:     delay();
-[e ( _delay ..  ]
-"1546
-[; ;main.c: 1546:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1547
-[; ;main.c: 1547:     image_packet[117] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 117 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1548
-[; ;main.c: 1548:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1549
-[; ;main.c: 1549:     delay();
-[e ( _delay ..  ]
-"1550
-[; ;main.c: 1550:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1551
-[; ;main.c: 1551:     image_packet[118] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 118 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1552
-[; ;main.c: 1552:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1553
-[; ;main.c: 1553:     delay();
-[e ( _delay ..  ]
-"1554
-[; ;main.c: 1554:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1555
-[; ;main.c: 1555:     image_packet[119] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 119 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1556
-[; ;main.c: 1556:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1557
-[; ;main.c: 1557:     delay();
-[e ( _delay ..  ]
-"1558
-[; ;main.c: 1558:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1559
-[; ;main.c: 1559:     image_packet[120] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 120 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1560
-[; ;main.c: 1560:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1561
-[; ;main.c: 1561:     delay();
-[e ( _delay ..  ]
-"1562
-[; ;main.c: 1562:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1563
-[; ;main.c: 1563:     image_packet[121] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 121 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1564
-[; ;main.c: 1564:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1565
-[; ;main.c: 1565:     delay();
-[e ( _delay ..  ]
-"1566
-[; ;main.c: 1566:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1567
-[; ;main.c: 1567:     image_packet[122] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 122 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1568
-[; ;main.c: 1568:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1569
-[; ;main.c: 1569:     delay();
-[e ( _delay ..  ]
-"1570
-[; ;main.c: 1570:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1571
-[; ;main.c: 1571:     image_packet[123] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 123 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1572
-[; ;main.c: 1572:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1573
-[; ;main.c: 1573:     delay();
-[e ( _delay ..  ]
-"1574
-[; ;main.c: 1574:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1575
-[; ;main.c: 1575:     image_packet[124] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 124 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1576
-[; ;main.c: 1576:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1577
-[; ;main.c: 1577:     delay();
-[e ( _delay ..  ]
-"1578
-[; ;main.c: 1578:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1579
-[; ;main.c: 1579:     image_packet[125] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 125 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1580
-[; ;main.c: 1580:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1581
-[; ;main.c: 1581:     delay();
-[e ( _delay ..  ]
-"1582
-[; ;main.c: 1582:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1583
-[; ;main.c: 1583:     image_packet[126] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 126 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1584
-[; ;main.c: 1584:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1585
-[; ;main.c: 1585:     delay();
-[e ( _delay ..  ]
-"1586
-[; ;main.c: 1586:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1587
-[; ;main.c: 1587:     image_packet[127] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 127 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1588
-[; ;main.c: 1588:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1589
-[; ;main.c: 1589:     delay();
-[e ( _delay ..  ]
-"1590
-[; ;main.c: 1590:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1591
-[; ;main.c: 1591:     image_packet[128] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 128 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1592
-[; ;main.c: 1592:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1593
-[; ;main.c: 1593:     delay();
-[e ( _delay ..  ]
-"1594
-[; ;main.c: 1594:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1595
-[; ;main.c: 1595:     image_packet[129] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 129 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1596
-[; ;main.c: 1596:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1597
-[; ;main.c: 1597:     delay();
-[e ( _delay ..  ]
-"1598
-[; ;main.c: 1598:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1599
-[; ;main.c: 1599:     image_packet[130] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 130 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1600
-[; ;main.c: 1600:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1601
-[; ;main.c: 1601:     delay();
-[e ( _delay ..  ]
-"1602
-[; ;main.c: 1602:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1603
-[; ;main.c: 1603:     image_packet[131] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 131 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1604
-[; ;main.c: 1604:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1605
-[; ;main.c: 1605:     delay();
-[e ( _delay ..  ]
-"1606
-[; ;main.c: 1606:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1607
-[; ;main.c: 1607:     image_packet[132] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 132 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1608
-[; ;main.c: 1608:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1609
-[; ;main.c: 1609:     delay();
-[e ( _delay ..  ]
-"1610
-[; ;main.c: 1610:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1611
-[; ;main.c: 1611:     image_packet[133] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 133 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1612
-[; ;main.c: 1612:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1613
-[; ;main.c: 1613:     delay();
-[e ( _delay ..  ]
-"1614
-[; ;main.c: 1614:    SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1615
-[; ;main.c: 1615:     image_packet[134] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 134 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1616
-[; ;main.c: 1616:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1617
-[; ;main.c: 1617:     delay();
-[e ( _delay ..  ]
-"1618
-[; ;main.c: 1618:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1619
-[; ;main.c: 1619:     image_packet[135] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 135 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1620
-[; ;main.c: 1620:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1621
-[; ;main.c: 1621:     delay();
-[e ( _delay ..  ]
-"1622
-[; ;main.c: 1622:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1623
-[; ;main.c: 1623:     image_packet[136] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 136 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1624
-[; ;main.c: 1624:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1625
-[; ;main.c: 1625:     delay();
-[e ( _delay ..  ]
-"1626
-[; ;main.c: 1626:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1627
-[; ;main.c: 1627:     image_packet[137] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 137 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1628
-[; ;main.c: 1628:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1629
-[; ;main.c: 1629:     delay();
-[e ( _delay ..  ]
-"1630
-[; ;main.c: 1630:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1631
-[; ;main.c: 1631:     image_packet[138] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 138 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1632
-[; ;main.c: 1632:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1633
-[; ;main.c: 1633:     delay();
-[e ( _delay ..  ]
-"1634
-[; ;main.c: 1634:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1635
-[; ;main.c: 1635:     image_packet[139] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 139 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1636
-[; ;main.c: 1636:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1637
-[; ;main.c: 1637:     delay();
-[e ( _delay ..  ]
-"1638
-[; ;main.c: 1638:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1639
-[; ;main.c: 1639:     image_packet[140] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 140 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1640
-[; ;main.c: 1640:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1641
-[; ;main.c: 1641:     delay();
-[e ( _delay ..  ]
-"1642
-[; ;main.c: 1642:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1643
-[; ;main.c: 1643:     image_packet[141] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 141 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1644
-[; ;main.c: 1644:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1645
-[; ;main.c: 1645:     delay();
-[e ( _delay ..  ]
-"1646
-[; ;main.c: 1646:    SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1647
-[; ;main.c: 1647:     image_packet[142] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 142 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1648
-[; ;main.c: 1648:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1649
-[; ;main.c: 1649:     delay();
-[e ( _delay ..  ]
-"1650
-[; ;main.c: 1650:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1651
-[; ;main.c: 1651:     image_packet[143] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 143 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1652
-[; ;main.c: 1652:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1653
-[; ;main.c: 1653:     delay();
-[e ( _delay ..  ]
-"1654
-[; ;main.c: 1654:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1655
-[; ;main.c: 1655:     image_packet[144] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 144 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1656
-[; ;main.c: 1656:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1657
-[; ;main.c: 1657:     delay();
-[e ( _delay ..  ]
-"1658
-[; ;main.c: 1658:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1659
-[; ;main.c: 1659:     image_packet[145] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 145 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1660
-[; ;main.c: 1660:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1661
-[; ;main.c: 1661:     delay();
-[e ( _delay ..  ]
-"1662
-[; ;main.c: 1662:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1663
-[; ;main.c: 1663:     image_packet[146] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 146 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1664
-[; ;main.c: 1664:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1665
-[; ;main.c: 1665:     delay();
-[e ( _delay ..  ]
-"1666
-[; ;main.c: 1666:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1667
-[; ;main.c: 1667:     image_packet[147] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 147 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1668
-[; ;main.c: 1668:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1669
-[; ;main.c: 1669:     delay();
-[e ( _delay ..  ]
-"1670
-[; ;main.c: 1670:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1671
-[; ;main.c: 1671:     image_packet[148] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 148 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1672
-[; ;main.c: 1672:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1673
-[; ;main.c: 1673:     delay();
-[e ( _delay ..  ]
-"1674
-[; ;main.c: 1674:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1675
-[; ;main.c: 1675:     image_packet[149] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 149 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1676
-[; ;main.c: 1676:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1677
-[; ;main.c: 1677:     delay();
-[e ( _delay ..  ]
-"1678
-[; ;main.c: 1678:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1679
-[; ;main.c: 1679:     image_packet[150] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 150 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1680
-[; ;main.c: 1680:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1681
-[; ;main.c: 1681:     delay();
-[e ( _delay ..  ]
-"1682
-[; ;main.c: 1682:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1683
-[; ;main.c: 1683:     image_packet[151] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 151 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1684
-[; ;main.c: 1684:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1685
-[; ;main.c: 1685:     delay();
-[e ( _delay ..  ]
-"1686
-[; ;main.c: 1686:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1687
-[; ;main.c: 1687:     image_packet[152] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 152 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1688
-[; ;main.c: 1688:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1689
-[; ;main.c: 1689:     delay();
-[e ( _delay ..  ]
-"1690
-[; ;main.c: 1690:    SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1691
-[; ;main.c: 1691:     image_packet[153] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 153 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1692
-[; ;main.c: 1692:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1693
-[; ;main.c: 1693:     delay();
-[e ( _delay ..  ]
-"1694
-[; ;main.c: 1694:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1695
-[; ;main.c: 1695:     image_packet[154] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 154 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1696
-[; ;main.c: 1696:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1697
-[; ;main.c: 1697:     delay();
-[e ( _delay ..  ]
-"1698
-[; ;main.c: 1698:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1699
-[; ;main.c: 1699:     image_packet[155] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 155 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1700
-[; ;main.c: 1700:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1701
-[; ;main.c: 1701:     delay();
-[e ( _delay ..  ]
-"1702
-[; ;main.c: 1702:    SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1703
-[; ;main.c: 1703:     image_packet[156] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 156 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1704
-[; ;main.c: 1704:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1705
-[; ;main.c: 1705:     delay();
-[e ( _delay ..  ]
-"1706
-[; ;main.c: 1706:    SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1707
-[; ;main.c: 1707:     image_packet[157] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 157 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1708
-[; ;main.c: 1708:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1709
-[; ;main.c: 1709:     delay();
-[e ( _delay ..  ]
-"1710
-[; ;main.c: 1710:    SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1711
-[; ;main.c: 1711:     image_packet[158] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 158 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1712
-[; ;main.c: 1712:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1713
-[; ;main.c: 1713:     delay();
-[e ( _delay ..  ]
-"1714
-[; ;main.c: 1714:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1715
-[; ;main.c: 1715:     image_packet[159] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 159 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1716
-[; ;main.c: 1716:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1717
-[; ;main.c: 1717:     delay();
-[e ( _delay ..  ]
-"1718
-[; ;main.c: 1718:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1719
-[; ;main.c: 1719:     image_packet[160] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 160 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1720
-[; ;main.c: 1720:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1721
-[; ;main.c: 1721:     delay();
-[e ( _delay ..  ]
-"1722
-[; ;main.c: 1722:    SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1723
-[; ;main.c: 1723:     image_packet[161] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 161 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1724
-[; ;main.c: 1724:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1725
-[; ;main.c: 1725:     delay();
-[e ( _delay ..  ]
-"1726
-[; ;main.c: 1726:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1727
-[; ;main.c: 1727:     image_packet[162] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 162 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1728
-[; ;main.c: 1728:     SSP1BUF = 0x00;
-[e = _SSP1BUF -> -> 0 `i `uc ]
-"1729
-[; ;main.c: 1729:     delay();
-[e ( _delay ..  ]
-"1730
-[; ;main.c: 1730:     SSP1IF = 0;
-[e = _SSP1IF -> -> 0 `i `b ]
-"1731
-[; ;main.c: 1731:     image_packet[163] = SSP1BUF;
-[e = *U + &U _image_packet * -> -> -> 163 `i `ui `ux -> -> # *U &U _image_packet `ui `ux _SSP1BUF ]
-"1735
-[; ;main.c: 1735:     PORTCbits.RC0 = 1;
-[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-"1738
-[; ;main.c: 1738:     if((image_packet[0]&0x0F) == 0x0F){
-[e $ ! == & -> *U + &U _image_packet * -> -> -> 0 `i `ui `ux -> -> # *U &U _image_packet `ui `ux `i -> 15 `i -> 15 `i 1661  ]
-{
-"1739
-[; ;main.c: 1739:         discard = 1;
-[e = _discard -> -> 1 `i `uc ]
-"1740
-[; ;main.c: 1740:         num_discard++;
-[e ++ _num_discard -> -> 1 `i `uc ]
-"1741
-[; ;main.c: 1741:         packet_index = -1;
-[e = _packet_index -> -U -> 1 `i `uc ]
-"1743
-[; ;main.c: 1743:     }
-}
-[e $U 1662  ]
-"1745
-[; ;main.c: 1745:     else{
-[e :U 1661 ]
-{
-"1746
-[; ;main.c: 1746:         num_discard = 0;
-[e = _num_discard -> -> 0 `i `uc ]
-"1747
-[; ;main.c: 1747:         packet_index++;
-[e ++ _packet_index -> -> 1 `i `uc ]
-"1748
-[; ;main.c: 1748:         if( packet_index > 59){
-[e $ ! > -> _packet_index `i -> 59 `i 1663  ]
-{
-"1749
-[; ;main.c: 1749:             packet_index = 0;
-[e = _packet_index -> -> 0 `i `uc ]
-"1750
-[; ;main.c: 1750:         }
+"277
+[; ;main.c: 277:         i++;
+[e ++ _i -> 1 `i ]
+"278
+[; ;main.c: 278:     }
 }
 [e :U 1663 ]
-"1751
-[; ;main.c: 1751:     }
-}
-[e :U 1662 ]
-"1756
-[; ;main.c: 1756:     if(num_discard > 150){
-[e $ ! > -> _num_discard `i -> 150 `i 1664  ]
+"272
+[; ;main.c: 272:     while(i < 164){
+[e $ < _i -> 164 `i 1664  ]
+[e :U 1665 ]
+"282
+[; ;main.c: 282:     PORTCbits.RC0 = 1;
+[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
+"285
+[; ;main.c: 285:     if((image_packet[0]&0x0F) == 0x0F){
+[e $ ! == & -> *U + &U _image_packet * -> -> -> 0 `i `ui `ux -> -> # *U &U _image_packet `ui `ux `i -> 15 `i -> 15 `i 1666  ]
 {
-"1757
-[; ;main.c: 1757:         _delay((unsigned long)((2000)*(32000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-"1758
-[; ;main.c: 1758:         num_discard = 0;
-[e = _num_discard -> -> 0 `i `uc ]
-"1759
-[; ;main.c: 1759:     }
+"286
+[; ;main.c: 286:         discard = 1;
+[e = _discard -> -> 1 `i `uc ]
+"287
+[; ;main.c: 287:         num_discard++;
+[e ++ _num_discard -> -> 1 `i `uc ]
+"288
+[; ;main.c: 288:         packet_index = -1;
+[e = _packet_index -> -U -> 1 `i `uc ]
+"290
+[; ;main.c: 290:     }
 }
-[e :U 1664 ]
-"1761
-[; ;main.c: 1761: }
-[e :UE 1660 ]
+[e $U 1667  ]
+"292
+[; ;main.c: 292:     else{
+[e :U 1666 ]
+{
+"293
+[; ;main.c: 293:         num_discard = 0;
+[e = _num_discard -> -> 0 `i `uc ]
+"294
+[; ;main.c: 294:         packet_index++;
+[e ++ _packet_index -> -> 1 `i `uc ]
+"295
+[; ;main.c: 295:         if( packet_index > 59){
+[e $ ! > -> _packet_index `i -> 59 `i 1668  ]
+{
+"296
+[; ;main.c: 296:             packet_index = 0;
+[e = _packet_index -> -> 0 `i `uc ]
+"297
+[; ;main.c: 297:         }
+}
+[e :U 1668 ]
+"298
+[; ;main.c: 298:     }
+}
+[e :U 1667 ]
+"303
+[; ;main.c: 303:     if(num_discard > 150){
+[e $ ! > -> _num_discard `i -> 150 `i 1669  ]
+{
+"304
+[; ;main.c: 304:         _delay((unsigned long)((2000)*(32000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+"305
+[; ;main.c: 305:         num_discard = 0;
+[e = _num_discard -> -> 0 `i `uc ]
+"306
+[; ;main.c: 306:     }
+}
+[e :U 1669 ]
+"308
+[; ;main.c: 308: }
+[e :UE 1662 ]
+}
+"318
+[; ;main.c: 318: void eth_wiz_receive(void){
+[v _eth_wiz_receive `(v ~T0 @X0 1 ef ]
+{
+[e :U _eth_wiz_receive ]
+[f ]
+"322
+[; ;main.c: 322:     PORTDbits.RD3 = 0;
+[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
+"323
+[; ;main.c: 323:     SPI_ETHWIZ_Write(0x00);
+[e ( _SPI_ETHWIZ_Write (1 -> -> 0 `i `uc ]
+"324
+[; ;main.c: 324:     SPI_ETHWIZ_Write(0x26);
+[e ( _SPI_ETHWIZ_Write (1 -> -> 38 `i `uc ]
+"325
+[; ;main.c: 325:     SPI_ETHWIZ_Write(s0_reg_read);
+[e ( _SPI_ETHWIZ_Write (1 _s0_reg_read ]
+"326
+[; ;main.c: 326:     s0_rx_datalength_high = SPI_ETHWIZ_Write(0x00);
+[e = _s0_rx_datalength_high ( _SPI_ETHWIZ_Write (1 -> -> 0 `i `uc ]
+"327
+[; ;main.c: 327:     s0_rx_datalength_low = SPI_ETHWIZ_Write(0x00);
+[e = _s0_rx_datalength_low ( _SPI_ETHWIZ_Write (1 -> -> 0 `i `uc ]
+"328
+[; ;main.c: 328:     s0_rx_readpointer_high = SPI_ETHWIZ_Write(0x00);
+[e = _s0_rx_readpointer_high ( _SPI_ETHWIZ_Write (1 -> -> 0 `i `uc ]
+"329
+[; ;main.c: 329:     s0_rx_readpointer_low = SPI_ETHWIZ_Write(0x00);
+[e = _s0_rx_readpointer_low ( _SPI_ETHWIZ_Write (1 -> -> 0 `i `uc ]
+"330
+[; ;main.c: 330:     s0_rx_writepointer_high = SPI_ETHWIZ_Write(0x00);
+[e = _s0_rx_writepointer_high ( _SPI_ETHWIZ_Write (1 -> -> 0 `i `uc ]
+"331
+[; ;main.c: 331:     s0_rx_writepointer_low = SPI_ETHWIZ_Write(0x00);
+[e = _s0_rx_writepointer_low ( _SPI_ETHWIZ_Write (1 -> -> 0 `i `uc ]
+"332
+[; ;main.c: 332:     PORTDbits.RD3 = 1;
+[e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
+"335
+[; ;main.c: 335:     uint16_t datalength = (s0_rx_datalength_high << 8) | s0_rx_datalength_low;
+[v _datalength `us ~T0 @X0 1 a ]
+[e = _datalength -> | << -> _s0_rx_datalength_high `i -> 8 `i -> _s0_rx_datalength_low `i `us ]
+"338
+[; ;main.c: 338:     PORTDbits.RD3 = 0;
+[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
+"340
+[; ;main.c: 340:     SPI_ETHWIZ_Write(s0_rx_readpointer_high);
+[e ( _SPI_ETHWIZ_Write (1 _s0_rx_readpointer_high ]
+"341
+[; ;main.c: 341:     SPI_ETHWIZ_Write(s0_rx_readpointer_low);
+[e ( _SPI_ETHWIZ_Write (1 _s0_rx_readpointer_low ]
+"342
+[; ;main.c: 342:     SPI_ETHWIZ_Write(s0_rx_buf_read);
+[e ( _SPI_ETHWIZ_Write (1 _s0_rx_buf_read ]
+"343
+[; ;main.c: 343:     for(int i = 0; i < datalength; i++){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $U 1674  ]
+[e :U 1671 ]
+{
+"345
+[; ;main.c: 345:         ethwiz_rx_data[i] = SPI_ETHWIZ_Write(0x00);
+[e = *U + &U _ethwiz_rx_data * -> -> _i `ui `ux -> -> # *U &U _ethwiz_rx_data `ui `ux ( _SPI_ETHWIZ_Write (1 -> -> 0 `i `uc ]
+"346
+[; ;main.c: 346:     }
+}
+[e ++ _i -> 1 `i ]
+[e :U 1674 ]
+[e $ < -> _i `ui -> _datalength `ui 1671  ]
+[e :U 1672 ]
+}
+"347
+[; ;main.c: 347:     PORTDbits.RD3 = 1;
+[e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
+"351
+[; ;main.c: 351:     PORTDbits.RD3 = 0;
+[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
+"352
+[; ;main.c: 352:     SPI_ETHWIZ_Write(0x00);
+[e ( _SPI_ETHWIZ_Write (1 -> -> 0 `i `uc ]
+"353
+[; ;main.c: 353:     SPI_ETHWIZ_Write(0x28);
+[e ( _SPI_ETHWIZ_Write (1 -> -> 40 `i `uc ]
+"354
+[; ;main.c: 354:     SPI_ETHWIZ_Write(s0_reg_write);
+[e ( _SPI_ETHWIZ_Write (1 _s0_reg_write ]
+"355
+[; ;main.c: 355:     SPI_ETHWIZ_Write(s0_rx_writepointer_high);
+[e ( _SPI_ETHWIZ_Write (1 _s0_rx_writepointer_high ]
+"356
+[; ;main.c: 356:     SPI_ETHWIZ_Write(s0_rx_writepointer_low);
+[e ( _SPI_ETHWIZ_Write (1 _s0_rx_writepointer_low ]
+"357
+[; ;main.c: 357:     PORTDbits.RD3 = 1;
+[e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
+"360
+[; ;main.c: 360:     PORTDbits.RD3 = 0;
+[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
+"361
+[; ;main.c: 361:     SPI_ETHWIZ_Write(0x00);
+[e ( _SPI_ETHWIZ_Write (1 -> -> 0 `i `uc ]
+"362
+[; ;main.c: 362:     SPI_ETHWIZ_Write(0x01);
+[e ( _SPI_ETHWIZ_Write (1 -> -> 1 `i `uc ]
+"363
+[; ;main.c: 363:     SPI_ETHWIZ_Write(s0_reg_write);
+[e ( _SPI_ETHWIZ_Write (1 _s0_reg_write ]
+"364
+[; ;main.c: 364:     SPI_ETHWIZ_Write(0x40);
+[e ( _SPI_ETHWIZ_Write (1 -> -> 64 `i `uc ]
+"365
+[; ;main.c: 365:     SPI_ETHWIZ_Write(0b00000100);
+[e ( _SPI_ETHWIZ_Write (1 -> -> 4 `i `uc ]
+"366
+[; ;main.c: 366:     PORTDbits.RD3 = 1;
+[e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
+"369
+[; ;main.c: 369: }
+[e :UE 1670 ]
 }

@@ -1671,7 +1671,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;serial_spi.c: 27:     SSP2STAT = 0b11000000;
 [e = _SSP2STAT -> -> 192 `i `uc ]
 "31
-[; ;serial_spi.c: 31:     SSP2CON1 = 0x20;
+[; ;serial_spi.c: 31:     SSP2CON1 = 0b00100000;
 [e = _SSP2CON1 -> -> 32 `i `uc ]
 "34
 [; ;serial_spi.c: 34:     SSP2IF = 0;
