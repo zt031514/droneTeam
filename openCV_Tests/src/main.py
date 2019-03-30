@@ -15,16 +15,16 @@ import imageProcessing as ip
 import network as net
 import networkData as nd
 
-#pathToImages = "/home/zach/droneTeam/openCV_Tests/images/"
-#image = "blob.jpg"
+pathToImages = "/home/ztumbleson/droneTeam/openCV_Tests/images/"
+image = "test2.jpeg"
 
-#path = pathToImages + image
+path = pathToImages + image
+print path
+success = ip.process(path)
 
-#success = ip.process(path)
+if success == 0:
+	print("Image Processing Complete.")
 
-#if success == 0:
-#	print("Image Processing Complete.")
-
-networkData = net.readin()
+#networkData = net.readin()
 
 #image = nd.process(networkData)
