@@ -17,6 +17,7 @@ import processRaw as proc
 import numpy as np
 import cv2
 
+<<<<<<< HEAD
 #keep track of the number of thermal images stored so far
 thermalCount = 0
 
@@ -50,3 +51,18 @@ print "Done."
 #	print("Image Processing Complete.")
 
 s.close()
+=======
+pathToImages = "/home/ztumbleson/droneTeam/openCV_Tests/images/"
+image = "test2.jpeg"
+
+path = pathToImages + image
+print path
+success = ip.process(path)
+
+if success == 0:
+	print("Image Processing Complete.")
+
+#networkData = net.readin()
+
+#image = nd.process(networkData)
+>>>>>>> 600fea0fddb1bbe50fa6ca0b525857aa9197783f

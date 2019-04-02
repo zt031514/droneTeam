@@ -23,8 +23,42 @@ def process(path):
 
 	cv2.imshow("Input", image)
 
+<<<<<<< HEAD
 	#try a simple blob detector
 	detector = cv2.SimpleBlobDetector()
+=======
+	
+
+	# Setup SimpleBlobDetector parameters.
+	params = cv2.SimpleBlobDetector_Params()
+ 
+	# Change thresholds
+	params.minThreshold = 150;
+	params.maxThreshold = 250;
+ 
+	# Filter by Area.
+	params.filterByArea = True
+	params.minArea = 50
+ 
+	# Filter by Circularity
+	params.filterByCircularity = False
+	#params.minCircularity = 0.1
+ 
+	# Filter by Convexity
+	params.filterByConvexity = True
+	params.minConvexity = 0.01
+ 
+	# Filter by Inertia
+	params.filterByInertia = False
+	#params.minInertiaRatio = 0.01
+ 
+	# Create a detector with the parameters
+	ver = (cv2.__version__).split('.')
+	if int(ver[0]) < 3 :
+	    detector = cv2.SimpleBlobDetector(params)
+	else : 
+	    detector = cv2.SimpleBlobDetector_create(params)
+>>>>>>> 600fea0fddb1bbe50fa6ca0b525857aa9197783f
 
 	#detect blobs
 	keypoints = detector.detect(image, None)
