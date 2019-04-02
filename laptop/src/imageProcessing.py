@@ -23,10 +23,8 @@ def process(path):
 
 	cv2.imshow("Input", image)
 
-<<<<<<< HEAD
 	#try a simple blob detector
 	detector = cv2.SimpleBlobDetector()
-=======
 	
 
 	# Setup SimpleBlobDetector parameters.
@@ -58,7 +56,6 @@ def process(path):
 	    detector = cv2.SimpleBlobDetector(params)
 	else : 
 	    detector = cv2.SimpleBlobDetector_create(params)
->>>>>>> 600fea0fddb1bbe50fa6ca0b525857aa9197783f
 
 	#detect blobs
 	keypoints = detector.detect(image, None)

@@ -17,27 +17,24 @@ import pickle
 import numpy as np
 import processRaw as proc
 
-def createSocket(TCP_IP, TCP_PORT,  BUFFER_SIZE):
-	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	s.connect((TCP_IP, TCP_PORT))
-	#print "connected!"
+def readThermal(sockObj, count, BUFFER_SIZE):
 
 	startMsg = "\x00"
-	s.send(startMsg)
-	return s
 
-
-def readin(sockObj, count, BUFFER_SIZE):
+	sockObj.send(startMsg)
 
 	image = np.zeros((60, 80), dtype=int)
 	for i in range(60):
 		data = sockObj.recv(BUFFER_SIZE)
-		print("Received line: " + i)
 		image[i] = (proc.process(data, count))
 	
 	#save the image and get the full image path
 	filename = proc.saveImage(image, count)
 
-	sockObj.send("\x00")
+	return filename, image
 
-	return filename
+def readVisual(sockObj, BUFFER_SIZE):
+	
+	startMsg = "\x00"
+
+	sockObj.recv(BUFFER_SIZE)

@@ -12,57 +12,48 @@
 #*************************************************
 
 import imageProcessing as ip
+import socket
 import network as net
 import processRaw as proc
 import numpy as np
 import cv2
 
-<<<<<<< HEAD
 #keep track of the number of thermal images stored so far
-thermalCount = 0
-
+thermalCount = 1
 
 TCP_IP = '10.0.0.2'
 TCP_PORT = 500
 BUFFER_SIZE = 164
 
-s = net.createSocket(TCP_IP, TCP_PORT, BUFFER_SIZE)
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect((TCP_IP, TCP_PORT))
 
 #reads the image in from the network
 #calls helper functions process and saveImage
 #to save the image and returns the filename of the 
 #saved image
-for i in range(10):
-	filename = net.readin(s, thermalCount, BUFFER_SIZE)
-	print "Saved: " + filename + ", moving on."
-	thermalCount = thermalCount + 1
+filename, image = net.readThermal(s, thermalCount, BUFFER_SIZE)
+print "Saved: " + filename + ", moving on."
+print image
+thermalCount = thermalCount + 1
 
-s.send("\xFF")
+#s.send("\xFF")
 
-#image = cv2.imread(filename, cv2.IMREAD_GRAYSCALE)
-#cv2.imshow(filename, image)
-#cv2.waitKey(0)
-print "Done."
+
 #imgDir = "/home/ztumbleson/droneTeam/openCV_Tests/images/"
 
-#success = ip.process(filename)
+s.close()
+
+#pathToImages = "/home/ztumbleson/droneTeam/openCV_Tests/images/"
+#image = "test2.jpeg"
+
+#path = pathToImages + image
+#print path
+#success = ip.process(path)
 
 #if success == 0:
 #	print("Image Processing Complete.")
 
-s.close()
-=======
-pathToImages = "/home/ztumbleson/droneTeam/openCV_Tests/images/"
-image = "test2.jpeg"
-
-path = pathToImages + image
-print path
-success = ip.process(path)
-
-if success == 0:
-	print("Image Processing Complete.")
-
 #networkData = net.readin()
 
 #image = nd.process(networkData)
->>>>>>> 600fea0fddb1bbe50fa6ca0b525857aa9197783f

@@ -44,7 +44,7 @@ def process(rawData, count):
 
 def saveImage(imageMatrix, count):
 	
-	imgDir = "/home/ztumbleson/droneTeam/openCV_Tests/images/"
+	imgDir = "/home/ztumbleson/droneTeam/laptop/images/"
 
 	filename = imgDir + "thermal" + str(count) + ".jpg"
 	cv2.imwrite(filename, imageMatrix)
