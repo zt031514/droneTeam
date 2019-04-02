@@ -14,26 +14,30 @@
 
 import socket
 import pickle
+import numpy as np
+import processRaw as proc
 
-def readin():
-	IP = '10.0.0.2'
-	PORT = 10000
-	BUFFER_SIZE = 8192
+def createSocket(TCP_IP, TCP_PORT,  BUFFER_SIZE):
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	s.connect((TCP_IP, TCP_PORT))
+	#print "connected!"
 
-	portal = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	portal.bind((IP, PORT))
-	portal.listen(1)
+	startMsg = "\x00"
+	s.send(startMsg)
+	return s
 
-	conn, addr = portal.accept()
-	print 'Connection address:',addr
+
+def readin(sockObj, count, BUFFER_SIZE):
+
+	image = np.zeros((60, 80), dtype=int)
+	for i in range(60):
+		data = sockObj.recv(BUFFER_SIZE)
+		print("Received line: " + i)
+		image[i] = (proc.process(data, count))
 	
-	
-	while 1:
-		data = conn.recv(BUFFER_SIZE)
-		if not data: break
-		print "received data: ", data
-		conn.send(data) #echo
-	conn.close() 
+	#save the image and get the full image path
+	filename = proc.saveImage(image, count)
 
-	print "Data: " + data
-	return data
+	sockObj.send("\x00")
+
+	return filename

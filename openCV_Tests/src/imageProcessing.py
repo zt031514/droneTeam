@@ -24,7 +24,7 @@ def process(path):
 	cv2.imshow("Input", image)
 
 	#try a simple blob detector
-	detector = cv2.SimpleBlobDetector_create()
+	detector = cv2.SimpleBlobDetector()
 
 	#detect blobs
 	keypoints = detector.detect(image, None)

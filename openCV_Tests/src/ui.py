@@ -19,8 +19,11 @@ except ImportError:
     import tkinter as tk
 
 from PIL import ImageTk, Image
+import glob
+import os
 
 def buttonClick(button):
+	self.text = "Stop"
 	print "hello world"
 
 
@@ -52,8 +55,6 @@ button.pack()
 
 #mission stats field
 
-
-
 #right frame
 #*******************
 rightFrame = tk.Frame(top, height = 900, width = 700)
@@ -70,7 +71,13 @@ rightBottom.pack(side = tk.BOTTOM, fill=tk.BOTH)
 #Thermal Image canvas
 imgCanvas = tk.Canvas(rightTop)
 imgCanvas.pack(fill=tk.BOTH)
-img = ImageTk.PhotoImage(Image.open("/home/ztumbleson/droneTeam/openCV_Tests/images/blob.jpg"))
+
+
+#Open the newest image in the folder
+list_of_files = glob.glob("/home/ztumbleson/droneTeam/openCV_Tests/images/")
+newImage = max(list_of_files, key=os.path.getctime)
+newImage = "Thermal.jpg"
+img = ImageTk.PhotoImage(Image.open("/home/ztumbleson/droneTeam/openCV_Tests/images/" + newImage))
 image = imgCanvas.create_image(0, 0, image=img)
 
 #Map canvas

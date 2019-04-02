@@ -20,7 +20,7 @@ index = 0
 
 for x in range(60):
 	data = s.recv(BUFFER_SIZE)
-	print("Line " + x + ": " + data.encode("hex"))
+	print("Line " + str(x) + ": " + data.encode("hex"))
 else:
 	print "Done!"	
 s.close()

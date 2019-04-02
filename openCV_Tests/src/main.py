@@ -13,18 +13,40 @@
 
 import imageProcessing as ip
 import network as net
-import networkData as nd
+import processRaw as proc
+import numpy as np
+import cv2
 
-#pathToImages = "/home/zach/droneTeam/openCV_Tests/images/"
-#image = "blob.jpg"
+#keep track of the number of thermal images stored so far
+thermalCount = 0
 
-#path = pathToImages + image
 
-#success = ip.process(path)
+TCP_IP = '10.0.0.2'
+TCP_PORT = 500
+BUFFER_SIZE = 164
+
+s = net.createSocket(TCP_IP, TCP_PORT, BUFFER_SIZE)
+
+#reads the image in from the network
+#calls helper functions process and saveImage
+#to save the image and returns the filename of the 
+#saved image
+for i in range(10):
+	filename = net.readin(s, thermalCount, BUFFER_SIZE)
+	print "Saved: " + filename + ", moving on."
+	thermalCount = thermalCount + 1
+
+s.send("\xFF")
+
+#image = cv2.imread(filename, cv2.IMREAD_GRAYSCALE)
+#cv2.imshow(filename, image)
+#cv2.waitKey(0)
+print "Done."
+#imgDir = "/home/ztumbleson/droneTeam/openCV_Tests/images/"
+
+#success = ip.process(filename)
 
 #if success == 0:
 #	print("Image Processing Complete.")
 
-networkData = net.readin()
-
-#image = nd.process(networkData)
+s.close()
