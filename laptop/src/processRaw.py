@@ -18,20 +18,12 @@ import cv2
 
 
 def process(rawData, count):
-	#if(len(rawData) < 80):
-	#	print rawData
-	#	print "Faulty Data Received"
-	#	return 0
 
 	#strip header bytes off of the payload
 	strippedData = rawData[4:]
 
 	#Separate each pixel into an array element
 	pixelList = list(strippedData)
-	#print pixelList
-	#print len(pixelList)
-	
-
 
 	#declare matrix that is the size of the image
 	pixels = np.zeros(80, dtype=int)

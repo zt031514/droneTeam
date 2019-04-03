@@ -21,17 +21,15 @@ except ImportError:
 from PIL import ImageTk, Image
 import glob
 import os
+import main
 
-def buttonClick(button):
-	self.text = "Stop"
-	print "hello world"
-
+def buttonClick():
+	main.mission()
 
 top = tk.Tk()
 top.geometry('1000x1000')
 top.title('Dronez')
 #Widgets
-
 
 #left frame
 leftFrame = tk.Frame(top, height = 900, width = 100, bg = "red")
@@ -74,16 +72,16 @@ imgCanvas.pack(fill=tk.BOTH)
 
 
 #Open the newest image in the folder
-list_of_files = glob.glob("/home/ztumbleson/droneTeam/openCV_Tests/images/")
-newImage = max(list_of_files, key=os.path.getctime)
-newImage = "Thermal.jpg"
-img = ImageTk.PhotoImage(Image.open("/home/ztumbleson/droneTeam/openCV_Tests/images/" + newImage))
-image = imgCanvas.create_image(0, 0, image=img)
+#list_of_files = glob.glob("/home/ztumbleson/droneTeam/openCV_Tests/images/")
+#newImage = max(list_of_files, key=os.path.getctime)
+#newImage = "Thermal.jpg"
+#img = ImageTk.PhotoImage(Image.open("/home/ztumbleson/droneTeam/openCV_Tests/images/" + newImage))
+#image = imgCanvas.create_image(0, 0, image=img)
 
 #Map canvas
 mapCanvas = tk.Canvas(rightTop)
 mapCanvas.pack(fill=tk.BOTH)
-mapImg = ImageTk.PhotoImage(Image.open("/home/ztumbleson/droneTeam/openCV_Tests/images/Thermal.jpg"))
-mapBox = mapCanvas.create_image(0, 0, image=mapImg)
+#mapImg = ImageTk.PhotoImage(Image.open("/home/ztumbleson/droneTeam/openCV_Tests/images/Thermal.jpg"))
+#mapBox = mapCanvas.create_image(0, 0, image=mapImg)
 
 top.mainloop()
