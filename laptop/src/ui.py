@@ -24,7 +24,10 @@ import os
 import main
 
 def buttonClick():
-	main.mission()
+	main.thermalMission()
+
+def visualButton():
+	main.visualMission()
 
 top = tk.Tk()
 top.geometry('1000x1000')
@@ -48,9 +51,11 @@ leftBottom = tk.Frame(leftFrame, height = 300, width = 200, bg = "black")
 leftBottom.pack(fill=tk.X)
 
 #start/stop button
-button = tk.Button(leftTop, command=buttonClick, text = "Start")
+button = tk.Button(leftTop, command=buttonClick, text = "Start Thermal")
 button.pack()
 
+button2 = tk.Button(leftTop, command=visualButton, text = "Start Visual")
+button2.pack()
 #mission stats field
 
 #right frame

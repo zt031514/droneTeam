@@ -34,7 +34,26 @@ def readThermal(sockObj, count, BUFFER_SIZE):
 	
 	return image
 
-def mission():
+def readVisual(sockObj, count, BUFFER_SIZE):
+	
+	startMsg = "\x00"
+	sockObj.send(startMsg)
+
+	messageLength = int(ord(sockObj.recv(BUFFER_SIZE)))
+	print "Image is " + messageLength + "bytes long"
+
+	bytesReceived = 0
+
+	data = ""
+	while(bytesReceived < messageLength):
+		current = sockObj.recv(BUFFER_SIZE)
+		data += current
+	print data
+
+	return data
+
+
+def thermalMission():
 	#keep track of the number of thermal images stored so far
 	thermalCount = 0
 
@@ -56,23 +75,27 @@ def mission():
 		filename = proc.saveImage(image, thermalCount)
 		thermalCount = thermalCount + 1
 
-#s.send("\xFF")
-
-
-#imgDir = "/home/ztumbleson/droneTeam/openCV_Tests/images/"
-
 	s.close()
 
-#pathToImages = "/home/ztumbleson/droneTeam/openCV_Tests/images/"
-#image = "test2.jpeg"
+def visualMission():
 
-#path = pathToImages + image
-#print path
-#success = ip.process(path)
+	#keep track of the number of thermal images stored so far
+	visualCount = 0
 
-#if success == 0:
-#	print("Image Processing Complete.")
+	TCP_IP = '10.0.0.2'
+	TCP_PORT = 500
+	BUFFER_SIZE = 164
 
-#networkData = net.readin()
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	s.connect((TCP_IP, TCP_PORT))
 
-#image = nd.process(networkData)
+	#Thermal image loop
+	imageFiles = [""]
+	for i in range(30):
+		image = readVisual(s, visualCount, BUFFER_SIZE)
+		#print "Saved: " + filename + ", moving on."
+		print image
+	
+		visualCount = visualCount + 1
+
+	s.close()

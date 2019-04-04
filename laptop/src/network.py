@@ -21,6 +21,8 @@ import threading
 def readThermal(sockObj, count, BUFFER_SIZE):
 
 	
+
+	
 	print "This is image " + str(count)
 	#sockObj.send(startMsg)
 
@@ -31,12 +33,12 @@ def readThermal(sockObj, count, BUFFER_SIZE):
 	
 	return image
 
-def readVisual(sockObj, BUFFER_SIZE):
+def readVisual(sockObj, count, BUFFER_SIZE):
 	
 	startMsg = "\x00"
 	sockObj.send(startMsg)
 
-	messageLength = int(ord(sockObj.recv(BUFFER_SIZE) & 0xFF))
+	messageLength = int(ord(sockObj.recv(BUFFER_SIZE)))
 	print "Image is " + messageLength + "bytes long"
 
 	bytesReceived = 0
