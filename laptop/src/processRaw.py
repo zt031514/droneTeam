@@ -15,9 +15,10 @@
 import numpy as np
 import scipy.misc
 import cv2
+import global_vars
 
 
-def process(rawData, count):
+def processThermal(rawData, count):
 
 	#strip header bytes off of the payload
 	strippedData = rawData[4:]
@@ -28,16 +29,15 @@ def process(rawData, count):
 	#declare matrix that is the size of the image
 	pixels = np.zeros(80, dtype=int)
 
+	#convert raw line bytes into grayscale ints
 	for i in range(80):
-		pixels[i] = int(ord(pixelList[i])) & 0xFF;
-
+		pixels[i] = int(ord(pixelList[i])) & 0xFF
+	
 	#Return the pure image matrix
 	return pixels
 
-def saveImage(imageMatrix, count):
-	
-	imgDir = "/home/ztumbleson/droneTeam/laptop/images/"
+def saveImage(imageMatrix):
 
-	filename = imgDir + "thermal" + str(count) + ".jpg"
+	filename = global_vars.imagesPath + "thermal" + str(global_vars.thermalCount) + ".jpg"
 	cv2.imwrite(filename, imageMatrix)
 	return filename

@@ -16,12 +16,24 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
+#Enlarge the thermal image from a 60x80 to 360x480
+def expand(image):
+	length = len(image)
+	width = len(image[0])
+
+	
+	
+
+	return "thermal0.jpg"
+
+
+
 def process(path):
 
 	#read in hot air ballon image
 	image = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
 
-	cv2.imshow("Input", image)
+	#cv2.imshow("Input", image)
 
 	#try a simple blob detector
 	detector = cv2.SimpleBlobDetector()
@@ -36,7 +48,7 @@ def process(path):
  
 	# Filter by Area.
 	params.filterByArea = True
-	params.minArea = 50
+	params.minArea = 500
  
 	# Filter by Circularity
 	params.filterByCircularity = False
@@ -65,6 +77,5 @@ def process(path):
 
 	#display image with blobs circled
 	cv2.imshow("Keypoints", im_with_keypoints)
-	cv2.waitKey(0)
 
-	return 0
+	return False, im_with_keypoints
