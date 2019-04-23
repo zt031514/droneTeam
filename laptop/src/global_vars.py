@@ -12,19 +12,30 @@
 
 
 import time
+import classes
 
 def init():
+
+	global thermalImages
+	thermalImages = list()
+
+	global hotspots
+	hotspots = list()
+
+	global filenames
+	filenames = list()
+
 	global hotspotCount
 	hotspotCount = 0
+
+	global hotspotID
+	hotspotID = list()
 
 	global thermalCount
 	thermalCount = 0
 
 	global visualCount
 	visualCount = 0
-
-	global hotspotCount
-	hotspotCount = 0
 	
 	global stopThermal
 	stopThermal = False
@@ -46,3 +57,9 @@ def init():
 
 	global missionCurrentTime
 	missionCurrentTime = time.time()
+
+	global invalidData
+	invalidData = False
+
+	global timerTicks
+	timerTicks = 0

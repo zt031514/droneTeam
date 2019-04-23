@@ -25,6 +25,7 @@ import socket
 import cv2
 import imageProcessing as improc
 import time
+import imageHandler as proc
 
 #*************
 #
@@ -47,38 +48,46 @@ def thermalButton(top, imgCanvas):
 	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	s.connect((TCP_IP, TCP_PORT))
 
-	#global_vars.stopThermal = False
+	global_vars.stopThermal = False
 	hotspot = False
 	while(global_vars.stopThermal == False):
 		top.update_idletasks()
 		top.update()
-		path = missions.thermalMission(s, BUFFER_SIZE)
-		print "Path: " + path
 
-		#hotspot, processedImage = improc.
+		if(global_vars.invalidData == True):
+			missions.flushSocket(s)
+			s.recv(2)
+
+		image, coordinates, filename = missions.thermalMission(s, BUFFER_SIZE)
+
+		thermalImage = classes.ThermalImage()
+		thermalImage.image = image
+		thermalImage.gps = coordinates
+
+		global_vars.thermalImages.append(thermalImage)
+		global_vars.filenames.append(filename)
+
+		hotspot, processedImage = improc.process(filename)
 		#Hotspot detected, update GUI and counter
-		#if(hotspot):
-		#	global_vars.hotspotCount = global_vars.hotspotCount + 1
+		if(hotspot):
+			global_vars.hotspotCount = global_vars.hotspotCount + 1
+			global_vars.hotspots.append(processedImage)
+			global_vars.hotspotID.append(global_vars.thermalCount)
 
-			#TODO ADD IMAGE UPDATE CODE
-		rawImage = Image.open(path)	
+		#resizedImage = rawImage.resize((640, 480), Image.NEAREST)
 
-		resizedImage = rawImage.resize((640, 480), Image.NEAREST)
+		#displayReadyImage = ImageTk.PhotoImage(resizedImage)
 
-		displayReadyImage = ImageTk.PhotoImage(resizedImage)
+		#image = imgCanvas.create_image(400, 250, image=displayReadyImage)
 
-		image = imgCanvas.create_image(400, 250, image=displayReadyImage)
-
-			#Save image in hotspot directory
-		#	image = cv2.imread(filename, cv2.IMREAD_GRAYSCALE)
-		#	new_name = global_vars.hotspotPath + "thermal" + str(global_vars.thermalCount)
-		#	cv2.imwrite(new_name, image)
+		
 
 			#Update canvas
 			#img = ImageTk.PhotoImage(Image.open(filename))
 			#imgCanvas.create_image(0,0, image=img)
 
 			#TODO ADD STATS UPDATE CODE
+		global_vars.hotspotCount = global_vars.hotspotCount + 1
 
 			#TODO ADD LIST UPDATE CODE
 
@@ -92,24 +101,41 @@ def thermalButton(top, imgCanvas):
 # Called when "Start Visual" button is pressed
 #
 #***********************************************
-def visualButton(top):
+def visualButton(top, imgCanvas):
 
-	#TCP_IP = '10.0.0.2'
-	#TCP_PORT = 500
-	#BUFFER_SIZE = 164
+	TCP_IP = '10.0.0.2'
+	TCP_PORT = 500
+	BUFFER_SIZE = 164
 
-	#s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	#s.connect((TCP_IP, TCP_PORT))
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	s.connect((TCP_IP, TCP_PORT))
+
+	startMsg = "\x00\x05\x0a\x0e\x14\x19\x2d\x32\x36\x3a"
+	s.send(startMsg)	
 
 	global_vars.stopVisual = False
 
-	while(global_vars.stopVisual == False):
+	while(global_vars.visualCount < 1):
 		top.update_idletasks()
 		top.update()
-	#	filename = missions.visualMission(s)
-	print str(global_vars.visualCount) + "images received"
+		print "Reading in image " + str(global_vars.visualCount)
+		path = missions.visualMission(s, BUFFER_SIZE)
 
-	#s.close()
+	while(global_vars.stopVisual == False):
+		rawImage = Image.open(path)
+
+		resizedImage = rawImage.resize((780,480), Image.NEAREST)
+
+		displayReadyImage = ImageTk.PhotoImage(resizedImage)
+
+		image = imgCanvas.create_image(400,250, image=displayReadyImage)
+
+		top.update_idletasks()
+		top.update()
+	print str(global_vars.visualCount) + " images received"
+	global_vars.visualCount = 0
+
+	s.close()
 
 #**********************************************
 #
@@ -135,6 +161,9 @@ def visualStop():
 #***********************************************
 def fullStop():
 	global_vars.fullStop = True
+
+	proc.saveThermalImages()
+	proc.saveGPS()
 
 #**********************
 #
@@ -209,15 +238,21 @@ leftTop.pack(fill=tk.BOTH)
 #
 #*****************************************
 
-leftMiddle = tk.Frame(leftFrame, height = 300, width = 200, bg = "brown")
+leftMiddle = tk.Frame(leftFrame, height = 300, width = 200, bg = "gray", borderwidth = 5, relief = tk.SUNKEN)
 leftMiddle.pack_propagate(0)
 leftMiddle.pack(fill=tk.BOTH)
 
 #TODO: ADD Mission Stats
 
-test = tk.Label(leftMiddle, bg = "brown", \
-	textvariable = global_vars.missionCurrentTime)
-test.pack(side = tk.TOP)
+var = tk.StringVar()
+timer = tk.StringVar()
+statsLabel = tk.Label(leftMiddle, bg = "gray", \
+	textvariable = var)
+
+timerLabel = tk.Label(leftMiddle, textvariable = timer)
+var.set("Mission Stats")
+statsLabel.pack()
+timerLabel.pack()
 
 
 #*****************************************
@@ -229,8 +264,18 @@ test.pack(side = tk.TOP)
 #*****************************************
 
 #TODO: ADD hotspot list
-leftBottom = tk.Frame(leftFrame, height = 400, width = 200, bg = "purple")
+
+
+leftBottom = tk.Frame(leftFrame, height = 400, width = 200, bg = "gray")
+leftBottom.pack_propagate(0)
 leftBottom.pack(fill=tk.BOTH)
+
+noHotspots = tk.StringVar()
+hotspotLabel = tk.Label(leftBottom, bg = "gray" \
+			, textvariable = noHotspots)
+noHotspots.set("           No Hotspots found.")
+hotspotLabel.pack(side = tk.LEFT)
+
 
 #**********************************
 #
@@ -240,7 +285,7 @@ leftBottom.pack(fill=tk.BOTH)
 #
 #**********************************
 
-rightFrame = tk.Frame(top, height = 1000, width = 800, bg = "blue")
+rightFrame = tk.Frame(top, height = 1000, width = 800, bg = "black")
 rightFrame.pack(side = tk.RIGHT, fill = tk.BOTH)
 
 #******************************************************
@@ -250,7 +295,7 @@ rightFrame.pack(side = tk.RIGHT, fill = tk.BOTH)
 # Contains image canvas for thermal and visual images
 #
 #******************************************************
-rightTop = tk.Frame(rightFrame, height = 500, width = 800, bg = "green")
+rightTop = tk.Frame(rightFrame, height = 500, width = 800, bg = "black")
 rightTop.pack_propagate(0)
 rightTop.pack(side = tk.TOP)
 
@@ -271,17 +316,20 @@ image = imgCanvas.create_image(400, 250, image=displayReadyImage)
 # Contains Map canvas
 #
 #*******************************************************
-#rightBottom = tk.Frame(rightFrame, height = 450, bg = "yellow")
-#rightBottom.pack(side = tk.BOTTOM, fill=tk.BOTH)
+rightBottom = tk.Frame(rightFrame, height = 500, width = 800, bg = "black")
+rightTop.pack_propagate(0)
+rightBottom.pack(side = tk.BOTTOM)
 
 
-#TODO: ADD MAP
+#TODO: ADD REAL MAP
 
 #Map canvas
-#mapCanvas = tk.Canvas(rightBottom)
-#mapCanvas.pack(fill=tk.BOTH)
-#mapImg = ImageTk.PhotoImage(Image.open("/home/ztumbleson/droneTeam/openCV_Tests/images/Thermal.jpg"))
-#mapBox = mapCanvas.create_image(0, 0, image=mapImg)
+mapCanvas = tk.Canvas(rightBottom, bg = "black", height = 500, width = 800)
+mapCanvas.pack(fill = tk.BOTH)
+mapImg = Image.open(global_vars.imagesPath + "map.png")
+resizedImage = mapImg.resize((780, 480), Image.NEAREST)
+displayReadyImage = ImageTk.PhotoImage(resizedImage)
+mapBox = mapCanvas.create_image(400, 250, image=displayReadyImage)
 
 
 #******************
@@ -293,7 +341,7 @@ image = imgCanvas.create_image(400, 250, image=displayReadyImage)
 startThermalButton = tk.Button(leftTop, height = 3, text = "Start Thermal", command = lambda: thermalButton(top, imgCanvas))
 startThermalButton.pack(fill = tk.X, side = tk.TOP)
 
-startVisualButton = tk.Button(leftTop, height = 3, command= lambda: visualButton(top), text = "Start Visual")
+startVisualButton = tk.Button(leftTop, height = 3, command= lambda: visualButton(top, imgCanvas), text = "Start Visual")
 startVisualButton.pack(fill = tk.X, side = tk.TOP)
 
 stopThermalButton = tk.Button(leftTop, height = 3, command = lambda: thermalStop(), text = "Stop Thermal")
@@ -324,7 +372,12 @@ exitButton.pack(fill = tk.X)
 #************************
 
 while global_vars.fullStop == False:
+
 	global_vars.missioncurrentTime = time.time()
+	global_vars.timerTicks = global_vars.timerTicks + 1
+	if(global_vars.timerTicks > 1000):
+		timer.set(global_vars.missioncurrentTime - global_vars.missionStartTime)
+
 	top.update_idletasks()
 	top.update()
 	

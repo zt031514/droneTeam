@@ -16,18 +16,6 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-#Enlarge the thermal image from a 60x80 to 360x480
-def expand(image):
-	length = len(image)
-	width = len(image[0])
-
-	
-	
-
-	return "thermal0.jpg"
-
-
-
 def process(path):
 
 	#read in hot air ballon image
@@ -76,6 +64,6 @@ def process(path):
 	im_with_keypoints = cv2.drawKeypoints(image, keypoints, np.array([]), (0,0,255), cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
 
 	#display image with blobs circled
-	cv2.imshow("Keypoints", im_with_keypoints)
+	#cv2.imshow("Keypoints", im_with_keypoints)
 
 	return False, im_with_keypoints
