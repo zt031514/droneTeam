@@ -21,18 +21,14 @@ def process(path):
 	#read in hot air ballon image
 	image = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
 
-	#cv2.imshow("Input", image)
-
-	#try a simple blob detector
-	detector = cv2.SimpleBlobDetector()
-	
+	#cv2.imshow("Input", image)	
 
 	# Setup SimpleBlobDetector parameters.
 	params = cv2.SimpleBlobDetector_Params()
  
 	# Change thresholds
-	params.minThreshold = 150;
-	params.maxThreshold = 250;
+	params.minThreshold = 50;
+	params.maxThreshold = 255;
  
 	# Filter by Area.
 	params.filterByArea = True

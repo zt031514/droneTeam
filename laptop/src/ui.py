@@ -26,6 +26,10 @@ import cv2
 import imageProcessing as improc
 import time
 import imageHandler as proc
+import classes
+import numpy
+#import folium
+
 
 #*************
 #
@@ -41,57 +45,90 @@ import imageHandler as proc
 #***********************************************
 def thermalButton(top, imgCanvas):
 
+
+	#NETWORK CONSTANTS
 	TCP_IP = '10.0.0.2'
 	TCP_PORT = 500
 	BUFFER_SIZE = 164
 
+
+	#Open Socket
 	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	s.connect((TCP_IP, TCP_PORT))
 
-	global_vars.stopThermal = False
-	hotspot = False
-	while(global_vars.stopThermal == False):
-		top.update_idletasks()
-		top.update()
 
+	#Begin thermal mission code
+	
+	#Stop button has not been pressed
+	global_vars.stopThermal = False
+
+	#No hotspot has been detected for the current image
+	hotspot = False
+
+	#While the stop button has not been pressed, do the loop
+	while(global_vars.stopThermal == False):
+		
+		#If PIC sends a bad picture, flush the rest of the image
 		if(global_vars.invalidData == True):
 			missions.flushSocket(s)
-			s.recv(2)
 
+
+		#Request a thermal image from the PIC and receive the image, the gps
+		#coordinates and a filename
 		image, coordinates, filename = missions.thermalMission(s, BUFFER_SIZE)
 
+
+		#Create a new thermalImage object
 		thermalImage = classes.ThermalImage()
-		thermalImage.image = image
+
+		#remove lines from the received image and store
+		thermalImage.image = proc.removeLines(image)
+
+		#store gps coordinates
 		thermalImage.gps = coordinates
 
+		#Add the thermal image and filename to the appropriate structures
 		global_vars.thermalImages.append(thermalImage)
 		global_vars.filenames.append(filename)
 
-		hotspot, processedImage = improc.process(filename)
+		#Determine if the image contains a hotspot
+		#hotspot, processedImage = improc.process(filename)
+		
 		#Hotspot detected, update GUI and counter
 		if(hotspot):
+			
+			#Add to the hotspot counter, add the image to the array and 
+			#add the thermal counter for later use
 			global_vars.hotspotCount = global_vars.hotspotCount + 1
 			global_vars.hotspots.append(processedImage)
 			global_vars.hotspotID.append(global_vars.thermalCount)
 
-		#resizedImage = rawImage.resize((640, 480), Image.NEAREST)
+		#print the thermal image to the window in the ui
 
-		#displayReadyImage = ImageTk.PhotoImage(resizedImage)
+		#Convert the raw image data to a PIL image object, encode as uint8
+		displayImage = Image.fromarray((thermalImage.image).astype('uint8'))
 
-		#image = imgCanvas.create_image(400, 250, image=displayReadyImage)
+		#resize from 80x60 to 640x480 using nearest neighbor interpolation
+		resizedImage = displayImage.resize((640,480), Image.NEAREST)
 
-		
+		#Create a tkinter compatible object from the resized image
+		displayReadyImage = ImageTk.PhotoImage(resizedImage)
 
-			#Update canvas
-			#img = ImageTk.PhotoImage(Image.open(filename))
-			#imgCanvas.create_image(0,0, image=img)
+		#Put the image in the tk canvas
+		image = imgCanvas.create_image(400, 250, image=displayReadyImage)
 
-			#TODO ADD STATS UPDATE CODE
+		#TODO ADD STATS UPDATE CODE
+	
+		#TODO ADD LIST UPDATE CODE
+
+		#Update the current thermal image number
 		global_vars.hotspotCount = global_vars.hotspotCount + 1
 
-			#TODO ADD LIST UPDATE CODE
+		top.update_idletasks()
+		top.update()
 
 
+	#Stop button has been pressed, exit to top loop
 	print str(global_vars.thermalCount) + " images received"
 
 	s.close()
@@ -124,7 +161,7 @@ def visualButton(top, imgCanvas):
 	while(global_vars.stopVisual == False):
 		rawImage = Image.open(path)
 
-		resizedImage = rawImage.resize((780,480), Image.NEAREST)
+		resizedImage = rawImage.resize((780,480), Image.NEARES)
 
 		displayReadyImage = ImageTk.PhotoImage(resizedImage)
 
@@ -234,25 +271,69 @@ leftTop.pack(fill=tk.BOTH)
 #
 # Left Middle Frame
 #
-# Contains Mission Stats and Exit button
+# Contains Mission Stats
 #
 #*****************************************
 
+#Declare frame size and geometry
 leftMiddle = tk.Frame(leftFrame, height = 300, width = 200, bg = "gray", borderwidth = 5, relief = tk.SUNKEN)
 leftMiddle.pack_propagate(0)
 leftMiddle.pack(fill=tk.BOTH)
 
 #TODO: ADD Mission Stats
 
-var = tk.StringVar()
-timer = tk.StringVar()
+#Mission Stats text
+statsTitle = tk.StringVar()
 statsLabel = tk.Label(leftMiddle, bg = "gray", \
-	textvariable = var)
-
-timerLabel = tk.Label(leftMiddle, textvariable = timer)
-var.set("Mission Stats")
+	textvariable = statsTitle)
+statsTitle.set("Mission Stats\n\n")
 statsLabel.pack()
+
+#Timer Text and elapsed time
+#"Elapsed Time" text
+timerTitle = tk.StringVar()
+timerTitleLabel = tk.Label(leftMiddle, bg = "gray", \
+	textvariable = timerTitle)
+timerTitle.set("Elapsed Time\n")
+timerTitleLabel.pack()
+
+#Elapsed time value
+timer = tk.StringVar()
+timerLabel = tk.Label(leftMiddle, bg = "gray", \
+	textvariable = timer)
 timerLabel.pack()
+
+#Hotspot counter text and value
+#"Hotspots detected counter"
+hotspotTitle = tk.StringVar()
+hotspotTitleLabel = tk.Label(leftMiddle, bg = "gray", \
+	textvariable = hotspotTitle)
+hotspotTitle.set("Hotspots Detected\n")
+hotspotTitleLabel.pack()
+
+#hotspot counter value
+hotspotCount = tk.StringVar()
+hotspotCountLabel = tk.Label(leftMiddle, bg = "gray", \
+	textvariable = hotspotCount)
+hotspotCountLabel.pack()
+
+#GPS text and position
+gpsTitle = tk.StringVar()
+gpsTitleLabel = tk.Label(leftMiddle, bg = "gray", \
+	textvariable = gpsTitle)
+gpsTitle.set("Current GPS coordinates\n")
+gpsTitleLabel.pack()
+
+#Elapsed time value
+latitude = tk.StringVar()
+longitude = tk.StringVar()
+latitudeLabel = tk.Label(leftMiddle, bg = "gray", \
+	textvariable = latitude)
+longitudeLabel = tk.Label(leftMiddle, bg = "gray", \
+	textvariable = longitude)
+latitudeLabel.pack()
+longitudeLabel.pack()
+
 
 
 #*****************************************
@@ -303,11 +384,11 @@ rightTop.pack(side = tk.TOP)
 imgCanvas = tk.Canvas(rightTop, bg = "black", height = 500, width = 800)
 imgCanvas.pack(fill=tk.BOTH)
 
-startImage = Image.open(global_vars.imagesPath + "start.png")
+startImage = Image.open(global_vars.imagesPath + "static/start.png")
 resizedImage = startImage.resize((640, 480), Image.NEAREST)
 displayReadyImage = ImageTk.PhotoImage(resizedImage)
 
-image = imgCanvas.create_image(400, 250, image=displayReadyImage)
+image = imgCanvas.create_image(0, 0, image=displayReadyImage)
 
 #*******************************************************
 #
@@ -326,7 +407,7 @@ rightBottom.pack(side = tk.BOTTOM)
 #Map canvas
 mapCanvas = tk.Canvas(rightBottom, bg = "black", height = 500, width = 800)
 mapCanvas.pack(fill = tk.BOTH)
-mapImg = Image.open(global_vars.imagesPath + "map.png")
+mapImg = Image.open(global_vars.imagesPath + "static/map.png")
 resizedImage = mapImg.resize((780, 480), Image.NEAREST)
 displayReadyImage = ImageTk.PhotoImage(resizedImage)
 mapBox = mapCanvas.create_image(400, 250, image=displayReadyImage)
@@ -371,13 +452,41 @@ exitButton.pack(fill = tk.X)
 #
 #************************
 
+#while the "Exit" button has not been pressed
 while global_vars.fullStop == False:
 
-	global_vars.missioncurrentTime = time.time()
-	global_vars.timerTicks = global_vars.timerTicks + 1
-	if(global_vars.timerTicks > 1000):
-		timer.set(global_vars.missioncurrentTime - global_vars.missionStartTime)
+	global_vars.missionCurrentTime = time.time()
+	
+	#get the elapsed time since the mission start in seconds
+	elapsed= int(global_vars.missionCurrentTime - global_vars.missionStartTime)
+	
+	#Convert the seconds to a human readable elapsed time string
+	elaps_min = elapsed / 60
+	elaps_sec = elapsed % 60
 
+	#Form a string containing the minutes and seconds for display
+	
+	#For the first ten seconds of each minute, print an extra 
+	#zero to fill the space
+	if(elaps_sec < 10):
+		time_string = str(elaps_min) + ":" + "0" + str(elaps_sec) + "\n"
+	else:
+		time_string = (str(elaps_min) + ":" + str(elaps_sec) + "\n")
+	timer.set(time_string)
+
+	#Update the number of hotspots found
+	hotspotCount.set(str(global_vars.hotspotCount) + "\n") 
+
+	#Update the curretn GPS position
+	latitude.set("Lat: " + str(0))
+	longitude.set("Long: " + str(0))
+
+	
+	if(global_vars.thermalCount > 1):
+		#Update the current GPS position
+		latitude.set(global_vars.thermalImages[global_vars.thermalCount-1].gps.latitude)
+		longitude.set(global_vars.thermalImages[global_vars.thermalCount-1].gps.longitude)
+	
 	top.update_idletasks()
 	top.update()
 	

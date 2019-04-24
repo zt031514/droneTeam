@@ -56,7 +56,7 @@ def init():
 	missionStartTime = time.time()
 
 	global missionCurrentTime
-	missionCurrentTime = time.time()
+	missionCurrentTime = 0
 
 	global invalidData
 	invalidData = False

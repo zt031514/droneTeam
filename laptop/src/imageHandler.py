@@ -17,6 +17,7 @@ import numpy as np
 import scipy.misc
 import cv2
 import global_vars
+from PIL import Image
 
 #process thermal data from the network and parse into a 2d array
 def processThermal(rawData, count):
@@ -62,8 +63,23 @@ def saveHotspot(image):
 def saveThermalImages():
 	numSaved = 0
 	for i in range(len(global_vars.thermalImages)):
-		cv2.imwrite(global_vars.filenames[i], global_vars.thermalImages[i])
+		cv2.imwrite(global_vars.filenames[i], global_vars.thermalImages[i].image)
 
 def saveGPS():
-	print "nice"
+	file = open('gps.txt', 'wb')
+	file.write("GPS coordinates\n\n")
+	for i in range(len(global_vars.thermalImages)):
+		file.write("Thermal Image " + str(i) + '\n')
+		file.write("Latitude: " + \
+			 str(global_vars.thermalImages[i].gps.latitude))
+		file.write("Longitude: " + \
+			 str(global_vars.thermalImages[i].gps.longitude))
+		file.write("\n\n")
 
+	file.close()
+
+def removeLines(image):
+
+	imageWithoutLines = np.delete(image, list(range(0, image.shape[1], 2)), axis = 1)
+
+	return imageWithoutLines

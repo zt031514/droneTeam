@@ -64,7 +64,7 @@ def thermalMission(s, BUFFER_SIZE):
 	imageFiles = [""]
 
 	image, timestamp = readThermal(s, BUFFER_SIZE)
-	print image
+	#print image
 	print "Timestamp = " + str(timestamp)
 	
 	#save the image and get the full image path

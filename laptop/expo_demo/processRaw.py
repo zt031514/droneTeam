@@ -27,7 +27,7 @@ def processThermal(rawData, count):
 	pixelList = list(strippedData)
 
 	#declare matrix that is the size of the image
-	pixels = np.zeros(80, dtype=int)
+	pixels = np.zeros(80, dtype=np.uint8)
 
 	if(len(rawData) < 80):
 		global_vars.invalidData = True
@@ -35,7 +35,7 @@ def processThermal(rawData, count):
 
 	#convert raw line bytes into grayscale ints
 	for i in range(80):
-		pixels[i] = int(ord(pixelList[i])) & 0xFF
+		pixels[i] = np.uint8(ord(pixelList[i])) & 0xFF
 	
 	#Return the pure image matrix
 	return pixels

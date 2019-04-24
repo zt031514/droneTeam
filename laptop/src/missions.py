@@ -59,20 +59,20 @@ def readThermal(sockObj, BUFFER_SIZE):
 
 
 	#TODO get real GPS coordinates from network
-	gps = classes.GpsCoord()
-	gps.latitude = 0
-	gps.longitude = 0
+	gps = classes.Gps_Coord()
+	gps.latitude = global_vars.thermalCount
+	gps.longitude = global_vars.thermalCount + 1
 
 	return image, gps, timestamp
 
 def thermalMission(s, BUFFER_SIZE):
 
-	image, timestamp = readThermal(s, BUFFER_SIZE)
+	image, coordinates, timestamp = readThermal(s, BUFFER_SIZE)
 	#print image
 	#print "Timestamp = " + str(timestamp)
 
 	#save the image and get the full image path
-	filename = proc.getfilename()
+	filename = proc.getFilename()
 	global_vars.thermalCount = global_vars.thermalCount + 1
 
 	return image, coordinates, filename

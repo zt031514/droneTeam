@@ -14,7 +14,7 @@
 #Store gps coordinate as a latitude and longitude
 class Gps_Coord(object):
 	def __init__(self, latitude=0, longitude=0):
-		self.latitude = latitutde
+		self.latitude = latitude
 		self.longitude = longitude
 
 
