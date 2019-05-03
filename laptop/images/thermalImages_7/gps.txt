@@ -1,0 +1,182 @@
+GPS coordinates
+
+Thermal Image 0
+Latitude: 0
+Longitude: 1
+
+Thermal Image 1
+Latitude: 1
+Longitude: 2
+
+Thermal Image 2
+Latitude: 2
+Longitude: 3
+
+Thermal Image 3
+Latitude: 3
+Longitude: 4
+
+Thermal Image 4
+Latitude: 4
+Longitude: 5
+
+Thermal Image 5
+Latitude: 5
+Longitude: 6
+
+Thermal Image 6
+Latitude: 6
+Longitude: 7
+
+Thermal Image 7
+Latitude: 7
+Longitude: 8
+
+Thermal Image 8
+Latitude: 8
+Longitude: 9
+
+Thermal Image 9
+Latitude: 9
+Longitude: 10
+
+Thermal Image 10
+Latitude: 10
+Longitude: 11
+
+Thermal Image 11
+Latitude: 11
+Longitude: 12
+
+Thermal Image 12
+Latitude: 12
+Longitude: 13
+
+Thermal Image 13
+Latitude: 13
+Longitude: 14
+
+Thermal Image 14
+Latitude: 14
+Longitude: 15
+
+Thermal Image 15
+Latitude: 15
+Longitude: 16
+
+Thermal Image 16
+Latitude: 16
+Longitude: 17
+
+Thermal Image 17
+Latitude: 17
+Longitude: 18
+
+Thermal Image 18
+Latitude: 18
+Longitude: 19
+
+Thermal Image 19
+Latitude: 19
+Longitude: 20
+
+Thermal Image 20
+Latitude: 20
+Longitude: 21
+
+Thermal Image 21
+Latitude: 21
+Longitude: 22
+
+Thermal Image 22
+Latitude: 22
+Longitude: 23
+
+Thermal Image 23
+Latitude: 23
+Longitude: 24
+
+Thermal Image 24
+Latitude: 24
+Longitude: 25
+
+Thermal Image 25
+Latitude: 25
+Longitude: 26
+
+Thermal Image 26
+Latitude: 26
+Longitude: 27
+
+Thermal Image 27
+Latitude: 27
+Longitude: 28
+
+Thermal Image 28
+Latitude: 28
+Longitude: 29
+
+Thermal Image 29
+Latitude: 29
+Longitude: 30
+
+Thermal Image 30
+Latitude: 30
+Longitude: 31
+
+Thermal Image 31
+Latitude: 31
+Longitude: 32
+
+Thermal Image 32
+Latitude: 32
+Longitude: 33
+
+Thermal Image 33
+Latitude: 33
+Longitude: 34
+
+Thermal Image 34
+Latitude: 34
+Longitude: 35
+
+Thermal Image 35
+Latitude: 35
+Longitude: 36
+
+Thermal Image 36
+Latitude: 36
+Longitude: 37
+
+Thermal Image 37
+Latitude: 37
+Longitude: 38
+
+Thermal Image 38
+Latitude: 38
+Longitude: 39
+
+Thermal Image 39
+Latitude: 39
+Longitude: 40
+
+Thermal Image 40
+Latitude: 40
+Longitude: 41
+
+Thermal Image 41
+Latitude: 41
+Longitude: 42
+
+Thermal Image 42
+Latitude: 42
+Longitude: 43
+
+Thermal Image 43
+Latitude: 43
+Longitude: 44
+
+Thermal Image 44
+Latitude: 44
+Longitude: 45
+

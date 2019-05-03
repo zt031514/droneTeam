@@ -1,0 +1,6 @@
+Hotspot data
+
+Number of hotspots detected: 0
+
+Hotspot GPS locations
+

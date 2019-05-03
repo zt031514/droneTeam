@@ -56,6 +56,7 @@ def thermalButton(top, imgCanvas):
 	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	s.connect((TCP_IP, TCP_PORT))
 
+	pps_check = s.recv(1)
 
 	#Begin thermal mission code
 	
@@ -75,7 +76,7 @@ def thermalButton(top, imgCanvas):
 
 		#Request a thermal image from the PIC and receive the image, the gps
 		#coordinates and a filename
-		image, coordinates, filename = missions.thermalMission(s, BUFFER_SIZE)
+		image, coordinates, filename, timestamp = missions.thermalMission(s, BUFFER_SIZE)
 
 
 		#Create a new thermalImage object
@@ -90,19 +91,8 @@ def thermalButton(top, imgCanvas):
 		#Add the thermal image and filename to the appropriate structures
 		global_vars.thermalImages.append(thermalImage)
 		global_vars.filenames.append(filename)
-
-		#Determine if the image contains a hotspot
-		#hotspot, processedImage = improc.process(filename)
-		
-		#Hotspot detected, update GUI and counter
-		if(hotspot):
+		global_vars.timestamps.append(timestamp)
 			
-			#Add to the hotspot counter, add the image to the array and 
-			#add the thermal counter for later use
-			global_vars.hotspotCount = global_vars.hotspotCount + 1
-			global_vars.hotspots.append(processedImage)
-			global_vars.hotspotID.append(global_vars.thermalCount)
-
 		#print the thermal image to the window in the ui
 
 		#Convert the raw image data to a PIL image object, encode as uint8
@@ -118,11 +108,41 @@ def thermalButton(top, imgCanvas):
 		image = imgCanvas.create_image(400, 250, image=displayReadyImage)
 
 		#TODO ADD STATS UPDATE CODE
+		global_vars.missionCurrentTime = time.time()
 	
-		#TODO ADD LIST UPDATE CODE
+		#get the elapsed time since the mission start in seconds
+		elapsed= int(global_vars.missionCurrentTime - global_vars.missionStartTime)
+		
+		#Convert the seconds to a human readable elapsed time string
+		elaps_min = elapsed / 60
+		elaps_sec = elapsed % 60
 
-		#Update the current thermal image number
-		global_vars.hotspotCount = global_vars.hotspotCount + 1
+		#Form a string containing the minutes and seconds for display
+		
+		#For the first ten seconds of each minute, print an extra 
+		#zero to fill the space
+		if(elaps_sec < 10):
+			time_string = str(elaps_min) + ":" + "0" + str(elaps_sec) + "\n"
+		else:
+			time_string = str(elaps_min) + ":" + str(elaps_sec) + "\n"
+		timer.set(time_string)
+
+		#Update the number of hotspots found
+		hotspotCount.set(str(global_vars.hotspotCount) + "\n") 
+
+		#Update the curretn GPS position
+		latitude.set("Lat: " + str(0))
+		longitude.set("Long: " + str(0))
+
+	
+		if(global_vars.thermalCount > 1):
+			#Update the current GPS position
+			latitude.set(global_vars.thermalImages[global_vars.thermalCount-1].gps.latitude)
+			longitude.set(global_vars.thermalImages[global_vars.thermalCount-1].gps.longitude)
+	
+		
+
+		#TODO ADD LIST UPDATE CODE
 
 		top.update_idletasks()
 		top.update()
@@ -161,7 +181,7 @@ def visualButton(top, imgCanvas):
 	while(global_vars.stopVisual == False):
 		rawImage = Image.open(path)
 
-		resizedImage = rawImage.resize((780,480), Image.NEARES)
+		resizedImage = rawImage.resize((780,480), Image.NEAREST)
 
 		displayReadyImage = ImageTk.PhotoImage(resizedImage)
 
@@ -170,7 +190,6 @@ def visualButton(top, imgCanvas):
 		top.update_idletasks()
 		top.update()
 	print str(global_vars.visualCount) + " images received"
-	global_vars.visualCount = 0
 
 	s.close()
 
@@ -181,6 +200,38 @@ def visualButton(top, imgCanvas):
 #***********************************************
 def thermalStop():
 	global_vars.stopThermal = True
+
+	#Save images to the folder
+	for i in range(global_vars.thermalCount):
+		cv2.imwrite(global_vars.filenames[i], global_vars.thermalImages[i].image)
+		
+
+	for i in range(global_vars.thermalCount):
+		#Determine if the image contains a hotspot
+		image = cv2.imread(global_vars.filenames[i], cv2.IMREAD_GRAYSCALE)
+		hotspot, processedImage = improc.process(image)
+
+		#Hotspot detected, update GUI and counter
+		if(hotspot):
+			#Add to the hotspot counter, add the image to the array and 
+			#add the thermal counter for later use
+			global_vars.hotspots.append(processedImage)
+			global_vars.hotspotID.append(i)
+			global_vars.hotTime.append(global_vars.timestamps[i])
+
+			#display the image with hotspot circled
+
+			#Convert the raw image data to a PIL image object, encode as uint8
+			displayImage = Image.fromarray((processedImage).astype('uint8'))
+
+			#resize from 80x60 to 640x480 using nearest neighbor interpolation
+			resizedImage = displayImage.resize((640,480), Image.NEAREST)
+
+			#Create a tkinter compatible object from the resized image
+			displayReadyImage = ImageTk.PhotoImage(resizedImage)
+			
+			#Update the current thermal image number
+			global_vars.hotspotCount = global_vars.hotspotCount + 1
 
 
 #**********************************************
@@ -201,6 +252,11 @@ def fullStop():
 
 	proc.saveThermalImages()
 	proc.saveGPS()
+	proc.saveHotspots()
+
+def reset():
+	global_vars.hotspotCount = 0
+	global_vars.missionStartTime = time.time()
 
 #**********************
 #
@@ -433,6 +489,9 @@ stopVisualButton.pack(fill = tk.X, side = tk.TOP)
 
 exitButton = tk.Button(leftTop, height = 5, command = lambda: fullStop(), text = "Exit")
 exitButton.pack(fill = tk.X)
+
+resetButton = tk.Button(leftBottom, height = 5, command = lambda: reset(), text = "Reset Stats")
+resetButton.pack(fill = tk.BOTH, side = tk.TOP)
 
 #*********************
 #

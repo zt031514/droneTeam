@@ -34,20 +34,27 @@ def flushSocket(sockObj):
 
 def readThermal(sockObj, BUFFER_SIZE):
 
-	if(global_vars.stopThermal == True):
-		return np.zeros((60, 80), dtype = int)
+	print "This is iteration #" + str(global_vars.thermalCount) 
 
 	startMsg = "\x00"
 	sockObj.send(startMsg)
 
 	#print "This is image " + str(global_vars.thermalCount)
 
-	image = np.zeros((60, 80), dtype=int)
-	for i in range(60):
-		data = sockObj.recv(BUFFER_SIZE)
-		image[i] = (proc.processThermal(data, global_vars.thermalCount))
+	#GPS CODE
 
-	rawTime = sockObj.recv(BUFFER_SIZE)
+	gpsString = sockObj.recv(34)
+	#latitudeString = gpsString[0:11]
+	#latitudeDirection = gpsString[12:16]
+	#longitudeString = gpsString[17:28]
+	#longitudeDirection = gpsString[29:]
+
+	#print "Raw GPS: " + gpsString
+	
+	#gpsStringList = list(gpsString)
+	
+	rawTime = sockObj.recv(2)
+
 	timeList = list(rawTime)
 	
 	#convert timeList to ints
@@ -58,6 +65,18 @@ def readThermal(sockObj, BUFFER_SIZE):
 		timestamp += timeInts[i]
 
 
+	print "Timestamp: " + str(timestamp)
+
+	#print "Latitude: " + latitudeString
+	#print "Direction: " + latitudeDirection
+	#print "Longitude: " + longitudeString
+	#print "Direction: " + longitudeDirection
+
+	image = np.zeros((60, 80), dtype=int)
+	for i in range(60):
+		data = sockObj.recv(BUFFER_SIZE)
+		image[i] = (proc.processThermal(data, global_vars.thermalCount))
+	
 	#TODO get real GPS coordinates from network
 	gps = classes.Gps_Coord()
 	gps.latitude = global_vars.thermalCount
@@ -75,14 +94,14 @@ def thermalMission(s, BUFFER_SIZE):
 	filename = proc.getFilename()
 	global_vars.thermalCount = global_vars.thermalCount + 1
 
-	return image, coordinates, filename
+	return image, coordinates, filename, timestamp
 
 def readVisual(sockObj, BUFFER_SIZE):
 	
 	imageInfo = sockObj.recv(BUFFER_SIZE)
 
 	numBytes = imageInfo[:3]
-	numPackages = imageInfo[4:] 
+	numPackages = imageInfo[4:]
 
 	numBytes_High = int(ord(numBytes[0])) << 16 & 0xFF0000
 	numBytes_Middle = int(ord(numBytes[1])) << 8 & 0xFF00

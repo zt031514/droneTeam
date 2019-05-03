@@ -16,12 +16,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-def process(path):
-
-	#read in hot air ballon image
-	image = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
-
-	#cv2.imshow("Input", image)	
+def process(image):
 
 	# Setup SimpleBlobDetector parameters.
 	params = cv2.SimpleBlobDetector_Params()
@@ -32,7 +27,7 @@ def process(path):
  
 	# Filter by Area.
 	params.filterByArea = True
-	params.minArea = 500
+	params.minArea = 50
  
 	# Filter by Circularity
 	params.filterByCircularity = False
@@ -57,9 +52,15 @@ def process(path):
 	keypoints = detector.detect(image, None)
 
 	#Draw detected blobs as red circles
-	im_with_keypoints = cv2.drawKeypoints(image, keypoints, np.array([]), (0,0,255), cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+	im_with_keypoints = cv2.drawKeypoints(image, keypoints, \
+		np.array([]), (0,0,255), cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
 
 	#display image with blobs circled
 	#cv2.imshow("Keypoints", im_with_keypoints)
 
-	return False, im_with_keypoints
+	if(len(keypoints) > 0):
+		detected = True
+	else:
+		detected = False
+
+	return detected, im_with_keypoints

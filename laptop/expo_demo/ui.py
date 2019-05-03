@@ -298,7 +298,7 @@ rightTop.pack(side = tk.TOP)
 imgCanvas = tk.Canvas(rightTop, bg = "black", height = 500, width = 800)
 imgCanvas.pack(fill=tk.BOTH)
 
-startImage = Image.open(global_vars.imagesPath + "start.png")
+startImage = Image.open(global_vars.imagesPath + "static/start.png")
 resizedImage = startImage.resize((640, 480), Image.NEAREST)
 displayReadyImage = ImageTk.PhotoImage(resizedImage)
 
@@ -321,7 +321,7 @@ rightBottom.pack(side = tk.BOTTOM)
 #Map canvas
 mapCanvas = tk.Canvas(rightBottom, bg = "black", height = 500, width = 800)
 mapCanvas.pack(fill = tk.BOTH)
-mapImg = Image.open(global_vars.imagesPath + "map.png")
+mapImg = Image.open(global_vars.imagesPath + "static/map.png")
 resizedImage = mapImg.resize((780, 480), Image.NEAREST)
 displayReadyImage = ImageTk.PhotoImage(resizedImage)
 mapBox = mapCanvas.create_image(400, 250, image=displayReadyImage)

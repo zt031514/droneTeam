@@ -71,10 +71,37 @@ def saveGPS():
 	for i in range(len(global_vars.thermalImages)):
 		file.write("Thermal Image " + str(i) + '\n')
 		file.write("Latitude: " + \
-			 str(global_vars.thermalImages[i].gps.latitude))
+			 str(global_vars.thermalImages[i].gps.latitude) + "\n")
 		file.write("Longitude: " + \
 			 str(global_vars.thermalImages[i].gps.longitude))
 		file.write("\n\n")
+
+	file.close()
+
+def saveHotspots():
+	file = open('hotspotData.txt', 'wb')
+	file.write("Hotspot data\n\n")
+	file.write("Number of hotspots detected: " + str(global_vars.hotspotCount))
+	file.write("\n\nHotspot GPS locations\n\n")
+
+	print "Number of hotspots: " + str(global_vars.hotspotCount) + "\n"
+	for i in range(global_vars.hotspotCount):
+		print "Corresponds to thermal image " + str(global_vars.hotspotID[i]) + "\n"
+		print "Timestamp: " + str(global_vars.hotTime[i]) + "\n"
+
+	#Save GPS for hotspots
+	for i in range(global_vars.hotspotCount):
+		file.write("Hotspot  " + str(i) + '\n')
+		file.write("Latitude: " + \
+			 str(global_vars.thermalImages[global_vars.hotspotID[i]].gps.latitude) + "\n")
+		file.write("Longitude: " + \
+			 str(global_vars.thermalImages[global_vars.hotspotID[i]].gps.longitude))
+		file.write("\n\n")
+
+	#Save images 
+	for i in range(len(global_vars.hotspots)):
+		filename = global_vars.hotspotPath + "hotspot" + str(i) + ".jpg"
+		cv2.imwrite(filename, global_vars.hotspots[i])
 
 	file.close()
 

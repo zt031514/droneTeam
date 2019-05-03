@@ -1,0 +1,42 @@
+Hotspot data
+
+Number of hotspots detected: 9
+
+Hotspot GPS locations
+
+Hotspot  0
+Latitude: 2
+Longitude: 3
+
+Hotspot  1
+Latitude: 3
+Longitude: 4
+
+Hotspot  2
+Latitude: 6
+Longitude: 7
+
+Hotspot  3
+Latitude: 12
+Longitude: 13
+
+Hotspot  4
+Latitude: 16
+Longitude: 17
+
+Hotspot  5
+Latitude: 20
+Longitude: 21
+
+Hotspot  6
+Latitude: 39
+Longitude: 40
+
+Hotspot  7
+Latitude: 40
+Longitude: 41
+
+Hotspot  8
+Latitude: 41
+Longitude: 42
+

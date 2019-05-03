@@ -25,6 +25,12 @@ def init():
 	global filenames
 	filenames = list()
 
+	global timestamps
+	timestamps = list()
+
+	global hotTime
+	hotTime = list()
+
 	global hotspotCount
 	hotspotCount = 0
 
